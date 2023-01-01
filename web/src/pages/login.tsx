@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import Input from '../components/elements/Input';
 import Button from '../components/elements/Button';
-import Image from 'next/image';
+import axios from 'axios';
 
 interface loginProps {}
 
 const Login: React.FC<loginProps> = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState<string>('');
+
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await axios.post('/api/login', {
+      username,
+      password,
+    });
+    console.log(res);
+  };
 
   return (
     <>
@@ -21,7 +30,7 @@ const Login: React.FC<loginProps> = () => {
         /> */}
 
         <h1 className='text-sm font-semibold text-center mt-10'>Login</h1>
-        <div className='mb-6 mx-auto'>
+        <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
             type='text'
             placeholder='Username'
@@ -34,7 +43,7 @@ const Login: React.FC<loginProps> = () => {
             onChange={setPassword}
             value={password}
           />
-        </div>
+        </form>
         <Button />
       </div>
     </>
