@@ -1,7 +1,8 @@
-import { Injectable, Body, Post } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  prisma = new PrismaClient();
+  getHello(): string {
+    return 'Hello World!';
+  }
 }

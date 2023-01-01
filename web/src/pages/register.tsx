@@ -11,11 +11,10 @@ const Register: React.FC<registerProps> = ({}) => {
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:5000/', {
+    const res = await axios.post('http://localhost:5000/api/create', {
       username,
       password,
     });
-    console.log(res);
   };
 
   return (
