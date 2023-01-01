@@ -15,7 +15,6 @@ const Register: React.FC<registerProps> = ({}) => {
       username,
       password,
     });
-    console.log(res);
   };
 
   return (
