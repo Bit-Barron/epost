@@ -10,7 +10,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'POST') {
-    const data  = req.body;
-    console.log(data)
+    const data = req.body;
+    console.log(data);
   }
 }

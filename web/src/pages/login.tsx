@@ -6,8 +6,8 @@ import axios from 'axios';
 interface loginProps {}
 
 const Login: React.FC<loginProps> = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState('test@test');
+  const [password, setPassword] = useState<string>('test@test');
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,14 +21,6 @@ const Login: React.FC<loginProps> = () => {
   return (
     <>
       <div className='mt-52'>
-        {/* <Image
-          width={200}
-          className='mx-auto'
-          src='https://www.letterxpress.de/images/logo.png'
-          alt='a'
-          height={200}
-        /> */}
-
         <h1 className='text-sm font-semibold text-center mt-10'>Login</h1>
         <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
@@ -43,8 +35,8 @@ const Login: React.FC<loginProps> = () => {
             onChange={setPassword}
             value={password}
           />
+          <Button />
         </form>
-        <Button />
       </div>
     </>
   );
