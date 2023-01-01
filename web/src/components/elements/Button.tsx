@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({ name, className }) => {
   return (
     <>
       <div className='flex justify-center'>
-        <button className={className}>
+        <button className={className} type="submit">
           <span className='ml-2'>{name}</span>
         </button>
       </div>
