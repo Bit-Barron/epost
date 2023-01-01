@@ -4,9 +4,10 @@ interface inputProps {
   placeholder: string;
   onChange: any
   value: any;
+  type: string;
 }
 
-const Input: React.FC<inputProps> = ({ placeholder, onChange, value }) => {
+const Input: React.FC<inputProps> = ({ placeholder, onChange, value, type }) => {
   return (
     <div className='w-[600px] px-3 mt-10 mx-auto'>
       <input
@@ -15,6 +16,7 @@ const Input: React.FC<inputProps> = ({ placeholder, onChange, value }) => {
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         value={value}
+        type={type}
       />
     </div>
     
