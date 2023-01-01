@@ -21,7 +21,7 @@ const Login: React.FC<loginProps> = () => {
 
   return (
     <>
-      <div className='mt-52'>
+      <div className='mt-96'>
         <h1 className='text-sm font-semibold text-center mt-10'>LOGIN</h1>
         <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
