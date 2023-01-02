@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import Input from '../components/elements/Input';
 import Button from '../components/elements/Button';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 interface loginProps {}
 
@@ -10,14 +11,19 @@ const Login: React.FC<loginProps> = () => {
   const [password, setPassword] = useState<string>('test@test');
   const router = useRouter();
 
-  const onClickhandler = () => {
-    return router.push('/register');
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const response = await axios.post('http://localhost:4000/api/login', {
+      username,
+      password,
+    });
+    console.log(response);
   };
   return (
     <>
       <div className='mt-96'>
         <h1 className='text-sm font-semibold text-center mt-10'>LOGIN</h1>
-        <form className='mb-6 mx-auto'>
+        <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
             type='text'
             placeholder='Username'
@@ -31,16 +37,13 @@ const Login: React.FC<loginProps> = () => {
             value={password}
           />
           <Button
-            onClick={() => {
-              onClickhandler();
-            }}
+            onClick={() => {}}
             name={'Login'}
             className='bg-[#bd0f4c] hover:bg-[#ae1047] text-white font-bold py-2 px-4 rounded w-[570px] mt-5 flex justify-center'
           />
           <div className='text-center mt-3'>OR</div>
           <div className='mt-3'>
             <Button
-              onClick={() => {return router.push('/register')}}
               name={'Register'}
               className='bg-[#040404] text-white font-bold py-3 px-5 w-[570px] rounded flex justify-center'
             />

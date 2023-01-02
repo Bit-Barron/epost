@@ -22,4 +22,15 @@ export class AppController {
       },
     });
   }
+
+  @Post('login')
+  async login(@Body() body: any) {
+    const { username, password } = body;
+    return await prisma.user.findFirst({
+      where: {
+        username,
+        password,
+      },
+    });
+  }
 }

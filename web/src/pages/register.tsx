@@ -9,7 +9,6 @@ interface registerProps {}
 const Register: React.FC<registerProps> = ({}) => {
   const [username, setUsername] = useState('test@test');
   const [password, setPassword] = useState<string>('test@test');
-  const router = useRouter();
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
