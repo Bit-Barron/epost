@@ -11,7 +11,7 @@ const Login: React.FC<loginProps> = () => {
   const router = useRouter();
 
   const onClickhandler = () => {
-    router.push('/');
+    return router.push('/register');
   };
   return (
     <>
@@ -40,9 +40,7 @@ const Login: React.FC<loginProps> = () => {
           <div className='text-center mt-3'>OR</div>
           <div className='mt-3'>
             <Button
-              onClick={() => {
-                return router.push('/register');
-              }}
+              onClick={() => {return router.push('/register')}}
               name={'Register'}
               className='bg-[#040404] text-white font-bold py-3 px-5 w-[570px] rounded flex justify-center'
             />

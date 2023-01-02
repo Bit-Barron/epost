@@ -8,12 +8,13 @@ interface ButtonProps {
   className: string;
   onClick?: any;
 }
+// onClick={() => onClickhandler()}
 
 const Button: React.FC<ButtonProps> = ({ name, className, onClick }) => {
   return (
     <>
       <div className='flex justify-center'>
-        <button className={className} type="submit"onClick={(e: any) => onClick(e.target.value) } >
+        <button className={className} type="submit">
           <span className='ml-2'>{name}</span>
         </button>
       </div>

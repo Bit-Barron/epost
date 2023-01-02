@@ -19,12 +19,6 @@ const Register: React.FC<registerProps> = ({}) => {
     });
   };
 
-  const onClickhandler = () => {
-    router.push('/');
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
-  };
-
   return (
     <>
       <div className='mt-96'>
@@ -46,15 +40,11 @@ const Register: React.FC<registerProps> = ({}) => {
             className={
               'bg-[#bd0f4c] hover:bg-[#ae1047] text-white font-bold py-2 px-4 rounded w-[570px] mt-5 flex justify-center'
             }
-            onClick={() => onClickhandler()}
             name='Create'
           />
           <div className='text-center mt-5'>OR</div>
           <div className='mt-5'>
             <Button
-              onClick={() => {
-                return router.push('/login');
-              }}
               name={'Login'}
               className='bg-[#040404] text-white font-bold py-3 px-5 w-[570px] rounded flex justify-center'
             />
