@@ -2,19 +2,27 @@ import axios from 'axios';
 import React, { FormEvent, useState } from 'react';
 import Button from '../components/elements/Button';
 import Input from '../components/elements/Input';
+import Router, { useRouter } from 'next/router';
 
 interface registerProps {}
 
 const Register: React.FC<registerProps> = ({}) => {
   const [username, setUsername] = useState('test@test');
   const [password, setPassword] = useState<string>('test@test');
+  const router = useRouter();
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:5000/api/create', {
+    await axios.post('http://localhost:4000/api/create', {
       username,
       password,
     });
+  };
+
+  const onClickhandler = () => {
+    router.push('/');
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
   };
 
   return (
@@ -38,11 +46,15 @@ const Register: React.FC<registerProps> = ({}) => {
             className={
               'bg-[#bd0f4c] hover:bg-[#ae1047] text-white font-bold py-2 px-4 rounded w-[570px] mt-5 flex justify-center'
             }
+            onClick={() => onClickhandler()}
             name='Create'
           />
           <div className='text-center mt-5'>OR</div>
           <div className='mt-5'>
             <Button
+              onClick={() => {
+                return router.push('/login');
+              }}
               name={'Login'}
               className='bg-[#040404] text-white font-bold py-3 px-5 w-[570px] rounded flex justify-center'
             />
