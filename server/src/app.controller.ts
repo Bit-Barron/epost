@@ -1,6 +1,8 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { PrismaClient } from '.prisma/client';
 
+const prisma = new PrismaClient();
 @Controller('api')
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -11,8 +13,13 @@ export class AppController {
   }
 
   @Post('create')
-  create(@Body() body: any) {
+  async create(@Body() body: any) {
     const { username, password } = body;
-    return username;
+    return await prisma.user.create({
+      data: {
+        username,
+        password,
+      },
+    });
   }
 }
