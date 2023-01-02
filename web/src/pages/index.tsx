@@ -250,7 +250,7 @@ export default function Example() {
                 any time.
               </div>
             </div>
-            <div className='mt-10 border-gray-700 bg-[#181a1b] w-[400px] rounded-lg p-7 '>
+            {/* <div className='mt-10 border-gray-700 bg-[#181a1b] w-[400px] rounded-lg p-7 '>
               <div className='flex'>
                 <div className='flex text-2xl font-bold mx-auto'>
                   <MdFileUpload className='mx-auto text-5xl text-green-800' />
@@ -260,7 +260,7 @@ export default function Example() {
               <div className='text-lg font-bold text-center'>
                 Upload Image/s
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

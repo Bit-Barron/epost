@@ -12,14 +12,12 @@ const Login: React.FC<loginProps> = () => {
 
   const onClickhandler = () => {
     router.push('/');
-  };  
+  };
   return (
     <>
       <div className='mt-96'>
         <h1 className='text-sm font-semibold text-center mt-10'>LOGIN</h1>
         <form className='mb-6 mx-auto'>
-          {' '}
-          {/* onSubmit={submit} */}
           <Input
             type='text'
             placeholder='Username'
@@ -42,6 +40,9 @@ const Login: React.FC<loginProps> = () => {
           <div className='text-center mt-3'>OR</div>
           <div className='mt-3'>
             <Button
+              onClick={() => {
+                return router.push('/register');
+              }}
               name={'Register'}
               className='bg-[#040404] text-white font-bold py-3 px-5 w-[570px] rounded flex justify-center'
             />
