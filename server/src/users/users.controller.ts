@@ -8,7 +8,8 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Post('/register')
-  register(@Body() body: CreateUserDto) {
-    this.usersService.create(body.email, body.password);
+  async register(@Body() body: CreateUserDto) {
+    const user = await this.usersService.create(body.email, body.password);
+    console.log(user);
   }
 }
