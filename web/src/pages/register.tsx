@@ -7,13 +7,13 @@ import Router, { useRouter } from 'next/router';
 interface registerProps {}
 
 const Register: React.FC<registerProps> = ({}) => {
-  const [username, setUsername] = useState('test@test');
-  const [password, setPassword] = useState<string>('test@test');
+  const [email, setEmail] = useState('test@test');
+  const [password, setPassword] = useState<string>('');
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const response = await axios.post('http://localhost:4000/auth/register', {
-      username,
+      email,
       password,
     });
     console.log(response)
@@ -26,8 +26,8 @@ const Register: React.FC<registerProps> = ({}) => {
           <Input
             type='text'
             placeholder='Username'
-            onChange={setUsername}
-            value={username}
+            onChange={setEmail}
+            value={email}
           />
           <Input
             type='password'
