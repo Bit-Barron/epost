@@ -8,7 +8,7 @@ interface registerProps {}
 
 const Register: React.FC<registerProps> = ({}) => {
   const [email, setEmail] = useState('test@test');
-  const [password, setPassword] = useState<string>('');
+  const [password, setPassword] = useState<string>('asdfasdfasdf');
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
