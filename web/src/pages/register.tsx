@@ -17,6 +17,7 @@ const Register: React.FC<registerProps> = ({}) => {
       email,
       password,
     });
+
     console.log(response);
     router.push('/');
   };
@@ -46,6 +47,9 @@ const Register: React.FC<registerProps> = ({}) => {
           <div className='text-center mt-5'>OR</div>
           <div className='mt-5'>
             <Button
+              onClick={() => {
+                return router.push('/login');
+              }}
               name={'Login'}
               className='bg-[#040404] text-white font-bold py-3 px-5 w-[570px] rounded flex justify-center'
             />
