@@ -9,14 +9,14 @@ interface loginProps {}
 
 const Login: React.FC<loginProps> = () => {
   const [email, setEmail] = useState('test@test');
-  const [password, setPassword] = useState<string>('test@test');
+  const [password, setPassword] = useState<string>('123123');
   const [alert, setAlert] = useState<string>('');
   const [color, setColor] = useState<string>('');
   const router = useRouter();
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:4000/api/login', {
+    const response = await axios.post('http://localhost:4000/auth/login', {
       email,
       password,
     });
@@ -24,9 +24,7 @@ const Login: React.FC<loginProps> = () => {
     if (response.data.email) {
       setColor('text-green-500 bg-green-100 w-40');
       setAlert('Login Successful');
-      setTimeout(() => {
-        return router.push('/');
-      }, 1000);
+      router.push('/');
     } else {
       setColor('p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg ');
       setAlert("Email or Password doesn't match");

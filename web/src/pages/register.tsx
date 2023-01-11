@@ -8,7 +8,7 @@ interface registerProps {}
 
 const Register: React.FC<registerProps> = ({}) => {
   const [email, setEmail] = useState('test@test');
-  const [password, setPassword] = useState<string>('asdfasdfasdf');
+  const [password, setPassword] = useState<string>('Test');
   const router = useRouter();
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
@@ -19,7 +19,7 @@ const Register: React.FC<registerProps> = ({}) => {
     });
 
     console.log(response);
-    router.push('/');
+    router.push('/complete');
   };
   return (
     <>
