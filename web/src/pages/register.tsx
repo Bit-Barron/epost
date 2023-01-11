@@ -13,10 +13,11 @@ const Register: React.FC<registerProps> = ({}) => {
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await axios.post('http://localhost:4000/auth/login', {
+    const response = await axios.post('http://localhost:4000/auth/register', {
       email,
       password,
     });
+    console.log(response);
     router.push('/');
   };
   return (
