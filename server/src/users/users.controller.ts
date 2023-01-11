@@ -1,4 +1,4 @@
-import { Controller, Post, Session } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 import { Body } from '@nestjs/common/decorators';
 import { UsersService } from './users.service';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
@@ -11,9 +11,14 @@ export class UsersController {
   ) {}
 
   @Post('/register')
-  async register(@Body() body: CreateUserDto, @Session() sessions: any) {
-    const res = await this.authService.register(body.email, body.password);
-    sessions.userId = res.id;
-    return res;
+  async register(@Body() body: CreateUserDto) {
+    const user = await this.authService.register(body.email, body.password);
+    return user;
+  }
+
+  @Post('/login')
+  async signin(@Body() body: CreateUserDto) {
+    const user = await this.authService.login(body.email, body.password);
+    return user;
   }
 }

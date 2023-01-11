@@ -8,7 +8,7 @@ import Alert from '../components/elements/Alert';
 interface loginProps {}
 
 const Login: React.FC<loginProps> = () => {
-  const [username, setUsername] = useState('test@test');
+  const [email, setEmail] = useState('test@test');
   const [password, setPassword] = useState<string>('test@test');
   const [alert, setAlert] = useState<string>('');
   const [color, setColor] = useState<string>('');
@@ -17,20 +17,19 @@ const Login: React.FC<loginProps> = () => {
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const response = await axios.post('http://localhost:4000/api/login', {
-      username,
+      email,
       password,
     });
     console.log(response);
-    if (response.data.username) {
+    if (response.data.email) {
       setColor('text-green-500 bg-green-100 w-40');
       setAlert('Login Successful');
       setTimeout(() => {
         return router.push('/');
       }, 1000);
-      // localStorage.setItem("token", JSON.stringify({ username }))
     } else {
       setColor('p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg ');
-      setAlert("Username or Password doesn't match");
+      setAlert("Email or Password doesn't match");
     }
   };
   return (
@@ -43,9 +42,9 @@ const Login: React.FC<loginProps> = () => {
         <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
             type='text'
-            placeholder='Username'
-            onChange={setUsername}
-            value={username}
+            placeholder='Email'
+            onChange={setEmail}
+            value={email}
           />
           <Input
             type='password'

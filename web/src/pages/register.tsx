@@ -2,21 +2,22 @@ import axios from 'axios';
 import React, { FormEvent, useState } from 'react';
 import Button from '../components/elements/Button';
 import Input from '../components/elements/Input';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 interface registerProps {}
 
 const Register: React.FC<registerProps> = ({}) => {
   const [email, setEmail] = useState('test@test');
   const [password, setPassword] = useState<string>('asdfasdfasdf');
+  const router = useRouter();
 
   const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:4000/auth/register', {
+    await axios.post('http://localhost:4000/auth/login', {
       email,
       password,
     });
-    console.log(response)
+    router.push('/');
   };
   return (
     <>
@@ -25,7 +26,7 @@ const Register: React.FC<registerProps> = ({}) => {
         <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
             type='text'
-            placeholder='Username'
+            placeholder='Email'
             onChange={setEmail}
             value={email}
           />
