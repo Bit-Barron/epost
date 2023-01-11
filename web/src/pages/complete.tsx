@@ -3,6 +3,7 @@ import Button from '../components/elements/Button';
 import Company from '../components/informations/Company';
 import Name from '../components/informations/Name';
 import Location from '../components/informations/Location';
+import Input from '../components/elements/Input';
 
 interface completeProps {}
 
@@ -24,10 +25,7 @@ const complete: React.FC<completeProps> = ({}) => {
           >
             ORT
           </label>
-          <input
-            className='appearance-none block w-full bg-transparent text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white '
-            id='grid-password'
-          />
+          <Input />
         </div>
         <div className='w-96 px-3'>
           <label

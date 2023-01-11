@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { FormEvent, useState } from 'react';
 import Button from '../components/elements/Button';
-import Input from '../components/elements/Input';
+import Input from '../components/auth/Input';
 import { useRouter } from 'next/router';
 
 interface registerProps {}

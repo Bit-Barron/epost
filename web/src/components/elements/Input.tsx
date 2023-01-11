@@ -1,25 +1,13 @@
 import React from 'react';
 
-interface inputProps {
-  placeholder: string;
-  onChange: any
-  value: any;
-  type: string;
-}
+interface InputProps {}
 
-const Input: React.FC<inputProps> = ({ placeholder, onChange, value, type }) => {
+const Input: React.FC<InputProps> = ({}) => {
   return (
-    <div className='w-[600px] px-3 mt-10 mx-auto'>
-      <input
-        className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-        id='grid-password'
-        placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
-        value={value}
-        type={type}
-      />
-    </div>
-    
+    <input
+      className='appearance-none block w-full bg-transparent text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white '
+      id='grid-password'
+    />
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from '../elements/Input';
 
 interface CompanyProps {}
 
@@ -12,10 +13,7 @@ const Company: React.FC<CompanyProps> = ({}) => {
         >
           Firma
         </label>
-        <input
-          className='appearance-none block w-full bg-transparent text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white '
-          id='grid-password'
-        />
+        <Input />
       </div>
       <div className='w-96 px-3'>
         <label
@@ -24,10 +22,7 @@ const Company: React.FC<CompanyProps> = ({}) => {
         >
           Anrede
         </label>
-        <input
-          className='appearance-none block w-full bg-transparent text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white '
-          id='grid-password'
-        />
+        <Input />
       </div>
     </form>
   );

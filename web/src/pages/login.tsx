@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react';
-import Input from '../components/elements/Input';
+import Input from '../components/auth/Input';
 import Button from '../components/elements/Button';
 import Router, { useRouter } from 'next/router';
 import axios from 'axios';
