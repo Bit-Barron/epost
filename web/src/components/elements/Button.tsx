@@ -8,8 +8,6 @@ interface ButtonProps {
   className: string;
   onClick?: any;
 }
-// onClick={() => onClickhandler()}
-
 const Button: React.FC<ButtonProps> = ({ name, className, onClick }) => {
   return (
     <>
