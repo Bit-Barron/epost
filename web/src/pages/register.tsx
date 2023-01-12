@@ -23,7 +23,7 @@ const Register: React.FC<registerProps> = ({}) => {
   };
   return (
     <>
-      <div className='mt-96'>
+      <div className='mt-96 bg-[#16191E]'>
         <h1 className='text-sm font-semibold text-center mt-10'>Register</h1>
         <form className='mb-6 mx-auto' onSubmit={submit}>
           <Input
