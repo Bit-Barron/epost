@@ -23,15 +23,13 @@ import {
   ViewListIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import {
-  ChevronRightIcon,
-  DotsVerticalIcon,
-  StarIcon,
-  SelectorIcon,
-} from '@heroicons/react/solid';
+import { ChevronRightIcon, DotsVerticalIcon } from '@heroicons/react/solid';
+import DashboardNavbar from './Dashboard/DashboardNavbar';
+import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
+import { Profile } from './Dashboard/Profile';
 
 const navigation = [
-  { name: 'Home', href: '#', icon: HomeIcon, current: true },
+  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   { name: 'My tasks', href: '#', icon: ViewListIcon, current: false },
   { name: 'Recent', href: '#', icon: ClockIcon, current: false },
 ];
@@ -142,11 +140,11 @@ export default function Example() {
                   </div>
                 </Transition.Child>
                 <div className='flex-shrink-0 flex items-center px-4'>
-                  <img
+                  {/* <img
                     className='h-8 w-auto'
                     src='https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg'
                     alt='Workflow'
-                  />
+                  /> */}
                 </div>
                 <div className='mt-5 flex-1 h-0 overflow-y-auto'>
                   <nav className='px-2'>
@@ -217,238 +215,7 @@ export default function Example() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className='hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100'>
-          <div className='flex items-center flex-shrink-0 px-6'>
-            <img
-              className='h-8 w-auto'
-              src='https://tailwindui.com/img/logos/workflow-logo-purple-500-mark-gray-700-text.svg'
-              alt='Workflow'
-            />
-          </div>
-          {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className='mt-6 h-0 flex-1 flex flex-col overflow-y-auto'>
-            {/* User account dropdown */}
-            <Menu as='div' className='px-3 relative inline-block text-left'>
-              <div>
-                <Menu.Button className='group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm text-left font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-500'>
-                  <span className='flex w-full justify-between items-center'>
-                    <span className='flex min-w-0 items-center justify-between space-x-3'>
-                      <img
-                        className='w-10 h-10 bg-gray-300 rounded-full flex-shrink-0'
-                        src='https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80'
-                        alt=''
-                      />
-                      <span className='flex-1 flex flex-col min-w-0'>
-                        <span className='text-gray-900 text-sm font-medium truncate'>
-                          Jessy Schwarz
-                        </span>
-                        <span className='text-gray-500 text-sm truncate'>
-                          @jessyschwarz
-                        </span>
-                      </span>
-                    </span>
-                    <SelectorIcon
-                      className='flex-shrink-0 h-5 w-5 text-gray-400 group-hover:text-gray-500'
-                      aria-hidden='true'
-                    />
-                  </span>
-                </Menu.Button>
-              </div>
-              <Transition
-                as={Fragment}
-                enter='transition ease-out duration-100'
-                enterFrom='transform opacity-0 scale-95'
-                enterTo='transform opacity-100 scale-100'
-                leave='transition ease-in duration-75'
-                leaveFrom='transform opacity-100 scale-100'
-                leaveTo='transform opacity-0 scale-95'
-              >
-                <Menu.Items className='z-10 mx-3 origin-top absolute right-0 left-0 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none'>
-                  <div className='py-1'>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href='#'
-                          className={classNames(
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          View profile
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href='#'
-                          className={classNames(
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Settings
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href='#'
-                          className={classNames(
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Notifications
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </div>
-                  <div className='py-1'>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href='#'
-                          className={classNames(
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Get desktop app
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href='#'
-                          className={classNames(
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Support
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </div>
-                  <div className='py-1'>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href='#'
-                          className={classNames(
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block px-4 py-2 text-sm'
-                          )}
-                        >
-                          Logout
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </div>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-            {/* Sidebar Search */}
-            <div className='px-3 mt-5'>
-              <label htmlFor='search' className='sr-only'>
-                Search
-              </label>
-              <div className='mt-1 relative rounded-md shadow-sm'>
-                <div
-                  className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'
-                  aria-hidden='true'
-                >
-                  {/* <SearchIcon
-                    className='mr-3 h-4 w-4 text-gray-400'
-                    aria-hidden='true'
-                  /> */}
-                </div>
-                <input
-                  type='text'
-                  name='search'
-                  id='search'
-                  className='focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-9 sm:text-sm border-gray-300 rounded-md'
-                  placeholder='Search'
-                />
-              </div>
-            </div>
-            {/* Navigation */}
-            <nav className='px-3 mt-6'>
-              <div className='space-y-1'>
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? 'bg-gray-200 text-gray-900'
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50',
-                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
-                  >
-                    <item.icon
-                      className={classNames(
-                        item.current
-                          ? 'text-gray-500'
-                          : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6'
-                      )}
-                      aria-hidden='true'
-                    />
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-              <div className='mt-8'>
-                {/* Secondary navigation */}
-                <h3
-                  className='px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'
-                  id='desktop-teams-headline'
-                >
-                  Teams
-                </h3>
-                <div
-                  className='mt-1 space-y-1'
-                  role='group'
-                  aria-labelledby='desktop-teams-headline'
-                >
-                  {teams.map((team) => (
-                    <a
-                      key={team.name}
-                      href={team.href}
-                      className='group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50'
-                    >
-                      <span
-                        className={classNames(
-                          team.bgColorClass,
-                          'w-2.5 h-2.5 mr-4 rounded-full'
-                        )}
-                        aria-hidden='true'
-                      />
-                      <span className='truncate'>{team.name}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
+        <DashboardDesktopSidebar />
         {/* Main column */}
         <div className='lg:pl-64 flex flex-col'>
           {/* Search header */}
@@ -487,11 +254,11 @@ export default function Example() {
                   <div>
                     <Menu.Button className='max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'>
                       <span className='sr-only'>Open user menu</span>
-                      <img
+                      {/* <img
                         className='h-8 w-8 rounded-full'
                         src='https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
                         alt=''
-                      />
+                      /> */}
                     </Menu.Button>
                   </div>
                   <Transition
@@ -502,134 +269,13 @@ export default function Example() {
                     leave='transition ease-in duration-75'
                     leaveFrom='transform opacity-100 scale-100'
                     leaveTo='transform opacity-0 scale-95'
-                  >
-                    <Menu.Items className='origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none'>
-                      <div className='py-1'>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active
-                                  ? 'bg-gray-100 text-gray-900'
-                                  : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              View profile
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active
-                                  ? 'bg-gray-100 text-gray-900'
-                                  : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Settings
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active
-                                  ? 'bg-gray-100 text-gray-900'
-                                  : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Notifications
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </div>
-                      <div className='py-1'>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active
-                                  ? 'bg-gray-100 text-gray-900'
-                                  : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Get desktop app
-                            </a>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active
-                                  ? 'bg-gray-100 text-gray-900'
-                                  : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Support
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </div>
-                      <div className='py-1'>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href='#'
-                              className={classNames(
-                                active
-                                  ? 'bg-gray-100 text-gray-900'
-                                  : 'text-gray-700',
-                                'block px-4 py-2 text-sm'
-                              )}
-                            >
-                              Logout
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </div>
-                    </Menu.Items>
-                  </Transition>
+                  ></Transition>
                 </Menu>
               </div>
             </div>
           </div>
           <main className='flex-1'>
-            {/* Page title & actions */}
-            <div className='border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
-              <div className='flex-1 min-w-0'>
-                <h1 className='text-lg font-medium leading-6 text-gray-900 sm:truncate'>
-                  Home
-                </h1>
-              </div>
-              <div className='mt-4 flex sm:mt-0 sm:ml-4'>
-                <button
-                  type='button'
-                  className='order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0'
-                >
-                  Share
-                </button>
-                <button
-                  type='button'
-                  className='order-0 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-1 sm:ml-3'
-                >
-                  Create
-                </button>
-              </div>
-            </div>
-            {/* Pinned projects */}
+            <DashboardNavbar />
             <div className='px-4 mt-6 sm:px-6 lg:px-8'>
               <h2 className='text-gray-500 text-xs font-medium uppercase tracking-wide'>
                 Pinned Projects
@@ -680,57 +326,55 @@ export default function Example() {
                           leaveFrom='transform opacity-100 scale-100'
                           leaveTo='transform opacity-0 scale-95'
                         >
-                          <Menu.Items className='z-10 mx-3 origin-top-right absolute right-10 top-3 w-48 mt-1 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 focus:outline-none'>
-                            <div className='py-1'>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href='#'
-                                    className={classNames(
-                                      active
-                                        ? 'bg-gray-100 text-gray-900'
-                                        : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                    )}
-                                  >
-                                    View
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            </div>
-                            <div className='py-1'>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href='#'
-                                    className={classNames(
-                                      active
-                                        ? 'bg-gray-100 text-gray-900'
-                                        : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                    )}
-                                  >
-                                    Removed from pinned
-                                  </a>
-                                )}
-                              </Menu.Item>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href='#'
-                                    className={classNames(
-                                      active
-                                        ? 'bg-gray-100 text-gray-900'
-                                        : 'text-gray-700',
-                                      'block px-4 py-2 text-sm'
-                                    )}
-                                  >
-                                    Share
-                                  </a>
-                                )}
-                              </Menu.Item>
-                            </div>
-                          </Menu.Items>
+                          <Profile />
+                        </Transition>
+                      </Menu>
+                    </div>
+                  </li>
+                ))}
+                {pinnedProjects.map((project) => (
+                  <li
+                    key={project.id}
+                    className='relative col-span-1 flex shadow-sm rounded-md'
+                  >
+                    <div
+                      className={classNames(
+                        project.bgColorClass,
+                        'flex-shrink-0 flex items-center justify-center w-16 text-white text-sm font-medium rounded-l-md'
+                      )}
+                    >
+                      {project.initials}
+                    </div>
+                    <div className='flex-1 flex items-center justify-between border-t border-r border-b border-gray-200 bg-white rounded-r-md truncate'>
+                      <div className='flex-1 px-4 py-2 text-sm truncate'>
+                        <a
+                          href='#'
+                          className='text-gray-900 font-medium hover:text-gray-600'
+                        >
+                          {project.title}
+                        </a>
+                        <p className='text-gray-500'>
+                          {project.totalMembers} Members
+                        </p>
+                      </div>
+                      <Menu as='div' className='flex-shrink-0 pr-2'>
+                        <Menu.Button className='w-8 h-8 bg-white inline-flex items-center justify-center text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500'>
+                          <span className='sr-only'>Open options</span>
+                          <DotsVerticalIcon
+                            className='w-5 h-5'
+                            aria-hidden='true'
+                          />
+                        </Menu.Button>
+                        <Transition
+                          as={Fragment}
+                          enter='transition ease-out duration-100'
+                          enterFrom='transform opacity-0 scale-95'
+                          enterTo='transform opacity-100 scale-100'
+                          leave='transition ease-in duration-75'
+                          leaveFrom='transform opacity-100 scale-100'
+                          leaveTo='transform opacity-0 scale-95'
+                        >
+                          <Profile />
                         </Transition>
                       </Menu>
                     </div>
@@ -827,14 +471,14 @@ export default function Example() {
                         <td className='px-6 py-3 text-sm text-gray-500 font-medium'>
                           <div className='flex items-center space-x-2'>
                             <div className='flex flex-shrink-0 -space-x-1'>
-                              {project.members.map((member) => (
+                              {/* {project.members.map((member) => (
                                 <img
                                   key={member.handle}
                                   className='max-w-none h-6 w-6 rounded-full ring-2 ring-white'
                                   src={member.imageUrl}
                                   alt={member.name}
                                 />
-                              ))}
+                              ))} */}
                             </div>
                             {project.totalMembers > project.members.length ? (
                               <span className='flex-shrink-0 text-xs leading-5 font-medium'>
