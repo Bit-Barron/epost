@@ -180,10 +180,6 @@ export default function Example() {
               </div>
             </Dialog>
           </Transition>
-          <div className='mt-20 ml-10'>
-            <div>Posts:</div>
-            <div className='mt-40'>{displayText}</div>
-          </div>
         </div>
       </div>
     </>
