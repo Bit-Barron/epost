@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { randomBytes, scrypt as _scrypt } from 'crypto';
+import { createPrivateKey, randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
 import { JwtService } from '@nestjs/jwt';
 
@@ -48,9 +48,8 @@ export class AuthService {
     }
 
     const payload = { email: user.email, sub: user.id };
+    console.log(this.jwtService.sign(payload));
 
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+    return user;
   }
 }
