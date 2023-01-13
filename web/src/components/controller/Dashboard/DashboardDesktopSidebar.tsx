@@ -192,18 +192,14 @@ const DashboardDesktopSidebar: React.FC<
                 key={item.name}
                 href={item.href}
                 className={classNames(
-                  item.current
-                    ? 'bg-gray-200 text-[#5A5FDE]'
-                    : ' ',
+                  item.current ? 'bg-[#390011] ' : ' ',
                   'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
                 <item.icon
                   className={classNames(
-                    item.current
-                      ? 'text-[#d4]'
-                      : 'text-[#5A5FDE] group-hover:text-gray-500',
+                    item.current ? 'text-[#ff2d76]' : '',
                     'mr-3 flex-shrink-0 h-6 w-6'
                   )}
                   aria-hidden='true'
