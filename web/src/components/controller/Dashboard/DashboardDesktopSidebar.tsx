@@ -2,22 +2,6 @@ import React from 'react';
 
 interface DashboardDesktopSidebarProps {}
 
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { ClockIcon, HomeIcon, ViewListIcon } from '@heroicons/react/outline';
@@ -192,19 +176,19 @@ const DashboardDesktopSidebar: React.FC<
                 key={item.name}
                 href={item.href}
                 className={classNames(
-                  item.current ? 'bg-[#390011] ' : ' ',
-                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                  item.current ? '' : 'j font-light',
+                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md '
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
                 <item.icon
                   className={classNames(
-                    item.current ? 'text-[#ff2d76]' : '',
+                    item.current ? '' : '',
                     'mr-3 flex-shrink-0 h-6 w-6'
                   )}
                   aria-hidden='true'
                 />
-                {item.name}
+                <div className=''>{item.name}</div>
               </a>
             ))}
           </div>
@@ -220,7 +204,7 @@ const DashboardDesktopSidebar: React.FC<
                 <a
                   key={team.name}
                   href={team.href}
-                  className='group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50'
+                  className='group flex items-center px-3 py-2 text-sm font-medium  rounded-md hover:text-gray-900 hover:bg-gray-50'
                 >
                   <span
                     className={classNames(team.bgColorClass)}

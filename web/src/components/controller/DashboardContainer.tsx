@@ -25,7 +25,7 @@ import {
 } from '@heroicons/react/outline';
 import DashboardNavbar from './Dashboard/DashboardNavbar';
 import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
-import { Profile } from './Dashboard/Profile';
+import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -44,6 +44,16 @@ function classNames(...classes: string[]) {
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [post, setPost] = useState();
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
     <>
@@ -98,72 +108,14 @@ export default function Example() {
                     </button>
                   </div>
                 </Transition.Child>
-                <div className='flex-shrink-0 flex items-center px-4'></div>
-                <div className='mt-5 flex-1 h-0 overflow-y-auto'>
-                  <nav className='px-2'>
-                    <div className='space-y-1'>
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50',
-                            'group flex items-center px-2 py-2 text-base leading-5 font-medium rounded-md'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          <item.icon
-                            className={classNames(
-                              item.current
-                                ? 'text-gray-500'
-                                : 'text-gray-400 group-hover:text-gray-500',
-                              'mr-3 flex-shrink-0 h-6 w-6'
-                            )}
-                            aria-hidden='true'
-                          />
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                    <div className='mt-8'>
-                      <h3
-                        className='px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'
-                        id='mobile-teams-headline'
-                      >
-                        Teams
-                      </h3>
-                      <div
-                        className='mt-1 space-y-1'
-                        role='group'
-                        aria-labelledby='mobile-teams-headline'
-                      >
-                        {teams.map((team) => (
-                          <a
-                            key={team.name}
-                            href={team.href}
-                            className='group flex items-center px-3 py-2 text-base leading-5 font-medium text-gray-600 rounded-md hover:text-gray-900 hover:bg-gray-50'
-                          >
-                            <span
-                              className={classNames(
-                                team.bgColorClass,
-                                'w-2.5 h-2.5 mr-4 rounded-full'
-                              )}
-                              aria-hidden='true'
-                            />
-                            <span className='truncate'>{team.name}</span>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </nav>
-                </div>
+
+                <DashboardMobileNavbar />
               </div>
             </Transition.Child>
           </Dialog>
         </Transition.Root>
         <DashboardDesktopSidebar />
+
         <div className='lg:pl-64 flex flex-col'>
           <div className='sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden'>
             <button
@@ -187,6 +139,72 @@ export default function Example() {
             </div>
           </div>
           <DashboardNavbar />
+          <button
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-96 mt-10 ml-10'
+            onClick={openModal}
+          >
+            Write text and send
+          </button>
+          <Transition appear show={isOpen} as={Fragment}>
+            <Dialog
+              as='div'
+              className='fixed inset-0 z-10 overflow-y-auto'
+              onClose={closeModal}
+            >
+              <div className='min-h-screen px-4 text-center'>
+                <Transition.Child
+                  as={Fragment}
+                  enter='ease-out duration-300'
+                  enterFrom='opacity-0'
+                  enterTo='opacity-100'
+                  leave='ease-in duration-200'
+                  leaveFrom='opacity-100'
+                  leaveTo='opacity-0'
+                >
+                  <Dialog.Overlay className='fixed inset-0' />
+                </Transition.Child>
+
+                {/* This element is to trick the browser into centering the modal contents. */}
+                <span
+                  className='inline-block h-screen align-middle'
+                  aria-hidden='true'
+                >
+                  &#8203;
+                </span>
+                <Transition.Child
+                  as={Fragment}
+                  enter='ease-out duration-300'
+                  enterFrom='opacity-0 scale-95'
+                  enterTo='opacity-100 scale-100'
+                  leave='ease-in duration-200'
+                  leaveFrom='opacity-100 scale-100'
+                  leaveTo='opacity-0 scale-95'
+                >
+                  <div className='my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-[#17171a] p-6 text-left align-middle shadow-xl transition-all'>
+                    <Dialog.Title
+                      as='h3'
+                      className='text-lg font-medium leading-6 text-white'
+                    >
+                      Write you Post
+                    </Dialog.Title>
+
+                    <textarea className='bg-transparent focus:outline-none mt-10 w-full h-full'></textarea>
+
+                    <div className='mt-4'>
+                      <button
+                        type='button'
+                        className='inline-flex justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm duration-300 hover:bg-red-200'
+                        onClick={closeModal}
+                      >
+                        Send
+                      </button>
+                    </div>
+                  </div>
+                </Transition.Child>
+                <div>asdfsdf</div>
+              </div>
+            </Dialog>
+          </Transition>
         </div>
       </div>
     </>

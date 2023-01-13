@@ -30,15 +30,6 @@ export const DashboardMobileNavbar: React.FC<
               )}
               aria-current={item.current ? 'page' : undefined}
             >
-              <item.icon
-                className={classNames(
-                  item.current
-                    ? 'text-gray-500'
-                    : 'text-gray-400 group-hover:text-gray-500',
-                  'mr-3 flex-shrink-0 h-6 w-6'
-                )}
-                aria-hidden='true'
-              />
               {item.name}
             </a>
           ))}
