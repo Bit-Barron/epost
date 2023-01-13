@@ -1,19 +1,3 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
@@ -40,9 +24,9 @@ export default function Example() {
     const response = await axios.post('http://localhost:4000/posts/create', {
       post,
     });
-
     console.log(response);
   };
+
   return (
     <>
       <div className='min-h-full'>
@@ -152,7 +136,6 @@ export default function Example() {
                   <Dialog.Overlay className='fixed inset-0' />
                 </Transition.Child>
 
-                {/* This element is to trick the browser into centering the modal contents. */}
                 <span
                   className='inline-block h-screen align-middle'
                   aria-hidden='true'
@@ -178,7 +161,7 @@ export default function Example() {
                     <textarea
                       className='bg-transparent focus:outline-none mt-10 w-full h-full'
                       onChange={(e: any) => setPost(e.target.value)}
-                    ></textarea>
+                    />
                     <div className='mt-4'>
                       <button
                         type='button'
