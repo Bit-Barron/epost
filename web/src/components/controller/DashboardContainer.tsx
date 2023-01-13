@@ -16,36 +16,17 @@
 */
 import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
-import {
-  ClockIcon,
-  HomeIcon,
-  MenuAlt1Icon,
-  ViewListIcon,
-  XIcon,
-} from '@heroicons/react/outline';
+import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
 import DashboardNavbar from './Dashboard/DashboardNavbar';
 import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
-
-const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'My tasks', href: '#', icon: ViewListIcon, current: false },
-  { name: 'Recent', href: '#', icon: ClockIcon, current: false },
-];
-const teams = [
-  { name: 'Engineering', href: '#', bgColorClass: 'bg-indigo-500' },
-  { name: 'Human Resources', href: '#', bgColorClass: 'bg-green-500' },
-  { name: 'Customer Success', href: '#', bgColorClass: 'bg-yellow-500' },
-];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
+import axios from 'axios';
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [post, setPost] = useState();
+  const [post, setPost] = useState('');
+  const [displayText, setDisplayText] = useState('');
 
   function closeModal() {
     setIsOpen(false);
@@ -55,6 +36,13 @@ export default function Example() {
     setIsOpen(true);
   }
 
+  const submit = async () => {
+    const response = await axios.post('http://localhost:4000/posts/create', {
+      post,
+    });
+
+    console.log(response);
+  };
   return (
     <>
       <div className='min-h-full'>
@@ -187,24 +175,32 @@ export default function Example() {
                     >
                       Write you Post
                     </Dialog.Title>
-
-                    <textarea className='bg-transparent focus:outline-none mt-10 w-full h-full'></textarea>
-
+                    <textarea
+                      className='bg-transparent focus:outline-none mt-10 w-full h-full'
+                      onChange={(e: any) => setPost(e.target.value)}
+                    ></textarea>
                     <div className='mt-4'>
                       <button
                         type='button'
                         className='inline-flex justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-sm duration-300 hover:bg-red-200'
-                        onClick={closeModal}
+                        onClick={() => {
+                          closeModal();
+                          submit();
+                          setDisplayText(post);
+                        }}
                       >
                         Send
                       </button>
                     </div>
                   </div>
                 </Transition.Child>
-                <div>asdfsdf</div>
               </div>
             </Dialog>
           </Transition>
+          <div className='mt-20 ml-10'>
+            <div>Posts:</div>
+            <div className='mt-40'>{displayText}</div>
+          </div>
         </div>
       </div>
     </>
