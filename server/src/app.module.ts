@@ -7,10 +7,12 @@ import { User } from './users/user.entity';
 import { PostsController } from './posts/posts.controller';
 import { PostsModule } from './posts/posts.module';
 import { Posts } from './posts/posts.entity';
+import { PostsService } from './posts/posts.service';
 
 @Module({
   imports: [
     UsersModule,
+    PostsModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -20,9 +22,8 @@ import { Posts } from './posts/posts.entity';
       entities: [User, Posts],
       synchronize: true,
     }),
-    PostsModule,
   ],
   controllers: [AppController, PostsController],
-  providers: [AppService],
+  providers: [AppService, PostsService],
 })
 export class AppModule {}
