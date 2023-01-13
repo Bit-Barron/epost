@@ -1,4 +1,4 @@
-import { Controller, Post, Session, UseGuards, Body } from '@nestjs/common';
+import { Controller, Post, UseGuards, Body } from '@nestjs/common';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
@@ -11,11 +11,10 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
-  @UseGuards(AuthGuard('local'))
   @Post('/register')
-  async register(@Body() body: CreateUserDto, @Session() session: any) {
+  async register(@Body() body: CreateUserDto) {
     const user = await this.authService.register(body.email, body.password);
-    session.userId = user.id;
+    console.log(user.id);
     return user;
   }
 
