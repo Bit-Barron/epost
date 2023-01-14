@@ -34,7 +34,7 @@ export class AuthService {
     return users;
   }
 
-  async login(email: string, password: string, user: any) {
+  async login(email: string, password: string) {
     const [user] = await this.usersService.find(email);
     if (!user) {
       throw new NotFoundException('User not found');
@@ -47,8 +47,7 @@ export class AuthService {
       throw new BadRequestException('bad password');
     }
 
-    const payload = { username: user.username, sub: user.userId };
-
+    const payload = { email: user.email, sub: user.id };
     console.log(this.jwtService.sign(payload));
 
     return user;
