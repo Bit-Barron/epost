@@ -46,7 +46,12 @@ export class AuthService {
     if (storedHash !== hash.toString('hex')) {
       throw new BadRequestException('bad password');
     }
-    console.log(this.jwtService.sign({ id: user.id, email: user.email }));
+    console.log(
+      this.jwtService.sign(
+        { id: user.id, email: user.email },
+        process.env.JWT_SECRET,
+      ),
+    );
 
     return user;
   }
