@@ -7,6 +7,7 @@ import { UsersService } from './users.service';
 import { randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
 import { JwtService } from '@nestjs/jwt';
+import { jwtConstants } from './constants';
 
 const scrypt = promisify(_scrypt);
 
@@ -48,7 +49,7 @@ export class AuthService {
     }
 
     const payload = { email: user.email, sub: user.id };
-    console.log(this.jwtService.sign(payload));
+    console.log(this.jwtService.sign(payload), jwtConstants);
 
     return user;
   }
