@@ -34,7 +34,7 @@ export class AuthService {
     return users;
   }
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string, user: any) {
     const [user] = await this.usersService.find(email);
     if (!user) {
       throw new NotFoundException('User not found');
@@ -46,7 +46,10 @@ export class AuthService {
     if (storedHash !== hash.toString('hex')) {
       throw new BadRequestException('bad password');
     }
-    console.log(this.jwtService.sign({ id: user.id, email: user.email }));
+
+    const payload = { username: user.username, sub: user.userId };
+
+    console.log(this.jwtService.sign(payload));
 
     return user;
   }
