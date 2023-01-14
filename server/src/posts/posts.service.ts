@@ -11,6 +11,9 @@ export class PostsService {
   ) {}
   create(posts: string) {
     const user = this.repo.create({ posts });
+    if (posts.length === 0) {
+      console.log("posts can't be empty");
+    }
     return this.repo.save(user);
   }
 }
