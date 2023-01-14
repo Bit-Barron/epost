@@ -8,6 +8,7 @@ import { randomBytes, scrypt as _scrypt } from 'crypto';
 import { promisify } from 'util';
 import { JwtService } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
+import { Request, Response } from 'express';
 
 const scrypt = promisify(_scrypt);
 
@@ -35,7 +36,7 @@ export class AuthService {
     return users;
   }
 
-  async login(email: string, password: string) {
+  async login(email: string, password: string, req: Request, res: Response) {
     const [user] = await this.usersService.find(email);
     if (!user) {
       throw new NotFoundException('User not found');
@@ -50,6 +51,12 @@ export class AuthService {
 
     const payload = { email: user.email, sub: user.id };
     console.log(this.jwtService.sign(payload, jwtConstants));
+
+    if (!req.cookies.jwt) {
+      throw new BadRequestException('no cookie');
+    }
+
+    res.cookie('token', );
 
     return { user, token: this.jwtService.sign(payload, jwtConstants) };
   }
