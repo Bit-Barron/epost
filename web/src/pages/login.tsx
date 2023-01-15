@@ -31,6 +31,7 @@ const Login: React.FC<loginProps> = () => {
       setAlert("Email or Password doesn't match");
     }
   };
+  console.log("!AS")
   console.log('asd');
   return (
     <>
