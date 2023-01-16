@@ -31,8 +31,8 @@ const Login: React.FC<loginProps> = () => {
       setAlert("Email or Password doesn't match");
     }
   };
+  console.log("asd")
   console.log("!AS")
-  console.log('asd');
   return (
     <>
       <div className='flex justify-end'>
