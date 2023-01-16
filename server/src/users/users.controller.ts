@@ -1,8 +1,9 @@
-import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Controller, Post, Body, Res, Req } from '@nestjs/common';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
 import { Response } from 'express';
+import { Request } from 'express';
 
 @Controller('auth')
 export class UsersController {
@@ -19,9 +20,14 @@ export class UsersController {
   }
 
   @Post('/login')
-  async login(@Body() body: CreateUserDto, @Res() res: Response) {
+  async login(
+    @Body() body: CreateUserDto,
+    @Res() res: Response,
+    @Req() req: Request,
+  ) {
     const user = await this.authService.login(body.email, body.password);
-    const cookie = res.cookie('jwt', user.token).get('Set-Cookie');
+    const cookie = res.cookie('jwt', user.token, { httpOnly: true });
+    res.send(user);
     console.log(cookie);
     return { cookie, user };
   }
