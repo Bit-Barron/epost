@@ -1,8 +1,9 @@
-import { Controller, Post, Body, Res } from '@nestjs/common';
+import { Controller, Post, Body, Res, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
 import { Response } from 'express';
+import { AuthGuard } from '../guard/auth.guard';
 
 @Controller('auth')
 export class UsersController {
@@ -11,10 +12,10 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
+  @UseGuards(AuthGuard)
   @Post('/register')
   async register(@Body() body: CreateUserDto) {
     const user = await this.authService.register(body.email, body.password);
-    console.log(user.id);
     return user;
   }
 
@@ -26,7 +27,6 @@ export class UsersController {
       .get('set-cookie');
     res.send(user);
 
-    console.log(cookie);
     return { cookie, user };
   }
 }

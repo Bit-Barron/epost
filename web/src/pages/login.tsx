@@ -21,7 +21,6 @@ const Login: React.FC<loginProps> = () => {
       password,
       withCredentials: true,
     });
-    console.log(response);
     if (response.data.email) {
       setColor('text-green-500 bg-green-100 w-40');
       setAlert('Login Successful');

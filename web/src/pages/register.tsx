@@ -18,7 +18,6 @@ const Register: React.FC<registerProps> = ({}) => {
       password,
     });
 
-    console.log(response);
     router.push('/complete');
   };
   return (

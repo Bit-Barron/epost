@@ -24,7 +24,6 @@ export default function Example() {
     const response = await axios.post('http://localhost:4000/posts/create', {
       post,
     });
-    console.log(response);
   };
 
   return (
