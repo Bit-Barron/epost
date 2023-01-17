@@ -19,7 +19,7 @@ const Login: React.FC<loginProps> = () => {
     const response = await axios.post('http://localhost:4000/auth/login', {
       email,
       password,
-      whithCredentials: true,
+      withCredentials: true,
     });
     console.log(response);
     if (response.data.email) {
