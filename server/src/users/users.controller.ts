@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Res, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Res, Req, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
@@ -33,8 +33,9 @@ export class UsersController {
 
   @Post('/dashboard')
   @UseGuards(AuthGuard)
-  async dashboard() {
-    return 'test';
+  async dashboard(@Req() req, @Res() res) {
+    const header = res.setHeader('set-cookie', req.headers.cookie);
+    return [header, 'test'];
   }
 
   @Post('/logout')
