@@ -30,4 +30,16 @@ export class UsersController {
 
     return { cookie, user };
   }
+
+  @Post('/dashboard')
+  @UseGuards(AuthGuard)
+  async dashboard() {
+    return 'test';
+  }
+
+  @Post('/logout')
+  async logout(@Res() res: Response) {
+    res.clearCookie('jwt');
+    return res.send('logout');
+  }
 }
