@@ -33,8 +33,7 @@ export class UsersController {
 
   @Post('/dashboard')
   @UseGuards(AuthGuard)
-  async dashboard(@Res() res: Response) {
-    res.setHeader('Set-Cookie');
+  async dashboard() {
     return 'test';
   }
 
