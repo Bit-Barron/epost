@@ -6,14 +6,7 @@ const Index: React.FC = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       const user = await axios.post('http://localhost:4000/auth/dashboard', {});
-      const cookie = user.headers['set-cookie'];
       console.log(user.headers);
-      console.log(cookie)
-      if (cookie) {
-        console.log('cookie is set');
-      } else {
-        console.log('cookie is not set');
-      }
     };
     getUser();
   }, []);
