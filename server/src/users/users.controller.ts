@@ -12,6 +12,7 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
+  @UseGuards(AuthGuard)
   @Post('/register')
   async register(@Body() body: CreateUserDto) {
     const user = await this.authService.register(body.email, body.password);
@@ -32,8 +33,8 @@ export class UsersController {
 
   @Post('/dashboard')
   @UseGuards(AuthGuard)
-  async dashboard() {
-    console.log('qawd');
+  async dashboard(@Res() res: Response) {
+    res.setHeader('Set-Cookie');
     return 'test';
   }
 
