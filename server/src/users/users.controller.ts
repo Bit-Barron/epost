@@ -15,6 +15,7 @@ export class UsersController {
   @UseGuards(AuthGuard)
   @Post('/register')
   async register(@Body() body: CreateUserDto) {
+    console.log("§asd")
     const user = await this.authService.register(body.email, body.password);
     return user;
   }
