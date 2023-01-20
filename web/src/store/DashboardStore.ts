@@ -1,5 +1,5 @@
-import create from 'zustand';
-import { immer } from 'zustand/middleware';
+import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
 import { DashboardTab, DashboardTabType } from '../types/DashboardTab';
 
 export interface DashboardState {

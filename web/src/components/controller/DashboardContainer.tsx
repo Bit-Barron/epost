@@ -2,12 +2,13 @@ import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
 import DashboardNavbar from './Dashboard/DashboardNavbar';
-import { DashboardStore } from '';
+import { DashboardStore } from 'src/store/DashboardStore';
 import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 import axios from 'axios';
+import OrderOverWiev from '../Tabs/OrderOverwiev/OrderoverWiev';
 
-export default function Example() {
+export default function Example({ children }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [post, setPost] = useState('');
@@ -30,12 +31,23 @@ export default function Example() {
 
   const menus = (
     <>
-      <h3>Menu</h3>
-      {DashboardTabs.map(({ Icon, name, current}) => (
-        <button key={name}></button>
+      <h3 className='mb-2'>General</h3>
+      {DashboardTabs.map(({ Icon, current, name }) => (
+        <button
+          key={name}
+          onClick={() => setAdminTab(name)}
+          className={`${
+            current ? 'bg-mainAlt' : ''
+          } group flex items-center px-2 py-2 text-sm text-white hover:bg-mainAlt`}
+          aria-current={current ? 'page' : undefined}
+        >
+          {name}
+        </button>
       ))}
     </>
   );
+
+  const currentMenu = DashboardTabs.find((tab) => tab.current);
 
   return (
     <>
@@ -191,6 +203,8 @@ export default function Example() {
             </Dialog>
           </Transition>
         </div>
+        <div>{currentMenu?.name === 'Order overview' && <OrderOverWiev />}</div>
+        {children}
       </div>
     </>
   );
