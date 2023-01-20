@@ -16,7 +16,9 @@ const Index: React.FC = ({}) => {
   return (
     <div className=''>
       <header className='bg-main p-4 flex justify-center'>
-        <span className={`${quicksand.className} mt-2 mr-2`}>kennen sie postflix kennen!</span>
+        <span className={`${quicksand.className} mt-2 mr-2`}>
+          kennen sie postflix kennen!
+        </span>
         <button className='bg-[#454b4e] text-white font-bold py-2 px-4 rounded-full'>
           Unsere Webintermine
         </button>
@@ -33,31 +35,31 @@ const Index: React.FC = ({}) => {
             alt='Briefe online versenden'
             src='https://www.letterxpress.de/images/animation/desktop/lxp_desktop_109.jpg'
           />
-          <span className='mt-32 text-3xl text-black font-semibold '>
+          <span className={`mt-32 text-3xl text-black ${quicksand.className}`}>
             Briefe online versenden
             <ul className='text-lg text-gray-500'>
               <li className='mt-4 flex '>
-                <GiCheckMark className='mt-1 mr-2' /> Ab 0,72 € pro Brief inkl.
-                Porto und zzgl. MwSt. (0,86 € brutto)
+                <GiCheckMark className='mt-1 mr-2 text-secondary' /> Ab 0,72 €
+                pro Brief inkl. Porto und zzgl. MwSt. (0,86 € brutto)
               </li>
               <li className='mt-4 flex'>
-                <GiCheckMark className='mt-1 mr-2' />
+                <GiCheckMark className='mt-1 mr-2 text-secondary' />
                 Ab 0,72 € pro Brief inkl. Porto und zzgl. MwSt. (0,86 € brutto)
               </li>
               <li className='mt-4 flex'>
-                <GiCheckMark className='mt-1 mr-2' />
+                <GiCheckMark className='mt-1 mr-2 text-secondary' />
                 Keine Vertragslaufzeiten oder monatliche Grundpreise
               </li>
               <li className='mt-4 flex'>
-                <GiCheckMark className='mt-1 mr-2' />
+                <GiCheckMark className='mt-1 mr-2 text-secondary' />
                 Sofort nutzbar, keine zusätzliche Hardware notwendig
               </li>
               <li className='mt-4 flex'>
-                <GiCheckMark className='mt-1 mr-2' /> Eigene Produktion, Versand
-                durch die Deutsche Post AG mit GOGREEN
+                <GiCheckMark className='mt-1 mr-2 text-secondary' /> Eigene
+                Produktion, Versand durch die Deutsche Post AG mit GOGREEN
               </li>
               <button
-                className='bg-[#b6003f] text-white font-bold py-2 px-4 rounded-full mt-10'
+                className='bg-[#f7902c] hover:bg-[#9f5d1b] text-white font-bold py-2 px-4 rounded-full mt-10'
                 onClick={() => {
                   return router.push('/login');
                 }}
@@ -71,7 +73,7 @@ const Index: React.FC = ({}) => {
       </div>
       <div></div>
       <div className='bg-[#181a1b] p-4 h-[300px] flex justify-center '>
-        <div className='font-bold text-2xl text-center mt-10'>
+        <div className='font-bold text-2xl text-center mt-10 text-[#f7902c]'>
           Brief einfach online <br /> <span className='ml-5'>übertragen</span>
           <div className='font-normal text-lg mt-4 text-gray-500 '>
             Die Lösung für alle Geschäftskunden! Zu jeder Zeit <br /> und von
@@ -79,7 +81,7 @@ const Index: React.FC = ({}) => {
             Übertragung bis 16 Uhr.
           </div>
         </div>
-        <div className='font-bold text-2xl text-center ml-40 mt-10'>
+        <div className='font-bold text-2xl text-center ml-40 mt-10 text-[#f7902c]'>
           Brief einfach online <br /> <span className='ml-5'>übertragen</span>
           <div className='font-normal text-lg mt-4 text-gray-500 '>
             Die Lösung für alle Geschäftskunden! Zu jeder Zeit <br /> und von
@@ -87,7 +89,7 @@ const Index: React.FC = ({}) => {
             Übertragung bis 16 Uhr.
           </div>
         </div>
-        <div className='font-bold text-2xl text-center ml-40 mt-10'>
+        <div className='font-bold text-2xl text-center ml-40 mt-10 text-[#f7902c]'>
           Brief einfach online <br /> <span className='ml-5'>übertragen</span>
           <div className='font-normal text-lg mt-4 text-gray-500 '>
             Die Lösung für alle Geschäftskunden! Zu jeder Zeit <br /> und von
