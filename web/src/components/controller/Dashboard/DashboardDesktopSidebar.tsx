@@ -1,10 +1,16 @@
 import React from 'react';
-
 import { ClockIcon, HomeIcon, ViewListIcon } from '@heroicons/react/outline';
 import { SelectorIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
+
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Order overview', href: '#', icon: ViewListIcon, current: false },
+  {
+    name: 'Order overview',
+    href: 'dashboard/recent',
+    icon: ViewListIcon,
+    current: false,
+  },
   { name: 'Recent', href: '#', icon: ClockIcon, current: false },
 ];
 const teams = [
@@ -17,12 +23,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-interface DashboardDesktopSidebarProps {
-  menu: any;
-}
-const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
-  menu,
-}) => {
+const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
   return (
     <div className='hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100'>
       <div className='mt-6 h-0 flex-1 flex flex-col overflow-y-auto'>
@@ -31,10 +32,6 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
             Search
           </label>
           <div className='mt-1 relative rounded-md shadow-sm'>
-            <div
-              className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'
-              aria-hidden='true'
-            ></div>
             <input
               type='text'
               name='search'
@@ -47,7 +44,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
         <nav className='px-3 mt-6'>
           <div className='space-y-1'>
             {navigation.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className={classNames(
@@ -64,7 +61,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                   aria-hidden='true'
                 />
                 <div className=''>{item.name}</div>
-              </a>
+              </Link>
             ))}
           </div>
           <div className='mt-8'>
@@ -90,9 +87,9 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
               ))}
             </div>
           </div>
+          {children}
         </nav>
       </div>
-      {menu}
     </div>
   );
 };

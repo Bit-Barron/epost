@@ -5,7 +5,6 @@ import DashboardNavbar from './Dashboard/DashboardNavbar';
 import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 import axios from 'axios';
-import OrderOverWiev from '../Tabs/OrderOverwiev/OrderoverWiev';
 
 export default function Example({ children }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -142,6 +141,8 @@ export default function Example({ children }: any) {
                 >
                   &#8203;
                 </span>
+                {children}
+
                 <Transition.Child
                   as={Fragment}
                   enter='ease-out duration-300'
@@ -181,7 +182,6 @@ export default function Example({ children }: any) {
             </Dialog>
           </Transition>
         </div>
-        {children}
       </div>
     </>
   );

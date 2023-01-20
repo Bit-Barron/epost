@@ -7,8 +7,10 @@ const recent: React.FC<recentProps> = ({}) => {
   return (
     <div>
       <DashboardContainer>
-        <div>Recent</div>
+        <div className='text-3xl'>Recent</div>
+        <div>aaölkdalskjd</div>
       </DashboardContainer>
     </div>
   );
 };
+export default recent;
