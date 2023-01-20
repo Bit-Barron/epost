@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Query } from '@nestjs/common';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PostsService } from './posts.service';
 
@@ -9,5 +9,9 @@ export class PostsController {
   createPost(@Body() body: CreatePostDto) {
     console.log(body);
     return this.postsService.create(body.post);
+  }
+  @Post('/all')
+  findAllUsers(@Query('posts') posts: string) {
+    return this.postsService.findAll(posts);
   }
 }

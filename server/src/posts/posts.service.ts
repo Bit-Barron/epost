@@ -17,4 +17,8 @@ export class PostsService {
     console.log(posts);
     return this.repo.save(user);
   }
+
+  findAll(posts) {
+    return this.repo.findBy({ posts });
+  }
 }
