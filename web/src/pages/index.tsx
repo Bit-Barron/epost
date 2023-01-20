@@ -9,9 +9,8 @@ const Index: React.FC = ({}) => {
     const getUser = async () => {
       try {
         const user = await axios.post('http://localhost:4000/auth/dashboard');
-        console.log(user.data);
       } catch (err) {
-        if (err.response && err.response.status === 401) {
+        if (err.response.status === 403) {
           router.push('/login');
         } else {
           console.log(err);
@@ -19,7 +18,7 @@ const Index: React.FC = ({}) => {
       }
     };
     getUser();
-  }, []);
+  }, [router]);
 
   return (
     <div>
