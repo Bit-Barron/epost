@@ -5,5 +5,5 @@ export class CreatePostDto {
   post: string;
 
   @IsString()
-  id: string;
+  id: number;
 }

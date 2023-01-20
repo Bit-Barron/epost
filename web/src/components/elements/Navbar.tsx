@@ -2,6 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 import main from '../../../public/images/main.png';
 
+import { Quicksand } from '@next/font/google';
+
+const quicksand = Quicksand({
+  weight: '700',
+  subsets: ['latin'],
+});
+
 interface NavbarProps {}
 
 export const Navbar: React.FC<NavbarProps> = ({}) => {
@@ -11,7 +18,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
         <a href='https://flowbite.com/' className='flex items-center'>
           <span className='self-center  font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
             <Image width={80} height={50} src={main} alt='asd' />
-            <div className='mt-5'>Postshield</div>
+            <div className={`${quicksand.className} mt-5` }>Postshield</div>
           </span>
         </a>
         <div className='flex items-center md:order-2'>

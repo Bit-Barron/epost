@@ -8,7 +8,6 @@ export class PostsController {
   @Post('/create')
   createPost(@Body() body: CreatePostDto) {
     console.log(body);
-    console.log(body.id);
     return this.postsService.create(body.post, body.id);
   }
   @Post('/all')

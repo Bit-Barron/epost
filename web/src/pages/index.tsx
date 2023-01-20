@@ -3,6 +3,12 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
 import { Navbar } from '../components/elements/Navbar';
+import { Quicksand } from '@next/font/google';
+
+const quicksand = Quicksand({
+  weight: '700',
+  subsets: ['latin'],
+});
 
 const Index: React.FC = ({}) => {
   const router = useRouter();
@@ -10,9 +16,7 @@ const Index: React.FC = ({}) => {
   return (
     <div className=''>
       <header className='bg-main p-4 flex justify-center'>
-        <span className='mr-5 mt-3 text-gray-500 font-semibold'>
-          kennen sie postflix kennen!
-        </span>
+        <span className={`${quicksand.className} mt-2 mr-2`}>kennen sie postflix kennen!</span>
         <button className='bg-[#454b4e] text-white font-bold py-2 px-4 rounded-full'>
           Unsere Webintermine
         </button>
