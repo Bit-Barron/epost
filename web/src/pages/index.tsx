@@ -8,20 +8,6 @@ import { GiCheckMark } from 'react-icons/gi';
 
 const Index: React.FC = ({}) => {
   const router = useRouter();
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        await axios.post('http://localhost:4000/auth/dashboard');
-      } catch (err: any) {
-        if (err.response.status === 403) {
-          router.push('/login');
-        } else {
-          console.log(err);
-        }
-      }
-    };
-    getUser();
-  }, [router]);
 
   return (
     <div className=''>
