@@ -8,7 +8,8 @@ export class PostsController {
   @Post('/create')
   createPost(@Body() body: CreatePostDto) {
     console.log(body);
-    return this.postsService.create(body.post);
+    console.log(body.id);
+    return this.postsService.create(body.post, body.id);
   }
   @Post('/all')
   findAllUsers(@Query('posts') posts: string) {

@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
-import { DashboardContainer } from '../components/controller/DashboardContainer';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { Navbar } from '../components/elements/Navbar';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
+import { Navbar } from '../components/elements/Navbar';
 
 const Index: React.FC = ({}) => {
   const router = useRouter();
