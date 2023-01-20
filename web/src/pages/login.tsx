@@ -29,7 +29,7 @@ const Login: React.FC<loginProps> = () => {
       setColor('p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg ');
       setAlert("Email or Password doesn't match");
     }
-    router.push("/")
+    router.push("/dashboard")
   };
   return (
     <>

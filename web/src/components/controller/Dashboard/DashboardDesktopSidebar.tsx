@@ -1,10 +1,9 @@
 import React from 'react';
 import { ClockIcon, HomeIcon, ViewListIcon } from '@heroicons/react/outline';
-import { SelectorIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
   {
     name: 'Order overview',
     href: 'dashboard/recent',
