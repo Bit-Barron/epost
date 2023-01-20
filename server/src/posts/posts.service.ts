@@ -14,6 +14,7 @@ export class PostsService {
     if (posts.length === 0) {
       console.log("posts can't be empty");
     }
+    console.log(posts);
     return this.repo.save(user);
   }
 }
