@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
 import DashboardNavbar from './Dashboard/DashboardNavbar';
+import { DashboardStore } from '';
 import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 import axios from 'axios';
@@ -11,6 +12,7 @@ export default function Example() {
   const [isOpen, setIsOpen] = useState(false);
   const [post, setPost] = useState('');
   const [displayText, setDisplayText] = useState('');
+  const { DashboardTabs, setAdminTab } = DashboardStore();
 
   function closeModal() {
     setIsOpen(false);
@@ -25,6 +27,15 @@ export default function Example() {
       post,
     });
   };
+
+  const menus = (
+    <>
+      <h3>Menu</h3>
+      {DashboardTabs.map(({ Icon, name, current}) => (
+        <button key={name}></button>
+      ))}
+    </>
+  );
 
   return (
     <>
