@@ -7,6 +7,7 @@ export class PostsController {
   constructor(private postsService: PostsService) {}
   @Post('/create')
   createPost(@Body() body: CreatePostDto) {
+    console.log(body);
     return this.postsService.create(body.post);
   }
 }

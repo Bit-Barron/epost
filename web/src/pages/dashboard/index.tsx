@@ -13,7 +13,7 @@ const Dashboard: React.FC<dashboardProps> = ({}) => {
     const response = await axios.post('http://localhost:4000/posts/create', {
       post,
     });
-    console.log(response.data);
+    console.log(response);
   };
 
   function closeModal() {
