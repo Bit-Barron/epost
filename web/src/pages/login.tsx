@@ -90,7 +90,7 @@ const Login: React.FC<loginProps> = () => {
 
           <div className='flex justify-center'>
             <input
-              type='email'
+              type='password'
               id='helper-text'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
