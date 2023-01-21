@@ -2,9 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'www.letterxpress.de',
-    ],
+    domains: ['www.letterxpress.de', 'mdbootstrap.com'],
   },
 };
 

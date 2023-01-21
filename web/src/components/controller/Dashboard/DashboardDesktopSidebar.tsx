@@ -10,7 +10,8 @@ const navigation = [
     icon: ViewListIcon,
     current: false,
   },
-  { name: 'Recent', href: '#', icon: ClockIcon, current: false },
+  { name: 'Upload Post', href: '#', icon: ClockIcon, current: false },
+  { name: 'Write Post', href: '/dashboard/writepost', icon: ClockIcon, current: false },
 ];
 const teams = [
   { name: 'Engineering', href: '#', bgColorClass: 'bg-indigo-500' },

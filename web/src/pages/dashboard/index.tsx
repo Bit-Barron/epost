@@ -2,9 +2,8 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../components/controller/DashboardContainer';
-import CreatePost from '../../components/elements/CreatePost/CreatePost';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import Image from 'next/image';
+import test from '../../../public/images/test.jpg';
 
 interface dashboardProps {}
 
@@ -27,7 +26,6 @@ const Dashboard: React.FC<dashboardProps> = ({}) => {
     };
     getUser();
   }, [router]);
-  console.log(post);
 
   const submit = async () => {
     const response = await axios.post('http://localhost:4000/posts/create', {
@@ -47,10 +45,32 @@ const Dashboard: React.FC<dashboardProps> = ({}) => {
   return (
     <>
       <DashboardContainer>
-        <div className='text-center font-bold text-2xl  mt-10'>
-          Einen Brief direkt online schreiben und versenden lassen
+        <div className='flex '>
+          <div className='p-10'>
+            <div className='max-w-sm rounded-3xl overflow-hidden shadow-lg'>
+              <div className='px-6 py-4'>
+                <div className='font-bold text-xl mb-2'>Mountain</div>
+                <p className='text-gray-700 text-base'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Voluptatibus quia, Nonea! Maiores et perferendis eaque,
+                  exercitationem praesentium nihil.
+                </p>
+              </div>
+              <div className='px-6 pt-4 pb-2'>
+                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                  #photography
+                </span>
+                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                  #travel
+                </span>
+                <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+                  #winter
+                </span>
+              </div>
+            </div>
+          </div>
+         
         </div>
-        <div className='mt-10 flex justify-center'></div>
       </DashboardContainer>
     </>
   );
