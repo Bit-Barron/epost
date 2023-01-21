@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import main from '../../public/images/main.png';
