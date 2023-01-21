@@ -22,7 +22,7 @@ const Register: React.FC<registerProps> = ({}) => {
   };
   return (
     <>
-      <div className='flex justify-center'>
+      <div className='flex justify-center mr-3'>
         <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='asd' />
         </span>
