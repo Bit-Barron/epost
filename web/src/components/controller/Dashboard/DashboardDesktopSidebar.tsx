@@ -1,18 +1,22 @@
-import React from 'react';
-import { ClockIcon, HomeIcon, ViewListIcon } from '@heroicons/react/outline';
+import { HomeIcon, ViewListIcon } from '@heroicons/react/outline';
+import Image from 'next/image';
 import Link from 'next/link';
-import { SiMinutemailer } from 'react-icons/si';
-import { HiMail } from 'react-icons/hi';
-import { FiSettings } from 'react-icons/fi';
-import { BsFillKeyFill } from 'react-icons/bs';
-import { FaCoins } from 'react-icons/fa';
-import { MdOutlineAddCircleOutline } from 'react-icons/md';
+import React from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { BsBoxSeam, BsFillKeyFill } from 'react-icons/bs';
+import { FaCoins } from 'react-icons/fa';
+import { FiSettings } from 'react-icons/fi';
+import { HiMail } from 'react-icons/hi';
+import { MdOutlineAddCircleOutline } from 'react-icons/md';
+import { SiMinutemailer } from 'react-icons/si';
+import main from '../../../../public/images/main.png';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+  { name: 'Postbox', href: '/dashboard', icon: BsBoxSeam, current: true },
+
   {
-    name: 'Order overview',
+    name: 'AuftragsÜbersicht',
     href: 'dashboard/recent',
     icon: ViewListIcon,
     current: false,
@@ -77,22 +81,12 @@ function classNames(...classes: string[]) {
 const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
   return (
     <div className='hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100'>
-      <div className='mt-6 h-0 flex-1 flex flex-col overflow-y-auto'>
-        <div className='px-3 mt-5'>
-          <label htmlFor='search' className='sr-only'>
-            Search
-          </label>
-          <div className='mt-1 relative rounded-md shadow-sm'>
-            <input
-              type='text'
-              name='search'
-              id='search'
-              className='focus:outline-none block w-full p-2 pl-9 sm:text-sm border-gray-300 rounded-md'
-              placeholder='Search'
-            />
-          </div>
+      <div>
+        <div className='flex'>
+          <Image src={main} alt='main' width={70} height={70} />
+          <div className='font-bold text-2xl mt-4'>Postshield</div>
         </div>
-        <nav className='px-3 mt-6'>
+        <nav className='px-3 '>
           <div className='space-y-1'>
             {navigation.map((item) => (
               <Link
