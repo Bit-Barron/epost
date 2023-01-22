@@ -13,8 +13,4 @@ export class PostsController {
   findAllUsers(@Query('posts') posts: string) {
     return this.postsService.findAll(posts);
   }
-  @Post('/admin')
-  async admin(@Query('admin') admin: string) {
-    return 'you are admin';
-  }
 }
