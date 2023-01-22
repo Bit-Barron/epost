@@ -1,7 +1,6 @@
 import { Body, Controller, Post, Query } from '@nestjs/common';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PostsService } from './posts.service';
-
 @Controller('posts')
 export class PostsController {
   constructor(private postsService: PostsService) {}
@@ -13,5 +12,9 @@ export class PostsController {
   @Post('/all')
   findAllUsers(@Query('posts') posts: string) {
     return this.postsService.findAll(posts);
+  }
+  @Post('/admin')
+  async admin(@Query('admin') admin: string) {
+    return 'you are admin';
   }
 }

@@ -194,9 +194,9 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
             </div>
           </div>
           <div className='mt-3'>
-            <button className='bg-secondary p-1 text-white font-bold w-full rounded'>
+            <a href='/' className='bg-secondary p-1 text-white font-bold w-full rounded'>
               Kundenbereich verlassen
-            </button>
+            </a>
           </div>
           {children}
         </nav>
