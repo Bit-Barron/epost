@@ -54,10 +54,10 @@ const teams = [
 ];
 
 const post = [
-  { name: 'Upload Post', href: '#', icon: SiMinutemailer, current: false },
+  { name: 'Upload Post', href: '/dashboard/post/uploadpost', icon: SiMinutemailer, current: false },
   {
     name: 'Write Post',
-    href: '/dashboard/post/post',
+    href: '/dashboard/post/writepost',
     icon: HiMail,
     current: false,
   },
