@@ -7,6 +7,7 @@ import { FiSettings } from 'react-icons/fi';
 import { BsFillKeyFill } from 'react-icons/bs';
 import { FaCoins } from 'react-icons/fa';
 import { MdOutlineAddCircleOutline } from 'react-icons/md';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
@@ -58,6 +59,17 @@ const post = [
   },
 ];
 
+const shieldPost = [
+  { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
+  {
+    name: 'Kontakt / Support',
+    href: '#',
+    icon: AiOutlineArrowRight,
+    current: false,
+  },
+  { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
+];
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
@@ -88,7 +100,7 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                 href={item.href}
                 className={classNames(
                   item.current ? '' : '',
-                  'group flex items-center px-2 py-2 text-sm font-medium hover:bg-secondary'
+                  'group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
@@ -115,7 +127,7 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                 <a
                   key={team.name}
                   href={team.href}
-                  className='group flex items-center hover:bg-secondary  px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                  className='group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
                 >
                   <team.icon
                     className={classNames(
@@ -142,7 +154,7 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                 <a
                   key={team.name}
                   href={team.href}
-                  className='group flex items-center px-3 py-2 text-sm font-semibold hover:bg-secondary'
+                  className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
                 >
                   <team.icon
                     className={classNames(
@@ -159,6 +171,38 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                 </a>
               ))}
             </div>
+          </div>
+          <div className='mt-8'>
+            <h3
+              className='px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'
+              id='desktop-teams-headline'
+            >
+              SHIELDPOST.DE
+            </h3>
+            <div className='mt-2 mb-10'>
+              {shieldPost.map((team) => (
+                <a
+                  key={team.name}
+                  href={team.href}
+                  className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                >
+                  <team.icon
+                    className={classNames(
+                      team.current ? 'text-secondary' : 'text-secondary',
+                      'mr-3 flex-shrink-0 h-5 w-6'
+                    )}
+                    aria-hidden='true'
+                  />
+                  <span aria-hidden='true' />
+                  <span className='truncate'>{team.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className='mt-3'>
+            <button className='bg-secondary p-1 text-white font-bold w-full rounded'>
+              Kundenbereich verlassen
+            </button>
           </div>
           {children}
         </nav>

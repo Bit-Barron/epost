@@ -1,14 +1,11 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../components/controller/DashboardContainer';
-import Image from 'next/image';
-import test from '../../../public/images/test.jpg';
-import CreatePost from '../../components/elements/CreatePost/CreatePost';
 
 interface dashboardProps {}
 
-const Dashboard: React.FC<dashboardProps> = ({}) => {
+function Dashboard({}: dashboardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [post, setPost] = useState('');
   const router = useRouter();

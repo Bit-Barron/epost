@@ -1,10 +1,9 @@
-import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
-import DashboardNavbar from './Dashboard/DashboardNavbar';
+import { Fragment, useState } from 'react';
 import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
-import axios from 'axios';
+import DashboardNavbar from './Dashboard/DashboardNavbar';
 
 export function DashboardContainer({ children }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
