@@ -35,6 +35,12 @@ const uploadpost: React.FC<uploadpostProps> = ({}) => {
           <input type='file' name='file_upload' className='hidden' />
         </label>
       </div>
+      <div className='mx-auto mt-2'>
+        <button className='bg-transparent p-2 border-dashed border-2 border-secondary rounded-full text-white '>
+          ALLE DATEIN ENTFERNEN
+        </button>
+      </div>
+
       <div className='bg-gray-200 mx-auto mt-10 p-4 w-1/2'>
         <div className='font-bold text-2xl text-gray-500'>
           Wusten sie schon?
@@ -43,7 +49,7 @@ const uploadpost: React.FC<uploadpostProps> = ({}) => {
           Schreiben – klicken – verschicken! Briefe können Sie jetzt auch direkt
           im Browser in einer vorgegebenen Briefvorlage schreiben <br /> und
           verschicken. Ideal auch als Deckblatt oder Kurznotiz für PDF-Anhänge
-          zu nutzen.{' '}
+          zu nutzen.
           <span className='font-bold hover:underline'>Jetzt ausprobieren</span>
         </div>
       </div>
