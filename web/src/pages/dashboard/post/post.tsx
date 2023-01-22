@@ -1,7 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { DashboardContainer } from '../../components/controller/DashboardContainer';
+import { DashboardContainer } from '../../../components/controller/DashboardContainer';
 
 function Post() {
   const [post, setPost] = useState('');

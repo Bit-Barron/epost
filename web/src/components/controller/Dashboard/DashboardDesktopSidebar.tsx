@@ -57,7 +57,7 @@ const post = [
   { name: 'Upload Post', href: '#', icon: SiMinutemailer, current: false },
   {
     name: 'Write Post',
-    href: '/post/writepost',
+    href: '/dashboard/post/post',
     icon: HiMail,
     current: false,
   },
