@@ -21,7 +21,6 @@ export class UsersController {
       .cookie('jwt', user.token, { httpOnly: true })
       .get('set-cookie');
     res.send(user);
-    console.log(cookie);
 
     return { cookie, user };
   }

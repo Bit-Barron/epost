@@ -11,4 +11,7 @@ export class Posts {
 
   @ManyToOne(() => User, (user) => user.posts)
   user: User;
+
+  @Column({ nullable: true })
+  betreff: string;
 }

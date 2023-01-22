@@ -9,10 +9,8 @@ export class PostsService {
     @InjectRepository(Posts)
     private repo: Repository<Posts>,
   ) {}
-  create(posts: string, id: number) {
-    const user = this.repo.create({ posts, id });
-    console.log(id);
-    console.log(posts);
+  create(posts: string, id: number, betreff: string) {
+    const user = this.repo.create({ posts, id, betreff });
     return this.repo.save(user);
   }
 

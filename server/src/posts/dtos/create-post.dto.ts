@@ -6,4 +6,7 @@ export class CreatePostDto {
 
   @IsString()
   id: number;
+
+  @IsString()
+  betreff: string;
 }
