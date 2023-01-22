@@ -1,6 +1,12 @@
 import React from 'react';
 import { ClockIcon, HomeIcon, ViewListIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
+import { SiMinutemailer } from 'react-icons/si';
+import { HiMail } from 'react-icons/hi';
+import { FiSettings } from 'react-icons/fi';
+import { BsFillKeyFill } from 'react-icons/bs';
+import { FaCoins } from 'react-icons/fa';
+import { MdOutlineAddCircleOutline } from 'react-icons/md';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
@@ -10,13 +16,46 @@ const navigation = [
     icon: ViewListIcon,
     current: false,
   },
-  { name: 'Upload Post', href: '#', icon: ClockIcon, current: false },
-  { name: 'Write Post', href: '/dashboard/writepost', icon: ClockIcon, current: false },
 ];
 const teams = [
-  { name: 'Engineering', href: '#', bgColorClass: 'bg-indigo-500' },
-  { name: 'Human Resources', href: '#', bgColorClass: 'bg-green-500' },
-  { name: 'Customer Success', href: '#', bgColorClass: 'bg-yellow-500' },
+  {
+    name: 'Einstellung',
+    href: '#',
+    bgColorClass: 'bg-indigo-500',
+    icon: FiSettings,
+    current: false,
+  },
+  {
+    name: 'Zugangsdaten',
+    href: '#',
+    bgColorClass: 'bg-green-500',
+    icon: BsFillKeyFill,
+    current: false,
+  },
+  {
+    name: 'Buchhaltung',
+    href: '#',
+    bgColorClass: 'bg-yellow-500',
+    icon: FaCoins,
+    current: false,
+  },
+  {
+    name: 'Add-ons',
+    href: '#',
+    bgColorClass: 'bg-yellow-500',
+    icon: MdOutlineAddCircleOutline,
+    current: false,
+  },
+];
+
+const post = [
+  { name: 'Upload Post', href: '#', icon: SiMinutemailer, current: false },
+  {
+    name: 'Write Post',
+    href: '/post/writepost',
+    icon: HiMail,
+    current: false,
+  },
 ];
 
 function classNames(...classes: string[]) {
@@ -48,15 +87,15 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                 key={item.name}
                 href={item.href}
                 className={classNames(
-                  item.current ? '' : 'j font-light',
-                  'group flex items-center px-2 py-2 text-sm font-medium rounded-md '
+                  item.current ? '' : '',
+                  'group flex items-center px-2 py-2 text-sm font-medium hover:bg-secondary'
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
                 <item.icon
                   className={classNames(
-                    item.current ? '' : '',
-                    'mr-3 flex-shrink-0 h-6 w-6'
+                    item.current ? 'text-secondary' : 'text-secondary',
+                    'mr-3 flex-shrink-0 h-5 w-6'
                   )}
                   aria-hidden='true'
                 />
@@ -69,15 +108,49 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
               className='px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'
               id='desktop-teams-headline'
             >
-              Teams
+              Post
             </h3>
-            <div>
+            <div className='mt-2'>
+              {post.map((team) => (
+                <a
+                  key={team.name}
+                  href={team.href}
+                  className='group flex items-center hover:bg-secondary  px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                >
+                  <team.icon
+                    className={classNames(
+                      team.current ? 'text-secondary' : 'text-secondary',
+                      'mr-3 flex-shrink-0 h-5 w-6'
+                    )}
+                    aria-hidden='true'
+                  />
+                  <span aria-hidden='true' />
+                  <span className='truncate'>{team.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className='mt-8'>
+            <h3
+              className='px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'
+              id='desktop-teams-headline'
+            >
+              KONTO
+            </h3>
+            <div className='mt-2'>
               {teams.map((team) => (
                 <a
                   key={team.name}
                   href={team.href}
-                  className='group flex items-center px-3 py-2 text-sm font-medium  rounded-md hover:text-gray-900 hover:bg-gray-50'
+                  className='group flex items-center px-3 py-2 text-sm font-semibold hover:bg-secondary'
                 >
+                  <team.icon
+                    className={classNames(
+                      team.current ? 'text-secondary' : 'text-secondary',
+                      'mr-3 flex-shrink-0 h-5 w-6'
+                    )}
+                    aria-hidden='true'
+                  />
                   <span
                     className={classNames(team.bgColorClass)}
                     aria-hidden='true'
