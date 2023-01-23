@@ -1,7 +1,7 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
 import { Fragment, useState } from 'react';
-import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
+import AdminDesktopSidebar from './Admin/AdminDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 
 function AdminContainer({ children }: any) {
@@ -66,7 +66,7 @@ function AdminContainer({ children }: any) {
             </Transition.Child>
           </Dialog>
         </Transition.Root>
-        <DashboardDesktopSidebar />
+        <AdminDesktopSidebar />
 
         <div className='lg:pl-64 flex flex-col'>
           <div className='sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden'>
