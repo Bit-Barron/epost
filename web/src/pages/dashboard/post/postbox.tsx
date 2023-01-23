@@ -35,7 +35,7 @@ const Recent: React.FC<recentProps> = ({}) => {
   return (
     <>
       <DashboardContainer>
-        <div className='text-3xl text-white'>Recent</div>
+        <div className='text-3xl text-white'>Postbox</div>
         <div className='text-3xl mt-10 mb-10'>Your post:</div>
         <div className=''>
           {data.map((post, idx) => (

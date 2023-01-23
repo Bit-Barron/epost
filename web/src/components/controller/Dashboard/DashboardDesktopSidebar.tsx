@@ -13,7 +13,7 @@ import main from '../../../../public/images/main.png';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
-  { name: 'Postbox', href: '/dashboard', icon: BsBoxSeam, current: true },
+  { name: 'Postbox', href: '/dashboard/post/postbox', icon: BsBoxSeam, current: true },
 
   {
     name: 'AuftragsÜbersicht',

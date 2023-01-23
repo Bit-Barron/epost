@@ -172,7 +172,7 @@ function Post() {
               <button className='bg-gray-700 mr-10 w-96 h-10 text-white font-bold py-2 px-4 rounded'>
                 Vorschau anzeigen
               </button>
-              <button className='bg-secondary h-10 w-96 text-white font-bold py-2 px-4 rounded'>
+              <button className='bg-secondary h-10 w-96 text-white font-bold py-2 px-4 rounded' onClick={submit}>
                 BRIEF ZUR POSTBOX HINZUFÜGEN
               </button>
             </div>
