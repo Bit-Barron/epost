@@ -14,5 +14,4 @@ export class Posts {
 
   @Column({ nullable: true })
   betreff: string;
-
 }
