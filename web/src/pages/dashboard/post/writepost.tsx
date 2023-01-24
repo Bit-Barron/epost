@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { DashboardContainer } from '../../../components/controller/DashboardContainer';
 import SignaturePad from 'react-signature-canvas';
+import tinymce from 'tinymce/tinymce';
 
 function Post() {
   const [post, setPost] = useState('');
@@ -29,6 +30,40 @@ function Post() {
     sigPad.current.clear();
   }
 
+  const emailHeaderConfig = {
+    selector: '.tinymce-heading',
+    menubar: false,
+    inline: true,
+    plugins: ['lists', 'powerpaste', 'autolink'],
+    toolbar: 'undo redo | bold italic underline',
+    valid_elements: 'strong,em,span[style],a[href]',
+    valid_styles: {
+      '*': 'font-size,font-family,color,text-decoration,text-align',
+    },
+    powerpaste_word_import: 'clean',
+    powerpaste_html_import: 'clean',
+  };
+
+  const emailBodyConfig = {
+    selector: '.tinymce-body',
+    menubar: false,
+    inline: true,
+    plugins: ['link', 'lists', 'powerpaste', 'autolink', 'tinymcespellchecker'],
+    toolbar: [
+      'undo redo | bold italic underline | fontfamily fontsize',
+      'forecolor backcolor | alignleft aligncenter alignright alignfull | numlist bullist outdent indent',
+    ],
+    valid_elements: 'p[style],strong,em,span[style],a[href],ul,ol,li',
+    valid_styles: {
+      '*': 'font-size,font-family,color,text-decoration,text-align',
+    },
+    powerpaste_word_import: 'clean',
+    powerpaste_html_import: 'clean',
+  };
+
+  tinymce.init(emailHeaderConfig);
+  tinymce.init(emailBodyConfig);
+
   return (
     <>
       <DashboardContainer>
@@ -54,16 +89,12 @@ function Post() {
 
           <div className='w-[1000px]'>
             <div className=''>
-              {/* <page size='A4'></page>
-              <page size='A4'></page>
-              <page size='A4' layout='landscape'></page>
-              <page size='A5'></page>
-              <page size='A5' layout='landscape'></page>
-              <page size='A3'></page>
-              <page size='A3' layout='landscape'></page> */}
+              <Editor />
               <div className='flex'>
                 <div className='mt-3'>
-                  <div className='mt-3'>Unterschrift(optional)</div>
+                  <div className='mb-3 text-gray-500 hover:underline hover:text-secondary hover:duration-75'>
+                    Unterschrift(optional)
+                  </div>
                   <SignaturePad
                     ref={sigPad}
                     penColor='black'
