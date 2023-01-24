@@ -7,7 +7,6 @@ import { DashboardContainer } from '../components/controller/DashboardContainer'
 interface dashboardProps {}
 
 const WritePost: React.FC<dashboardProps> = ({}) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [post, setPost] = useState('');
   const router = useRouter();
 
@@ -38,14 +37,6 @@ const WritePost: React.FC<dashboardProps> = ({}) => {
       console.log(editorRef.current.getContent());
     }
   };
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
 
   const useDarkMode =
     typeof window !== 'undefined' &&
