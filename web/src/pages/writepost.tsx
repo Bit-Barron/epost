@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import { DashboardContainer } from '../components/controller/DashboardContainer';
+import { DashboardContainer } from '../components/container/DashboardContainer'
 
 interface dashboardProps {}
 
