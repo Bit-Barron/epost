@@ -1,13 +1,11 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { DashboardContainer } from '../../components/controller/DashboardContainer';
 
 interface dashboardProps {}
 
 function Dashboard({}: dashboardProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [post, setPost] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -25,27 +23,11 @@ function Dashboard({}: dashboardProps) {
     getUser();
   }, [router]);
 
-  const submit = async () => {
-    const response = await axios.post('http://localhost:4000/posts/create', {
-      post,
-    });
-    console.log(response);
-  };
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
   return (
     <>
-      <DashboardContainer>
-      </DashboardContainer>
+      <DashboardContainer></DashboardContainer>
     </>
   );
-};
+}
 
 export default Dashboard;
