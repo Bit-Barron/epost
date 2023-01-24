@@ -73,8 +73,6 @@ const post = [
   },
 ];
 
-const subsites = [{ name: 'Password' }];
-
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
@@ -86,7 +84,6 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
   function handleSettingsClick(name: any) {
     if (name === 'Kontakt / Support') {
       setShowSubmenu(!showSubmenu);
-      setCurrentOption(name);
     }
   }
 
@@ -220,19 +217,9 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                     <span aria-hidden='true' />
                     <span className='truncate'>{team.name}</span>
                   </a>
-                  <div>
-                    {currentOption === 'Kontakt / Support' && showSubmenu && (
-                      <ul className='ml-3'>
-                        {subsites.map((subsite) => (
-                          <li key={subsite.name}>
-                            <a>{subsite.name}</a>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
                 </>
               ))}
+              <div>{showSubmenu && <div>settings</div>}</div>
             </div>
           </div>
           <div className='mt-3'>
