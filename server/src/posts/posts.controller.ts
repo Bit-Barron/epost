@@ -1,4 +1,5 @@
-import { Body, Controller, Post, Query } from '@nestjs/common';
+import { Body, Controller, Post, Query, Get } from '@nestjs/common';
+import { Param } from '@nestjs/common/decorators';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PostsService } from './posts.service';
 @Controller('posts')
@@ -12,5 +13,10 @@ export class PostsController {
   @Post('/all')
   findAllUsers(@Query('posts') posts: string) {
     return this.postsService.findAll(posts);
+  }
+
+  @Get('/:id')
+  async findOneUser(@Param('id') id: string) {
+    return await this.postsService.findOne(parseInt(id));
   }
 }

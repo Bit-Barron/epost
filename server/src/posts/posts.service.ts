@@ -14,6 +14,10 @@ export class PostsService {
     return this.repo.save(user);
   }
 
+  findOne(id: number) {
+    return this.repo.findOneBy({ id });
+  }
+
   findAll(posts) {
     return this.repo.findBy({ posts });
   }
