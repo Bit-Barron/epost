@@ -1,5 +1,5 @@
 import React from 'react';
-import { DashboardContainer } from '../../../components/controller/DashboardContainer';
+import { DashboardContainer } from '../../../components/container/DashboardContainer';
 
 interface uploadpostProps {}
 

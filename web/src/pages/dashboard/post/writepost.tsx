@@ -1,7 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 import React, { useRef, useState } from 'react';
-import { DashboardContainer } from '../../../components/controller/DashboardContainer';
+import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import SignaturePad from 'react-signature-canvas';
 
 function Post() {
