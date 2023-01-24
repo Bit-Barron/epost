@@ -21,14 +21,6 @@ const Login: React.FC<loginProps> = () => {
       withCredentials: true,
     });
 
-    if (response.data.email) {
-      setColor('text-green-500 bg-green-100 w-40');
-      setAlert('Login Successful');
-      router.push('/dashboard');
-    } else {
-      setColor('p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg ');
-      setAlert("Email or Password doesn't match");
-    }
     router.push('/dashboard/');
   };
   return (

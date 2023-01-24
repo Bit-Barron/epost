@@ -1,7 +1,7 @@
 import { HomeIcon, ViewListIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsBoxSeam, BsFillKeyFill } from 'react-icons/bs';
 import { FaCoins } from 'react-icons/fa';
@@ -13,7 +13,12 @@ import main from '../../../../public/images/main.png';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
-  { name: 'Postbox', href: '/dashboard/post/postbox', icon: BsBoxSeam, current: true },
+  {
+    name: 'Postbox',
+    href: '/dashboard/post/postbox',
+    icon: BsBoxSeam,
+    current: true,
+  },
 
   {
     name: 'AuftragsÜbersicht',
@@ -54,7 +59,12 @@ const teams = [
 ];
 
 const post = [
-  { name: 'Upload Post', href: '/dashboard/post/uploadpost', icon: SiMinutemailer, current: false },
+  {
+    name: 'Upload Post',
+    href: '/dashboard/post/uploadpost',
+    icon: SiMinutemailer,
+    current: false,
+  },
   {
     name: 'Write Post',
     href: '/dashboard/post/writepost',
@@ -63,22 +73,34 @@ const post = [
   },
 ];
 
-const shieldPost = [
-  { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
-  {
-    name: 'Kontakt / Support',
-    href: '#',
-    icon: AiOutlineArrowRight,
-    current: false,
-  },
-  { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
-];
+const subsites = [{ name: 'Password' }];
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
+  const [showSubmenu, setShowSubmenu] = useState(false);
+  const [currentOption, setCurrentOption] = useState(null);
+
+  function handleSettingsClick(name: any) {
+    if (name === 'Kontakt / Support') {
+      setShowSubmenu(!showSubmenu);
+      setCurrentOption(name);
+    }
+  }
+
+  const shieldPost = [
+    { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
+    {
+      name: 'Kontakt / Support',
+      href: '#',
+      icon: AiOutlineArrowRight,
+      current: false,
+    },
+    { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
+  ];
+
   return (
     <div className='hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100'>
       <div>
@@ -118,21 +140,23 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
             </h3>
             <div className='mt-2'>
               {post.map((team) => (
-                <a
-                  key={team.name}
-                  href={team.href}
-                  className='group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
-                >
-                  <team.icon
-                    className={classNames(
-                      team.current ? 'text-secondary' : 'text-secondary',
-                      'mr-3 flex-shrink-0 h-5 w-6'
-                    )}
-                    aria-hidden='true'
-                  />
-                  <span aria-hidden='true' />
-                  <span className='truncate'>{team.name}</span>
-                </a>
+                <>
+                  <a
+                    key={team.name}
+                    href={team.href}
+                    className='group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                  >
+                    <team.icon
+                      className={classNames(
+                        team.current ? 'text-secondary' : 'text-secondary',
+                        'mr-3 flex-shrink-0 h-5 w-6'
+                      )}
+                      aria-hidden='true'
+                    />
+                    <span aria-hidden='true' />
+                    <span className='truncate'>{team.name}</span>
+                  </a>
+                </>
               ))}
             </div>
           </div>
@@ -144,25 +168,28 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
               KONTO
             </h3>
             <div className='mt-2'>
-              {teams.map((team) => (
-                <a
-                  key={team.name}
-                  href={team.href}
-                  className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
-                >
-                  <team.icon
-                    className={classNames(
-                      team.current ? 'text-secondary' : 'text-secondary',
-                      'mr-3 flex-shrink-0 h-5 w-6'
-                    )}
-                    aria-hidden='true'
-                  />
-                  <span
-                    className={classNames(team.bgColorClass)}
-                    aria-hidden='true'
-                  />
-                  <span className='truncate'>{team.name}</span>
-                </a>
+              {teams.map((team: any) => (
+                <>
+                  <a
+                    onClick={() => handleSettingsClick(team.name)}
+                    key={team.name}
+                    href={team.href}
+                    className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                  >
+                    <team.icon
+                      className={classNames(
+                        team.current ? 'text-secondary' : 'text-secondary',
+                        'mr-3 flex-shrink-0 h-5 w-6'
+                      )}
+                      aria-hidden='true'
+                    />
+                    <span
+                      className={classNames(team.bgColorClass)}
+                      aria-hidden='true'
+                    />
+                    <span className='truncate'>{team.name}</span>
+                  </a>
+                </>
               ))}
             </div>
           </div>
@@ -175,26 +202,44 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
             </h3>
             <div className='mt-2 mb-10'>
               {shieldPost.map((team) => (
-                <a
-                  key={team.name}
-                  href={team.href}
-                  className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
-                >
-                  <team.icon
-                    className={classNames(
-                      team.current ? 'text-secondary' : 'text-secondary',
-                      'mr-3 flex-shrink-0 h-5 w-6'
+                <>
+                  <a
+                    key={team.name}
+                    href={team.href}
+                    onClick={() => handleSettingsClick(team.name)}
+                    className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                  >
+                    <team.icon
+                      className={classNames(
+                        team.current ? 'text-secondary' : 'text-secondary',
+                        'mr-3 flex-shrink-0 h-5 w-6'
+                      )}
+                      aria-hidden='true'
+                    />
+
+                    <span aria-hidden='true' />
+                    <span className='truncate'>{team.name}</span>
+                  </a>
+                  <div>
+                    {currentOption === 'Kontakt / Support' && showSubmenu && (
+                      <ul className='ml-3'>
+                        {subsites.map((subsite) => (
+                          <li key={subsite.name}>
+                            <a>{subsite.name}</a>
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                    aria-hidden='true'
-                  />
-                  <span aria-hidden='true' />
-                  <span className='truncate'>{team.name}</span>
-                </a>
+                  </div>
+                </>
               ))}
             </div>
           </div>
           <div className='mt-3'>
-            <a href='/' className='bg-secondary p-1 text-white font-bold w-full rounded'>
+            <a
+              href='/'
+              className='bg-secondary p-1 text-white font-bold w-full rounded'
+            >
               Kundenbereich verlassen
             </a>
           </div>
