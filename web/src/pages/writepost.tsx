@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import React, {  useEffect, useState } from 'react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import { DashboardContainer } from '../../components/controller/DashboardContainer';
+import { DashboardContainer } from '../components/controller/DashboardContainer';
 
 interface dashboardProps {}
 
@@ -32,7 +31,7 @@ const WritePost: React.FC<dashboardProps> = ({}) => {
       post,
     });
     console.log(response);
-export default function App() {
+  };
   const editorRef: any = useRef(null);
   const log = () => {
     if (editorRef.current) {
@@ -51,7 +50,9 @@ export default function App() {
   const useDarkMode =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isSmallScreen = typeof window !== 'undefined' && window.matchMedia('(max-width: 1023.5px)').matches;
+  const isSmallScreen =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 1023.5px)').matches;
   return (
     <>
       <DashboardContainer>
@@ -62,7 +63,7 @@ export default function App() {
         <div className='w-1/2 mx-auto mt-10'>
           <Editor
             apiKey='e0q79b8c9k5t2zbarra7zzwcei0ma8jb8dddiycjobwtltg2'
-            onInit={(evt, editor) => (editorRef.current = editor)}
+            onInit={(evt, editor: any) => (editorRef.current = editor)}
             initialValue='<p>This is the initial content of the editor.</p>'
             init={{
               plugins:
