@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { DashboardContainer } from '../../components/controller/DashboardContainer';
+import { DashboardContainer } from '../../components/container/DashboardContainer';
 
 interface dashboardProps {}
 
