@@ -82,9 +82,7 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
   const [currentOption, setCurrentOption] = useState(null);
 
   function handleSettingsClick(name: any) {
-    if (name === 'Kontakt / Support') {
-      setShowSubmenu(!showSubmenu);
-    }
+    setShowSubmenu(!showSubmenu);
   }
 
   const shieldPost = [
@@ -168,7 +166,6 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
               {teams.map((team: any) => (
                 <>
                   <a
-                    onClick={() => handleSettingsClick(team.name)}
                     key={team.name}
                     href={team.href}
                     className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
@@ -201,9 +198,9 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
               {shieldPost.map((team) => (
                 <>
                   <a
+                    onClick={() => handleSettingsClick(team.name)}
                     key={team.name}
                     href={team.href}
-                    onClick={() => handleSettingsClick(team.name)}
                     className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
                   >
                     <team.icon
@@ -219,7 +216,6 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
                   </a>
                 </>
               ))}
-              <div>{showSubmenu && <div>settings</div>}</div>
             </div>
           </div>
           <div className='mt-3'>
