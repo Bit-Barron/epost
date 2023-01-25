@@ -6,6 +6,7 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import { jwtConstants } from '../constants';
+import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
 
 @Injectable()
@@ -15,14 +16,14 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async register(email: string, password: string) {
-    const user = await this.usersService.find(email);
+  async register(body: CreateUserDto) {
+    const user = await this.usersService.find(body.email);
     if (user.length) {
       throw new BadRequestException('Email in use');
     }
-    const hash = await argon2.hash(password);
+    body.password = await argon2.hash(body.password);
 
-    return await this.usersService.create(email, hash);
+    return await this.usersService.create(body);
   }
 
   async login(email: string, password: string) {
