@@ -1,7 +1,7 @@
 import { HomeIcon, ViewListIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsBoxSeam, BsFillKeyFill } from 'react-icons/bs';
 import { FaCoins } from 'react-icons/fa';
@@ -78,18 +78,11 @@ function classNames(...classes: string[]) {
 }
 
 const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
-  const [showSubmenu, setShowSubmenu] = useState(false);
-  const [currentOption, setCurrentOption] = useState(null);
-
-  function handleSettingsClick(name: any) {
-    setShowSubmenu(!showSubmenu);
-  }
-
   const shieldPost = [
     { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
     {
       name: 'Kontakt / Support',
-      href: '#',
+      href: '/dashboard/postshield',
       icon: AiOutlineArrowRight,
       current: false,
     },
@@ -192,13 +185,12 @@ const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
               className='px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider'
               id='desktop-teams-headline'
             >
-              SHIELDPOST.DE
+              POSTSHIELD.DE
             </h3>
             <div className='mt-2 mb-10'>
               {shieldPost.map((team) => (
                 <>
                   <a
-                    onClick={() => handleSettingsClick(team.name)}
                     key={team.name}
                     href={team.href}
                     className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
