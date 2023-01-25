@@ -1,13 +1,14 @@
 import {
-  Injectable,
   BadRequestException,
+  Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { randomBytes, scrypt as _scrypt } from 'crypto';
-import { promisify } from 'util';
 import { JwtService } from '@nestjs/jwt';
+import * as argon2 from 'argon2';
+import { scrypt as _scrypt } from 'crypto';
+import { promisify } from 'util';
 import { jwtConstants } from '../constants';
+import { UsersService } from './users.service';
 
 const scrypt = promisify(_scrypt);
 
@@ -23,16 +24,9 @@ export class AuthService {
     if (user.length) {
       throw new BadRequestException('Email in use');
     }
+    const hash = await argon2.hash(password);
 
-    const salt = randomBytes(8).toString('hex');
-
-    const hash = (await scrypt(password, salt, 32)) as Buffer;
-
-    const result = salt + '.' + hash.toString('hex');
-
-    const users = await this.usersService.create(email, result);
-
-    return users;
+    return await this.usersService.create(email, hash);
   }
 
   async login(email: string, password: string) {
@@ -40,16 +34,9 @@ export class AuthService {
     if (!user) {
       throw new NotFoundException('User not found');
     }
-    const [salt, storedHash] = user.password.split('.');
-
-    const hash = (await scrypt(password, salt, 32)) as Buffer;
-
-    if (storedHash !== hash.toString('hex')) {
-      throw new BadRequestException('bad password');
+    if (user && (await argon2.verify(user.password, password))) {
+      const payload = { email: user.email, sub: user.id };
+      return { user, token: this.jwtService.sign(payload, jwtConstants) };
     }
-
-    const payload = { email: user.email, sub: user.id };
-
-    return { user, token: this.jwtService.sign(payload, jwtConstants) };
   }
 }

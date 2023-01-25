@@ -4,21 +4,28 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import main from '../../public/images/main.png';
 
-interface registerProps {}
-
-const Register: React.FC<registerProps> = ({}) => {
+const Register = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState<string>('');
   const [confirm, setConfirm] = useState<string>('');
+  const [error, setError] = useState<string>('');
   const router = useRouter();
 
   const submit = async () => {
+    const getInputClassName = () => {
+      if (email !== confirm) {
+        return 'bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white border-red-500';
+      } else {
+        return 'bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white border-green-700';
+      }
+    };
     const response = await axios.post('http://localhost:4000/auth/register', {
       email,
       password,
     });
+    console.log(response.data);
 
-    router.push('/complete');
+    router.push('/dashboard/');
   };
   return (
     <>
@@ -69,6 +76,7 @@ const Register: React.FC<registerProps> = ({}) => {
             <div className='mr-28 font-bold mb-2'>Confirm your email</div>
           </div>
           <input
+            onChange={(e) => setConfirm(e.target.value)}
             type='email'
             id='helper-text'
             aria-describedby='helper-text-explanation'
@@ -121,7 +129,7 @@ const Register: React.FC<registerProps> = ({}) => {
               className='bg-secondary p-2 w-32 text-white font-bold rounded-full'
               onClick={() => submit()}
             >
-              Register
+              Password
             </button>
           </div>
         </div>
