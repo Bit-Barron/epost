@@ -5,12 +5,8 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
-import { scrypt as _scrypt } from 'crypto';
-import { promisify } from 'util';
 import { jwtConstants } from '../constants';
 import { UsersService } from './users.service';
-
-const scrypt = promisify(_scrypt);
 
 @Injectable()
 export class AuthService {
