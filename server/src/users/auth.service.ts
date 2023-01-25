@@ -17,7 +17,7 @@ export class AuthService {
   ) {}
 
   async register(body: CreateUserDto) {
-    const user = await this.usersService.find(body.email);
+    const user = await this.usersService.findOne(body.email);
     if (user.length) {
       throw new BadRequestException('Email in use');
     }
@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   async login(email: string, password: string) {
-    const [user] = await this.usersService.find(email);
+    const user = await this.usersService.findOne(email);
     if (!user) {
       throw new NotFoundException('User not found');
     }
