@@ -6,7 +6,4 @@ export class CreateUserDto {
 
   @IsString()
   email: string;
-
-  @IsString()
-  age: string;
 }

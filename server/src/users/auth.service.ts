@@ -18,20 +18,20 @@ export class AuthService {
 
   async register(body: CreateUserDto) {
     const user = await this.usersService.findOne(body.email);
-    if (user.length) {
-      throw new BadRequestException('Email in use');
-    }
+
+    if (user) throw new BadRequestException('Email in use');
+
     body.password = await argon2.hash(body.password);
 
     return await this.usersService.create(body);
   }
 
-  async login(email: string, password: string) {
-    const user = await this.usersService.findOne(email);
-    if (!user) {
-      throw new NotFoundException('User not found');
-    }
-    if (user && (await argon2.verify(user.password, password))) {
+  async login(body: CreateUserDto) {
+    const user = await this.usersService.findOne(body.email);
+
+    if (!user) throw new NotFoundException('User not found');
+
+    if (await argon2.verify(user.password, body.password)) {
       const payload = { email: user.email, sub: user.id };
       return { user, token: this.jwtService.sign(payload, jwtConstants) };
     }
