@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 
 interface DashboardNavbarProps {
-  name: string;
+  name?: string;
 }
 
 const DashboardNavbar: React.FC<DashboardNavbarProps> = ({ name }) => {

@@ -76,8 +76,11 @@ const post = [
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
+interface DashboardDesktopSidebarProps {
+  children?: React.ReactNode;
+}
 
-const DashboardDesktopSidebar: React.FC = ({ children }: any) => {
+const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({ children }) => {
   const shieldPost = [
     { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
     {

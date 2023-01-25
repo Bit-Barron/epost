@@ -5,7 +5,11 @@ import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 import DashboardNavbar from './Dashboard/DashboardNavbar';
 
-export function DashboardContainer({ children }: any) {
+interface DashboardDesktopSidebarProps {
+  children: React.ReactNode;
+}
+
+export const DashboardContainer: React.FC<DashboardDesktopSidebarProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
 

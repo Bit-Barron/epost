@@ -2,12 +2,17 @@ import React from 'react';
 
 interface inputProps {
   placeholder: string;
-  onChange: any
+  onChange: (value: string) => void;
   value: string;
   type: string;
 }
 
-const Input: React.FC<inputProps> = ({ placeholder, onChange, value, type }) => {
+const Input: React.FC<inputProps> = ({
+  placeholder,
+  onChange,
+  value,
+  type,
+}) => {
   return (
     <div className='w-[600px] px-3 mt-10 mx-auto'>
       <input
@@ -19,7 +24,6 @@ const Input: React.FC<inputProps> = ({ placeholder, onChange, value, type }) => 
         type={type}
       />
     </div>
-    
   );
 };
 

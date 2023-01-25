@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
@@ -14,7 +14,7 @@ const WritePost: React.FC<dashboardProps> = ({}) => {
     const getUser = async () => {
       try {
         await axios.post('http://localhost:4000/auth/dashboard');
-      } catch (err: any) {
+      } catch (err) {
         if (err.response.status === 403) {
           router.push('/login');
         } else {

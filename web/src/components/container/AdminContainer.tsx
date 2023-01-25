@@ -4,7 +4,13 @@ import { Fragment, useState } from 'react';
 import AdminDesktopSidebar from './Admin/AdminDesktopSidebar';
 import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 
-function AdminContainer({ children }: any) {
+interface AdminContainerProps {
+  children: React.ReactNode;
+}
+
+const AdminContainer: React.FC<AdminContainerProps> = ({
+  children,
+}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -96,6 +102,6 @@ function AdminContainer({ children }: any) {
       </div>
     </>
   );
-}
+};
 
 export default AdminContainer;
