@@ -16,7 +16,7 @@ export class UsersController {
 
   @Post('/login')
   async login(@Body() body: CreateUserDto, @Res() res: Response) {
-    const user = await this.authService.login(body.email, body.password);
+    const user = await this.authService.login(body);
     const cookie = res
       .cookie('jwt', user.token, { httpOnly: true })
       .get('set-cookie');
