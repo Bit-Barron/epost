@@ -3,15 +3,12 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import main from '../../public/images/main.png';
-import Alert from '../components/elements/Alert';
 
 interface loginProps {}
 
 const Login: React.FC<loginProps> = () => {
   const [email, setEmail] = useState('test@test');
   const [password, setPassword] = useState<string>('123123');
-  const [alert, setAlert] = useState<string>('');
-  const [color, setColor] = useState<string>('');
   const router = useRouter();
 
   const submit = async () => {
@@ -25,9 +22,7 @@ const Login: React.FC<loginProps> = () => {
   };
   return (
     <>
-      <div className='flex justify-end'>
-        {alert && <Alert title={alert} color={color} />}
-      </div>
+      <div className='flex justify-end'></div>
       <div className='flex justify-center'>
         <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='asd' />

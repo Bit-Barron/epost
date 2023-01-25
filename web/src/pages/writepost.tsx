@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { DashboardContainer } from '../components/container/DashboardContainer';
+import { TryStatement } from 'typescript';
 
 interface dashboardProps {}
 
@@ -14,8 +15,8 @@ const WritePost: React.FC<dashboardProps> = ({}) => {
     const getUser = async () => {
       try {
         await axios.post('http://localhost:4000/auth/dashboard');
-      } catch (err) {
-        if (err.response.status === 403) {
+      } catch (err: unknown) {
+        if ((err as AxiosError).response?.status === 403) {
           router.push('/login');
         } else {
           console.log(err);
@@ -54,7 +55,7 @@ const WritePost: React.FC<dashboardProps> = ({}) => {
         <div className='w-1/2 mx-auto mt-10'>
           <Editor
             apiKey='e0q79b8c9k5t2zbarra7zzwcei0ma8jb8dddiycjobwtltg2'
-            onInit={(evt, editor: any) => (editorRef.current = editor)}
+            onInit={(evt, editor) => (editorRef.current = editor)}
             initialValue='<p>This is the initial content of the editor.</p>'
             init={{
               plugins:

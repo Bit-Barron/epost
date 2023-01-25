@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
@@ -12,8 +12,8 @@ function Dashboard({}: dashboardProps) {
     const getUser = async () => {
       try {
         await axios.post('http://localhost:4000/auth/dashboard');
-      } catch (err: any) {
-        if (err.response.status === 403) {
+      } catch (err: unknown) {
+        if ((err as AxiosError).response?.status === 403) {
           router.push('/login');
         } else {
           console.log(err);

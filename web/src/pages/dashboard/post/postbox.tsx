@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 interface recentProps {}
 
@@ -20,9 +20,10 @@ const Recent: React.FC<recentProps> = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        await axios.post('http://localhost:4000/auth/dashboard');
-      } catch (err: any) {
-        if (err.response.status === 403) {
+        const response = await axios.post('http://localhost:4000/auth/dashboard');
+        console.log(typeof response.data)
+      } catch (err: unknown) {
+        if ((err as AxiosError).response?.status === 403) {
           router.push('/login');
         } else {
           console.log(err);

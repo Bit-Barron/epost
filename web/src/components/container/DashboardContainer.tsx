@@ -6,7 +6,7 @@ import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
 import DashboardNavbar from './Dashboard/DashboardNavbar';
 
 interface DashboardDesktopSidebarProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const DashboardContainer: React.FC<DashboardDesktopSidebarProps> = ({ children }) => {
