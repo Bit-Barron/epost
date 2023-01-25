@@ -28,7 +28,8 @@ export class UsersController {
 
   @Post('/dashboard')
   @UseGuards(AuthGuard)
-  async dashboard() {
+  async dashboard(@Request() req) {
+    console.log(req.user);
     return 'test';
   }
 
