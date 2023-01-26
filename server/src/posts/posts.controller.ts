@@ -14,7 +14,7 @@ export class PostsController {
   }
   @UseGuards(AuthGuard)
   @Post('/all')
-  findAllUsers(@Query('posts') posts: string, @Request() req) {
+  findAllUsers(@Query('posts') posts: string) {
     return this.postsService.findAll(posts);
   }
 
