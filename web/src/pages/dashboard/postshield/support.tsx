@@ -8,10 +8,6 @@ const PostShield: React.FC<indexProps> = ({}) => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const submit = () => {
-    
-  }
-
   return (
     <DashboardContainer>
       <div className='mt-52'>

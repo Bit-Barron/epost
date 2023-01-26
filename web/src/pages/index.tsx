@@ -61,7 +61,7 @@ const Index: React.FC = ({}) => {
               <button
                 className='bg-[#f7902c] hover:bg-[#9f5d1b] text-white font-bold py-2 px-4 rounded-full mt-10'
                 onClick={() => {
-                  return router.push('/login');
+                  return router.push('/auth/login');
                 }}
               >
                 Jetzt kostenlos testen

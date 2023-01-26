@@ -85,7 +85,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({ child
     { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
     {
       name: 'Kontakt / Support',
-      href: '/dashboard/postshield',
+      href: '/dashboard/postshield/support',
       icon: AiOutlineArrowRight,
       current: false,
     },
