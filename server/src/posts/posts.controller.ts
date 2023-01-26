@@ -9,8 +9,8 @@ export class PostsController {
   @Post('/create')
   @UseGuards(AuthGuard)
   createPost(@Body() body: CreatePostDto, @Request() req) {
-    console.log(req.user);
-    return this.postsService.create(body.post, body.id, body.betreff);
+    const userId = req.user.sub;
+    return this.postsService.create(body.post, userId, body.betreff);
   }
   @UseGuards(AuthGuard)
   @Post('/all')
