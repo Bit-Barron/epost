@@ -1,6 +1,7 @@
 import { CanActivate, ExecutionContext } from '@nestjs/common/interfaces';
 import { Request } from 'express';
 import * as jwt from 'jsonwebtoken';
+import { jwtConstants } from '../constants';
 export class AuthGuard implements CanActivate {
   canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest<Request>();
@@ -9,7 +10,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, jwtConstants.secret);
       request.user = decoded;
       return true;
     } catch (err) {
