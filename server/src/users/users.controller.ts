@@ -1,7 +1,15 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
-import { Response } from 'express';
+import {
+  Controller,
+  Post,
+  Body,
+  Res,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
+import { Response } from 'express';
+import { AuthGuard } from '../guard/auth.guard';
 
 @Controller('auth')
 export class UsersController {
@@ -23,6 +31,13 @@ export class UsersController {
     res.send(user);
 
     return { cookie, user };
+  }
+
+  @Post('/dashboard')
+  @UseGuards(AuthGuard)
+  async dashboard(@Request() req) {
+    console.log(req.user);
+    return 'test';
   }
 
   @Post('/logout')

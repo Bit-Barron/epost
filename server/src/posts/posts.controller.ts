@@ -1,13 +1,15 @@
-import { Body, Controller, Post, Query, Get } from '@nestjs/common';
-import { Param } from '@nestjs/common/decorators';
+import { Body, Controller, Post, Query, Get, Request } from '@nestjs/common';
+import { Param, UseGuards } from '@nestjs/common/decorators';
+import { AuthGuard } from 'src/guard/auth.guard';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PostsService } from './posts.service';
 @Controller('posts')
 export class PostsController {
   constructor(private postsService: PostsService) {}
   @Post('/create')
-  createPost(@Body() body: CreatePostDto) {
-    console.log(body.post);
+  @UseGuards(AuthGuard)
+  createPost(@Body() body: CreatePostDto, @Request() req) {
+    console.log(req.user['sub']);
     return this.postsService.create(body.post, body.id, body.betreff);
   }
   @Post('/all')

@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { PostsModule } from './posts/posts.module';
 import { Posts } from './posts/posts.entity';
-import { DashboardModule } from './dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -19,7 +18,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
       entities: [User, Posts],
       synchronize: true,
     }),
-    DashboardModule,
   ],
 })
 export class AppModule {}
