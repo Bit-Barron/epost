@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import main from '../../public/images/main.png';
+import main from '../../../public/images/main.png';
 
 const Register = ({}) => {
   const [email, setEmail] = useState('');
@@ -129,7 +129,7 @@ const Register = ({}) => {
               className='bg-secondary p-2 w-32 text-white font-bold rounded-full'
               onClick={() => submit()}
             >
-              Password
+              Register
             </button>
           </div>
         </div>
