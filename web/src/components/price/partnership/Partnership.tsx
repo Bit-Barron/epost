@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface partnershipProps {}
 
@@ -39,7 +40,13 @@ const Partnership: React.FC<partnershipProps> = ({}) => {
                   key={logo.name}
                   className='mt-4 ml-8 flex flex-grow flex-shrink-0 lg:flex-grow-0 lg:ml-4'
                 >
-                  <img className='h-12' src={logo.url} alt={logo.name} />
+                  <Image
+                    className='h-12'
+                    width={50}
+                    height={50}
+                    src={logo.url}
+                    alt={logo.name}
+                  />
                 </div>
               ))}
             </div>

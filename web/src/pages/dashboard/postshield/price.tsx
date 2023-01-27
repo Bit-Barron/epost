@@ -18,8 +18,8 @@ import { CheckIcon as CheckIconSolid } from '@heroicons/react/solid';
 import Image from 'next/image';
 
 import { Navbar } from '../../../components/elements/Navbar';
-import Impresum from '../../../components/impresum/Impresum';
-import Partnership from '../../../components/partnership/partnership';
+import Impresum from '../../../components/price/impresum/Impresum';
+import Partnership from '../../../components/price/partnership/Partnership';
 
 const solutions = [
   {
@@ -55,10 +55,7 @@ const solutions = [
     icon: RefreshIcon,
   },
 ];
-const callsToAction = [
-  { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-];
+
 const resources = [
   {
     id: 1,
@@ -102,6 +99,17 @@ const tiers = [
     features: [
       'Potenti felis, in cras at at ligula nunc.',
       'Orci neque eget pellentesque.',
+    ],
+  },
+  {
+    name: '5 Posts',
+    href: '#',
+    priceMonthly: 3,
+    description: 'All the basics for starting a new business',
+    features: [
+      'Potenti felis, in cras at at ligula nunc. ',
+      'Orci neque eget pellentesque.',
+      'Donec mauris sit in eu tincidunt etiam.',
     ],
   },
   {
@@ -224,6 +232,8 @@ export default function Example() {
                 <div className='flex items-center justify-between'>
                   <div>
                     <Image
+                      width={50}
+                      height={50}
                       className='h-8 w-auto'
                       src='https://tailwindui.com/img/logos/workflow-mark-purple-600.svg'
                       alt='Workflow'
