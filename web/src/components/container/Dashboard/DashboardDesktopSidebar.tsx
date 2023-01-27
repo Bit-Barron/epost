@@ -74,7 +74,7 @@ const post = [
 ];
 
 const shieldPost = [
-  { name: 'Preis', href: '/dashboard/postshield/price', icon: AiOutlineArrowRight, current: false },
+  { name: 'Preis', href: '/dashboard/postshield/support', icon: AiOutlineArrowRight, current: false },
   {
     name: 'Kontakt / Support',
     href: '/dashboard/postshield/support',

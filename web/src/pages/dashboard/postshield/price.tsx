@@ -1,23 +1,19 @@
-import { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import {
-  BookmarkAltIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CheckIcon as CheckIconOutline,
-  CursorClickIcon,
-  PhoneIcon,
-  PlayIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
-  SupportIcon,
-  ViewGridIcon,
-  XIcon,
+    BookmarkAltIcon,
+    CalendarIcon,
+    ChartBarIcon, CursorClickIcon, RefreshIcon,
+    ShieldCheckIcon,
+    SupportIcon,
+    ViewGridIcon,
+    XIcon
 } from '@heroicons/react/outline';
 import { CheckIcon as CheckIconSolid } from '@heroicons/react/solid';
 import Image from 'next/image';
+import { Fragment } from 'react';
 
 import { Navbar } from '../../../components/elements/Navbar';
+import AllInOne from '../../../components/price/All-In-One/AllInOne';
 import Impresum from '../../../components/price/impresum/Impresum';
 import Partnership from '../../../components/price/partnership/Partnership';
 
@@ -138,48 +134,6 @@ const tiers = [
       'Risus egestas faucibus.',
       'Risus cursus ullamcorper.',
     ],
-  },
-];
-const features = [
-  {
-    name: 'Invite team members',
-    description:
-      'Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est, molestie blandit quis ac. Lacus.',
-  },
-  {
-    name: 'Notifications',
-    description:
-      'Ornare donec rhoncus vitae nisl velit, neque, mauris dictum duis. Nibh urna non parturient.',
-  },
-  {
-    name: 'List view',
-    description:
-      'Etiam cras augue ornare pretium sit malesuada morbi orci, venenatis. Dictum lacus.',
-  },
-  {
-    name: 'Boards',
-    description:
-      'Interdum quam pulvinar turpis tortor, egestas quis diam amet, natoque. Mauris sagittis.',
-  },
-  {
-    name: 'Keyboard shortcuts',
-    description:
-      'Ullamcorper in ipsum ac feugiat. Senectus at aliquam vulputate mollis nec. In at risus odio.',
-  },
-  {
-    name: 'Reporting',
-    description:
-      'Magna a vel sagittis aliquam eu amet. Et lorem auctor quam nunc odio. Sed bibendum.',
-  },
-  {
-    name: 'Calendars',
-    description:
-      'Sed mi, dapibus turpis orci posuere integer. A porta viverra posuere adipiscing turpis.',
-  },
-  {
-    name: 'Mobile app',
-    description:
-      'Quisque sapien nunc nisl eros. Facilisis sagittis maecenas id dignissim tristique proin sed.',
   },
 ];
 const faqs = [
@@ -385,36 +339,7 @@ export default function Example() {
           </div>
         </div>
 
-        {/* Feature list */}
-        <div className='max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8'>
-          <div className='max-w-3xl mx-auto text-center'>
-            <h2 className='text-3xl font-extrabold text-gray-900'>
-              All-in-one platform
-            </h2>
-            <p className='mt-4 text-lg text-gray-500'>
-              Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-              Malesuada adipiscing sagittis vel nulla nec.
-            </p>
-          </div>
-          <dl className='mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8'>
-            {features.map((feature) => (
-              <div key={feature.name} className='relative'>
-                <dt>
-                  <CheckIconOutline
-                    className='absolute h-6 w-6 text-green-500'
-                    aria-hidden='true'
-                  />
-                  <p className='ml-9 text-lg leading-6 font-medium text-gray-900'>
-                    {feature.name}
-                  </p>
-                </dt>
-                <dd className='mt-2 ml-9 flex text-base text-gray-500 lg:py-0 lg:pb-4'>
-                  {feature.description}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <AllInOne />
       </div>
 
       <div className='bg-secondary'>
@@ -428,10 +353,10 @@ export default function Example() {
               Frequently asked questions
             </h2>
             <p className='text-lg text-gray-500'>
-              Can’t find the answer you’re looking for? Reach out to our{' '}
+              Can’t find the answer you’re looking for? Reach out to our
               <a href='#' className='font-medium text-secondary'>
                 customer support
-              </a>{' '}
+              </a>
               team.
             </p>
           </div>
@@ -450,8 +375,6 @@ export default function Example() {
         </div>
       </div>
       <Impresum />
-
-      {/* Footer 4-column with newsletter and localization dark */}
     </div>
   );
 }
