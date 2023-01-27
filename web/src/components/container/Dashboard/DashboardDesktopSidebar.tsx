@@ -73,6 +73,17 @@ const post = [
   },
 ];
 
+const shieldPost = [
+  { name: 'Preis', href: '/dashboard/postshield/price', icon: AiOutlineArrowRight, current: false },
+  {
+    name: 'Kontakt / Support',
+    href: '/dashboard/postshield/support',
+    icon: AiOutlineArrowRight,
+    current: false,
+  },
+  { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
+];
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
@@ -83,17 +94,6 @@ interface DashboardDesktopSidebarProps {
 const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
   children,
 }) => {
-  const shieldPost = [
-    { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
-    {
-      name: 'Kontakt / Support',
-      href: '/dashboard/postshield/support',
-      icon: AiOutlineArrowRight,
-      current: false,
-    },
-    { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
-  ];
-
   return (
     <div className='hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100'>
       <div>
@@ -105,6 +105,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
           <div className='space-y-1'>
             {navigation.map((item) => (
               <Link
+                type='button'
                 key={item.name}
                 href={item.href}
                 className={classNames(
@@ -135,6 +136,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
               {post.map((team) => (
                 <>
                   <a
+                    type='button'
                     key={team.name}
                     href={team.href}
                     className='group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
@@ -164,6 +166,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
               {teams.map((team: any) => (
                 <>
                   <a
+                    type='button'
                     key={team.name}
                     href={team.href}
                     className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
@@ -196,6 +199,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
               {shieldPost.map((team) => (
                 <>
                   <a
+                    type='button'
                     key={team.name}
                     href={team.href}
                     className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '

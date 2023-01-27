@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             <li>
               <a
                 href='#'
-                className='block py-2 pl-3 text-xl pr-4 text-secondary bg-main rounded md:bg-transparent md:p-0 '
+                className='block py-2 pl-3 text-xl pr-4 text-gray-700 bg-main rounded md:bg-transparent md:p-0 '
                 aria-current='page'
               >
                 Brief Übertragen
