@@ -7,7 +7,6 @@ const DashboardNavbar = () => {
   useEffect(() => {
     const getUser = async () => {
       const response = await axios.get('http://localhost:4000/auth/user');
-      console.log(response.data);
     };
     getUser();
   }, []);

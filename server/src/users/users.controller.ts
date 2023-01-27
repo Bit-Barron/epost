@@ -51,6 +51,6 @@ export class UsersController {
   @UseGuards(AuthGuard)
   getUser(@Request() req) {
     console.log(req.user);
-    return 'test';
+    return req.user;
   }
 }
