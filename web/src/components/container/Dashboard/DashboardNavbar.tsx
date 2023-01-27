@@ -39,8 +39,10 @@ const DashboardNavbar = () => {
           type='button'
           className='order-1 ml-3 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 sm:order-0 sm:ml-0'
         >
-          {user.map((item) => (
-            <div>{item.email}</div>
+          {user.map((item, idx) => (
+            <div key={idx}>
+              <div>{item.email}</div>
+            </div>
           ))}
           <AiOutlineArrowDown className='ml-1' />
         </button>
