@@ -37,7 +37,7 @@ const teams = [
   },
   {
     name: 'Zugangsdaten',
-    href: '#',
+    href: '/dashboard/settings/accesdata',
     bgColorClass: 'bg-green-500',
     icon: BsFillKeyFill,
     current: false,
@@ -80,7 +80,9 @@ interface DashboardDesktopSidebarProps {
   children?: React.ReactNode;
 }
 
-const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({ children }) => {
+const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
+  children,
+}) => {
   const shieldPost = [
     { name: 'Preis', href: '#', icon: AiOutlineArrowRight, current: false },
     {
