@@ -42,8 +42,8 @@ const Partnership: React.FC<partnershipProps> = ({}) => {
                 >
                   <Image
                     className='h-12'
-                    width={50}
-                    height={50}
+                    width={90}
+                    height={90}
                     src={logo.url}
                     alt={logo.name}
                   />

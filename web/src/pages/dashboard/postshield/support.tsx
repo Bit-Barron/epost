@@ -12,6 +12,18 @@ const PostShield: React.FC<indexProps> = ({}) => {
     <DashboardContainer>
       <div className='mt-52'>
         <div className='container my-24 px-6 mx-auto'>
+          <div className='mt-10 text-secondary'>
+            <div className='font-bold text-2xl flex justify-center'>
+              Hier sprechen Sie direkt und ohne Umwege mit uns
+            </div>
+            <div className='text-gray-500 text-xl mr-10 mt-10 mb-10'>
+              <span className='ml-20'>Lassen Sie sich individuell beraten, wie sich Postshield bei
+              Ihnen in die Geschäftsprozesse einbinden lässt. Persönliche
+              Klärung <br /></span> Ihrer Fragen per Telefon oder E-Mail. Unsere
+              Servicezeiten sind montags bis donnerstags von 9.00 Uhr bis 16.00
+              Uhr und freitags von 9.00 Uhr bis 14.00 Uhr.
+            </div>
+          </div>
           <section className='mb-32 text-gray-800'>
             <div className='relative overflow-hidden bg-no-repeat bg-cover'></div>
             <div className='container text-gray-800 px-4 md:px-12'>
