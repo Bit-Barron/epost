@@ -100,7 +100,7 @@ const Index: React.FC = ({}) => {
       </div>
       <div className='bg-[#1d1f20] p-5'>
         <div className='font-bold text-center text-2xl mt-10'>
-          Über 27.500 Kunden vertrauen uns jährlich über 20 Millionen Briefe an
+          In drei Schritten zum zugestellten Brief
         </div>
       </div>
     </div>
