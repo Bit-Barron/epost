@@ -9,12 +9,11 @@ export class PostsController {
   @Post('/create')
   @UseGuards(AuthGuard)
   createPost(@Body() body: CreatePostDto, @Request() req) {
-    const userId = req.user.sub;
-    return this.postsService.create(body.post, userId, body.betreff);
+    return this.postsService.create(body.betreff, body.id, body.post, req.user);
   }
   @UseGuards(AuthGuard)
   @Post('/all')
-  findAllUsers(@Query('posts') posts: string) {
+  findAllUsers(@Query('posts') posts: string, @Request() req) {
     return this.postsService.findAll(posts);
   }
 

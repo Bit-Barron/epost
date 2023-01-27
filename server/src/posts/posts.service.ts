@@ -9,7 +9,14 @@ export class PostsService {
     @InjectRepository(Posts)
     private repo: Repository<Posts>,
   ) {}
-  create(posts: string, id: number, betreff: string) {
+  async create(
+    posts: string,
+    id: number,
+    betreff: string,
+    userId: string,
+  ): Promise<Posts> {
+    const post = new Posts();
+
     const user = this.repo.create({ posts, id, betreff });
     return this.repo.save(user);
   }

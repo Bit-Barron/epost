@@ -5,6 +5,7 @@ import {
   Res,
   UseGuards,
   Request,
+  Get,
 } from '@nestjs/common';
 import { CreateUserDto } from '../users/dtos/create-user.dto';
 import { AuthService } from './auth.service';
@@ -44,5 +45,12 @@ export class UsersController {
   async logout(@Res() res: Response) {
     res.clearCookie('jwt');
     return res.send('logout');
+  }
+
+  @Get('/user')
+  @UseGuards(AuthGuard)
+  getUser(@Request() req) {
+    console.log(req.user);
+    return 'test';
   }
 }
