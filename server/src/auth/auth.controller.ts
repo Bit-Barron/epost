@@ -39,7 +39,7 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Post('/test')
   test(@Req() req: FastifyRequest) {
-    console.log(req.user);
+    console.log(req);
     return 'test';
   }
 }
