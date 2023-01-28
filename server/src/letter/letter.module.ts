@@ -9,4 +9,4 @@ import { LetterService } from './letter.service';
   controllers: [LetterController],
   providers: [LetterService],
 })
-export class PostsModule {}
+export class LetterModule {}
