@@ -1,18 +1,31 @@
+import secureSession from '@fastify/secure-session';
 import { NestFactory } from '@nestjs/core';
-import cookieParser from 'cookie-parser';
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from '@nestjs/platform-fastify';
 import dotenv from 'dotenv';
+
 import { AppModule } from './app.module';
 
 dotenv.config();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+  );
 
   app.enableCors({
     origin: 'http://localhost:3000',
     credentials: true,
   });
-  app.use(cookieParser());
-  await app.listen(4000);
+
+  await app.register(secureSession, {
+    secret: process.env.SECRET,
+    salt: process.env.SALT,
+  });
+
+  await app.listen(4000, '0.0.0.0');
 }
 bootstrap();

@@ -1,5 +1,6 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Post, Req, Res } from '@nestjs/common';
 import { Response } from 'express';
+import { FastifyReply } from 'fastify';
 import { COOKIE_NAME } from '../constants';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
 import { AuthService } from './auth.service';
@@ -15,11 +16,12 @@ export class AuthController {
   }
 
   @Post('/login')
-  async login(@Body() body: CreateUserDto, @Res() res: Response) {
+  async login(
+    @Body() body: CreateUserDto,
+    @Res() res: FastifyReply,
+    @Req() req: FastifyReply,
+  ) {
     const user = await this.authService.login(body);
-    console.log(`User with ID ${user.user.id} logged in`);
-    res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
-
     return user;
   }
 
