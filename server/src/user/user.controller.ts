@@ -14,8 +14,7 @@ export class UserController {
   }
 
   @Get('/user')
-  @UseGuards(AuthGuard)
   getUser() {
-    return '';
+    return 'asd';
   }
 }

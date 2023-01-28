@@ -18,9 +18,9 @@ export class AuthController {
   async login(@Body() body: CreateUserDto, @Res() res: Response) {
     const user = await this.authService.login(body);
     console.log(`User with ID ${user.user.id} logged in`);
-    const cookie = res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
+    res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
 
-    return user;
+    return 'test';
   }
 
   @Post('/logout')
@@ -28,5 +28,10 @@ export class AuthController {
     res.clearCookie(COOKIE_NAME);
 
     return true;
+  }
+
+  @Post('/test')
+  test() {
+    return 'test';
   }
 }
