@@ -1,3 +1,4 @@
+import { IsDefined } from 'class-validator';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../user/user.entity';
 
@@ -6,12 +7,15 @@ export class Letter {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: false })
+  @IsDefined()
   title: string;
 
-  @Column()
+  @Column({ nullable: false })
+  @IsDefined()
   content: string;
 
-  @ManyToOne(() => User, (user) => user.letters)
+  @ManyToOne(() => User, (user) => user.letters, { nullable: false })
+  @IsDefined()
   user: User;
 }

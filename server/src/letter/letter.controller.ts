@@ -5,7 +5,7 @@ import { AuthGuard } from 'src/app_modules/guard/auth.guard';
 import { CreateLetterDto } from './dtos/create-post.dto';
 import { LetterService } from './letter.service';
 
-@Controller('post')
+@Controller('letter')
 export class LetterController {
   constructor(private letterService: LetterService) {}
 
@@ -15,7 +15,8 @@ export class LetterController {
     @Body() createLetterDto: CreateLetterDto,
     @Req() req: Request,
   ) {
-    return await this.letterService.create({});
+    createLetterDto.userId = req.user.sub;
+    return await this.letterService.create(createLetterDto);
   }
 
   @UseGuards(AuthGuard)
