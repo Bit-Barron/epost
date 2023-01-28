@@ -1,4 +1,6 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Response } from 'express';
+import { COOKIE_NAME } from '../constants';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
 import { AuthService } from './auth.service';
 
@@ -16,15 +18,15 @@ export class AuthController {
   async login(@Body() body: CreateUserDto, @Res() res: Response) {
     const user = await this.authService.login(body);
     console.log(`User with ID ${user.user.id} logged in`);
-
-    const cookie = res;
+    const cookie = res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
 
     return { cookie, user };
   }
 
   @Post('/logout')
   async logout(@Res() res: Response) {
-    res.clearCookie('jwt');
-    return res.send('logout');
+    res.clearCookie(COOKIE_NAME);
+
+    return true;
   }
 }

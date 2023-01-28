@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Post, Request } from '@nestjs/common';
-import { Param, UseGuards } from '@nestjs/common/decorators';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Param, Req, UseGuards } from '@nestjs/common/decorators';
+import { Request } from 'express';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
 import { CreateLetterDto } from './dtos/create-post.dto';
 import { LetterService } from './letter.service';
@@ -12,7 +13,7 @@ export class LetterController {
   @UseGuards(AuthGuard)
   async createPost(
     @Body() createLetterDto: CreateLetterDto,
-    @Request() req: Request,
+    @Req() req: Request,
   ) {
     return await this.letterService.create({});
   }

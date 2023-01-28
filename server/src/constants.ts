@@ -1,3 +1,1 @@
-export const jwtConstants = {
-  secret: 'sadfasdfasdfsdsdafsdfasdffasdfaswqrqwqwerwerdfasdf',
-};
+export const COOKIE_NAME = 'jwt';
