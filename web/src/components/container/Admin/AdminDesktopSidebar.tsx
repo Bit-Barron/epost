@@ -12,21 +12,6 @@ const navigation = [
   { name: 'Postbox', href: '/admin/postbox', icon: BsBoxSeam, current: true },
 ];
 
-const post = [
-  {
-    name: 'Upload Post',
-    href: '/dashboard/post/uploadpost',
-    icon: SiMinutemailer,
-    current: false,
-  },
-  {
-    name: 'Write Post',
-    href: '/dashboard/post/writepost',
-    icon: HiMail,
-    current: false,
-  },
-];
-
 const shieldPost = [
   {
     name: 'Support',
@@ -36,6 +21,7 @@ const shieldPost = [
   },
   { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
 ];
+
 const user = [
   {
     name: 'User',

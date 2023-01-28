@@ -17,7 +17,8 @@ export class AuthController {
   @Post('/login')
   async login(@Body() body: CreateUserDto, @Res() res: Response) {
     const user = await this.authService.login(body);
-    res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
+    console.log(`User with ID ${user.user.id} logged in`);
+    const cookie = res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
 
     return user;
   }
