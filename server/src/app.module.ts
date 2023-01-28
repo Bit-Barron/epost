@@ -7,7 +7,10 @@ import { User } from './user/user.entity';
 
 import { UserModule } from './user/user.module';
 
-const TypeOrmModules = TypeOrmModule.forFeature([User, Letter]);
+const ENTITIES = [User, Letter];
+
+const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
+
 @Global()
 @Module({
   imports: [
@@ -21,7 +24,7 @@ const TypeOrmModules = TypeOrmModule.forFeature([User, Letter]);
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [User, Letter],
+      entities: ENTITIES,
       synchronize: true,
     }),
     TypeOrmModules,
