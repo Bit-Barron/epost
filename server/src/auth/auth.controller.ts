@@ -1,9 +1,10 @@
-import { Body, Controller, Post, Req, Res } from '@nestjs/common';
+import { Body, Controller, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { FastifyReply } from 'fastify';
 import { COOKIE_NAME } from '../constants';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
 import { AuthService } from './auth.service';
+
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
@@ -15,12 +16,9 @@ export class AuthController {
   }
 
   @Post('/login')
-  async login(
-    @Body() body: CreateUserDto,
-    @Res() res: FastifyReply,
-    @Req() req: FastifyReply,
-  ) {
+  async login(@Body() body: CreateUserDto, reply: FastifyReply) {
     const user = await this.authService.login(body);
+
     return user;
   }
 
