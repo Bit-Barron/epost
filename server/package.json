@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@fastify/cookie": "^8.3.0",
     "@fastify/secure-session": "^6.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
@@ -31,6 +32,7 @@
     "argon2": "^0.30.3",
     "class-validator": "^0.14.0",
     "cookie-parser": "^1.4.6",
+    "fastify-cookie": "^5.7.0",
     "fastify-secure-session": "^3.2.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",

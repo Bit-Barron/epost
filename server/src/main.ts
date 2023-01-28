@@ -1,4 +1,4 @@
-import secureSession from '@fastify/secure-session';
+import fastifyCookie from '@fastify/cookie';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -21,9 +21,8 @@ async function bootstrap() {
     credentials: true,
   });
 
-  await app.register(secureSession, {
+  await app.register(fastifyCookie, {
     secret: process.env.SECRET,
-    salt: process.env.SALT,
   });
 
   await app.listen(4000, '0.0.0.0');

@@ -1,6 +1,8 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Req, UseGuards } from '@nestjs/common/decorators';
 import { Response } from 'express';
-import { FastifyReply } from 'fastify';
+import { FastifyReply, FastifyRequest } from 'fastify';
+import { AuthGuard } from '../app_modules/guard/auth.guard';
 import { COOKIE_NAME } from '../constants';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
 import { AuthService } from './auth.service';
@@ -16,8 +18,13 @@ export class AuthController {
   }
 
   @Post('/login')
-  async login(@Body() body: CreateUserDto, reply: FastifyReply) {
+  async login(
+    @Body() body: CreateUserDto,
+    @Res({ passthrough: true }) res: FastifyReply,
+  ) {
     const user = await this.authService.login(body);
+
+    res.setCookie(COOKIE_NAME, user.token, { httpOnly: true });
 
     return user;
   }
@@ -29,8 +36,10 @@ export class AuthController {
     return true;
   }
 
+  @UseGuards(AuthGuard)
   @Post('/test')
-  test() {
+  test(@Req() req: FastifyRequest) {
+    console.log(req.user);
     return 'test';
   }
 }
