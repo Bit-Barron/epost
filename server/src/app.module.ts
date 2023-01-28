@@ -1,4 +1,5 @@
 import { Global, Module } from '@nestjs/common';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Letter } from './letter/letter.entity';
@@ -17,6 +18,10 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     AuthModule,
     UserModule,
     LetterModule,
+    JwtModule.register({
+      secret: process.env.SECRET,
+      signOptions: { expiresIn: '30d' },
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -29,6 +34,7 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     }),
     TypeOrmModules,
   ],
-  exports: [TypeOrmModules],
+  providers: [JwtService],
+  exports: [TypeOrmModules, JwtService],
 })
 export class AppModule {}

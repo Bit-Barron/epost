@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Param, Req, UseGuards } from '@nestjs/common/decorators';
-import { Request } from 'express';
+import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
 import { CreateLetterDto } from './dtos/create-letter.dto';
 import { LetterService } from './letter.service';
@@ -13,7 +13,7 @@ export class LetterController {
   @UseGuards(AuthGuard)
   async createPost(
     @Body() createLetterDto: CreateLetterDto,
-    @Req() req: Request,
+    @Req() req: FastifyRequest,
   ) {
     createLetterDto.userId = req.user.sub;
     return await this.letterService.create(createLetterDto);
