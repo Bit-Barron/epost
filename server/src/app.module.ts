@@ -11,7 +11,6 @@ import { UserModule } from './user/user.module';
     AuthModule,
     UserModule,
     LetterModule,
-
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
