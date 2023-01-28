@@ -4,7 +4,6 @@ import { FastifyReply } from 'fastify';
 import { COOKIE_NAME } from '../constants';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
 import { AuthService } from './auth.service';
-
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
