@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Param, Req, UseGuards } from '@nestjs/common/decorators';
 import { Request } from 'express';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
-import { CreateLetterDto } from './dtos/create-post.dto';
+import { CreateLetterDto } from './dtos/create-letter.dto';
 import { LetterService } from './letter.service';
 
 @Controller('letter')

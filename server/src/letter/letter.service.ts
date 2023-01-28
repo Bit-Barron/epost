@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateLetterDto } from './dtos/create-post.dto';
+import { CreateLetterDto } from './dtos/create-letter.dto';
 import { Letter } from './letter.entity';
 
 @Injectable()
