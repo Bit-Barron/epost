@@ -1,12 +1,15 @@
+import { Inject } from '@nestjs/common';
 import { CanActivate, ExecutionContext } from '@nestjs/common/interfaces';
-import { Request } from 'express';
-import * as jwt from 'jsonwebtoken';
+import { JwtService } from '@nestjs/jwt';
+import { FastifyRequest } from 'fastify';
 import { COOKIE_NAME } from '../../constants';
-import { JwtPayload } from '../@types';
+import { JwtUser } from '../@types';
 
 export class AuthGuard implements CanActivate {
+  constructor(@Inject(JwtService) private jwtService: JwtService) {}
+
   canActivate(context: ExecutionContext) {
-    const request = context.switchToHttp().getRequest<Request>();
+    const request = context.switchToHttp().getRequest<FastifyRequest>();
 
     const token = request.cookies[COOKIE_NAME];
 
@@ -15,10 +18,9 @@ export class AuthGuard implements CanActivate {
     }
 
     try {
-      const user = jwt.verify(
-        token,
-        process.env.SECRET,
-      ) as unknown as JwtPayload;
+      const user = this.jwtService.verify(token, {
+        secret: process.env.SECRET,
+      }) as JwtUser;
 
       request.user = user;
 

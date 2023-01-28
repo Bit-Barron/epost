@@ -1,6 +1,6 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
     SECRET: string;
-    SALT: string;
+    CORS_ORIGIN: string;
   }
 }

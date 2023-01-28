@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
-import { JwtPayload } from '../app_modules/@types';
+import { JwtUser } from '../app_modules/@types';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
 import { UserService } from '../user/user.service';
 
@@ -32,7 +32,7 @@ export class AuthService {
     if (!user) throw new NotFoundException('User not found');
 
     if (await argon2.verify(user.password, body.password)) {
-      const payload: JwtPayload = { sub: user.id, email: user.email };
+      const payload: JwtUser = { sub: user.id, email: user.email };
       return {
         user,
         token: this.jwtService.sign(payload, { secret: process.env.SECRET }),
