@@ -1,7 +1,7 @@
 import { CanActivate, ExecutionContext } from '@nestjs/common/interfaces';
 import { Request } from 'express';
 import * as jwt from 'jsonwebtoken';
-import { jwtConstants } from '../constants';
+import { jwtConstants } from '../../constants';
 export class AuthGuard implements CanActivate {
   canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest<Request>();

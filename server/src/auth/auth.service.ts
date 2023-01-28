@@ -5,14 +5,14 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
-import { jwtConstants } from '../constants';
-import { CreateUserDto } from './dtos/create-user.dto';
-import { UsersService } from './users.service';
+import { JwtPayload } from '../app_modules/@types';
+import { CreateUserDto } from '../user/dtos/create-user.dto';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService,
+    private usersService: UserService,
     private jwtService: JwtService,
   ) {}
 
@@ -32,8 +32,11 @@ export class AuthService {
     if (!user) throw new NotFoundException('User not found');
 
     if (await argon2.verify(user.password, body.password)) {
-      const payload = { email: user.email, sub: user.id };
-      return { user, token: this.jwtService.sign(payload, jwtConstants) };
+      const payload: JwtPayload = { sub: user.id, email: user.email };
+      return {
+        user,
+        token: this.jwtService.sign(payload, { secret: process.env.SECRET }),
+      };
     }
   }
 }
