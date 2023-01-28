@@ -20,7 +20,7 @@ export class AuthController {
     console.log(`User with ID ${user.user.id} logged in`);
     res.cookie(COOKIE_NAME, user.token, { httpOnly: true });
 
-    return 'test';
+    return user;
   }
 
   @Post('/logout')
