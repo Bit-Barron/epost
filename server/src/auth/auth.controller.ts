@@ -46,7 +46,8 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('/test')
   test(@Req() req: FastifyRequest) {
-    console.log(req.user);
+    console.log('test');
+    console.log(req);
     return 'test';
   }
 }
