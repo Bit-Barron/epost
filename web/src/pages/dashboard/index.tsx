@@ -11,7 +11,8 @@ function Dashboard({}: dashboardProps) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        await axios.post('http://localhost:4000/user/dashboard');
+        const res = await axios.post('http://localhost:4000/user/dashboard');
+        console.log(res)
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
           router.push('/auth/login');

@@ -12,13 +12,11 @@ const Login: React.FC<loginProps> = () => {
   const router = useRouter();
 
   const submit = async () => {
-    const response = await axios.post('http://localhost:4000/auth/login', {
+    await axios.post('http://localhost:4000/auth/login', {
       email,
       password,
       withCredentials: true,
     });
-    console.log(response.data);
-
     router.push('/dashboard');
   };
   return (
