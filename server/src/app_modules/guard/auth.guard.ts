@@ -1,12 +1,13 @@
-import { Inject } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CanActivate, ExecutionContext } from '@nestjs/common/interfaces';
 import { JwtService } from '@nestjs/jwt';
 import { FastifyRequest } from 'fastify';
 import { COOKIE_NAME } from '../../constants';
 import { JwtUser } from '../@types';
 
+@Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(@Inject(JwtService) private jwtService: JwtService) {}
+  constructor(private jwtService: JwtService) {}
 
   canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest<FastifyRequest>();
