@@ -17,8 +17,9 @@ const Login: React.FC<loginProps> = () => {
       password,
       withCredentials: true,
     });
+    console.log(response.data);
 
-    router.push('/dashboard/');
+    router.push('/dashboard');
   };
   return (
     <>

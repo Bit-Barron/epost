@@ -7,7 +7,7 @@ import { UserService } from './user.service';
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Post('/test')
+  @Post('/dashboard')
   @UseGuards(AuthGuard)
   async dashboard() {
     return 'test';
