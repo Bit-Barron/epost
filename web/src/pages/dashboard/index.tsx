@@ -22,6 +22,7 @@ function Dashboard({}: dashboardProps) {
     };
     getUser();
   }, [router]);
+  console.log("asdauiz")
 
   return (
     <>
