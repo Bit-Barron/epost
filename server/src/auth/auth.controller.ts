@@ -26,18 +26,19 @@ export class AuthController {
   @Post('/login')
   async login(
     @Body() body: CreateUserDto,
-    @Res({ passthrough: true }) response: FastifyReply,
+    // pass the reply object to set the cookie, not working if passthrough is false
+    @Res({ passthrough: true }) reply: FastifyReply,
   ) {
     const user = await this.authService.login(body);
 
-    response.setCookie(COOKIE_NAME, user.token, COOKIE_SERIALIZE_OPTIONS);
+    reply.setCookie(COOKIE_NAME, user.token, COOKIE_SERIALIZE_OPTIONS);
 
     return user;
   }
 
   @Post('/logout')
   async logout(@Res() reply: FastifyReply) {
-    reply.clearCookie(COOKIE_NAME);
+    reply.clearCookie(COOKIE_NAME, COOKIE_SERIALIZE_OPTIONS);
 
     return true;
   }
@@ -46,7 +47,7 @@ export class AuthController {
   @Get('/test')
   test(@Req() req: FastifyRequest) {
     console.log('test');
-    console.log(req);
+    console.log(req.user);
     return 'test';
   }
 }
