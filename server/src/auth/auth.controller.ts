@@ -47,7 +47,7 @@ export class AuthController {
   @Get('/test')
   test(@Req() req: FastifyRequest) {
     console.log('test');
-    console.log(req);
+    console.log(req.user);
     return 'test';
   }
 }
