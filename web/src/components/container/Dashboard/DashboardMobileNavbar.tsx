@@ -25,9 +25,9 @@ export const DashboardMobileNavbar: React.FC<
     <div className='mt-5 flex-1 h-0 overflow-y-auto'>
       <nav className='px-2'>
         <div className='space-y-1'>
-          {navigation.map((item: current) => (
+          {navigation.map((item: current, idx) => (
             <Link
-              key={item.name}
+              key={idx}
               href={item.href}
               className={classNames(
                 item.current

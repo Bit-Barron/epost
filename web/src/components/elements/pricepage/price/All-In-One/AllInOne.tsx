@@ -60,8 +60,8 @@ const AllInOne: React.FC<AllInOneProps> = ({}) => {
         </p>
       </div>
       <dl className='mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8'>
-        {features.map((feature) => (
-          <div key={feature.name} className='relative'>
+        {features.map((feature, idx) => (
+          <div key={idx} className='relative'>
             <dt>
               <CheckIconOutline
                 className='absolute h-6 w-6 text-green-500'
