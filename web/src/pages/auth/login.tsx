@@ -20,6 +20,7 @@ const Login = () => {
     });
     router.push('/dashboard');
   };
+
   return (
     <>
       <div className='flex justify-center'>
@@ -34,11 +35,14 @@ const Login = () => {
       <form>
         <LoginMethodButton
           className='bg-blue-500 hover:bg-blue-700'
-          name={'FACEBOOK'}
+          name={'WEITER MIT FACEBOOK'}
         />
-        <LoginMethodButton className='bg-black' name={'APPLE'} />
+        <LoginMethodButton className='bg-black' name={'WEITER MIT APPLE'} />
 
-        <LoginMethodButton className='bg-transparent' name={'GOOGLE'} />
+        <LoginMethodButton
+          className='bg-transparent'
+          name={'WEITER MIT GOOGLE'}
+        />
 
         <div className='inline-flex items-center justify-center w-full'>
           <hr className='w-96 my-8 border-1 text-gray-700' />
@@ -51,7 +55,6 @@ const Login = () => {
           type='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          aria-describedby='helper-text-explanation'
           placeholder='E-Mail-Adresse oder Benutzername'
           label={'E-Mail-Adresse oder Benutzername'}
         />
@@ -60,7 +63,6 @@ const Login = () => {
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          aria-describedby='helper-text-explanation'
           placeholder='Password'
           label={'Password'}
         />
@@ -80,14 +82,11 @@ const Login = () => {
           Du hast kein Konto ?
         </div>
 
-        <div className='flex justify-center mt-5'>
-          <button
-            className='border-gray-200 p-3 border-2 w-96 bg-transparent text-white font-bold rounded-full'
-            onClick={() => router.push('/register')}
-          >
-            Bei {process.env.NEXT_PUBLIC_NAME} Regrestieren
-          </button>
-        </div>
+        <LoginMethodButton
+          className='border-gray-200 p-3 border-2 w-96 bg-transparent text-white font-bold rounded-full'
+          onClick={() => router.push('/auth/register')}
+          name={`Bei ${process.env.NEXT_PUBLIC_NAME} Regrestieren`}
+        />
       </form>
     </>
   );

@@ -36,11 +36,11 @@ const Register = ({}) => {
       </div>
       <LoginMethodButton
         className='bg-blue-500 hover:bg-blue-700'
-        name={'APPLE'}
+        name={'WEITER MIT APPLE'}
       />
       <LoginMethodButton
         className=' text-white bg-transparent border-2 font-bold rounded-full'
-        name={'GOOGLE'}
+        name={'WEITER MIT GOOGLE'}
       />
       <div className='inline-flex items-center justify-center w-full'>
         <hr className='w-96 my-8 border-1 text-gray-700' />
@@ -93,7 +93,7 @@ const Register = ({}) => {
         <span
           className='text-secondary ml-1 underline'
           onClick={() => {
-            return router.push('/login');
+            return router.push('auth/login');
           }}
         >
           Log in.
