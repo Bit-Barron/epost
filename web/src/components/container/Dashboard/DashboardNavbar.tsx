@@ -10,7 +10,6 @@ const DashboardNavbar = () => {
     const getUser = async () => {
       try {
         const response = await axios.get('http://localhost:4000/user/user');
-        console.log(response.data.email);
         setUser(response.data.email);
       } catch (err) {
         console.log(err);
