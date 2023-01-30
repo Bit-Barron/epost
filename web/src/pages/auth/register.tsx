@@ -23,14 +23,16 @@ const Register = ({}) => {
 
     router.push('/dashboard/');
   };
-  
+
   return (
     <>
       <div className='flex justify-center mr-3'>
         <span className='font-semibold text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='asd' />
         </span>
-        <div className='text-3xl font-bold mt-6 text-secondary'>{process.env.NEXT_PUBLIC_NAME}</div>
+        <div className='text-3xl font-bold mt-6 text-secondary'>
+          {process.env.NEXT_PUBLIC_NAME}
+        </div>
       </div>
       <LoginMethodButton
         className='bg-blue-500 hover:bg-blue-700'
@@ -49,7 +51,7 @@ const Register = ({}) => {
       <div className='flex justify-center font-bold text-xl'>
         Sign up with your email address
       </div>
-      
+
       <AuthInput
         type='email'
         value={email}
