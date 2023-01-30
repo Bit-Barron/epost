@@ -3,10 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { BsBoxSeam } from 'react-icons/bs';
-import { HiMail } from 'react-icons/hi';
-import { SiMinutemailer } from 'react-icons/si';
-import main from '../../../../public/images/main.png';
 import { FiUsers } from 'react-icons/fi';
+import main from '../../../../public/images/main.png';
 
 const navigation = [
   { name: 'Postbox', href: '/admin/postbox', icon: BsBoxSeam, current: true },
@@ -25,7 +23,7 @@ const shieldPost = [
 const user = [
   {
     name: 'User',
-    href: '#',
+    href: '/admin/user',
     icon: FiUsers,
     current: false,
   },
