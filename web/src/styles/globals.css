@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-[#17191a]
+}
 
 ::-webkit-scrollbar {
     width: 2px;

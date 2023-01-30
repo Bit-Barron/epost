@@ -105,10 +105,10 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
           </button>
         </div>
         <div
-          className='items-center justify-between hidden w-full md:flex md:w-auto md:order-1'
+          className='items-center justify-between bg-transparent hidden w-full md:flex md:w-auto md:order-1'
           id='mobile-menu-2'
         >
-          <ul className='flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-main md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white '>
+          <ul className='flex bg-transparen flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-main md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0'>
             <li>
               <a
                 href='#'

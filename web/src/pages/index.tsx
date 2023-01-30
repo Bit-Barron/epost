@@ -24,9 +24,9 @@ const Index: React.FC = ({}) => {
           Unsere Webintermine
         </button>
       </header>
-      <hr className='h-px mt-2 bg-gray-200 border-0 dark:bg-gray-700' />
+      <hr className='h-px  mt-2 border-0 border-[#2c3441]' />
       <Navbar />
-      <hr className='h-px mt-2 bg-gray-200 border-0 dark:bg-gray-700' />
+      <hr className='h-px mt-2 bg-gray-200 border-0' />
       <div className='bg-[#1f2123] h-[500px]'>
         <div className='flex justify-center'>
           <Image
@@ -36,7 +36,7 @@ const Index: React.FC = ({}) => {
             alt='Briefe online versenden'
             src='https://www.letterxpress.de/images/animation/desktop/lxp_desktop_109.jpg'
           />
-          <span className={`mt-32 text-3xl text-black ${quicksand.className}`}>
+          <span className={`mt-32 text-3xl text-white ${quicksand.className}`}>
             Briefe online versenden
             <ul className='text-lg text-gray-500'>
               <li className='mt-4 flex '>
@@ -60,7 +60,7 @@ const Index: React.FC = ({}) => {
                 Produktion, Versand durch die Deutsche Post AG mit GOGREEN
               </li>
               <button
-                className='bg-[#f7902c] hover:bg-[#9f5d1b] text-white font-bold py-2 px-4 rounded-full mt-10'
+                className='bg-secondary hover:bg-[#9f5d1b] text-white font-bold py-2 px-4 rounded-full mt-10'
                 onClick={() => {
                   return router.push('/auth/login');
                 }}
@@ -97,7 +97,7 @@ const Index: React.FC = ({}) => {
           </div>
         </div>
       </div>
-      <div className='bg-[#1d1f20] p-5'>
+      <div className='bg-[#1d1f20] text-white p-5'>
         <div className='font-bold text-center text-2xl mt-10'>
           In drei Schritten zum zugestellten Brief
         </div>
