@@ -99,6 +99,14 @@ const Register = ({}) => {
           Log in.
         </span>
       </div>
+      <button
+        className='bg-green-500'
+        onClick={() => {
+          return router.push('/dashboard');
+        }}
+      >
+        asd
+      </button>
     </>
   );
 };

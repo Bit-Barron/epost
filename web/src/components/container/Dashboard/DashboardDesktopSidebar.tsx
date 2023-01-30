@@ -75,7 +75,12 @@ const post = [
 ];
 
 const shieldPost = [
-  { name: 'Preis', href: '/dashboard/postshield/price', icon: AiOutlineArrowRight, current: false },
+  {
+    name: 'Preis',
+    href: '/dashboard/postshield/price',
+    icon: AiOutlineArrowRight,
+    current: false,
+  },
   {
     name: 'Kontakt / Support',
     href: '/dashboard/postshield/support',
@@ -137,7 +142,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
             <div className='mt-2'>
               {post.map((team) => (
                 <>
-                  <a
+                  <Link
                     type='button'
                     key={team.name}
                     href={team.href}
@@ -152,7 +157,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                     />
                     <span aria-hidden='true' />
                     <span className='truncate'>{team.name}</span>
-                  </a>
+                  </Link>
                 </>
               ))}
             </div>
@@ -167,7 +172,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
             <div className='mt-2'>
               {teams.map((team) => (
                 <>
-                  <a
+                  <Link
                     type='button'
                     key={team.name}
                     href={team.href}
@@ -185,7 +190,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                       aria-hidden='true'
                     />
                     <span className='truncate'>{team.name}</span>
-                  </a>
+                  </Link>
                 </>
               ))}
             </div>
@@ -200,7 +205,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
             <div className='mt-2 mb-10'>
               {shieldPost.map((team) => (
                 <>
-                  <a
+                  <Link
                     type='button'
                     key={team.name}
                     href={team.href}
@@ -216,18 +221,18 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
 
                     <span aria-hidden='true' />
                     <span className='truncate'>{team.name}</span>
-                  </a>
+                  </Link>
                 </>
               ))}
             </div>
           </div>
           <div className='mt-3'>
-            <a
+            <Link
               href='/'
               className='bg-secondary p-1 text-white font-bold w-full rounded'
             >
               Kundenbereich verlassen
-            </a>
+            </Link>
           </div>
           {children}
         </nav>

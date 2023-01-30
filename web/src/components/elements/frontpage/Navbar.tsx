@@ -3,6 +3,7 @@ import Image from 'next/image';
 import main from '../../../../public/images/main.png';
 
 import { Quicksand } from '@next/font/google';
+import Link from 'next/link';
 
 const quicksand = Quicksand({
   weight: '700',
@@ -15,14 +16,14 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
     <nav className='bg-main border-gray-200 px-2 sm:px-4 py-2.5 rounded '>
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
-        <a href='https://flowbite.com/' className='flex items-center'>
+        <Link href={'https://flowbite.com/'} className='flex items-center'>
           <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
             <Image width={80} height={50} src={main} alt='asd' />
             <div className={`${quicksand.className} mt-5 text-[#f7902c]`}>
               Postshield
             </div>
           </span>
-        </a>
+        </Link>
         <div className='flex items-center md:order-2'>
           <button
             type='button'

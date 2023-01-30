@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface DashboardMobileNavbarProps {}
@@ -25,7 +26,7 @@ export const DashboardMobileNavbar: React.FC<
       <nav className='px-2'>
         <div className='space-y-1'>
           {navigation.map((item: current) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className={classNames(
@@ -37,7 +38,7 @@ export const DashboardMobileNavbar: React.FC<
               aria-current={item.current ? 'page' : undefined}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
         <div className='mt-8'>
