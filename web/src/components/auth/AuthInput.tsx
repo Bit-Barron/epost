@@ -18,7 +18,7 @@ const AuthInput: React.FC<InputProps> = ({
   className,
 }) => {
   return (
-    <div className='flex justify-center mt-10'>
+    <div className='flex justify-center mt-5'>
       <div>
         <div>
           <div className='mr-28 font-bold mb-2'>{label}</div>

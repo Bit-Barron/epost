@@ -48,7 +48,7 @@ const Register = ({}) => {
           or
         </span>
       </div>
-      <div className='flex justify-center font-bold text-xl'>
+      <div className='flex justify-center font-bold text-xl mb-10'>
         Sign up with your email address
       </div>
 

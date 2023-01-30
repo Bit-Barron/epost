@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import main from '../../../public/images/main.png';
+import AuthInput from '../../components/auth/AuthInput';
 import Button from '../../components/auth/Button';
 import { LoginMethodButton } from '../../components/auth/LoginMethodButton';
 
@@ -26,9 +27,11 @@ const Login = () => {
         <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='asd' />
         </span>
-        <div className='text-3xl font-bold mt-6 text-secondary'>Postshield</div>
+        <div className='text-3xl font-bold mt-6 text-secondary'>
+          {process.env.NEXT_PUBLIC_NAME}
+        </div>
       </div>
-      <hr className='h-px my-8 bg-gray-200' />
+
       <div>
         <LoginMethodButton
           className='bg-blue-500 hover:bg-blue-700'
@@ -39,64 +42,51 @@ const Login = () => {
         <LoginMethodButton className='bg-transparent' name={'GOOGLE'} />
 
         <div className='inline-flex items-center justify-center w-full'>
-          <hr className='w-96 h-px my-8  border-0bg-gray-700' />
+          <hr className='w-96 my-8 border-1 text-gray-700' />
           <span className='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white '>
             or
           </span>
         </div>
 
-        <div>
-          <div className='flex justify-center mr-28 font-bold mb-2'>
-            E-Mail-Adresse oder Benutzername
-          </div>
+        <AuthInput
+          type='email'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          aria-describedby='helper-text-explanation'
+          placeholder='E-Mail-Adresse oder Benutzername'
+          label={'E-Mail-Adresse oder Benutzername'}
+        />
 
-          <div className='flex justify-center'>
-            <input
-              type='email'
-              id='helper-text'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              aria-describedby='helper-text-explanation'
-              className='bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white'
-              placeholder='E-Mail-Adresse oder Benutzername'
-            />
+        <AuthInput
+          type='password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          aria-describedby='helper-text-explanation'
+          placeholder='Password'
+          label={'Password'}
+        />
+
+        <div className='flex justify-center mt-5'>
+          <div className='flex mt-5 underline'>Password Vergessen</div>
+          <div className='ml-32'>
+            <Button onClick={() => submit()} name={'Anmelden'} />
           </div>
         </div>
-        <div className='mt-10'>
-          <div className='flex mr-[310px] justify-center font-bold mb-2'>
-            Password
-          </div>
 
-          <div className='flex justify-center'>
-            <input
-              type='password'
-              id='helper-text'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              aria-describedby='helper-text-explanation'
-              className='bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white'
-              placeholder='Password'
-            />
-          </div>
-          <div className='flex justify-center mt-5'>
-            <div className='flex mt-5 underline'>Password Vergessen</div>
-            <div className='flex justify-center ml-32'>
-              <Button onClick={() => submit()} name={'Anmelden'} />
-            </div>
-          </div>
-        </div>
         <div className='inline-flex items-center justify-center w-full'>
-          <hr className='w-[400px] h-px my-8 border-0bg-gray-700' />
+          <hr className='w-96 h-px my-8 border-0bg-gray-700' />
         </div>
+
         <div className='font-bold flex justify-center'>
           Du hast kein Konto ?
         </div>
+
         <div className='flex justify-center mt-5'>
           <button
             className='border-gray-200 p-3 border-2 w-96 bg-transparent text-white font-bold rounded-full'
             onClick={() => router.push('/register')}
           >
-            Bei Postshield Regestriere
+            Bei Postshield Regrestieren
           </button>
         </div>
       </div>
