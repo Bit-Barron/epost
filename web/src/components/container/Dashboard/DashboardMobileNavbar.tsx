@@ -11,6 +11,12 @@ const navigation = [
   { name: 'Recent', href: '#' },
 ];
 
+interface current {
+  name: string;
+  href: string;
+  current?: boolean;
+}
+
 export const DashboardMobileNavbar: React.FC<
   DashboardMobileNavbarProps
 > = ({}) => {
@@ -18,7 +24,7 @@ export const DashboardMobileNavbar: React.FC<
     <div className='mt-5 flex-1 h-0 overflow-y-auto'>
       <nav className='px-2'>
         <div className='space-y-1'>
-          {navigation.map((item: any) => (
+          {navigation.map((item: current) => (
             <a
               key={item.name}
               href={item.href}

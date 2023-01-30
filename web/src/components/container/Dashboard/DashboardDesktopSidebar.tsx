@@ -163,7 +163,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
               KONTO
             </h3>
             <div className='mt-2'>
-              {teams.map((team: any) => (
+              {teams.map((team) => (
                 <>
                   <a
                     type='button'
