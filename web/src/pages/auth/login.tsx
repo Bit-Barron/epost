@@ -24,7 +24,7 @@ const Login = () => {
   return (
     <>
       <div className='flex justify-center'>
-        <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
+        <span className='font-semibold text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='main' />
         </span>
         <div className='text-3xl font-bold mt-6 text-secondary'>
@@ -75,7 +75,7 @@ const Login = () => {
         </div>
 
         <div className='inline-flex items-center justify-center w-full'>
-          <hr className='w-96 h-px my-8 border-0bg-gray-700' />
+          <hr className='w-96 my-8 border-1 text-gray-700' />
         </div>
 
         <div className='font-bold flex justify-center'>
