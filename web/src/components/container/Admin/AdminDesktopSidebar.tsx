@@ -23,7 +23,7 @@ const shieldPost = [
 const user = [
   {
     name: 'User',
-    href: '/admin/user',
+    href: '/admin/user/user',
     icon: FiUsers,
     current: false,
   },

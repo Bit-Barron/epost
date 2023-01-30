@@ -20,4 +20,16 @@ export class UserController {
     console.log(req.user);
     return req.user;
   }
+
+  @UseGuards(AuthGuard)
+  @Get('/all')
+  findAll(@Req() req: FastifyRequest) {
+    console.log(req.user);
+    return req.user.email;
+  }
+  @UseGuards(AuthGuard)
+  @Get('/test')
+  test() {
+    return 'test';
+  }
 }
