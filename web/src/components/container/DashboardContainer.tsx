@@ -1,17 +1,18 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
 import { Fragment, useState } from 'react';
-import DashboardDesktopSidebar from './Dashboard/DashboardDesktopSidebar';
-import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
-import DashboardNavbar from './Dashboard/DashboardNavbar';
+import DashboardDesktopSidebar from './dashboard/DashboardDesktopSidebar';
+import { DashboardMobileNavbar } from './dashboard/DashboardMobileNavbar';
+import DashboardNavbar from './dashboard/DashboardNavbar';
 
 interface DashboardDesktopSidebarProps {
   children?: React.ReactNode;
 }
 
-export const DashboardContainer: React.FC<DashboardDesktopSidebarProps> = ({ children }) => {
+export const DashboardContainer: React.FC<DashboardDesktopSidebarProps> = ({
+  children,
+}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
 
   return (
     <>
@@ -97,10 +98,10 @@ export const DashboardContainer: React.FC<DashboardDesktopSidebarProps> = ({ chi
             </div>
           </div>
           <DashboardNavbar />
-         
+
           {children}
         </div>
       </div>
     </>
   );
-}
+};

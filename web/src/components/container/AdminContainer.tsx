@@ -1,16 +1,14 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline';
 import { Fragment, useState } from 'react';
-import AdminDesktopSidebar from './Admin/AdminDesktopSidebar';
-import { DashboardMobileNavbar } from './Dashboard/DashboardMobileNavbar';
+import AdminDesktopSidebar from './admin/AdminDesktopSidebar';
+import { DashboardMobileNavbar } from './dashboard/DashboardMobileNavbar';
 
 interface AdminContainerProps {
   children: React.ReactNode;
 }
 
-const AdminContainer: React.FC<AdminContainerProps> = ({
-  children,
-}) => {
+const AdminContainer: React.FC<AdminContainerProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (

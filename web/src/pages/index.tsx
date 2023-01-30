@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
-import { Navbar } from '../components/elements/Navbar';
+import { Navbar } from '../components/elements/frontpage/Navbar';
 import { Quicksand } from '@next/font/google';
 
 const quicksand = Quicksand({
