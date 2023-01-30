@@ -15,7 +15,7 @@ const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
   {
     name: 'Postbox',
-    href: '/dashboard/post/postbox',
+    href: '/dashboard/letter/postbox',
     icon: BsBoxSeam,
     current: true,
   },

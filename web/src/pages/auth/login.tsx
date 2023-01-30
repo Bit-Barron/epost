@@ -86,7 +86,7 @@ const Login = () => {
           <div className='flex justify-center mt-5'>
             <div className='flex mt-5 underline'>Password Vergessen</div>
             <div className='flex justify-center ml-32'>
-              <Button onClick={() => submit()}>Anmelden</Button>
+              <Button onClick={() => submit()} name={'Anmelden'} />
             </div>
           </div>
         </div>

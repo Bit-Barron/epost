@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import main from '../../../public/images/main.png';
+import Button from '../../components/auth/Button';
+import Terms from '../../components/elements/Terms';
+import AuthInput from '../../components/auth/AuthInput';
 
 const Register = ({}) => {
   const [email, setEmail] = useState('');
@@ -59,13 +62,11 @@ const Register = ({}) => {
           <div>
             <div className='mr-28 font-bold mb-2'>Whats your email?</div>
           </div>
-          <input
+          <AuthInput
             type='email'
-            id='helper-text'
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target?.value)}
             aria-describedby='helper-text-explanation'
-            className='bg-transparent border border-gray-300  text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white'
             placeholder='Enter your email.'
           />
         </div>
@@ -75,13 +76,11 @@ const Register = ({}) => {
           <div>
             <div className='mr-28 font-bold mb-2'>Confirm your email</div>
           </div>
-          <input
+          <AuthInput
             onChange={(e) => setConfirm(e.target.value)}
             type='email'
-            id='helper-text'
-            aria-describedby='helper-text-explanation'
-            className='bg-transparent border border-gray-300  text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white'
             placeholder='Enter your email.'
+            value={confirm}
           />
         </div>
       </div>
@@ -91,13 +90,11 @@ const Register = ({}) => {
         </div>
 
         <div className='flex justify-center'>
-          <input
+          <AuthInput
             type='password'
-            id='helper-text'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             aria-describedby='helper-text-explanation'
-            className='bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white'
             placeholder='Password'
           />
         </div>
@@ -113,28 +110,16 @@ const Register = ({}) => {
             />
           </div>
           <div className='ml-2 text-sm '>
-            <label
-              htmlFor='helper-checkbox'
-              className='font-medium text-gray-900 dark:text-gray-300'
-            >
-              I hereby agree to the Terms of Service and consent to the <br />
-              collection, processing and use of my personal data, as <br />
-              described in more detail in the Privacy Statement.
-            </label>
+            <Terms />
           </div>
         </div>
         <div className='flex justify-center mt-5'>
           <div className='flex justify-center '>
-            <button
-              className='bg-secondary p-2 w-32 text-white font-bold rounded-full'
-              onClick={() => submit()}
-            >
-              Register
-            </button>
+            <Button onClick={() => submit()} name='Register' />
           </div>
         </div>
         <div className='flex justify-center mt-5 font-semibold'>
-          Have an account?{' '}
+          Have an account?
           <span
             className='text-secondary ml-1 underline'
             onClick={() => {
