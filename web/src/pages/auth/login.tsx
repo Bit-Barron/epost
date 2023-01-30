@@ -83,7 +83,7 @@ const Login = () => {
         </div>
 
         <LoginMethodButton
-          className='border-gray-200 p-3 border-2 w-96 bg-transparent text-white font-bold rounded-full'
+          className='border-gray-200 bg-transparent'
           onClick={() => router.push('/auth/register')}
           name={`Bei ${process.env.NEXT_PUBLIC_NAME} Regrestieren`}
         />
