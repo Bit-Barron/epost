@@ -23,10 +23,11 @@ const Register = ({}) => {
 
     router.push('/dashboard/');
   };
+  
   return (
     <>
       <div className='flex justify-center mr-3'>
-        <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
+        <span className='font-semibold text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='asd' />
         </span>
         <div className='text-3xl font-bold mt-6 text-secondary'>Postshield</div>
@@ -40,7 +41,7 @@ const Register = ({}) => {
         name={'GOOGLE'}
       />
       <div className='inline-flex items-center justify-center w-full'>
-        <hr className='w-96 h-px my-8  border-0 bg-gray-700' />
+        <hr className='w-96 h-px my-8 border-0 bg-gray-700' />
         <span className='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white '>
           or
         </span>

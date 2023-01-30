@@ -6,6 +6,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   label: string;
+  className?: string;
 }
 
 const AuthInput: React.FC<InputProps> = ({
@@ -14,6 +15,7 @@ const AuthInput: React.FC<InputProps> = ({
   type,
   label,
   placeholder,
+  className,
 }) => {
   return (
     <div className='flex justify-center mt-10'>
@@ -25,7 +27,7 @@ const AuthInput: React.FC<InputProps> = ({
           type={type}
           value={value}
           onChange={(e) => onChange && onChange(e.target.value)}
-          className='bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm block w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white'
+          className={`${className} bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm  w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white`}
           placeholder={placeholder}
         />
       </div>
