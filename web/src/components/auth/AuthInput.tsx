@@ -2,7 +2,7 @@ import React from 'react';
 
 interface InputProps {
   value: string;
-  onChange?: (value: any) => void;
+  onChange: any
   type: string;
   placeholder?: string;
   label: string;
@@ -26,7 +26,7 @@ const AuthInput: React.FC<InputProps> = ({
         <input
           type={type}
           value={value}
-          onChange={(e) => onChange && onChange(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}
           className={`${className} bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm  w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white`}
           placeholder={placeholder}
         />

@@ -54,7 +54,7 @@ const Login = () => {
         <AuthInput
           type='email'
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={setEmail}
           placeholder='E-Mail-Adresse oder Benutzername'
           label={'E-Mail-Adresse oder Benutzername'}
         />
@@ -62,7 +62,7 @@ const Login = () => {
         <AuthInput
           type='password'
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={setPassword}
           placeholder='Password'
           label={'Password'}
         />

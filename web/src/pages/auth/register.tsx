@@ -55,13 +55,13 @@ const Register = ({}) => {
       <AuthInput
         type='email'
         value={email}
-        onChange={(e) => setEmail(e.target?.value)}
+        onChange={setEmail}
         placeholder='Enter your email.'
         label={'Whats your email?'}
       />
 
       <AuthInput
-        onChange={(e) => setConfirm(e.target?.value)}
+        onChange={setConfirm}
         type='email'
         placeholder='Confirm your email.'
         value={confirm}
@@ -71,7 +71,7 @@ const Register = ({}) => {
       <AuthInput
         type='password'
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={setPassword}
         placeholder='Password'
         label={'Enter your password'}
       />
