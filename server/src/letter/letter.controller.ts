@@ -17,7 +17,7 @@ export class LetterController {
   ) {
     createLetterDto.userId = req.user.sub;
     if (req.user.sub !== createLetterDto.userId) {
-      throw new HttpException('Unauthorized', 401);
+      throw new HttpException('Forbidden', 403);
     }
     return await this.letterService.create(createLetterDto);
   }

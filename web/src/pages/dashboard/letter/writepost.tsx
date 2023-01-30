@@ -1,9 +1,8 @@
 import { Editor } from '@tinymce/tinymce-react';
-import axios from 'axios';
-import React, { useRef, useState } from 'react';
-import { DashboardContainer } from '../../../components/container/DashboardContainer';
+import axios, { AxiosError } from 'axios';
+import { useRef, useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
-import { UserAddIcon } from '@heroicons/react/solid';
+import { DashboardContainer } from '../../../components/container/DashboardContainer';
 
 function Post() {
   const [post, setPost] = useState('');
@@ -20,10 +19,17 @@ function Post() {
     window.matchMedia('(max-width: 1023.5px)').matches;
 
   const submit = async () => {
-    await axios.post('http://localhost:4000/letter/create', {
-      post,
-      betreff,
-    });
+    try {
+      const res = await axios.post('http://localhost:4000/letter/create', {
+        post,
+        betreff,
+      });
+      console.log(res);
+    } catch (err: unknown) {
+      if ((err as AxiosError).status === 403) {
+        console.log(err);
+      }
+    }
   };
 
   function clear() {
