@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DashboardContainer } from '../../../components/container/DashboardContainer';
+import { DashboardContainer } from '../../../../components/container/DashboardContainer';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 interface recentProps {}

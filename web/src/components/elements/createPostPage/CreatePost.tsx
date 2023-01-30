@@ -18,7 +18,7 @@ const CreatePost: React.FC<CreatePostProps> = ({}) => {
               className='block w-full h-96 px-0 text-sm text-gray-800 border-0  focus:outline-none dark:text-white bg-transparent dark:placeholder-gray-400'
               placeholder='Write an article...'
               required
-            ></textarea>
+            />
           </div>
         </div>
         <button
