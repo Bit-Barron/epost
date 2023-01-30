@@ -63,9 +63,9 @@ const AdminDesktopSidebar: React.FC<AdminDesktopSidebarProps> = ({
             Post
           </h3>
           <div className='space-y-1'>
-            {navigation.map((item, idx) => (
+            {navigation.map((item) => (
               <Link
-                key={idx}
+                key={item.name}
                 href={item.href}
                 className={classNames(
                   item.current ? '' : '',
@@ -91,9 +91,9 @@ const AdminDesktopSidebar: React.FC<AdminDesktopSidebarProps> = ({
             User
           </h3>
           <div className='space-y-1'>
-            {user.map((item, idx) => (
+            {user.map((item) => (
               <Link
-                key={idx}
+                key={item.name}
                 href={item.href}
                 className={classNames(
                   item.current ? '' : '',
@@ -122,9 +122,9 @@ const AdminDesktopSidebar: React.FC<AdminDesktopSidebarProps> = ({
               SHIELDPOST.DE
             </h3>
             <div className='mt-2 mb-10'>
-              {shieldPost.map((team, idx) => (
+              {shieldPost.map((team) => (
                 <a
-                  key={idx}
+                  key={team.name}
                   href={team.href}
                   className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
                 >

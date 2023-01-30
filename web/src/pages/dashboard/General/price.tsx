@@ -178,9 +178,9 @@ function Price() {
                 </div>
                 <div className='mt-6'>
                   <nav className='grid gap-y-8'>
-                    {solutions.map((item, idx) => (
+                    {solutions.map((item) => (
                       <a
-                        key={idx}
+                        key={item.name}
                         href={item.href}
                         className='-m-3 p-3 flex items-center rounded-md hover:bg-gray-50'
                       >
@@ -225,9 +225,9 @@ function Price() {
                   >
                     Contact Sales
                   </a>
-                  {resources.map((item, idx) => (
+                  {resources.map((item) => (
                     <a
-                      key={idx}
+                      key={item.name}
                       href={item.href}
                       className='text-base font-medium text-gray-900 hover:text-gray-700'
                     >
@@ -270,9 +270,9 @@ function Price() {
             </p>
           </div>
           <div className='mt-12 ml-40 flex space-y-2 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4'>
-            {tiers.map((tier, idx) => (
+            {tiers.map((tier) => (
               <div
-                key={idx}
+                key={tier.name}
                 className='border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200'
               >
                 <div className='p-6'>
@@ -299,8 +299,8 @@ function Price() {
                     Whats included
                   </h3>
                   <ul role='list' className='mt-6 space-y-4'>
-                    {tier.features.map((feature, idx) => (
-                      <li key={idx} className='flex space-x-3'>
+                    {tier.features.map((feature) => (
+                      <li key={feature} className='flex space-x-3'>
                         <CheckIconSolid
                           className='flex-shrink-0 h-5 w-5 text-green-500'
                           aria-hidden='true'

@@ -112,8 +112,8 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
           <div className='space-y-1'>
             {navigation.map((item) => (
               <Link
-                type='button'
                 key={item.name}
+                type='button'
                 href={item.href}
                 className={classNames(
                   item.current ? '' : '',

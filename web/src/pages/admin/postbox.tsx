@@ -37,8 +37,8 @@ const Recent = ({}) => {
         <div className='text-3xl text-white'>Recent</div>
         <div className='text-3xl mt-10 mb-10'>Your post:</div>
         <div className=''>
-          {data.map((post, idx) => (
-            <div key={idx}>
+          {data.map((post) => (
+            <div key={post.name}>
               <div>{post.posts}</div>
             </div>
           ))}
