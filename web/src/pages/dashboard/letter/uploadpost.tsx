@@ -6,7 +6,7 @@ interface uploadpostProps {}
 const uploadpost: React.FC<uploadpostProps> = ({}) => {
   return (
     <DashboardContainer>
-      <div className='text-center font-bold text-2xl  mt-40'>
+      <div className='text-center font-bold text-2xl mt-40'>
         Mit LXP GO clever Rechnungen, Mahnungen und Mailings online versenden
       </div>
       <div className='w-1/2 mx-auto mt-10'>
