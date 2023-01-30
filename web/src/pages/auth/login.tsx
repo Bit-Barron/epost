@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import main from '../../../public/images/main.png';
 import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
-import Button from '../../components/elements/auth/Button';
+import Button from '../../components/elements/Button';
 
 const Login = () => {
   const [email, setEmail] = useState('test@test');

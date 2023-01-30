@@ -5,7 +5,7 @@ import { useState } from 'react';
 import main from '../../../public/images/main.png';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import Button from '../../components/elements/auth/AuthButton';
-import { LoginMethodButton } from '../../components/elements/auth/Button';
+import { LoginMethodButton } from '../../components/elements/Button';
 import Terms from '../../components/elements/authPage/Terms';
 
 const Register = ({}) => {
