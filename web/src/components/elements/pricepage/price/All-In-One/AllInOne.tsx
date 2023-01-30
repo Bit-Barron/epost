@@ -4,6 +4,7 @@ import { CheckIcon as CheckIconOutline } from '@heroicons/react/outline';
 interface AllInOneProps {}
 
 const AllInOne: React.FC<AllInOneProps> = ({}) => {
+
   const features = [
     {
       name: 'Invite team members',
@@ -46,6 +47,7 @@ const AllInOne: React.FC<AllInOneProps> = ({}) => {
         'Quisque sapien nunc nisl eros. Facilisis sagittis maecenas id dignissim tristique proin sed.',
     },
   ];
+  
   return (
     <div className='max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8'>
       <div className='max-w-3xl mx-auto text-center'>
