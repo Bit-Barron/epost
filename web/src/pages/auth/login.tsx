@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import main from '../../../public/images/main.png';
 import Button from '../../components/auth/Button';
+import { LoginMethodButton } from '../../components/auth/LoginMethodButton';
 
 const Login = () => {
   const [email, setEmail] = useState('test@test');
@@ -28,28 +29,22 @@ const Login = () => {
         <div className='text-3xl font-bold mt-6 text-secondary'>Postshield</div>
       </div>
       <hr className='h-px my-8 bg-gray-200' />
-      <div className=''>
-        <div className='flex justify-center border-white'>
-          <button className='bg-blue-500 hover:bg-blue-700 border border-white p-3 w-96 text-white font-bold rounded-full'>
-            WEITER MIT FACEBOOK
-          </button>
-        </div>
-        <div className='flex justify-center mt-3 border-white'>
-          <button className='bg-black  p-3 w-96 text-white border-white  font-bold rounded-full'>
-            WEITER MIT APPLE
-          </button>
-        </div>
-        <div className='flex justify-center mt-3 border-white'>
-          <button className='p-3 w-96 text-white bg-transparent border-2 font-bold rounded-full'>
-            WEITER MIT GOOGLE
-          </button>
-        </div>
+      <div>
+        <LoginMethodButton
+          className='bg-blue-500 hover:bg-blue-700'
+          name={'FACEBOOK'}
+        />
+        <LoginMethodButton className='bg-black' name={'APPLE'} />
+
+        <LoginMethodButton className='bg-transparent' name={'GOOGLE'} />
+
         <div className='inline-flex items-center justify-center w-full'>
           <hr className='w-96 h-px my-8  border-0bg-gray-700' />
           <span className='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white '>
             or
           </span>
         </div>
+
         <div>
           <div className='flex justify-center mr-28 font-bold mb-2'>
             E-Mail-Adresse oder Benutzername

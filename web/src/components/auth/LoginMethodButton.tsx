@@ -10,7 +10,7 @@ export const LoginMethodButton: React.FC<LoginMethodButtonProps> = ({
   className,
 }) => {
   return (
-    <div className='flex justify-center border-white mt-10'>
+    <div className='flex justify-center border-white mt-5'>
       <button
         className={`${className} border border-white p-3 w-96 text-white font-bold rounded-full`}
       >

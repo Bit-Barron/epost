@@ -43,7 +43,7 @@ const Register = ({}) => {
         name={'GOOGLE'}
       />
       <div className='inline-flex items-center justify-center w-full'>
-        <hr className='w-96 h-px my-8 border-0 bg-gray-700' />
+        <hr className='w-96 my-8 border-1 text-gray-700' />
         <span className='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white '>
           or
         </span>
@@ -61,7 +61,7 @@ const Register = ({}) => {
       />
 
       <AuthInput
-        onChange={(e) => setConfirm(e.target.value)}
+        onChange={(e) => setConfirm(e.target?.value)}
         type='email'
         placeholder='Confirm your email.'
         value={confirm}
@@ -79,7 +79,6 @@ const Register = ({}) => {
       <div className='flex justify-center mt-10'>
         <input
           type='checkbox'
-          value=''
           required
           className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 '
         />
