@@ -16,7 +16,7 @@ const Index: React.FC = ({}) => {
 
   return (
     <div className=''>
-      <header className='bg-main p-4 flex justify-center'>
+      <header className='bg-main text-white p-4 flex justify-center'>
         <span className={`${quicksand.className} mt-2 mr-2`}>
           kennen sie postflix kennen!
         </span>
