@@ -1,4 +1,5 @@
-import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { FastifyRequest } from 'fastify';
 
 import { AuthGuard } from '../app_modules/guard/auth.guard';
 import { UserService } from './user.service';
@@ -13,8 +14,10 @@ export class UserController {
     return 'test';
   }
 
+  @UseGuards(AuthGuard)
   @Get('/user')
-  getUser() {
-    return 'asd';
+  getUser(@Req() req: FastifyRequest) {
+    console.log(req.user.email);
+    return req.user;
   }
 }

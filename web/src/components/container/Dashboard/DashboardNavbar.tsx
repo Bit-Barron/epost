@@ -4,18 +4,20 @@ import { AiOutlineArrowDown } from 'react-icons/ai';
 
 const DashboardNavbar = () => {
   const [user, setUser] = useState<string>('');
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     try {
-  //       const response = await axios.get('http://localhost:4000/auth/user');
-  //       console.log(response.data.email);
-  //       setUser(response.data.email);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getUser();
-  // }, []);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/user/user');
+        console.log(response.data.email);
+        setUser(response.data.email);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, []);
+  console.log(user);
 
   return (
     <div className='border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
