@@ -3,10 +3,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import main from '../../../public/images/main.png';
+import Button from '../../components/auth/Button';
 
-interface loginProps {}
-
-const Login: React.FC<loginProps> = () => {
+const Login = () => {
   const [email, setEmail] = useState('test@test');
   const [password, setPassword] = useState<string>('123123');
   const router = useRouter();
@@ -87,12 +86,7 @@ const Login: React.FC<loginProps> = () => {
           <div className='flex justify-center mt-5'>
             <div className='flex mt-5 underline'>Password Vergessen</div>
             <div className='flex justify-center ml-32'>
-              <button
-                className='bg-secondary p-2 w-32 text-white font-bold rounded-full'
-                onClick={() => submit()}
-              >
-                Anmelden
-              </button>
+              <Button onClick={() => submit()}>Anmelden</Button>
             </div>
           </div>
         </div>
@@ -100,7 +94,7 @@ const Login: React.FC<loginProps> = () => {
           <hr className='w-[400px] h-px my-8 border-0bg-gray-700' />
         </div>
         <div className='font-bold flex justify-center'>
-          Du hast kein Konto ?{' '}
+          Du hast kein Konto ?
         </div>
         <div className='flex justify-center mt-5'>
           <button
