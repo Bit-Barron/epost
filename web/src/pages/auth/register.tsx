@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import main from '../../../public/images/main.png';
 import AuthInput from '../../components/auth/AuthInput';
-import Button from '../../components/auth/Button';
-import { LoginMethodButton } from '../../components/auth/LoginMethodButton';
+import Button from '../../components/auth/AuthButton';
+import { LoginMethodButton } from '../../components/auth/Button';
 import Terms from '../../components/elements/authPage/Terms';
 
 const Register = ({}) => {

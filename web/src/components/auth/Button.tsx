@@ -1,21 +1,25 @@
 import React from 'react';
 
-interface inputProps {
+interface LoginMethodButtonProps {
+  name: string;
+  className?: string;
   onClick?: () => void;
-  name: string
 }
 
-const Input: React.FC<inputProps> = ({ onClick, name }) => {
+const Button: React.FC<LoginMethodButtonProps> = ({
+  name,
+  onClick,
+  className,
+}) => {
   return (
-    <div className='flex justify-center mt-5'>
+    <div className='flex justify-center border-white mt-5'>
       <button
-        className='bg-secondary p-2 w-32 text-white font-bold rounded-full'
         onClick={onClick}
+        className={`${className} border border-white p-3 w-96 text-white font-bold rounded-full`}
       >
         {name}
       </button>
     </div>
   );
 };
-
-export default Input;
+export default Button;

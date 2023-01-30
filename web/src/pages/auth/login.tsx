@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import main from '../../../public/images/main.png';
 import AuthInput from '../../components/auth/AuthInput';
 import Button from '../../components/auth/Button';
-import { LoginMethodButton } from '../../components/auth/LoginMethodButton';
 
 const Login = () => {
   const [email, setEmail] = useState('test@test');
@@ -33,16 +32,13 @@ const Login = () => {
       </div>
 
       <form>
-        <LoginMethodButton
+        <Button
           className='bg-blue-500 hover:bg-blue-700'
           name={'WEITER MIT FACEBOOK'}
         />
-        <LoginMethodButton className='bg-black' name={'WEITER MIT APPLE'} />
+        <Button className='bg-black' name={'WEITER MIT APPLE'} />
 
-        <LoginMethodButton
-          className='bg-transparent'
-          name={'WEITER MIT GOOGLE'}
-        />
+        <Button className='bg-transparent' name={'WEITER MIT GOOGLE'} />
 
         <div className='inline-flex items-center justify-center w-full'>
           <hr className='w-96 my-8 border-1 text-gray-700' />
@@ -88,7 +84,6 @@ const Login = () => {
           name={`Bei ${process.env.NEXT_PUBLIC_NAME} Regestrieren`}
         />
       </form>
-      
     </>
   );
 };
