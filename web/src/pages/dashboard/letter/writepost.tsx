@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import SignaturePad from 'react-signature-canvas';
+import { UserAddIcon } from '@heroicons/react/solid';
 
 function Post() {
   const [post, setPost] = useState('');
@@ -19,7 +20,7 @@ function Post() {
     window.matchMedia('(max-width: 1023.5px)').matches;
 
   const submit = async () => {
-    await axios.post('http://localhost:4000/posts/create', {
+    await axios.post('http://localhost:4000/letter/create', {
       post,
       betreff,
     });
