@@ -22,17 +22,16 @@ const Login = () => {
   };
   return (
     <>
-      <div className='flex justify-end'></div>
       <div className='flex justify-center'>
         <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
-          <Image width={80} height={50} src={main} alt='asd' />
+          <Image width={80} height={50} src={main} alt='main' />
         </span>
         <div className='text-3xl font-bold mt-6 text-secondary'>
           {process.env.NEXT_PUBLIC_NAME}
         </div>
       </div>
 
-      <div>
+      <form>
         <LoginMethodButton
           className='bg-blue-500 hover:bg-blue-700'
           name={'FACEBOOK'}
@@ -86,10 +85,10 @@ const Login = () => {
             className='border-gray-200 p-3 border-2 w-96 bg-transparent text-white font-bold rounded-full'
             onClick={() => router.push('/register')}
           >
-            Bei Postshield Regrestieren
+            Bei {process.env.NEXT_PUBLIC_NAME} Regrestieren
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 };

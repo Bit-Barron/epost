@@ -18,7 +18,7 @@ const PostShield: React.FC<indexProps> = ({}) => {
             </div>
             <div className='text-gray-500 text-xl mr-10 mt-10 mb-10'>
               <span className='ml-20'>
-                Lassen Sie sich individuell beraten, wie sich Postshield bei
+                Lassen Sie sich individuell beraten, wie sich {process.env.NEXT_PUBLIC_NAME} bei
                 Ihnen in die Geschäftsprozesse einbinden lässt. Persönliche
                 Klärung <br />
               </span>
