@@ -2,16 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import AdminContainer from '../../components/container/AdminContainer';
-interface recentProps {}
 
-const Recent: React.FC<recentProps> = ({}) => {
+const Recent = ({}) => {
   const [data, setData] = useState<any[]>([]);
   const router = useRouter();
 
   useEffect(() => {
     const getPosts = async () => {
       const response = await axios.post('http://localhost:4000/leter/all');
-      console.log(response.data)
+      console.log(response.data);
       setData(response.data);
     };
     getPosts();

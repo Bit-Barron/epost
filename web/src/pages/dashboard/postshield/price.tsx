@@ -314,7 +314,6 @@ function Price() {
             ))}
           </div>
         </div>
-
         <AllInOne />
       </div>
 

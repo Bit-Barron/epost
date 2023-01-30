@@ -4,6 +4,7 @@ import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
 import { Navbar } from '../components/elements/frontpage/Navbar';
 import { Quicksand } from '@next/font/google';
+import Impresum from '../components/elements/pricepage/price/impresum/Impresum';
 
 const quicksand = Quicksand({
   weight: '700',
@@ -69,9 +70,7 @@ const Index: React.FC = ({}) => {
             </ul>
           </span>
         </div>
-        <div></div>
       </div>
-      <div></div>
       <div className='bg-[#181a1b] p-4 h-[300px] flex justify-center '>
         <div className='font-bold text-2xl text-center mt-10 text-[#f7902c]'>
           Brief einfach online <br /> <span className='ml-5'>übertragen</span>
@@ -102,7 +101,14 @@ const Index: React.FC = ({}) => {
         <div className='font-bold text-center text-2xl mt-10'>
           In drei Schritten zum zugestellten Brief
         </div>
+        <div className='flex font-bold text-2xl justify-center mb-20'>
+          <div className='mt-4 mr-10'>Step 1</div>
+          <div className='mt-4 mr-10'>Step 1</div>
+          <div className='mt-4 mr-10'>Step 1</div>
+
+        </div>
       </div>
+      <Impresum />
     </div>
   );
 };

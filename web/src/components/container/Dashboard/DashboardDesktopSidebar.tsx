@@ -27,6 +27,7 @@ const navigation = [
     current: false,
   },
 ];
+
 const teams = [
   {
     name: 'Einstellung',
@@ -61,13 +62,13 @@ const teams = [
 const post = [
   {
     name: 'Upload Post',
-    href: '/dashboard/post/uploadpost',
+    href: '/dashboard/letter/uploadpost',
     icon: SiMinutemailer,
     current: false,
   },
   {
     name: 'Write Post',
-    href: '/dashboard/post/writepost',
+    href: '/dashboard/letter/writepost',
     icon: HiMail,
     current: false,
   },
@@ -87,6 +88,7 @@ const shieldPost = [
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
+
 interface DashboardDesktopSidebarProps {
   children?: React.ReactNode;
 }

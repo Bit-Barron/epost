@@ -5,7 +5,7 @@ import AdminDesktopSidebar from './admin/AdminDesktopSidebar';
 import { DashboardMobileNavbar } from './dashboard/DashboardMobileNavbar';
 
 interface AdminContainerProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const AdminContainer: React.FC<AdminContainerProps> = ({ children }) => {

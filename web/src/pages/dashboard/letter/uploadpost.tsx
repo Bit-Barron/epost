@@ -21,7 +21,7 @@ const uploadpost: React.FC<uploadpostProps> = ({}) => {
               stroke-width='2'
             ></svg>
             <span className='text-gray-600 font-bold text-2xl'>
-              Hier klicken,{' '}
+              Hier klicken,
               <span className='font-semibold'>
                 um die PDF-Datei(en) auszuwählen
               </span>
@@ -30,7 +30,6 @@ const uploadpost: React.FC<uploadpostProps> = ({}) => {
                 Oder per <span className='font-bold'>Drag & Drop</span> ablegen
               </span>
             </span>
-            <div></div>
           </span>
           <input type='file' name='file_upload' className='hidden' />
         </label>

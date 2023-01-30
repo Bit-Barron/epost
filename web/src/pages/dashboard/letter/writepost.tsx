@@ -56,7 +56,7 @@ function Post() {
             <div className=''>
               <Editor
                 apiKey='e0q79b8c9k5t2zbarra7zzwcei0ma8jb8dddiycjobwtltg2'
-                onInit={(evt, editor) => (editorRef.current = editor)}
+                onInit={(editor) => (editorRef.current = editor)}
                 init={{
                   plugins:
                     'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
@@ -172,7 +172,10 @@ function Post() {
               <button className='bg-gray-700 mr-10 w-96 h-10 text-white font-bold py-2 px-4 rounded'>
                 Vorschau anzeigen
               </button>
-              <button className='bg-secondary h-10 w-96 text-white font-bold py-2 px-4 rounded' onClick={submit}>
+              <button
+                className='bg-secondary h-10 w-96 text-white font-bold py-2 px-4 rounded'
+                onClick={submit}
+              >
                 BRIEF ZUR POSTBOX HINZUFÜGEN
               </button>
             </div>

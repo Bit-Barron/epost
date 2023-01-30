@@ -20,8 +20,10 @@ const Recent: React.FC<recentProps> = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.post('http://localhost:4000/auth/dashboard');
-        console.log(typeof response.data)
+        const response = await axios.post(
+          'http://localhost:4000/auth/dashboard'
+        );
+        console.log(typeof response.data);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
           router.push('/login');

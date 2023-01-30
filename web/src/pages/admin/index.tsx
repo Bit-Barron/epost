@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminContainer from '../../components/controller/AdminContainer';
+import AdminContainer from '../../components/container/AdminContainer';
 
 interface indexProps {}
 
