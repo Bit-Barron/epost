@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import main from '../../../public/images/main.png';
-import AuthButton from '../../components/auth/AuthButton';
-import AuthInput from '../../components/auth/AuthInput';
-import Button from '../../components/auth/Button';
+import AuthButton from '../../components/elements/auth/AuthButton';
+import AuthInput from '../../components/elements/auth/AuthInput';
+import Button from '../../components/elements/auth/Button';
 
 const Login = () => {
   const [email, setEmail] = useState('test@test');

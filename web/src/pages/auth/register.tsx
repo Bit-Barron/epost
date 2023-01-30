@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import main from '../../../public/images/main.png';
-import AuthInput from '../../components/auth/AuthInput';
-import Button from '../../components/auth/AuthButton';
-import { LoginMethodButton } from '../../components/auth/Button';
+import AuthInput from '../../components/elements/auth/AuthInput';
+import Button from '../../components/elements/auth/AuthButton';
+import { LoginMethodButton } from '../../components/elements/auth/Button';
 import Terms from '../../components/elements/authPage/Terms';
 
 const Register = ({}) => {
