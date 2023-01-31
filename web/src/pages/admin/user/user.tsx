@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AdminContainer from '../../../components/container/AdminContainer';
 
@@ -8,7 +9,7 @@ const User: React.FC<userProps> = ({}) => {
 
   useEffect(() => {
     const getUser = async () => {
-      const response = await fetch('http://localhost:4000/user/all');
+      const response = await axios.get('http://localhost:4000/user/all');
       console.log(response);
     };
     getUser();

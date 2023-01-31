@@ -8,14 +8,13 @@ const Recent: React.FC<recentProps> = ({}) => {
   const [data, setData] = useState<any[]>([]);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const getPosts = async () => {
-  //     const response = await axios.post('http://localhost:4000/posts/all');
-  //     setData(response.data);
-  //     console.log(response.data[0].posts);
-  //   };
-  //   getPosts();
-  // }, []);
+  useEffect(() => {
+    const getPosts = async () => {
+      const response = await axios.get('http://localhost:4000/letter/all');
+      setData(response.data);
+    };
+    getPosts();
+  }, []);
 
   useEffect(() => {
     const getUser = async () => {

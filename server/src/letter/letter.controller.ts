@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Param, Req, UseGuards } from '@nestjs/common/decorators';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
@@ -16,9 +16,7 @@ export class LetterController {
     @Req() req: FastifyRequest,
   ) {
     createLetterDto.userId = req.user.sub;
-    if (req.user.sub !== createLetterDto.userId) {
-      throw new HttpException('Forbidden', 403);
-    }
+
     return await this.letterService.create(createLetterDto);
   }
 
