@@ -24,6 +24,6 @@ export class LetterService {
   }
 
   async findAll() {
-    return await this.letterRepo.find();
+    return await this.letterRepo.find({ where: { userId } });
   }
 }
