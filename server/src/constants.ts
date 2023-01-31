@@ -11,8 +11,8 @@ export const COOKIE_SERIALIZE_OPTIONS: CookieSerializeOptions = {
   httpOnly: true,
   path: '/',
   maxAge: TOKEN_EXPIRES_IN,
-  sameSite: process.env.NODE_ENV === 'production' ? 'lax' : 'none',
-  secure: false,
+  sameSite: process.env.NODE_ENV === 'production' ? 'lax' : false,
+  secure: process.env.NODE_ENV === 'production' ? true : false,
   domain:
     process.env.NODE_ENV === 'production'
       ? `${psl.parse(new URL(process.env.CORS_ORIGIN).hostname).domain}`
