@@ -27,9 +27,4 @@ export class UserController {
     console.log(req.user);
     return req.user.email;
   }
-  @UseGuards(AuthGuard)
-  @Get('/test')
-  test() {
-    return 'test';
-  }
 }
