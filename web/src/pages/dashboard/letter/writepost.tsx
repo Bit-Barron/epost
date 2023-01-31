@@ -5,8 +5,8 @@ import SignaturePad from 'react-signature-canvas';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 
 function Post() {
-  const [post, setPost] = useState('');
-  const [betreff, setBetreff] = useState('');
+  const [content, setContent] = useState('');
+  const [title, setTitle] = useState('');
   const editorRef: any = useRef(null);
 
   let sigPad: any = useRef({});
@@ -21,8 +21,8 @@ function Post() {
   const submit = async () => {
     try {
       const res = await axios.post('http://localhost:4000/letter/create', {
-        post,
-        betreff,
+        content,
+        title,
       });
       console.log(res);
     } catch (err: unknown) {
@@ -55,6 +55,7 @@ function Post() {
                 type='text'
                 id='small-input'
                 className='block w-1/2 p-2 focus:outline-none ml-5 text-gray-900 border border-gray-300 bg-gray-50 sm:text-xs mb-10'
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
           </div>
@@ -81,7 +82,7 @@ function Post() {
                   image_advtab: true,
                   setup: function (editor) {
                     editor.on('change', function () {
-                      setPost(editor.getContent());
+                      setContent(editor.getContent());
                     });
                   },
                   link_list: [
