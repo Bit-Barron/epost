@@ -25,7 +25,7 @@ function Post() {
 
   const submit = async () => {
     try {
-      const res = await axios.post('http://localhost:4000/letter/create', {
+      await axios.post('http://localhost:4000/letter/create', {
         content,
         title,
         pages,
@@ -33,7 +33,6 @@ function Post() {
         created,
         posts,
       });
-      console.log(res);
     } catch (err: unknown) {
       if ((err as AxiosError).status === 403) {
         console.log(err);
