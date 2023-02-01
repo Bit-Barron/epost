@@ -65,9 +65,9 @@ export class LetterController {
   @Delete('/all-user')
   async deleteAll(@Param('id') id: number, @Req() req: FastifyRequest) {
     console.log(req.user);
+
     try {
       return await this.letterRepo.delete({ id, user: { id: req.user.sub } });
     } catch (err) {}
-    return true;
   }
 }
