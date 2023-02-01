@@ -142,7 +142,7 @@ function classNames(...classes: string[]) {
 export default function Home() {
   return (
     <>
-      <div className='min-h-full'>
+      <div className=''>
         <Popover
           as='header'
           className='pb-24 bg-gradient-to-r from-sky-800 to-cyan-600'
@@ -155,7 +155,6 @@ export default function Home() {
                   <div className='absolute left-0 py-5 flex-shrink-0 lg:static'>
                     <a href='#'>
                       <span className='sr-only'>Workflow</span>
-                      {/* https://tailwindui.com/img/logos/workflow-mark-cyan-200.svg */}
                       <svg
                         className='h-8 w-auto'
                         fill='none'
@@ -170,7 +169,6 @@ export default function Home() {
                     </a>
                   </div>
 
-                  {/* Right section on desktop */}
                   <div className='hidden lg:ml-4 lg:flex lg:items-center lg:py-5 lg:pr-0.5'>
                     <button
                       type='button'
@@ -180,7 +178,6 @@ export default function Home() {
                       <BellIcon className='h-6 w-6' aria-hidden='true' />
                     </button>
 
-                    {/* Profile dropdown */}
                     <Menu as='div' className='ml-4 relative flex-shrink-0'>
                       <div>
                         <Menu.Button className='bg-white rounded-full flex text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100'>
@@ -217,52 +214,6 @@ export default function Home() {
                         </Menu.Items>
                       </Transition>
                     </Menu>
-                  </div>
-
-                  <div className='w-full py-5 lg:border-t lg:border-white lg:border-opacity-20'>
-                    <div className='lg:grid lg:grid-cols-3 lg:gap-8 lg:items-center'>
-                      {/* Left nav */}
-                      <div className='hidden lg:block lg:col-span-2'>
-                        <nav className='flex space-x-4'>
-                          {navigation.map((item) => (
-                            <a
-                              key={item.name}
-                              href={item.href}
-                              className={classNames(
-                                item.current ? 'text-white' : 'text-cyan-100',
-                                'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-2 hover:bg-opacity-10'
-                              )}
-                              aria-current={item.current ? 'page' : undefined}
-                            >
-                              {item.name}
-                            </a>
-                          ))}
-                        </nav>
-                      </div>
-                      <div className='px-12 lg:px-0'>
-                        {/* Search */}
-                        <div className='max-w-xs mx-auto w-full lg:max-w-md'>
-                          <label htmlFor='search' className='sr-only'>
-                            Search
-                          </label>
-                          <div className='relative text-white focus-within:text-gray-600'>
-                            <div className='pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center'>
-                              <SearchIcon
-                                className='h-5 w-5'
-                                aria-hidden='true'
-                              />
-                            </div>
-                            <input
-                              id='search'
-                              className='block w-full text-white bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 focus:text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm'
-                              placeholder='Search'
-                              type='search'
-                              name='search'
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Menu button */}
