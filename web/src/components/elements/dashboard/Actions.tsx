@@ -11,6 +11,7 @@ import React from 'react';
 interface ActiontsProps {}
 
 export const Actions: React.FC<ActiontsProps> = ({}) => {
+
   const actions = [
     {
       icon: ClockIcon,
@@ -55,6 +56,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
       iconBackground: 'bg-indigo-50',
     },
   ];
+  
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ');
   }
