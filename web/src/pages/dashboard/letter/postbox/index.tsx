@@ -7,6 +7,7 @@ import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
 import AuthButton from '../../../../components/elements/auth/AuthButton';
 import Impresum from '../../../../components/elements/pricepage/price/impresum/Impresum';
 import PostsTable from '../../../../components/elements/postboxPage/PostsTable';
+import { useGeneralStore } from '../../../../store/Generalstore';
 
 interface recentProps {}
 
@@ -26,9 +27,7 @@ const Recent: React.FC<recentProps> = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.post(
-          '/user/dashboard'
-        );
+        const response = await axios.post('/user/dashboard');
         console.log(typeof response.data);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {

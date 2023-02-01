@@ -6,7 +6,7 @@ export type DashboardTab = {
 
 export type Alert = {
   id: string;
-  msg: string;
+  message: string;
   type: AlertType;
 };
 

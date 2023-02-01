@@ -4,9 +4,23 @@ import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import dayjs from 'dayjs';
+import { useGeneralStore } from '../../../store/Generalstore';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
+  const { alerts, addAlert, removeAlert } = useGeneralStore();
+
+  const handleAddAlert = () => {
+    addAlert({
+      id: 'unique-id',
+      message: 'This is a success alert',
+      type: 'success',
+    });
+  };
+
+  const handleRemoveAlert = (id: string) => {
+    removeAlert(id);
+  };
 
   const getPosts = async () => {
     const response = await axios.get('/letter/all-user');
