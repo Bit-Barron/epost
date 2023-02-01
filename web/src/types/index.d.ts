@@ -4,6 +4,12 @@ export type DashboardTab = {
   current: boolean;
 };
 
+export type Alert = {
+  id: string;
+  msg: string;
+  type: AlertType;
+};
+
 export type DashboardTabType = 'Dashboard' | 'Order overview' | 'Recent';
 
 export type AdminTabType = 'Products' | 'Categories' | 'Attributes' | 'Users';
