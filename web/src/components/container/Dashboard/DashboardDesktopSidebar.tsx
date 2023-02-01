@@ -141,24 +141,22 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
             </h3>
             <div className='mt-2'>
               {post.map((team) => (
-                <>
-                  <Link
-                    type='button'
-                    key={team.name}
-                    href={team.href}
-                    className='group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
-                  >
-                    <team.icon
-                      className={classNames(
-                        team.current ? 'text-secondary' : 'text-secondary',
-                        'mr-3 flex-shrink-0 h-5 w-6'
-                      )}
-                      aria-hidden='true'
-                    />
-                    <span aria-hidden='true' />
-                    <span className='truncate'>{team.name}</span>
-                  </Link>
-                </>
+                <Link
+                  type='button'
+                  key={team.name}
+                  href={team.href}
+                  className='group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                >
+                  <team.icon
+                    className={classNames(
+                      team.current ? 'text-secondary' : 'text-secondary',
+                      'mr-3 flex-shrink-0 h-5 w-6'
+                    )}
+                    aria-hidden='true'
+                  />
+                  <span aria-hidden='true' />
+                  <span className='truncate'>{team.name}</span>
+                </Link>
               ))}
             </div>
           </div>
@@ -204,25 +202,23 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
             </h3>
             <div className='mt-2 mb-10'>
               {shieldPost.map((team) => (
-                <>
-                  <Link
-                    type='button'
-                    key={team.name}
-                    href={team.href}
-                    className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
-                  >
-                    <team.icon
-                      className={classNames(
-                        team.current ? 'text-secondary' : 'text-secondary',
-                        'mr-3 flex-shrink-0 h-5 w-6'
-                      )}
-                      aria-hidden='true'
-                    />
+                <Link
+                  type='button'
+                  key={team.name}
+                  href={team.href}
+                  className='group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                >
+                  <team.icon
+                    className={classNames(
+                      team.current ? 'text-secondary' : 'text-secondary',
+                      'mr-3 flex-shrink-0 h-5 w-6'
+                    )}
+                    aria-hidden='true'
+                  />
 
-                    <span aria-hidden='true' />
-                    <span className='truncate'>{team.name}</span>
-                  </Link>
-                </>
+                  <span aria-hidden='true' />
+                  <span className='truncate'>{team.name}</span>
+                </Link>
               ))}
             </div>
           </div>
