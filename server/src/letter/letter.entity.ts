@@ -23,4 +23,7 @@ export class Letter {
 
   @ManyToOne(() => User, (user) => user.letters)
   user: User;
+
+  @Column({ default: 'DIN lang' })
+  envelope: string;
 }

@@ -18,5 +18,8 @@ export class CreateLetterDto {
   @IsNumber()
   posts: number;
 
+  @IsString()
+  envelope: string;
+
   userId: number;
 }

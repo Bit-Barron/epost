@@ -1,18 +1,18 @@
-const people = [
-  {
-    name: 'Online geschriebener Brief',
-    posts: '1',
-    pages: '1',
-    envelope: 'DIN Lang',
-    group: '',
-    createdAt: '31.01.2023',
-    price: '0,89',
-    pdf: 'pdf',
-    idx: 'asd',
-  },
-];
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function PostsTable() {
+  const [data, setData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const response = await axios.get('http://localhost:4000/letter/all-user');
+      console.log(response.data);
+      setData(response.data);
+    };
+    getPosts();
+  }, []);
+
   return (
     <div className='px-4 sm:px-6 lg:px-8'>
       <div className='sm:flex sm:items-center'>
@@ -40,6 +40,7 @@ function PostsTable() {
           </div>
         </div>
       </div>
+      <div></div>
       <div className='mt-8 flex flex-col'>
         <div className='-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8'>
           <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
@@ -101,39 +102,16 @@ function PostsTable() {
                   </tr>
                 </thead>
                 <tbody className='divide-y divide-gray-200 bg-white'>
-                  {people.map((person) => (
-                    <tr key={person.idx} className='hover:bg-gray-200'>
+                  {data.map((letter) => (
+                    <tr key={letter.idx} className='hover:bg-gray-200'>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                        {person.name}
+                        {letter.content}
                       </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.posts}
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                        {letter.posts}
                       </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.pages}
-                      </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.envelope}
-                      </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.group}
-                      </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.createdAt}
-                      </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.price}
-                      </td>
-                      <td className='whitespace-nowrap px-3 py-4 text-sm text-gray-500'>
-                        {person.pdf}
-                      </td>
-                      <td className='relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6'>
-                        <a
-                          href='#'
-                          className='text-indigo-600 hover:text-indigo-900'
-                        >
-                          Edit<span className='sr-only'>, {person.name}</span>
-                        </a>
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                        {letter.pages}
                       </td>
                     </tr>
                   ))}

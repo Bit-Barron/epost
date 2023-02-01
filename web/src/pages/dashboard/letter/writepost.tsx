@@ -11,6 +11,7 @@ function Post() {
   const [price, setPrice] = useState(1);
   const [created, setCreated] = useState<string>('');
   const [posts, setPosts] = useState(1);
+  const [envelope, setEnvelope] = useState('DIN lang');
 
   const editorRef: any = useRef(null);
 
@@ -32,6 +33,7 @@ function Post() {
         price,
         created,
         posts,
+        envelope,
       });
     } catch (err: unknown) {
       if ((err as AxiosError).status === 403) {
