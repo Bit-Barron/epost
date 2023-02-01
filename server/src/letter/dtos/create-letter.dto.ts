@@ -18,8 +18,5 @@ export class CreateLetterDto {
   @IsNumber()
   posts: number;
 
-  @IsString()
-  createdAt: string;
-
   userId: number;
 }

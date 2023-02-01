@@ -1,10 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../user/user.entity';
 
 @Entity()
@@ -20,10 +14,6 @@ export class Letter {
 
   @Column({ default: 1 })
   pages: number;
-
-  @Column()
-  @CreateDateColumn({ type: 'timestamp with time zone' })
-  createdAt: string;
 
   @Column({ default: 1 })
   price: number;

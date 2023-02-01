@@ -30,7 +30,6 @@ export class LetterController {
       pages: createLetterDto.pages,
       price: createLetterDto.price,
       posts: createLetterDto.posts,
-      createdAt: createLetterDto.createdAt,
       user: { id: createLetterDto.userId },
     });
     return await this.letterRepo.save(newLetter);
