@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
 import { Param, Req, UseGuards } from '@nestjs/common/decorators';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
@@ -49,5 +49,11 @@ export class LetterController {
     return await this.letterRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
+  }
+
+  @Delete('/:id')
+  @UseGuards(AuthGuard)
+  async deleteletter(@Param('id') id: number, req: FastifyRequest) {
+    return await this.letterRepo.delete({ id, user: { id: req.user.sub } });
   }
 }
