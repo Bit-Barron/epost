@@ -27,6 +27,10 @@ export class LetterController {
     const newLetter = this.letterRepo.create({
       content: createLetterDto.content,
       title: createLetterDto.title,
+      pages: createLetterDto.pages,
+      price: createLetterDto.price,
+      posts: createLetterDto.posts,
+      createdAt: createLetterDto.createdAt,
       user: { id: createLetterDto.userId },
     });
     return await this.letterRepo.save(newLetter);

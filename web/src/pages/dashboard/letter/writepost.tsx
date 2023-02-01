@@ -7,6 +7,8 @@ import { DashboardContainer } from '../../../components/container/DashboardConta
 function Post() {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
+  const [pages, setPages] = useState(1);
+
   const editorRef: any = useRef(null);
 
   let sigPad: any = useRef({});
@@ -23,6 +25,7 @@ function Post() {
       const res = await axios.post('http://localhost:4000/letter/create', {
         content,
         title,
+        pages,
       });
       console.log(res);
     } catch (err: unknown) {
