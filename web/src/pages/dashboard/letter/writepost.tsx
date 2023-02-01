@@ -8,6 +8,9 @@ function Post() {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [pages, setPages] = useState(1);
+  const [price, setPrice] = useState(1);
+  const [created, setCreated] = useState('');
+  const [posts, setPosts] = useState([]);
 
   const editorRef: any = useRef(null);
 
@@ -26,6 +29,9 @@ function Post() {
         content,
         title,
         pages,
+        price,
+        created,
+        posts,
       });
       console.log(res);
     } catch (err: unknown) {
