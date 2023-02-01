@@ -23,7 +23,7 @@ export class Letter {
 
   @Column()
   @CreateDateColumn({ type: 'timestamp with time zone' })
-  createdAt: Date;
+  createdAt: string;
 
   @Column({ default: 1 })
   price: number;
