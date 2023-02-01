@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
+import SupportHeader from '../../../components/elements/supportPage/SupportHeader';
 
 interface indexProps {}
 
@@ -10,7 +11,8 @@ const PostShield: React.FC<indexProps> = ({}) => {
 
   return (
     <DashboardContainer>
-      <div className='mt-52'>
+      <SupportHeader />
+      <div className=''>
         <div className='container my-24 px-6 mx-auto'>
           <div className='mt-10 text-secondary'>
             <div className='font-bold text-2xl flex justify-center'>
@@ -18,9 +20,9 @@ const PostShield: React.FC<indexProps> = ({}) => {
             </div>
             <div className='text-gray-500 text-xl mr-10 mt-10 mb-10'>
               <span className='ml-20'>
-                Lassen Sie sich individuell beraten, wie sich {process.env.NEXT_PUBLIC_NAME} bei
-                Ihnen in die Geschäftsprozesse einbinden lässt. Persönliche
-                Klärung <br />
+                Lassen Sie sich individuell beraten, wie sich{' '}
+                {process.env.NEXT_PUBLIC_NAME} bei Ihnen in die
+                Geschäftsprozesse einbinden lässt. Persönliche Klärung <br />
               </span>
               Ihrer Fragen per Telefon oder E-Mail. Unsere Servicezeiten sind
               montags bis donnerstags von 9.00 Uhr bis 16.00 Uhr und freitags

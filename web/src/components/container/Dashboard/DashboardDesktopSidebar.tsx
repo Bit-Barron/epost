@@ -83,7 +83,7 @@ const shieldPost = [
   },
   {
     name: 'Kontakt / Support',
-    href: '/dashboard/postshield/support',
+    href: '/dashboard/general/support',
     icon: AiOutlineArrowRight,
     current: false,
   },
