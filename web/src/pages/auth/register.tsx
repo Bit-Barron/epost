@@ -14,7 +14,7 @@ const Register = ({}) => {
   const router = useRouter();
 
   const submit = async () => {
-    await axios.post('http://localhost:4000/auth/register', {
+    await axios.post('/auth/register', {
       email,
       password,
     });

@@ -13,7 +13,7 @@ const Login = () => {
   const router = useRouter();
 
   const submit = async () => {
-    await axios.post('http://localhost:4000/auth/login', {
+    await axios.post('/auth/login', {
       email,
       password,
       withCredentials: true,

@@ -9,17 +9,17 @@ function PostsTable() {
   const [data, setData] = useState<any[]>([]);
 
   const getPosts = async () => {
-    const response = await axios.get('http://localhost:4000/letter/all-user');
+    const response = await axios.get('/letter/all-user');
     console.log(response.data);
     setData(response.data);
   };
 
   useEffect(() => {
     getPosts();
-  }, []);
+  });
 
   async function deleteposts(id: number) {
-    const response = await axios.delete(`http://localhost:4000/letter/${id}`);
+    const response = await axios.delete(`/letter/${id}`);
     console.log(response.data);
     getPosts();
   }
@@ -139,16 +139,18 @@ function PostsTable() {
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
                       </td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                        <AiOutlineEdit className='text-xl ' />
-                      </td>
-                      <button
-                        type='submit'
-                        className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
-                        onClick={() => deleteposts(letter.id)}
-                      >
-                        <BsTrash className='text-xl' />
-                      </button>
+                      <tr className='flex'>
+                        <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                          <AiOutlineEdit className='text-xl ' />
+                        </td>
+                        <button
+                          type='submit'
+                          className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
+                          onClick={() => deleteposts(letter.id)}
+                        >
+                          <BsTrash className='text-xl' />
+                        </button>
+                      </tr>
                     </tr>
                   ))}
                 </tbody>

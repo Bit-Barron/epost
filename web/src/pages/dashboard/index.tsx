@@ -17,7 +17,7 @@ function Dashboard({}: dashboardProps) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        await axios.post('http://localhost:4000/user/dashboard');
+        await axios.post('/user/dashboard');
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
           console.log('err');

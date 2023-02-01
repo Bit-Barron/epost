@@ -28,7 +28,7 @@ function Post() {
 
   const submit = async () => {
     try {
-      await axios.post('http://localhost:4000/letter/create', {
+      await axios.post('/letter/create', {
         content,
         title,
         pages,

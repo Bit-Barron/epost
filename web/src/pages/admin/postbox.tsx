@@ -9,7 +9,7 @@ const Recent = ({}) => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await axios.post('http://localhost:4000/leter/all');
+      const response = await axios.post('/leter/all');
       console.log(response.data);
       setData(response.data);
     };
@@ -19,7 +19,7 @@ const Recent = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        await axios.post('http://localhost:4000/user/dashboard');
+        await axios.post('/user/dashboard');
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
           router.push('/login');

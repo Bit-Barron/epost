@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import user from '../../../../pages/admin/user/user';
 
 interface ProfileOverviewProps {}
 
@@ -15,7 +14,7 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/user/user');
+        const response = await axios.get('/user/user');
         setUsername(response.data.email);
       } catch (err) {
         console.log(err);

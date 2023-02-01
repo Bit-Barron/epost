@@ -16,7 +16,7 @@ const Recent: React.FC<recentProps> = ({}) => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await axios.get('http://localhost:4000/letter/all-user');
+      const response = await axios.get('letter/all-user');
       console.log(response.data);
       setData(response.data);
     };
@@ -27,7 +27,7 @@ const Recent: React.FC<recentProps> = ({}) => {
     const getUser = async () => {
       try {
         const response = await axios.post(
-          'http://localhost:4000/user/dashboard'
+          '/user/dashboard'
         );
         console.log(typeof response.data);
       } catch (err: unknown) {
