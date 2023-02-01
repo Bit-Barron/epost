@@ -8,18 +8,20 @@ import dayjs from 'dayjs';
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
 
+  const getPosts = async () => {
+    const response = await axios.get('http://localhost:4000/letter/all-user');
+    console.log(response.data);
+    setData(response.data);
+  };
+
   useEffect(() => {
-    const getPosts = async () => {
-      const response = await axios.get('http://localhost:4000/letter/all-user');
-      console.log(response.data);
-      setData(response.data);
-    };
     getPosts();
   }, []);
 
   async function deleteposts(id: number) {
     const response = await axios.delete(`http://localhost:4000/letter/${id}`);
     console.log(response.data);
+    getPosts();
   }
 
   let date = dayjs().format('DD.MM.YYYY');
