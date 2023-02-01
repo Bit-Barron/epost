@@ -17,6 +17,11 @@ function PostsTable() {
     getPosts();
   }, []);
 
+  async function deleteposts(id: number) {
+    const response = await axios.delete(`http://localhost:4000/letter/${id}`);
+    console.log(response.data);
+  }
+
   let date = dayjs().format('DD.MM.YYYY');
 
   return (
@@ -123,7 +128,9 @@ function PostsTable() {
                         {letter.envelope}
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'></td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>{date}</td>
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                        {date}
+                      </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.price}€
                       </td>
@@ -134,8 +141,11 @@ function PostsTable() {
                         <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                           <AiOutlineEdit className='text-xl ' />
                         </td>
-                        <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                          <BsTrash className='text-xl ' />
+                        <td
+                          className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
+                          onClick={() => deleteposts(letter.id)}
+                        >
+                          <BsTrash className='text-xl' />
                         </td>
                       </div>
                     </tr>
