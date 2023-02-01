@@ -137,17 +137,16 @@ function PostsTable() {
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
                       </td>
-                      <div className='flex'>
-                        <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                          <AiOutlineEdit className='text-xl ' />
-                        </td>
-                        <td
-                          className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
-                          onClick={() => deleteposts(letter.id)}
-                        >
-                          <BsTrash className='text-xl' />
-                        </td>
-                      </div>
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                        <AiOutlineEdit className='text-xl ' />
+                      </td>
+                      <button
+                        type='submit'
+                        className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
+                        onClick={() => deleteposts(letter.id)}
+                      >
+                        <BsTrash className='text-xl' />
+                      </button>
                     </tr>
                   ))}
                 </tbody>
