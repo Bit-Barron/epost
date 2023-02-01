@@ -34,13 +34,13 @@ function SupportHeader() {
   return (
     <div className='bg-white'>
       {/* Header */}
-      <div className='relative pb-32 bg-gray-800'>
+      <div className='relative  bg-gray-800'>
         <div className='absolute inset-0'>
           <Image
             className='w-full h-full object-cover'
             src='https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100'
             alt=''
-            width={1920}
+            width={1000}
             height={100}
           />
           <div
@@ -62,7 +62,7 @@ function SupportHeader() {
 
       {/* Overlapping cards */}
       <section
-        className='-mt-32 max-w-7xl mx-auto relative z-10 pb-32 px-4 sm:px-6 lg:px-8'
+        className='max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8'
         aria-labelledby='contact-heading'
       >
         <h2 className='sr-only' id='contact-heading'>

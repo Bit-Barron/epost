@@ -12,7 +12,7 @@ const PostShield: React.FC<indexProps> = ({}) => {
   return (
     <DashboardContainer>
       <SupportHeader />
-      <div className=''>
+      <div>
         <div className='container my-24 px-6 mx-auto'>
           <div className='mt-10 text-secondary'>
             <div className='font-bold text-2xl flex justify-center'>
