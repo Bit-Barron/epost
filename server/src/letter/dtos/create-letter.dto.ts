@@ -13,6 +13,9 @@ export class CreateLetterDto {
   pages: number;
 
   @IsNumber()
+  added: number;
+
+  @IsNumber()
   price: number;
 
   @IsNumber()
