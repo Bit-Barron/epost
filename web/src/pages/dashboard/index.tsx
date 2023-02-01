@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
-import Home from '../../components/elements/dashboard/Home';
+import Home from '../../components/elements/dashboard/home/Home';
 
 interface dashboardProps {}
 
