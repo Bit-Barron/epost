@@ -10,7 +10,7 @@ function Post() {
   const [pages, setPages] = useState(1);
   const [price, setPrice] = useState(1);
   const [created, setCreated] = useState('');
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(1);
 
   const editorRef: any = useRef(null);
 
