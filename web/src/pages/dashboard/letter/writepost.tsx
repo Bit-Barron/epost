@@ -1,17 +1,19 @@
-import { Editor } from '@tinymce/tinymce-react';
 import axios, { AxiosError } from 'axios';
 import { useRef, useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
+import { Editor } from '@tinymce/tinymce-react';
 
 function Post() {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [pages, setPages] = useState(1);
   const [price, setPrice] = useState(1);
-  const [created, setCreated] = useState<string>('');
   const [posts, setPosts] = useState(1);
   const [envelope, setEnvelope] = useState('DIN lang');
+  const [documents, setDocuments] = useState<string>(
+    'Online geschriebener Brief'
+  );
 
   const editorRef: any = useRef(null);
 
@@ -31,9 +33,9 @@ function Post() {
         title,
         pages,
         price,
-        created,
         posts,
         envelope,
+        documents,
       });
     } catch (err: unknown) {
       if ((err as AxiosError).status === 403) {

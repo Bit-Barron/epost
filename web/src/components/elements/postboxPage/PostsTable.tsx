@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
+import { AiOutlineEdit } from 'react-icons/ai';
+import { BsTrash } from 'react-icons/bs';
+import dayjs from 'dayjs';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
@@ -12,6 +16,8 @@ function PostsTable() {
     };
     getPosts();
   }, []);
+
+  let date = dayjs().format('DD.MM.YYYY');
 
   return (
     <div className='px-4 sm:px-6 lg:px-8'>
@@ -105,7 +111,7 @@ function PostsTable() {
                   {data.map((letter) => (
                     <tr key={letter.idx} className='hover:bg-gray-200'>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                        {letter.content}
+                        {letter.documents}
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.posts}
@@ -117,9 +123,21 @@ function PostsTable() {
                         {letter.envelope}
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'></td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'></td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>{letter.price}</td>
-
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>{date}</td>
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                        {letter.price}€
+                      </td>
+                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                        <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
+                      </td>
+                      <div className='flex'>
+                        <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                          <AiOutlineEdit className='text-xl ' />
+                        </td>
+                        <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                          <BsTrash className='text-xl ' />
+                        </td>
+                      </div>
                     </tr>
                   ))}
                 </tbody>

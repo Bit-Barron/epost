@@ -21,5 +21,8 @@ export class CreateLetterDto {
   @IsString()
   envelope: string;
 
+  @IsString()
+  documents: string;
+
   userId: number;
 }
