@@ -1,5 +1,6 @@
 import fastifyCookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -23,6 +24,7 @@ async function bootstrap() {
     origin: process.env.CORS_ORIGIN,
     credentials: true,
   });
+  app.useGlobalPipes(new ValidationPipe({ forbidUnknownValues: false }));
 
   await app.register(fastifyCookie, {
     secret: process.env.SECRET,
