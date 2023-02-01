@@ -1,9 +1,10 @@
 import React from 'react';
+import { DashboardContainer } from '../../../components/container/DashboardContainer';
 
 interface settingsProps {}
 
 const settings: React.FC<settingsProps> = ({}) => {
-  return <h1>settings</h1>;
+  return <DashboardContainer>settings</DashboardContainer>;
 };
 
 export default settings;
