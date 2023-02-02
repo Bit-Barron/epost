@@ -6,6 +6,7 @@ import main from '../../../public/images/main.png';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import Button from '../../components/elements/Button';
 import Terms from '../../components/elements/authPage/Terms';
+import AuthButton from '../../components/elements/auth/AuthButton';
 
 const Register = ({}) => {
   const [email, setEmail] = useState('');
@@ -24,7 +25,7 @@ const Register = ({}) => {
 
   return (
     <>
-      <div className='bg-[#17191a]'>
+      <div className=''>
         <div className='flex justify-center mr-3'>
           <span className='font-semibold text-2xl dark:text-white flex'>
             <Image width={80} height={50} src={main} alt='asd' />
@@ -85,7 +86,7 @@ const Register = ({}) => {
             <Terms />
           </div>
         </div>
-        <Button onClick={() => submit()} name='Register' />
+        <AuthButton onClick={() => submit()} name='Register' />
 
         <div className='flex justify-center mt-5 font-semibold'>
           Have an account?

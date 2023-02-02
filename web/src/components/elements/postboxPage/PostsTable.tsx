@@ -1,10 +1,10 @@
+import { CheckCircleIcon } from '@heroicons/react/outline';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsFillFileEarmarkPdfFill, BsTrash } from 'react-icons/bs';
 import { GeneralStore } from '../../../store/Generalstore';
-import { ClearPostboxConfirmation } from '../confirmation/clearPostboxConfirmation';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
@@ -75,7 +75,7 @@ function PostsTable() {
           </div>
         </div>
       </div>
-      <div></div>
+
       <div className='mt-8 flex flex-col'>
         <div className='-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8'>
           <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
@@ -182,7 +182,6 @@ function PostsTable() {
                 </tbody>
               </table>
             </div>
-            {isOpen && <ClearPostboxConfirmation />}
           </div>
         </div>
       </div>
