@@ -1,21 +1,22 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { BsTrash } from 'react-icons/bs';
 import dayjs from 'dayjs';
+import { useEffect, useState } from 'react';
+import { AiOutlineEdit } from 'react-icons/ai';
+import { BsFillFileEarmarkPdfFill, BsTrash } from 'react-icons/bs';
 import { GeneralStore } from '../../../store/Generalstore';
-import { Alerts } from '../../../utils/Alerts';
+import { ConfirmStore } from '../../../store/ConfirmStore';
+import { ClearPostboxConfirmation } from '../confirmation/ClearPostboxConfirmation';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
   const { alerts, addAlert } = GeneralStore();
+  const { isOpen, openModal, closeModal } = ConfirmStore();
 
   const handleAddAlert = () => {
     addAlert({
       id: 'unique-id',
       message: 'Der Auftrag wurde erfolgreich gelöscht.',
-      type: 'success',
+      type: 'failure',
     });
   };
 
@@ -166,7 +167,6 @@ function PostsTable() {
                           className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
                           onClick={() => {
                             deleteposts(letter.id);
-                            handleAddAlert();
                           }}
                         >
                           <BsTrash className='text-xl' />
@@ -174,6 +174,7 @@ function PostsTable() {
                       </tr>
                     </tr>
                   ))}
+                  {isOpen && <ClearPostboxConfirmation />}
                 </tbody>
               </table>
             </div>
