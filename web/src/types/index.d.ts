@@ -4,6 +4,8 @@ export type DashboardTab = {
   current: boolean;
 };
 
+export type AlertType = 'failure' | 'gray' | 'info' | 'success' | 'warning';
+
 export type Alert = {
   id: string;
   message: string;
