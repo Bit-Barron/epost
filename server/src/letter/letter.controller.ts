@@ -53,21 +53,21 @@ export class LetterController {
   }
 
   @UseGuards(AuthGuard)
-  @Delete('/all-letter')
-  async deleteletter(@Req() req: FastifyRequest) {
+  @Delete('/:id')
+  async deleteletter(@Param('id') id: number, @Req() req: FastifyRequest) {
     console.log(req.user);
     try {
-      return await this.letterRepo.delete({ user: { id: req.user.sub } });
+      return await this.letterRepo.delete({ id, user: { id: req.user.sub } });
     } catch (err) {}
     return true;
   }
 
   @UseGuards(AuthGuard)
-  @Delete('/all-user')
+  @Delete('/all-letter')
   async deleteAll(@Req() req: FastifyRequest) {
     console.log(req.user);
     try {
-      return await this.letterRepo.delete({});
+      return await this.letterRepo.delete({ user: { id: req.user.sub } });
     } catch (err) {}
   }
 }

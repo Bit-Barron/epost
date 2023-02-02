@@ -4,11 +4,11 @@ import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import dayjs from 'dayjs';
-import { useGeneralStore } from '../../../store/Generalstore';
+import { GeneralStore } from '../../../store/Generalstore';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
-  const { alerts, addAlert, removeAlert } = useGeneralStore();
+  const { alerts, addAlert, removeAlert } = GeneralStore();
 
   const handleAddAlert = () => {
     addAlert({
@@ -24,7 +24,6 @@ function PostsTable() {
 
   const getPosts = async () => {
     const response = await axios.get('/letter/all-user');
-    console.log(response.data);
     setData(response.data);
   };
 
@@ -51,10 +50,14 @@ function PostsTable() {
       <div className='sm:flex sm:items-center'>
         <div className='sm:flex-auto'>
           <h1 className='text-xl font-semibold text-gray-900'>Users</h1>
+
           <p className='mt-2 text-sm text-gray-700'>
             A list of all the users in your account including their name, title,
             email and role.
           </p>
+          {alerts.map((alert: any) => (
+            <div key={alert.id}>{alert.message}</div>
+          ))}
         </div>
         <div className='mt-4 sm:mt-0 sm:ml-16 sm:flex-none flex'>
           <button
@@ -167,7 +170,10 @@ function PostsTable() {
                         <button
                           type='submit'
                           className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
-                          onClick={() => deleteposts(letter.id)}
+                          onClick={() => {
+                            deleteposts(letter.id);
+                            handleAddAlert();
+                          }}
                         >
                           <BsTrash className='text-xl' />
                         </button>
