@@ -16,7 +16,7 @@ function PostsTable() {
     addAlert({
       id: 'unique-id',
       message: 'Der Auftrag wurde erfolgreich gelöscht.',
-      type: 'failure',
+      type: 'success',
     });
   };
 
@@ -167,6 +167,7 @@ function PostsTable() {
                           className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
                           onClick={() => {
                             deleteposts(letter.id);
+                            handleAddAlert();
                           }}
                         >
                           <BsTrash className='text-xl' />
