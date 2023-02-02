@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsFillFileEarmarkPdfFill, BsTrash } from 'react-icons/bs';
 import { GeneralStore } from '../../../store/Generalstore';
+import { ClearPostboxConfirmation } from '../confirmation/clearPostboxConfirmation';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
@@ -162,13 +163,14 @@ function PostsTable() {
                       </td>
                       <tr className='flex'>
                         <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                          <AiOutlineEdit className='text-xl ' />
+                          <AiOutlineEdit className='text-xl' />
                         </td>
                         <button
                           type='submit'
                           className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
                           onClick={() => {
                             deleteposts(letter.id);
+                            toggle();
                             handleAddAlert();
                           }}
                         >
@@ -180,6 +182,7 @@ function PostsTable() {
                 </tbody>
               </table>
             </div>
+            {isOpen && <ClearPostboxConfirmation />}
           </div>
         </div>
       </div>
