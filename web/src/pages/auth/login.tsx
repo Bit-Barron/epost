@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
@@ -6,24 +6,48 @@ import main from '../../../public/images/main.png';
 import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import Button from '../../components/elements/Button';
+import { GeneralStore } from '../../store/Generalstore';
+import { Alerts } from '../../utils/Alerts';
 
 const Login = () => {
   const [email, setEmail] = useState('test@test');
   const [password, setPassword] = useState<string>('123123');
+  const { alerts, addAlert } = GeneralStore();
+
   const router = useRouter();
 
   const submit = async () => {
-    await axios.post('/auth/login', {
-      email,
-      password,
-      withCredentials: true,
-    });
-    router.push('/dashboard');
+    try {
+      await axios.post('/auth/login', {
+        email,
+        password,
+        withCredentials: true,
+      });
+      addAlert({
+        id: 'unique-id',
+        message: 'Benutzer erfolgreich angemeldet',
+        type: 'success',
+      });
+      router.push('/dashboard');
+    } catch (err: unknown) {
+      if ((err as AxiosError).response?.status === 404) {
+        addAlert({
+          id: 'unique-id',
+          message: `Falsche E-Mail oder Passwort`,
+          type: 'failure',
+        });
+      }
+    }
   };
 
   return (
     <>
       <div className='flex justify-center'>
+        {alerts.map((alert) => (
+          <div key={alert.id}>
+            <Alerts />
+          </div>
+        ))}
         <span className='font-semibold text-2xl dark:text-white flex'>
           <Image width={80} height={50} src={main} alt='main' />
         </span>
