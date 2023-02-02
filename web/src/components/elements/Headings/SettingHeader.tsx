@@ -12,7 +12,7 @@ function classNames(...classes: string[]) {
 
 export default function SettingHeader() {
   return (
-    <div className='pb-5 border-b border-gray-200 sm:pb-0 mt-52 flex justify-center border-spacing-x-56'>
+    <div className='pb-5 sm:pb-0 mt-52 ml-70  flex justify-center border-spacing-x-56'>
       <div className='mt-3 sm:mt-4'>
         <div className='sm:hidden'>
           <label htmlFor='current-tab' className='sr-only'>
