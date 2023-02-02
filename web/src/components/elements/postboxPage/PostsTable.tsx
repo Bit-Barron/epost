@@ -4,13 +4,15 @@ import { useEffect, useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsFillFileEarmarkPdfFill, BsTrash } from 'react-icons/bs';
 import { GeneralStore } from '../../../store/Generalstore';
-import { ConfirmStore } from '../../../store/ConfirmStore';
-import { ClearPostboxConfirmation } from '../confirmation/ClearPostboxConfirmation';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
   const { alerts, addAlert } = GeneralStore();
-  const { isOpen, openModal, closeModal } = ConfirmStore();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   const handleAddAlert = () => {
     addAlert({
@@ -175,7 +177,6 @@ function PostsTable() {
                       </tr>
                     </tr>
                   ))}
-                  {isOpen && <ClearPostboxConfirmation />}
                 </tbody>
               </table>
             </div>
