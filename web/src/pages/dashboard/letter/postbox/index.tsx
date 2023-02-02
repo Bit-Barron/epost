@@ -2,18 +2,17 @@ import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../../../components/container/DashboardContainer';
-import { BsTrashFill } from 'react-icons/bs';
-import { BsFillFileEarmarkPdfFill } from 'react-icons/bs';
-import AuthButton from '../../../../components/elements/auth/AuthButton';
-import Impresum from '../../../../components/elements/pricepage/price/impresum/Impresum';
 import PostsTable from '../../../../components/elements/postboxPage/PostsTable';
-import { useGeneralStore } from '../../../../store/Generalstore';
+import Impresum from '../../../../components/elements/pricepage/price/impresum/Impresum';
+import { GeneralStore } from '../../../../store/Generalstore';
+import { Alerts } from '../../../../utils/Alerts';
 
 interface recentProps {}
 
 const Recent: React.FC<recentProps> = ({}) => {
   const [data, setData] = useState<any[]>([]);
   const router = useRouter();
+  const { alerts, addAlert } = GeneralStore();
 
   useEffect(() => {
     const getPosts = async () => {
@@ -46,6 +45,11 @@ const Recent: React.FC<recentProps> = ({}) => {
         <div className='container mx-auto'>
           <div className='text-2xl mt-10 text-white text-center'>Postbox</div>
           <div>
+            {alerts.map((alert: any) => (
+              <div key={alert.id}>
+                <Alerts />
+              </div>
+            ))}
             <div className='relative overflow-x-auto mt-20'>
               {data && data.length > 0 ? (
                 <div>

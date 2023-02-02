@@ -5,21 +5,18 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { BsTrash } from 'react-icons/bs';
 import dayjs from 'dayjs';
 import { GeneralStore } from '../../../store/Generalstore';
+import { Alerts } from '../../../utils/Alerts';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
-  const { alerts, addAlert, removeAlert } = GeneralStore();
+  const { alerts, addAlert } = GeneralStore();
 
   const handleAddAlert = () => {
     addAlert({
       id: 'unique-id',
-      message: 'This is a success alert',
+      message: 'Der Auftrag wurde erfolgreich gelöscht.',
       type: 'success',
     });
-  };
-
-  const handleRemoveAlert = (id: string) => {
-    removeAlert(id);
   };
 
   const getPosts = async () => {
@@ -55,9 +52,6 @@ function PostsTable() {
             A list of all the users in your account including their name, title,
             email and role.
           </p>
-          {alerts.map((alert: any) => (
-            <div key={alert.id}>{alert.message}</div>
-          ))}
         </div>
         <div className='mt-4 sm:mt-0 sm:ml-16 sm:flex-none flex'>
           <button
