@@ -2,7 +2,6 @@ const tabs = [
   { name: 'Allgemeine Einstellungen', href: '#', current: false },
   { name: 'SEPA-Überweisungsträger', href: '#', current: false },
   { name: 'Persönliche Daten', href: '#', current: true },
-  { name: 'Offer', href: '#', current: false },
   { name: 'Passwort ändern', href: '#', current: false },
 ];
 
