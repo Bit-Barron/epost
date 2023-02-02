@@ -21,13 +21,13 @@ const AuthInput: React.FC<InputProps> = ({
     <div className='flex justify-center mt-5'>
       <div>
         <div>
-          <div className='mr-28 font-bold mb-2'>{label}</div>
+          <div className='mb-2'>{label}</div>
         </div>
         <input
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`${className} bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm  w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white`}
+          className={`${className} bg-transparent focus:outline-none border border-gray-300 text-gray-900 text-sm rounded-sm  p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white`}
           placeholder={placeholder}
         />
       </div>

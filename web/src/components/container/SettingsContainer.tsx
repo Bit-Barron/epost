@@ -11,7 +11,7 @@ export const SettingsContainer: React.FC<SettingsContainerProps> = ({
   return (
     <>
       <SettingHeader />
-      <div className='mx-auto w-1/2 bg-[#181a1b]'>
+      <div className='mx-auto w-10/12 bg-[#181a1b]'>
         <div className='text-center'>{children}</div>
       </div>
     </>

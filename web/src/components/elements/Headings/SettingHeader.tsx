@@ -11,7 +11,7 @@ function classNames(...classes: string[]) {
 
 export default function SettingHeader() {
   return (
-    <div className='pb-5 sm:pb-0 mt-52 ml-70  flex justify-center border-spacing-x-56'>
+    <div className='pb-5 sm:pb-0 mt-52 mx-auto bg-[#1f2123] w-10/12 flex justify-center border-spacing-x-56'>
       <div className='mt-3 sm:mt-4'>
         <div className='sm:hidden'>
           <label htmlFor='current-tab' className='sr-only'>
@@ -35,7 +35,7 @@ export default function SettingHeader() {
                 href={tab.href}
                 className={classNames(
                   tab.current
-                    ? 'border-indigo-500 text-indigo-600'
+                    ? 'border-indigo-500 h-10 bg-[#181a1b] text-indigo-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
                   'whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm'
                 )}
