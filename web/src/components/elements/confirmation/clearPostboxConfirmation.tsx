@@ -1,11 +1,50 @@
+import axios from 'axios';
 import router from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { GeneralStore } from '../../../store/Generalstore';
 
 interface ClearPostboxConfirmationProps {}
 
 export const ClearPostboxConfirmation: React.FC<
   ClearPostboxConfirmationProps
 > = ({}) => {
+  const [data, setData] = useState<any[]>([]);
+  const { alerts, addAlert } = GeneralStore();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleAddAlert = () => {
+    addAlert({
+      id: 'unique-id',
+      message: 'Der Auftrag wurde erfolgreich gelöscht.',
+      type: 'success',
+    });
+  };
+
+  const getPosts = async () => {
+    const response = await axios.get('/letter/all-user');
+    setData(response.data);
+  };
+
+  const deleteallposts = async () => {
+    const response = await axios.delete('/letter/all-letter');
+    console.log(response.data);
+    getPosts();
+  };
+
+  useEffect(() => {
+    getPosts();
+  });
+
+  async function deleteposts(id: number) {
+    const response = await axios.delete(`/letter/${id}`);
+    console.log(response.data);
+    getPosts();
+  }
+
   return (
     <div
       className='relative z-10'
@@ -56,6 +95,11 @@ export const ClearPostboxConfirmation: React.FC<
             </div>
             <div className='bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6'>
               <button
+                onClick={() => {
+                  deleteallposts();
+                  handleAddAlert();
+                  return router.push('/dashboard/letter/postbox');
+                }}
                 type='button'
                 className='inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm'
               >
