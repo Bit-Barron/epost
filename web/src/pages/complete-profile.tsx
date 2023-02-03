@@ -22,8 +22,8 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [PLZ, setPLZ] = useState('');
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
+  const [salutation, setSalutation] = useState('');
   const router = useRouter();
-  
 
   const submit = async () => {
     const response = await axios.post('/setting/create', {
@@ -31,13 +31,13 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
       lastname,
       street,
       PLZ,
+      salutation,
       location,
       phone,
     });
     console.log(response.data);
     router.push('/dashboard/');
   };
-
 
   return (
     <div>

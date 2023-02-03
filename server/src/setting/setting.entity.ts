@@ -24,7 +24,7 @@ export class Setting {
   @Column()
   lastname: string;
 
-  @Column()
+  @Column({ default: 'Herr' })
   salutation: string;
 
   @ManyToOne(() => User, (user) => user.settings)
