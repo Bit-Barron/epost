@@ -5,8 +5,10 @@ import main from '../../public/images/main.png';
 import Dropdown from '../components/elements/completeProfilePage/Dropdown';
 import AuthInput from '../components/elements/auth/AuthInput';
 import AuthButton from '../components/elements/auth/AuthButton';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
+import { GeneralStore } from '../store/Generalstore';
+import { Alerts } from '../utils/Alerts';
 
 interface completeprofileProps {}
 
@@ -22,25 +24,41 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [PLZ, setPLZ] = useState('');
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
-  const [salutation, setSalutation] = useState('');
+  const [salutation, setSalutation] = useState('Herr');
   const router = useRouter();
+  const { alerts, addAlert } = GeneralStore();
 
   const submit = async () => {
-    const response = await axios.post('/setting/create', {
-      firstname,
-      lastname,
-      street,
-      PLZ,
-      salutation,
-      location,
-      phone,
-    });
-    console.log(response.data);
-    router.push('/dashboard/');
+    try {
+      const response = await axios.post('/setting/create', {
+        firstname,
+        lastname,
+        street,
+        PLZ,
+        salutation,
+        location,
+        phone,
+      });
+      console.log(response.data);
+      router.push('/dashboard/');
+    } catch (err: unknown) {
+      if ((err as AxiosError).response?.status === 500) {
+        addAlert({
+          id: 'unique-id',
+          message: `Telefon Nummer ist bereits vergeben`,
+          type: 'failure',
+        });
+      }
+    }
   };
 
   return (
     <div>
+      {alerts.map((alert) => (
+        <div key={alert.id}>
+          <Alerts />
+        </div>
+      ))}
       <div className='bg-[#181a1b] w-[1000px] mt-52 mx-auto p-16 rounded-lg'>
         <div className='mx-auto container'>
           <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex justify-center'>

@@ -30,13 +30,11 @@ function classNames(...classes: string[]) {
 
 export default function Dropdown() {
   const [query, setQuery] = useState('');
-  const [salutation, setSalutation] = useState();
+  const [salutation, setSalutation] = useState('Herr');
 
   const submit = async () => {
     const response = await axios.post('/setting/create', {
       salutation,
-
-      location,
     });
     console.log(response.data);
   };
@@ -49,7 +47,7 @@ export default function Dropdown() {
         });
 
   return (
-    <Combobox as='div' value={salutation} onChange={setSalutation}>
+    <Combobox as='div'>
       <Combobox.Label className='block text-sm font-medium text-gray-700'>
         Anrede
       </Combobox.Label>
