@@ -4,7 +4,7 @@ import Settings from '../../../components/elements/settings/personalinformations
 
 interface settingsProps {}
 
-const settings: React.FC<settingsProps> = ({}) => {
+const changepassword: React.FC<settingsProps> = ({}) => {
   return (
     <DashboardContainer>
       <Settings />
@@ -12,4 +12,4 @@ const settings: React.FC<settingsProps> = ({}) => {
   );
 };
 
-export default settings;
+export default changepassword;
