@@ -5,7 +5,6 @@ const people = [
     email: 'lindsay.walton@example.com',
     role: 'Member',
   },
-  // More people...
 ];
 
 export default function Example() {
