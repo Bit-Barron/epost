@@ -18,6 +18,6 @@ export class Setting {
   @Column()
   phone: string;
 
-  @ManyToOne(() => User, (user) => user.letters)
+  @ManyToOne(() => User, (user) => user.settings)
   user: User;
 }

@@ -1,3 +1,4 @@
+import { Setting } from 'src/setting/setting.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Letter } from '../letter/letter.entity';
 
@@ -14,4 +15,7 @@ export class User {
 
   @OneToMany(() => Letter, (letter) => letter.user)
   letters: Letter[];
+
+  @OneToMany(() => Setting, (setting) => setting.user)
+  settings: Setting[];
 }
