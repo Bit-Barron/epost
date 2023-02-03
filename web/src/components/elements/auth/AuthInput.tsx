@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface InputProps {
-  value: string;
-  onChange: any;
+  value?: string;
+  onChange?: any;
   type: string;
   placeholder?: string;
   label: string;

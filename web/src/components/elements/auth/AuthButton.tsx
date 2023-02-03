@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface inputProps {
-  onClick: any;
+  onClick?: any;
   name: string;
 }
 
