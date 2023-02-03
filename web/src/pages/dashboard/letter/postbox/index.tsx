@@ -16,7 +16,7 @@ const Recent: React.FC<recentProps> = ({}) => {
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await axios.get('letter/all-user');
+      const response = await axios.get('/letter/all-user');
       console.log(response.data);
       setData(response.data);
     };
