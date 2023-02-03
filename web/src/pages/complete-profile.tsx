@@ -6,6 +6,7 @@ import Dropdown from '../components/elements/completeProfilePage/Dropdown';
 import AuthInput from '../components/elements/auth/AuthInput';
 import AuthButton from '../components/elements/auth/AuthButton';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 interface completeprofileProps {}
 
@@ -21,6 +22,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [PLZ, setPLZ] = useState('asdfasdf');
   const [location, setLocation] = useState('asdfasdf');
   const [phone, setPhone] = useState('asdfasdf');
+  const router = useRouter();
 
   const submit = async () => {
     const response = await axios.post('/setting/create', {
@@ -32,6 +34,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
       phone,
     });
     console.log(response.data);
+    router.push('/dashboard');
   };
   return (
     <div>

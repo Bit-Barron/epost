@@ -1,8 +1,6 @@
 import React from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import { SettingsContainer } from '../../../components/container/SettingsContainer';
-import AuthButton from '../../../components/elements/auth/AuthButton';
-import Settings from './personalinformations';
 
 interface settingsProps {}
 
