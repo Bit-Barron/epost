@@ -31,6 +31,15 @@ export class SettingController {
       phone: createSettingDto.phone,
       user: { id: createSettingDto.userId },
     });
-    return await this.letterRepo.save(newSetting);
+
+    return await this.letterRepo.update(
+      { id: newSetting.user.id },
+      {
+        street: createSettingDto.street,
+        PLZ: createSettingDto.PLZ,
+        location: createSettingDto.location,
+        phone: createSettingDto.phone,
+      },
+    );
   }
 }
