@@ -31,7 +31,7 @@ const navigation = [
 const teams = [
   {
     name: 'Einstellung',
-    href: '/dashboard/settings/settings',
+    href: '/dashboard/settings/personalinformation',
     bgColorClass: 'bg-indigo-500',
     icon: FiSettings,
     current: false,
