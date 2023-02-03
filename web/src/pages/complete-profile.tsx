@@ -15,26 +15,24 @@ const quicksand = Quicksand({
 });
 
 const Completeprofile: React.FC<completeprofileProps> = ({}) => {
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [street, setStreet] = useState('');
-  const [PLZ, setPLZ] = useState('');
-  const [location, setLocation] = useState('');
-  const [phone, setPhone] = useState('');
+  const [firstname, setFirstname] = useState('asdfasdf');
+  const [lastname, setLastname] = useState('asdfasdf');
+  const [street, setStreet] = useState('asdfasdf');
+  const [PLZ, setPLZ] = useState('asdfasdf');
+  const [location, setLocation] = useState('asdfasdf');
+  const [phone, setPhone] = useState('asdfasdf');
 
-  useEffect(() => {
-    const createProfile = async () => {
-      const response = await axios.post('/auth/register', {
-        firstname,
-        lastname,
-        street,
-        PLZ,
-        location,
-        phone,
-      });
-    };
-    createProfile();
-  }, []);
+  const submit = async () => {
+    const response = await axios.post('', {
+      firstname,
+      lastname,
+      street,
+      PLZ,
+      location,
+      phone,
+    });
+    console.log(response.data);
+  };
   return (
     <div>
       <div className='bg-[#181a1b] w-[1000px] mt-52 mx-auto p-16 rounded-lg'>
@@ -56,6 +54,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
           </div>
           <div className='flex justify-start'>
             <AuthInput
+              value={firstname}
               onChange={setFirstname}
               type={'text'}
               label={'Vorname'}
@@ -64,28 +63,41 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               <AuthInput
                 onChange={setLastname}
                 className=''
+                value={lastname}
                 type={'text'}
                 label={'Nachname'}
               />
             </div>
           </div>
           <div className='flex justify-start'>
-            <AuthInput onChange={setStreet} type={'text'} label={'Straße'} />
+            <AuthInput
+              onChange={setStreet}
+              type={'text'}
+              label={'Straße'}
+              value={street}
+            />
             <div className='ml-10'>
               <AuthInput
                 onChange={setPLZ}
                 className=''
+                value={PLZ}
                 type={'text'}
                 label={'PLZ'}
               />
             </div>
           </div>
           <div className='flex justify-start'>
-            <AuthInput onChange={setLocation} type={'text'} label={'Ort'} />
+            <AuthInput
+              onChange={setLocation}
+              type={'text'}
+              label={'Ort'}
+              value={location}
+            />
             <div className='ml-10'>
               <AuthInput
                 onChange={setPhone}
                 className=''
+                value={phone}
                 placeholder='Optional'
                 type={'text'}
                 label={'Telefon'}
@@ -93,7 +105,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
             </div>
           </div>
           <div className='flex items-end'>
-            <AuthButton name={'Speichen'} />
+            <AuthButton name={'Speichen'} onClick={() => submit()} />
           </div>
         </div>
       </div>

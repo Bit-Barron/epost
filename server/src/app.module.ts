@@ -8,6 +8,8 @@ import { User } from './user/user.entity';
 
 import { UserModule } from './user/user.module';
 
+import { SettingModule } from './setting/setting.module';
+
 const ENTITIES = [User, Letter];
 
 const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
@@ -33,6 +35,7 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
       synchronize: true,
     }),
     TypeOrmModules,
+    SettingModule,
   ],
   providers: [JwtService],
   exports: [TypeOrmModules, JwtService],
