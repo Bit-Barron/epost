@@ -20,25 +20,19 @@ export class SettingController {
 
   @Post('/create')
   @UseGuards(AuthGuard)
-  async CreateProfile(
+  async createPost(
+    @Body() createLetterDto: CreateSettingDto,
     @Req() req: FastifyRequest,
-    @Body() createSettingDto: CreateSettingDto,
   ) {
-    const newSetting = this.letterRepo.create({
-      street: createSettingDto.street,
-      PLZ: createSettingDto.PLZ,
-      location: createSettingDto.location,
-      phone: createSettingDto.phone,
-    });
+    createLetterDto.userId = req.user.sub;
 
-    // return await this.letterRepo.update(
-    //   { id: newSetting.user.id },
-    //   {
-    //     street: createSettingDto.street,
-    //     PLZ: createSettingDto.PLZ,
-    //     location: createSettingDto.location,
-    //     phone: createSettingDto.phone,
-    //   },
-    // );
+    const newLetter = this.letterRepo.create({
+      street: createLetterDto.street,
+      PLZ: createLetterDto.PLZ,
+      location: createLetterDto.location,
+      phone: createLetterDto.phone,
+      user: { id: createLetterDto.userId },
+    });
+    return await this.letterRepo.save(newLetter);
   }
 }
