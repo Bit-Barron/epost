@@ -85,6 +85,10 @@ const personalinformations: React.FC<settingsProps> = ({}) => {
               </div>
             </dl>
           </div>
+          <hr className='h-px my-8 bg-gray-200 border-0 dark:bg-gray-700' />
+          <button className='bg-[#454b4e] text-white p-1 rounded-lg '>
+            Konto unwiederlich löschen
+          </button>
           <div className='mt-5 flex justify-end'>
             <button
               type='button'
