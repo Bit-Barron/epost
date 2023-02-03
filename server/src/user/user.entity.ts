@@ -12,24 +12,6 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
-  firstName: string;
-
-  @Column()
-  lastName: string;
-
-  @Column()
-  street: string;
-
-  @Column()
-  PLZ: string;
-
-  @Column()
-  location: string;
-
-  @Column()
-  phone: string;
-
   @OneToMany(() => Letter, (letter) => letter.user)
   letters: Letter[];
 }

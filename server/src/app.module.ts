@@ -8,9 +8,10 @@ import { User } from './user/user.entity';
 
 import { UserModule } from './user/user.module';
 
+import { Setting } from './setting/setting.entity';
 import { SettingModule } from './setting/setting.module';
 
-const ENTITIES = [User, Letter];
+const ENTITIES = [User, Letter, Setting];
 
 const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
 
