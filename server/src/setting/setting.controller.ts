@@ -41,6 +41,7 @@ export class SettingController {
       phone: createLetterDto.phone,
       firstname: createLetterDto.firstname,
       lastname: createLetterDto.lastname,
+      salutation: createLetterDto.salutation,
       user: { id: createLetterDto.userId },
     });
     return await this.letterRepo.save(newLetter);

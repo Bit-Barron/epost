@@ -17,13 +17,11 @@
 import { useState } from 'react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import { Combobox } from '@headlessui/react';
+import axios from 'axios';
 
 const people = [
   { id: 1, name: 'Herr' },
   { id: 1, name: 'Frau' },
-  { id: 1, name: 'Divers' },
-
-
 ];
 
 function classNames(...classes: string[]) {
@@ -32,7 +30,16 @@ function classNames(...classes: string[]) {
 
 export default function Dropdown() {
   const [query, setQuery] = useState('');
-  const [selectedPerson, setSelectedPerson] = useState();
+  const [salutation, setSalutation] = useState();
+
+  const submit = async () => {
+    const response = await axios.post('/setting/create', {
+      salutation,
+
+      location,
+    });
+    console.log(response.data);
+  };
 
   const filteredPeople =
     query === ''
@@ -42,9 +49,9 @@ export default function Dropdown() {
         });
 
   return (
-    <Combobox as='div' value={selectedPerson} onChange={setSelectedPerson}>
+    <Combobox as='div' value={salutation} onChange={setSalutation}>
       <Combobox.Label className='block text-sm font-medium text-gray-700'>
-         Anrede
+        Anrede
       </Combobox.Label>
       <div className='relative mt-1'>
         <Combobox.Input
@@ -60,6 +67,7 @@ export default function Dropdown() {
           <Combobox.Options className='absolute z-10 mt-1 max-h-60 w-96 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
             {filteredPeople.map((person) => (
               <Combobox.Option
+                onClick={() => submit()}
                 key={person.name}
                 value={person}
                 className={({ active }) =>

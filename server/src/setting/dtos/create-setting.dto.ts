@@ -19,5 +19,8 @@ export class CreateSettingDto {
   @IsString()
   lastname: string;
 
+  @IsString()
+  salutation: string;
+
   userId: number;
 }
