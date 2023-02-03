@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
@@ -31,6 +39,8 @@ export class SettingController {
       PLZ: createLetterDto.PLZ,
       location: createLetterDto.location,
       phone: createLetterDto.phone,
+      firstname: createLetterDto.firstname,
+      lastname: createLetterDto.lastname,
       user: { id: createLetterDto.userId },
     });
     return await this.letterRepo.save(newLetter);
@@ -41,6 +51,15 @@ export class SettingController {
   async findAllUsers(@Req() req: FastifyRequest) {
     return await this.letterRepo.find({
       where: { user: { id: req.user.sub } },
+    });
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('/:id')
+  async findOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
+    console.log(req.user);
+    return await this.letterRepo.findOne({
+      where: { id, user: { id: req.user.sub } },
     });
   }
 }

@@ -16,13 +16,14 @@ const quicksand = Quicksand({
 });
 
 const Completeprofile: React.FC<completeprofileProps> = ({}) => {
-  const [firstname, setFirstname] = useState('asdfasdf');
-  const [lastname, setLastname] = useState('asdfasdf');
-  const [street, setStreet] = useState('asdfasdf');
-  const [PLZ, setPLZ] = useState('asdfasdf');
-  const [location, setLocation] = useState('asdfasdf');
-  const [phone, setPhone] = useState('asdfasdf');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [street, setStreet] = useState('');
+  const [PLZ, setPLZ] = useState('');
+  const [location, setLocation] = useState('');
+  const [phone, setPhone] = useState('');
   const router = useRouter();
+  
 
   const submit = async () => {
     const response = await axios.post('/setting/create', {
@@ -34,8 +35,10 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
       phone,
     });
     console.log(response.data);
-    router.push('/complete-profile');
+    router.push('/dashboard/');
   };
+
+
   return (
     <div>
       <div className='bg-[#181a1b] w-[1000px] mt-52 mx-auto p-16 rounded-lg'>

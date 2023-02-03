@@ -13,5 +13,11 @@ export class CreateSettingDto {
   @IsString()
   phone: string;
 
+  @IsString()
+  firstname: string;
+
+  @IsString()
+  lastname: string;
+
   userId: number;
 }

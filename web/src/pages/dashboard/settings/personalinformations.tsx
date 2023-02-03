@@ -1,90 +1,125 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import { SettingsContainer } from '../../../components/container/SettingsContainer';
 
 interface settingsProps {}
 
-const personalinformations: React.FC<settingsProps> = ({}) => {
+const Personalinformations: React.FC<settingsProps> = ({}) => {
+  const [data, setData] = useState<any[]>([]);
+  const [user, setUser] = useState('');
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`/setting/all-user`);
+      console.log(response.data);
+      setData(response.data);
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const response = await axios.get('/user/user');
+        setUser(response.data.email);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getUser();
+  }, []);
+
   return (
     <DashboardContainer>
       <SettingsContainer>
         <div className='overflow-hidden bg-white shadow sm:rounded-lg'>
           <div className='border-t border-gray-200'>
             <dl>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>Firma</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  Margot Foster
-                </dd>
-              </div>
-              <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>Anrede</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
-                  <span className='align-self-center'>Backend Developer</span>
-                  <div className='flex justify-end align-self-center justify-self-end'>
-                    edit
+              {data.map((item) => (
+                <div key={item.name}>
+                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>Firma</dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      {item.firma}
+                    </dd>
                   </div>
-                </dd>
-              </div>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>
-                  Email address
-                </dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  margotfoster@example.com
-                </dd>
-              </div>
-              <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>vorname</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  $120,000
-                </dd>
-              </div>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>Nachname</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                  incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                  consequat sint. Sit id mollit nulla mollit nostrud in ea
-                  officia proident. Irure nostrud pariatur mollit ad adipisicing
-                  reprehenderit deserunt qui eu.
-                </dd>
-              </div>
-              <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>straße</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  <ul
-                    role='list'
-                    className='divide-y divide-gray-200 rounded-md border border-gray-200'
-                  ></ul>
-                </dd>
-              </div>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>PLZ</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  margotfoster@example.com
-                </dd>
-              </div>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>Ort</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  margotfoster@example.com
-                </dd>
-              </div>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>LAND</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  margotfoster@example.com
-                </dd>
-              </div>
-              <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
-                <dt className='text-sm font-medium text-gray-500'>Telefon</dt>
-                <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
-                  Telefon
-                </dd>
-              </div>
+                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>
+                      Anrede
+                    </dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
+                      <span className='align-self-center'>{item.anrede}</span>
+                    </dd>
+                  </div>
+                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>Email</dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      {user}
+                    </dd>
+                  </div>
+                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>
+                      vorname
+                    </dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      {item.firstname}
+                    </dd>
+                  </div>
+                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>
+                      Nachname
+                    </dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      {item.lastname}
+                    </dd>
+                  </div>
+                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>
+                      straße
+                    </dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      <dd
+                        role='list'
+                        className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'
+                      >
+                        {item.street}
+                      </dd>
+                    </dd>
+                  </div>
+                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>PLZ</dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      {item.PLZ}
+                    </dd>
+                  </div>
+                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>
+                      Ort
+                    </dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
+                      <span className='align-self-center'>{item.location}</span>
+                    </dd>
+                  </div>
+                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>LAND</dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
+                      {item.country}
+                    </dd>
+                  </div>
+                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                    <dt className='text-sm font-medium text-gray-500'>
+                      Telefon
+                    </dt>
+                    <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
+                      <span className='align-self-center'>{item.phone}</span>
+                    </dd>
+                  </div>
+                </div>
+              ))}
             </dl>
           </div>
+
           <hr className='h-px my-8 bg-gray-200 border-0 dark:bg-gray-700' />
           <button className='bg-[#454b4e] text-white p-1 rounded-lg '>
             Konto unwiederlich löschen
@@ -103,4 +138,4 @@ const personalinformations: React.FC<settingsProps> = ({}) => {
   );
 };
 
-export default personalinformations;
+export default Personalinformations;
