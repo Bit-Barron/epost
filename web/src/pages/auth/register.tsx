@@ -20,7 +20,7 @@ const Register = ({}) => {
       password,
     });
 
-    router.push('/dashboard/');
+    router.push('/complete-profile/');
   };
 
   return (
