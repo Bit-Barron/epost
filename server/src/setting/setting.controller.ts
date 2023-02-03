@@ -29,17 +29,16 @@ export class SettingController {
       PLZ: createSettingDto.PLZ,
       location: createSettingDto.location,
       phone: createSettingDto.phone,
-      user: { id: createSettingDto.userId },
     });
 
-    return await this.letterRepo.update(
-      { id: newSetting.user.id },
-      {
-        street: createSettingDto.street,
-        PLZ: createSettingDto.PLZ,
-        location: createSettingDto.location,
-        phone: createSettingDto.phone,
-      },
-    );
+    // return await this.letterRepo.update(
+    //   { id: newSetting.user.id },
+    //   {
+    //     street: createSettingDto.street,
+    //     PLZ: createSettingDto.PLZ,
+    //     location: createSettingDto.location,
+    //     phone: createSettingDto.phone,
+    //   },
+    // );
   }
 }
