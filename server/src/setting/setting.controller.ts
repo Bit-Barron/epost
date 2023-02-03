@@ -2,14 +2,14 @@ import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
-import { Letter } from 'src/letter/letter.entity';
 import { Repository } from 'typeorm';
 import { CreateSettingDto } from './dtos/create-setting.dto';
+import { Setting } from './setting.entity';
 
 @Controller('setting')
 export class SettingController {
   constructor(
-    @InjectRepository(Letter) private letterRepo: Repository<Letter>,
+    @InjectRepository(Setting) private letterRepo: Repository<Setting>,
   ) {}
 
   @Post('/test')
@@ -25,12 +25,11 @@ export class SettingController {
     @Body() createSettingDto: CreateSettingDto,
   ) {
     const newSetting = this.letterRepo.create({
-      firstname: createSettingDto.firstname,
-      lastname: createSettingDto.lastname,
       street: createSettingDto.street,
       PLZ: createSettingDto.PLZ,
       location: createSettingDto.location,
       phone: createSettingDto.phone,
     });
+    return await this.letterRepo.save(newSetting);
   }
 }

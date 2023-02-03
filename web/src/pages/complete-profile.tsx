@@ -23,7 +23,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [phone, setPhone] = useState('asdfasdf');
 
   const submit = async () => {
-    const response = await axios.post('', {
+    const response = await axios.post('/setting/create', {
       firstname,
       lastname,
       street,
