@@ -6,12 +6,6 @@ export class Setting {
   id: number;
 
   @Column()
-  firstName: string;
-
-  @Column()
-  lastName: string;
-
-  @Column()
   street: string;
 
   @Column()
