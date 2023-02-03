@@ -34,7 +34,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
       phone,
     });
     console.log(response.data);
-    router.push('/dashboard');
+    router.push('/complete-profile');
   };
   return (
     <div>
@@ -108,12 +108,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
             </div>
           </div>
           <div className='flex items-end'>
-            <AuthButton
-              name={'Speichen'}
-              onClick={() => {
-                return router.push('/complete-profile');
-              }}
-            />
+            <AuthButton name={'Speichen'} onClick={() => submit()} />
           </div>
         </div>
       </div>
