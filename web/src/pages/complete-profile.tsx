@@ -1,14 +1,17 @@
 import { Quicksand } from '@next/font/google';
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import main from '../../public/images/main.png';
-import Dropdown from '../components/elements/completeProfilePage/Dropdown';
-import AuthInput from '../components/elements/auth/AuthInput';
-import AuthButton from '../components/elements/auth/AuthButton';
 import axios, { AxiosError } from 'axios';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import main from '../../public/images/main.png';
+import AuthButton from '../components/elements/auth/AuthButton';
+import AuthInput from '../components/elements/auth/AuthInput';
+import Dropdown from '../components/elements/completeProfilePage/Dropdown';
 import { GeneralStore } from '../store/Generalstore';
 import { Alerts } from '../utils/Alerts';
+import { isValidNumber } from 'libphonenumber-js';
 
 interface completeprofileProps {}
 
@@ -25,7 +28,9 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
   const [salutation, setSalutation] = useState('Herr');
+  const [valid, setValid] = useState(false);
   const router = useRouter();
+  const [check, setCheck] = useState('');
   const { alerts, addAlert } = GeneralStore();
 
   const submit = async () => {
@@ -52,88 +57,100 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
     }
   };
 
+  const handleChange = (value: string) => {
+    setCheck(value);
+    setValid(isValidNumber(value));
+  };
+
   return (
-    <div>
-      {alerts.map((alert) => (
-        <div key={alert.id}>
-          <Alerts />
-        </div>
-      ))}
-      <div className='bg-[#181a1b] w-[1000px] mt-52 mx-auto p-16 rounded-lg'>
-        <div className='mx-auto container'>
-          <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex justify-center'>
-            <Image width={80} height={50} src={main} alt='asd' />
-            <div
-              className={`${quicksand.className} text-4xl mt-5 text-[#f7902c]`}
-            >
-              Postshield
+    <>
+      <div>
+        {alerts.map((alert) => (
+          <div key={alert.id}>
+            <Alerts />
+          </div>
+        ))}
+        <div className='bg-[#181a1b] w-[1000px] mt-52 mx-auto p-16 rounded-lg'>
+          <div className='mx-auto container'>
+            <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex justify-center'>
+              <Image width={80} height={50} src={main} alt='asd' />
+              <div
+                className={`${quicksand.className} text-4xl mt-5 text-[#f7902c]`}
+              >
+                Postshield
+              </div>
+            </span>
+            <div className='font-bold text-xl mt-10'>
+              Bitte vervollständigen Sie Ihr Profil, um Postshield
+              vollumfänglich nutzen zu können.
             </div>
-          </span>
-          <div className='font-bold text-xl mt-10'>
-            Bitte vervollständigen Sie Ihr Profil, um Postshield vollumfänglich
-            nutzen zu können.
-          </div>
-          <div className='mt-10'>
-            <Dropdown />
-          </div>
-          <div className='flex justify-start'>
-            <AuthInput
-              value={firstname}
-              onChange={setFirstname}
-              type={'text'}
-              label={'Vorname'}
-            />
-            <div className='ml-10'>
+            <div className='mt-10'>
+              <Dropdown />
+            </div>
+            <div className='flex justify-start'>
               <AuthInput
-                onChange={setLastname}
-                className=''
-                value={lastname}
+                value={firstname}
+                onChange={setFirstname}
                 type={'text'}
-                label={'Nachname'}
+                label={'Vorname'}
               />
+              <div className='ml-10'>
+                <AuthInput
+                  onChange={setLastname}
+                  className=''
+                  value={lastname}
+                  type={'text'}
+                  label={'Nachname'}
+                />
+              </div>
             </div>
-          </div>
-          <div className='flex justify-start'>
-            <AuthInput
-              onChange={setStreet}
-              type={'text'}
-              label={'Straße'}
-              value={street}
-            />
-            <div className='ml-10'>
+            <div className='flex justify-start'>
               <AuthInput
-                onChange={setPLZ}
-                className=''
-                value={PLZ}
+                onChange={setStreet}
                 type={'text'}
-                label={'PLZ'}
+                label={'Straße'}
+                value={street}
               />
+              <div className='ml-10'>
+                <AuthInput
+                  onChange={setPLZ}
+                  className=''
+                  value={PLZ}
+                  type={'text'}
+                  label={'PLZ'}
+                />
+              </div>
             </div>
-          </div>
-          <div className='flex justify-start'>
-            <AuthInput
-              onChange={setLocation}
-              type={'text'}
-              label={'Ort'}
-              value={location}
-            />
-            <div className='ml-10'>
+            <div className='flex justify-start'>
               <AuthInput
-                onChange={setPhone}
-                className=''
-                value={phone}
-                placeholder='Optional'
+                onChange={setLocation}
                 type={'text'}
-                label={'Telefon'}
+                label={'Ort'}
+                value={location}
               />
+              <div className='ml-10 mt-[52px] custom-container-class'>
+                <PhoneInput
+                  country={'us'}
+                  inputClass='custom-input-class'
+                  autoFormat
+                  onChange={handleChange}
+                  value={check}
+                  defaultErrorMessage='Ungültige Telefonnummer'
+                />
+                {valid ? (
+                  <div className='text-green-500'>Gültige Nummer</div>
+                ) : (
+                  <div className='text-red-500'>Ungültige Nummer</div>
+                )}
+              </div>
             </div>
-          </div>
-          <div className='flex items-end'>
-            <AuthButton name={'Speichen'} onClick={() => submit()} />
+            <div className='flex items-end'>
+              <AuthButton name={'Speichen'} onClick={() => submit()} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

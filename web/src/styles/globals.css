@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-input-class {
+  @apply text-lg h-11  w-96 !important;
+}
+
+.custom-container-class {
+  @apply h-12 !important;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
   height: 2px;
