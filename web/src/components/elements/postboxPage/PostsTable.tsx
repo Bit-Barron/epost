@@ -137,8 +137,8 @@ function PostsTable() {
                   </tr>
                 </thead>
                 <tbody className='divide-y divide-gray-200 bg-white'>
-                  {data.map((letter) => (
-                    <tr key={letter.idx} className='hover:bg-gray-200'>
+                  {data.map((letter, index) => (
+                    <tr key={index} className='hover:bg-gray-200'>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.documents}
                       </td>
@@ -161,10 +161,8 @@ function PostsTable() {
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
                       </td>
-                      <tr className='flex'>
-                        <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                          <AiOutlineEdit className='text-xl' />
-                        </td>
+                      <td className='flex'>
+                        <AiOutlineEdit className='text-xl mt-4' />
                         <button
                           type='submit'
                           className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'
@@ -176,7 +174,7 @@ function PostsTable() {
                         >
                           <BsTrash className='text-xl' />
                         </button>
-                      </tr>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
