@@ -6,11 +6,11 @@ import React, { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import main from '../../public/images/main.png';
-import AuthButton from '../components/elements/auth/AuthButton';
-import AuthInput from '../components/elements/auth/AuthInput';
-import Dropdown from '../components/elements/completeProfilePage/Dropdown';
-import { GeneralStore } from '../store/Generalstore';
-import { Alerts } from '../utils/Alerts';
+import AuthButton from '../../components/elements/auth/AuthButton';
+import AuthInput from '../../components/elements/auth/AuthInput';
+import Dropdown from '../../components/elements/completeProfilePage/Dropdown';
+import { GeneralStore } from '../../store/Generalstore';
+import { Alerts } from '../../utils/Alerts';
 
 interface completeprofileProps {}
 
