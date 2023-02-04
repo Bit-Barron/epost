@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  HttpStatus,
   Post,
   Req,
   Res,
@@ -49,5 +50,24 @@ export class AuthController {
     console.log('test');
     console.log(req.user);
     return 'test';
+  }
+
+  @Post('update-password')
+  async updatePassword(
+    @Body('id') id: number,
+    @Body('currentPassword') currentPassword: string,
+    @Body('newPassword') newPassword: string,
+    @Res() res,
+  ) {
+    try {
+      await this.authService.updatePassword(id, currentPassword, newPassword);
+      return res
+        .status(HttpStatus.OK)
+        .json({ message: 'Password updated successfully' });
+    } catch (error) {
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ message: error.message });
+    }
   }
 }
