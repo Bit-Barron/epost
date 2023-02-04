@@ -25,7 +25,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [street, setStreet] = useState('');
   const [PLZ, setPLZ] = useState('');
   const [location, setLocation] = useState('');
-  const [phone, setPhone] = useState({ number: '', country: '' });
+  const [phone, setPhone] = useState('');
   const [salutation, setSalutation] = useState('Herr');
   const router = useRouter();
   const { alerts, addAlert } = GeneralStore();
@@ -53,18 +53,6 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
         console.log(err);
       }
     }
-  };
-
-  const handlePhoneChange = (newPhone: any) => {
-    setPhone({ ...phone, number: newPhone });
-  };
-
-  const handleCountryChange = (newCountry: any) => {
-    setPhone({ ...phone, country: newCountry });
-  };
-
-  const handleChange = (value: string) => {
-    setPhone({ number: value, country: value });
   };
 
   return (
@@ -136,11 +124,10 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               <div className='ml-10 mt-[52px] custom-container-class'>
                 <PhoneInput
                   country={'us'}
-                  value={phone.number}
                   inputClass='custom-input-class'
-                  onChange={handleChange}
+                  value={phone}
+                  onChange={setPhone}
                 />
-                {phone.country}
               </div>
             </div>
             <div className='flex items-end'>
