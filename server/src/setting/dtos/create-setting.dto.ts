@@ -11,7 +11,7 @@ export class CreateSettingDto {
   location: string;
 
   @IsString()
-  phone: number;
+  phone: string;
 
   @IsString()
   firstname: string;

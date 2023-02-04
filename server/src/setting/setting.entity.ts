@@ -16,7 +16,7 @@ export class Setting {
   location: string;
 
   @Column({ unique: true })
-  phone: number;
+  phone: string;
 
   @Column()
   firstname: string;
