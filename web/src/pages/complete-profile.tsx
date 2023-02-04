@@ -131,7 +131,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               </div>
             </div>
             <div className='flex items-end'>
-              <AuthButton name={'Speichen'} onClick={() => submit()} />
+              <AuthButton name={'Speichen'} onClick={() => submit()} className={''} />
             </div>
           </div>
         </div>

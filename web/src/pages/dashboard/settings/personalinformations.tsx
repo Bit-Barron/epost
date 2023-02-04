@@ -49,7 +49,9 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       Anrede
                     </dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
-                      <span className='align-self-center'>{item.salutation}</span>
+                      <span className='align-self-center'>
+                        {item.salutation}
+                      </span>
                     </dd>
                   </div>
                   <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
@@ -110,7 +112,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       Telefon
                     </dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
-                      <span className='align-self-center'>{item.phone}</span>
+                      <span className='align-self-center'>+{item.phone}</span>
                     </dd>
                   </div>
                 </div>
@@ -119,16 +121,21 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
           </div>
 
           <hr className='h-px my-8 bg-gray-200 border-0 dark:bg-gray-700' />
-          <button className='bg-[#454b4e] text-white p-1 rounded-lg '>
-            Konto unwiederlich löschen
-          </button>
-          <div className='mt-5 flex justify-end'>
+          <div className='flex ml-10 mb-10'>
             <button
               type='button'
-              className='inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+              className='inline-flex items-center p-3 border border-transparent text-xs font-medium rounded-lg shadow-sm text-white bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
             >
-              Änderungen speichern
+              Konto unweigerlich löschen
             </button>
+            <div className='flex justify-end ml-[1400px]'>
+              <button
+                type='button'
+                className='inline-flex items-center p-3 border border-transparent text-xs font-medium rounded-lg shadow-sm text-white bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+              >
+                Änderungen speichern
+              </button>
+            </div>
           </div>
         </div>
       </SettingsContainer>
