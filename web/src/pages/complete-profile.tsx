@@ -11,7 +11,6 @@ import AuthInput from '../components/elements/auth/AuthInput';
 import Dropdown from '../components/elements/completeProfilePage/Dropdown';
 import { GeneralStore } from '../store/Generalstore';
 import { Alerts } from '../utils/Alerts';
-import { isValidNumber } from 'libphonenumber-js';
 
 interface completeprofileProps {}
 
@@ -28,9 +27,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
   const [location, setLocation] = useState('');
   const [phone, setPhone] = useState('');
   const [salutation, setSalutation] = useState('Herr');
-  const [valid, setValid] = useState(false);
   const router = useRouter();
-  const [check, setCheck] = useState('');
   const { alerts, addAlert } = GeneralStore();
 
   const submit = async () => {
@@ -53,13 +50,9 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
           message: `Telefon Nummer ist bereits vergeben`,
           type: 'failure',
         });
+        console.log(err);
       }
     }
-  };
-
-  const handleChange = (value: string) => {
-    setCheck(value);
-    setValid(isValidNumber(value));
   };
 
   return (
@@ -132,16 +125,9 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
                 <PhoneInput
                   country={'us'}
                   inputClass='custom-input-class'
-                  autoFormat
-                  onChange={handleChange}
-                  value={check}
-                  defaultErrorMessage='Ungültige Telefonnummer'
+                  value={phone}
+                  onChange={(e: any) => setPhone(e.target.value)}
                 />
-                {valid ? (
-                  <div className='text-green-500'>Gültige Nummer</div>
-                ) : (
-                  <div className='text-red-500'>Ungültige Nummer</div>
-                )}
               </div>
             </div>
             <div className='flex items-end'>
