@@ -89,9 +89,15 @@ const Login = () => {
         />
 
         <div className='flex justify-center mt-5'>
-          <div className='flex mt-5 underline'>Password Vergessen</div>
+          <a href='/account/resetpassword' className='flex mt-5 underline'>
+            Password Vergessen
+          </a>
           <div className='ml-32'>
-            <AuthButton onClick={() => submit()} name={'Anmelden'} />
+            <AuthButton
+              onClick={() => submit()}
+              name={'Anmelden'}
+              className={''}
+            />
           </div>
         </div>
 

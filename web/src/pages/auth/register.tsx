@@ -86,7 +86,7 @@ const Register = ({}) => {
             <Terms />
           </div>
         </div>
-        <AuthButton onClick={() => submit()} name='Register' />
+        <AuthButton onClick={() => submit()} name='Register' className={''} />
 
         <div className='flex justify-center mt-5 font-semibold'>
           Have an account?
