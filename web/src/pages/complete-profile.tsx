@@ -63,8 +63,8 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
             <Alerts />
           </div>
         ))}
-        <div className='bg-[#181a1b] w-[1000px] mt-52 mx-auto p-16 rounded-lg'>
-          <div className='mx-auto container'>
+        <div className='bg-[#181a1b] w-[1000px] mt-60 mx-auto p-16 rounded-lg'>
+          <div className=''>
             <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex justify-center'>
               <Image width={80} height={50} src={main} alt='asd' />
               <div
