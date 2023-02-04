@@ -16,7 +16,7 @@ export class AuthService {
   constructor(
     private usersService: UserService,
     private jwtService: JwtService,
-    private readonly userRepository: Repository<User>,
+    private userRepository: Repository<User>,
   ) {}
 
   async register(body: CreateUserDto) {
@@ -41,24 +41,5 @@ export class AuthService {
         token: this.jwtService.sign(payload, { secret: process.env.SECRET }),
       };
     }
-  }
-
-  async updatePassword(
-    id: number,
-    currentPassword: string,
-    newPassword: string,
-  ) {
-    const user = await this.userRepository.findOne({ where: { id } });
-    if (!user) {
-      throw new Error('User not found');
-    }
-
-    const isMatch = await argon2.verify(user.password, currentPassword);
-    if (!isMatch) {
-      throw new Error('Incorrect current password');
-    }
-
-    user.password = await argon2.hash(newPassword);
-    await this.userRepository.save(user);
   }
 }
