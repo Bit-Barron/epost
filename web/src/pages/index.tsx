@@ -5,7 +5,7 @@ import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
 import { Navbar } from '../components/elements/frontpage/Navbar';
 import Impresum from '../components/elements/pricepage/price/impresum/Impresum';
-import Steps from '../components/elements/steps';
+import Steps from '../components/elements/Steps';
 
 const quicksand = Quicksand({
   weight: '700',
