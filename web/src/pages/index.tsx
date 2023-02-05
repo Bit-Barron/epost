@@ -1,10 +1,11 @@
+import { Quicksand } from '@next/font/google';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
 import { Navbar } from '../components/elements/frontpage/Navbar';
-import { Quicksand } from '@next/font/google';
 import Impresum from '../components/elements/pricepage/price/impresum/Impresum';
+import Steps from '../components/elements/steps';
 
 const quicksand = Quicksand({
   weight: '700',
@@ -102,10 +103,9 @@ const Index: React.FC = ({}) => {
           In drei Schritten zum zugestellten Brief
         </div>
         <div className='flex font-bold text-2xl justify-center mb-20'>
-          <div className='mt-4 mr-10'>Step 1</div>
-          <div className='mt-4 mr-10'>Step 1</div>
-          <div className='mt-4 mr-10'>Step 1</div>
-
+          <div className='mt-10 w-1/2'>
+            <Steps />
+          </div>
         </div>
       </div>
       <Impresum />

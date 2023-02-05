@@ -2,9 +2,9 @@
 import { CheckIcon } from '@heroicons/react/solid'
 
 const steps = [
-  { id: '01', name: 'Job details', href: '#', status: 'complete' },
-  { id: '02', name: 'Application form', href: '#', status: 'current' },
-  { id: '03', name: 'Preview', href: '#', status: 'upcoming' },
+  { id: '01', name: 'Write', href: '#', status: 'complete' },
+  { id: '02', name: 'Send', href: '#', status: 'current' },
+  { id: '03', name: 'See', href: '#', status: 'upcoming' },
 ]
 
 export default function Steps() {
