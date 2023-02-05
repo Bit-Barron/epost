@@ -13,7 +13,7 @@ const generalsettings: React.FC<settingsProps> = ({}) => {
         <div className='bg-[#181a1b] p-5'>
           <div className='font-bold text-xl'>Rechnungen</div>
           <div className='flex justify-start'>
-            <AuthInput type={'text'} label={'Einzelverbindungsnachweis bei Rechnungen immer mit anfügen'} />
+            <AuthInput type={'text'} label={'Einzelverbindungsnachweis bei Rechnungen immer mit anfügen'} className="w-[400px]" />
           </div>
         </div>
       </SettingsContainer>
