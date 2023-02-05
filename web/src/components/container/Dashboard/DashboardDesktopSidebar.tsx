@@ -19,13 +19,6 @@ const navigation = [
     icon: BsBoxSeam,
     current: true,
   },
-
-  {
-    name: 'AuftragsÜbersicht',
-    href: 'dashboard/recent',
-    icon: ViewListIcon,
-    current: false,
-  },
 ];
 
 const teams = [
@@ -87,7 +80,6 @@ const shieldPost = [
     icon: AiOutlineArrowRight,
     current: false,
   },
-  { name: 'Lösungen', href: '#', icon: AiOutlineArrowRight, current: false },
 ];
 
 function classNames(...classes: string[]) {
