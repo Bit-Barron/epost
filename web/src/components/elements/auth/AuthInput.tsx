@@ -27,7 +27,7 @@ const AuthInput: React.FC<InputProps> = ({
           type={type}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className={`${className} focus:border-secondary focus:outline-none bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm w-96 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white`}
+          className={`${className} focus:border-secondary focus:outline-none bg-transparent border border-gray-300 text-gray-900 text-sm rounded-sm p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white`}
           placeholder={placeholder}
         />
       </div>

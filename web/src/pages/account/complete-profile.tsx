@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import main from '../../public/images/main.png';
 import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import Dropdown from '../../components/elements/completeProfilePage/Dropdown';
 import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
+import main from '../../../public/images/main.png';
 
 interface completeprofileProps {}
 
@@ -86,14 +86,15 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
                 onChange={setFirstname}
                 type={'text'}
                 label={'Vorname'}
+                className='w-96'
               />
               <div className='ml-10'>
                 <AuthInput
                   onChange={setLastname}
-                  className=''
                   value={lastname}
                   type={'text'}
                   label={'Nachname'}
+                  className='w-96'
                 />
               </div>
             </div>
@@ -101,16 +102,17 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               <AuthInput
                 onChange={setStreet}
                 type={'text'}
+                className='w-96'
                 label={'Straße'}
                 value={street}
               />
               <div className='ml-10'>
                 <AuthInput
                   onChange={setPLZ}
-                  className=''
                   value={PLZ}
                   type={'text'}
                   label={'PLZ'}
+                  className='w-96'
                 />
               </div>
             </div>
@@ -118,6 +120,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               <AuthInput
                 onChange={setLocation}
                 type={'text'}
+                className='w-96'
                 label={'Ort'}
                 value={location}
               />
@@ -131,7 +134,11 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               </div>
             </div>
             <div className='flex items-end'>
-              <AuthButton name={'Speichen'} onClick={() => submit()} className={''} />
+              <AuthButton
+                name={'Speichen'}
+                onClick={() => submit()}
+                className={''}
+              />
             </div>
           </div>
         </div>

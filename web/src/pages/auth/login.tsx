@@ -75,12 +75,14 @@ const Login = () => {
         <AuthInput
           type='email'
           value={email}
+          className='w-96'
           onChange={setEmail}
           placeholder='E-Mail-Adresse oder Benutzername'
           label={'E-Mail-Adresse oder Benutzername'}
         />
 
         <AuthInput
+          className='w-96'
           type='password'
           value={password}
           onChange={setPassword}

@@ -29,13 +29,7 @@ const teams = [
     icon: FiSettings,
     current: false,
   },
-  {
-    name: 'Zugangsdaten',
-    href: '/dashboard/settings/accesdata',
-    bgColorClass: 'bg-green-500',
-    icon: BsFillKeyFill,
-    current: false,
-  },
+
   {
     name: 'Buchhaltung',
     href: '#',

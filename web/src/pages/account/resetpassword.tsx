@@ -34,6 +34,7 @@ const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
       <form>
         <AuthInput
           type={''}
+          className='w-96'
           onChange={setMail}
           label={'Email address or username'}
           placeholder='Email address or username'

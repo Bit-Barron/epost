@@ -55,6 +55,7 @@ const Register = ({}) => {
         <AuthInput
           type='email'
           value={email}
+          className='w-96'
           onChange={setEmail}
           placeholder='Enter your email.'
           label={'Whats your email?'}
@@ -63,6 +64,7 @@ const Register = ({}) => {
         <AuthInput
           onChange={setConfirm}
           type='email'
+          className='w-96'
           placeholder='Confirm your email.'
           value={confirm}
           label={'Confirm your email'}
@@ -73,6 +75,7 @@ const Register = ({}) => {
           value={password}
           onChange={setPassword}
           placeholder='Password'
+          className='w-96'
           label={'Enter your password'}
         />
 
