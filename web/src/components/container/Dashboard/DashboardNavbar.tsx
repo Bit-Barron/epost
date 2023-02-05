@@ -2,6 +2,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
+import Steps from '../../elements/steps';
 
 const DashboardNavbar = () => {
   const [user, setUser] = useState<string>('');

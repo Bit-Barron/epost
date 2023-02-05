@@ -8,6 +8,7 @@ import { Announcements } from '../../components/elements/dashboard/Announcements
 import { ProfileOverview } from '../../components/elements/dashboard/ProfileOverview';
 
 import Impresum from '../../components/elements/pricepage/price/impresum/Impresum';
+import Steps from '../../components/elements/steps';
 
 interface dashboardProps {}
 
