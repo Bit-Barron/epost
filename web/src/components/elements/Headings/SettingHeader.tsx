@@ -1,5 +1,5 @@
 const tabs = [
-  { name: 'Allgemeine Einstellungen', href: '#', current: false },
+  { name: 'Allgemeine Einstellungen', href: '/dashboard/settings/generalsettings', current: false },
   { name: 'SEPA-Überweisungsträger', href: '#', current: false },
   {
     name: 'Persönliche Daten',
