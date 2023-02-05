@@ -7,6 +7,6 @@ export class MailController {
 
   @Get('/get-mail')
   getMail() {
-    return '';
+    return 'mailll';
   }
 }
