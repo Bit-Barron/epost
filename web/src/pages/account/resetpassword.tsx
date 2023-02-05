@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import AuthInput from '../../components/elements/auth/AuthInput';
 import AuthButton from '../../components/elements/auth/AuthButton';
@@ -6,7 +6,7 @@ import PostHeader from '../../components/elements/Headings/PostHeader';
 
 interface resetpasswordProps {}
 
-const resetpassword: React.FC<resetpasswordProps> = ({}) => {
+const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
   return (
     <div>
       <PostHeader />
@@ -21,7 +21,7 @@ const resetpassword: React.FC<resetpasswordProps> = ({}) => {
       <div className='flex justify-center'>
         and a link to reset your password.
       </div>
-      <div>
+      <form>
         <AuthInput
           type={''}
           label={'Email address or username'}
@@ -34,9 +34,9 @@ const resetpassword: React.FC<resetpasswordProps> = ({}) => {
             <span className='underline ml-2'>Spotify Support</span>
           </span>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
 
-export default resetpassword;
+export default Resetpassword;

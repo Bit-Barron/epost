@@ -10,6 +10,8 @@ import { UserModule } from './user/user.module';
 
 import { Setting } from './setting/setting.entity';
 import { SettingModule } from './setting/setting.module';
+import { MailService } from './mail/mail.service';
+import { MailModule } from './mail/mail.module';
 
 const ENTITIES = [User, Letter, Setting];
 
@@ -37,8 +39,9 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     }),
     TypeOrmModules,
     SettingModule,
+    MailModule,
   ],
-  providers: [JwtService],
+  providers: [JwtService, MailService],
   exports: [TypeOrmModules, JwtService],
 })
 export class AppModule {}
