@@ -42,4 +42,8 @@ export class AuthService {
       };
     }
   }
+
+  findOne(email: string) {
+    return this.userRepository.findOne({ where: { email } });
+  }
 }

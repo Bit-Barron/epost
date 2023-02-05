@@ -2,12 +2,16 @@ import {
   Body,
   Controller,
   Get,
+  HttpException,
+  HttpStatus,
   Post,
   Req,
   Res,
   UseGuards,
 } from '@nestjs/common';
 import { FastifyReply, FastifyRequest } from 'fastify';
+import { User } from 'src/user/user.entity';
+import { Repository } from 'typeorm';
 import { AuthGuard } from '../app_modules/guard/auth.guard';
 import { COOKIE_NAME, COOKIE_SERIALIZE_OPTIONS } from '../constants';
 import { CreateUserDto } from '../user/dtos/create-user.dto';
@@ -15,7 +19,10 @@ import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userRepository: Repository<User>,
+  ) {}
 
   @Post('/register')
   async register(@Body() body: CreateUserDto) {
@@ -49,5 +56,26 @@ export class AuthController {
     console.log('test');
     console.log(req.user);
     return 'test';
+  }
+
+  @Post('change-password')
+  async changePassword(
+    @Body('userId') userId: string,
+    @Body('currentPassword') currentPassword: string,
+    @Body('newPassword') newPassword: string,
+  ) {
+    const user = await this.authService.findOne('');
+    if (!user) {
+      throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+    }
+
+    if (user.password !== currentPassword) {
+      throw new HttpException('Incorrect password', HttpStatus.UNAUTHORIZED);
+    }
+
+    user.password = newPassword;
+    await this.userRepository.save(user);
+
+    return { message: 'Password changed successfully' };
   }
 }
