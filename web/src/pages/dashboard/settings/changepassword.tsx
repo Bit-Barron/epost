@@ -9,7 +9,7 @@ const changepassword: React.FC<settingsProps> = ({}) => {
   return (
     <DashboardContainer>
       <SettingsContainer>
-        <div className='p-10'>
+        <div className='p-10 bg-[#181a1b]'>
           <div className='flex justify-start'>
             <div className='mb-3 xl:w-96'>
               <label
@@ -19,7 +19,7 @@ const changepassword: React.FC<settingsProps> = ({}) => {
                 Password
               </label>
               <input
-                type='text'
+                type='password'
                 className='form-control block w-[600px] px-3 py-1.5 text-base font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none'
                 id='exampleFormControlInput1'
                 placeholder='Password'
@@ -35,7 +35,7 @@ const changepassword: React.FC<settingsProps> = ({}) => {
                 New password
               </label>
               <input
-                type='text'
+                type='password'
                 className='form-control block w-[600px] px-3 py-1.5 text-base font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none'
                 id='exampleFormControlInput1'
                 placeholder='Neues Passwort eingeben'
@@ -54,7 +54,7 @@ const changepassword: React.FC<settingsProps> = ({}) => {
                 Repeat new password
               </label>
               <input
-                type='text'
+                type='password'
                 className='form-control block w-[600px] px-3 py-1.5 text-base font-normal  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0  focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none'
                 id='exampleFormControlInput1'
                 placeholder='Password bestätigen'
