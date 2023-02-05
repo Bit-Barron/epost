@@ -1,8 +1,16 @@
 const tabs = [
   { name: 'Allgemeine Einstellungen', href: '#', current: false },
   { name: 'SEPA-Überweisungsträger', href: '#', current: false },
-  { name: 'Persönliche Daten', href: '/dashboard/settings/personalinformations', current: true },
-  { name: 'Passwort ändern', href: '/dashboard/settings/changepassword', current: false },
+  {
+    name: 'Persönliche Daten',
+    href: '/dashboard/settings/personalinformations',
+    current: true,
+  },
+  {
+    name: 'Passwort ändern',
+    href: '/dashboard/settings/changepassword',
+    current: false,
+  },
 ];
 
 function classNames(...classes: string[]) {
@@ -11,7 +19,7 @@ function classNames(...classes: string[]) {
 
 export default function SettingHeader() {
   return (
-    <div className='pb-5 sm:pb-0 mt-52 mx-auto bg-[#1f2123] w-10/12 flex justify-center border-spacing-x-56'>
+    <div className='pb-5 sm:pb-0 mt-10 mx-auto bg-[#1f2123] w-10/12 flex justify-center border-spacing-x-56'>
       <div className='mt-3 sm:mt-4'>
         <div className='sm:hidden'>
           <label htmlFor='current-tab' className='sr-only'>
