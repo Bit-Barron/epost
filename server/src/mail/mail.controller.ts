@@ -5,8 +5,8 @@ import { MailService } from './mail.service';
 
 @Controller('mail')
 export class MailController {
-  private readonly transporter: nodemailer.Transporter;
   constructor(private readonly mailService: MailService) {}
+  private readonly transporter: nodemailer.Transporter;
 
   @Post('/get-mail')
   getMail(@Body() body: CreateMailDto) {
