@@ -1,12 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 import { MailService } from './mail.service';
 
 @Controller('mail')
 export class MailController {
   constructor(private readonly mailService: MailService) {}
 
-  @Get('/get-mail')
+  @Post('/get-mail')
   getMail() {
-    return 'mailll';
+    return 'mail';
   }
 }

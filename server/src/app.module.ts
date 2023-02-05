@@ -8,12 +8,13 @@ import { User } from './user/user.entity';
 
 import { UserModule } from './user/user.module';
 
+import { Mail } from './mail/mail.entity';
+import { MailModule } from './mail/mail.module';
+import { MailService } from './mail/mail.service';
 import { Setting } from './setting/setting.entity';
 import { SettingModule } from './setting/setting.module';
-import { MailService } from './mail/mail.service';
-import { MailModule } from './mail/mail.module';
 
-const ENTITIES = [User, Letter, Setting];
+const ENTITIES = [User, Letter, Setting, Mail];
 
 const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
 
@@ -23,6 +24,7 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     AuthModule,
     UserModule,
     LetterModule,
+    MailModule,
     JwtModule.register({
       secret: process.env.SECRET,
       signOptions: { expiresIn: '30d' },

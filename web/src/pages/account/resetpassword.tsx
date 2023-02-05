@@ -3,10 +3,20 @@ import React, { useState } from 'react';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import AuthButton from '../../components/elements/auth/AuthButton';
 import PostHeader from '../../components/elements/Headings/PostHeader';
+import axios from 'axios';
 
 interface resetpasswordProps {}
 
 const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
+  const [mail, setMail] = useState('');
+
+  const handleSubmit = async () => {
+    const response = await axios.post('/mail/get-mail', {
+      mail,
+    });
+    console.log(response.data);
+  };
+
   return (
     <div>
       <PostHeader />
@@ -24,11 +34,12 @@ const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
       <form>
         <AuthInput
           type={''}
+          onChange={setMail}
           label={'Email address or username'}
           placeholder='Email address or username'
         />
         <div>
-          <AuthButton name={'Send'} className={''} />
+          <AuthButton name={'Send'} className={''} onClick={handleSubmit} />
           <span className='flex justify-center mt-5'>
             If you still need help, contact{' '}
             <span className='underline ml-2'>Spotify Support</span>
