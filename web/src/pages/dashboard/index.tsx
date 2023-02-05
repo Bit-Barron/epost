@@ -5,6 +5,7 @@ import { Fragment, useEffect } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
 import { Actions } from '../../components/elements/dashboard/Actions';
 import { Announcements } from '../../components/elements/dashboard/Announcements';
+import DashboardSteps from '../../components/elements/dashboard/DashboardSteps';
 import { ProfileOverview } from '../../components/elements/dashboard/ProfileOverview';
 
 import Impresum from '../../components/elements/pricepage/price/impresum/Impresum';
@@ -48,7 +49,7 @@ function Dashboard({}: dashboardProps) {
                     >
                       <span className='sr-only'>View notifications</span>
                     </button>
-
+                    <DashboardSteps />
                     <Menu as='div' className='ml-4 relative flex-shrink-0'>
                       <Transition
                         as={Fragment}
