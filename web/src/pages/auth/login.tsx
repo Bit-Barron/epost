@@ -113,7 +113,7 @@ const Login = () => {
 
         <Button
           className='border-gray-200 bg-transparent'
-          onClick={() => router.push('/auth/register')}
+          onClick={() => router.push('auth/register')}
           name={`Bei ${process.env.NEXT_PUBLIC_NAME} Regestrieren`}
         />
       </form>

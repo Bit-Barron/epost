@@ -37,7 +37,7 @@ const DashboardNavbar = () => {
           </Link>
         </div>
         <Menu as='div'>
-          <Menu.Button className='ounded-md bg-[#25282A] py-2 px-4  text-main '>
+          <Menu.Button className='ounded-md bg-[#25282A] py-2 px-4 text-main'>
             {user}
           </Menu.Button>
           <Profile />

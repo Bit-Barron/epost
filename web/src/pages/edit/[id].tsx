@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
 import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
-import Checkboxes from '../../components/elements/edit/Checkboxes';
+import Checkboxes from '../../components/elements/Checkboxes';
 import Impresum from '../../components/elements/pricepage/Impresum';
 
 const Edit = () => {

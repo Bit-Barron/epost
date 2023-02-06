@@ -96,7 +96,7 @@ const Register = ({}) => {
           <span
             className='text-secondary ml-1 underline'
             onClick={() => {
-              return router.push('auth/login');
+              return router.push('/login');
             }}
           >
             Log in.

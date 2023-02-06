@@ -29,7 +29,7 @@ export class SettingController {
   @Post('/create')
   @UseGuards(AuthGuard)
   async createPost(@Body() createSettingDto: CreateSettingDto) {
-    const newLetter = this.letterRepo.create({
+    const newSetting = this.letterRepo.create({
       street: createSettingDto.street,
       PLZ: createSettingDto.PLZ,
       location: createSettingDto.location,
@@ -39,7 +39,7 @@ export class SettingController {
       salutation: createSettingDto.salutation,
       user: { id: createSettingDto.userId },
     });
-    return await this.letterRepo.save(newLetter);
+    return await this.letterRepo.save(newSetting);
   }
 
   @UseGuards(AuthGuard)
