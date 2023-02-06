@@ -13,7 +13,7 @@ const Checkboxes = ({ name }: checkboxProps) => {
       </div>
       <div className='ml-3 text-sm'>
         <label className='font-medium text-gray-700'>
-          yfsdf
+          {name}
         </label>
       </div>
     </div>

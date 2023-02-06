@@ -2,7 +2,10 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
-import Checkboxes from '../../components/elements/edit/checkboxes';
+import AuthButton from '../../components/elements/auth/AuthButton';
+import AuthInput from '../../components/elements/auth/AuthInput';
+import Checkboxes from '../../components/elements/edit/Checkboxes';
+import Impresum from '../../components/elements/pricepage/Impresum';
 
 const Edit = () => {
   const [isData, setData] = useState<any[]>([]);
@@ -21,11 +24,11 @@ const Edit = () => {
   return (
     <DashboardContainer>
       <div>
-        <h1 className='font-bold text-2xl text-center mt-52'>
+        <h1 className='font-bold text-2xl text-center mt-20 mb-10'>
           Auftrag {id} bearbeiten
         </h1>
-        <div className='flex justify-center p-5'>
-          <div className='bg-[#212323] w-1/2 p-10'>
+        <div className='justify-center p-5 flex mt-20'>
+          <div className='bg-[#212323] p-10'>
             <h1 className='text-secondary font-bold'>Druckeinstellungen</h1>
             <div className='mt-5 text-gray-500'>
               Wählen Sie zwischen einem Schwarzweiß- und Farbdruck <br /> aus
@@ -40,12 +43,38 @@ const Edit = () => {
             </div>
             <div className='flex'>
               <Checkboxes name={'Einseitig'} />
-              <div className='ml-20'>
+              <div className='ml-28'>
                 <Checkboxes name={'Doppelseitig'} />
               </div>
             </div>
           </div>
+          <div className='bg-[#212323] p-10'>
+            <h1 className='text-secondary font-bold'>Versandeinstellungen</h1>
+            <div className='mt-5 text-gray-500 flex'>
+              <AuthInput type={''} label={'Einschreiben'} className='w-60' />
+              <div className='ml-20'>
+                <AuthInput
+                  type={''}
+                  label={'Zeitversetzer Versand '}
+                  className='w-60'
+                />
+              </div>
+            </div>
+            <Checkboxes
+              name={`C4 Kuvertierhülle: Kuvertierung in einem Umschlag`}
+            />
+            <div className='ml-8 text-gray-700'>
+              ohne Falzung (weniger als 9 Blatt)
+            </div>
+          </div>
         </div>
+        <div>
+          <AuthButton name={'ÄNDERUNG SPEICHERN'} className={''} />
+        </div>
+      </div>
+    
+      <div className='mt-20'>
+        <Impresum />
       </div>
     </DashboardContainer>
   );
