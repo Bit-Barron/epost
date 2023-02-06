@@ -14,7 +14,7 @@ import { CheckIcon as CheckIconSolid } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { Fragment } from 'react';
 
-import { Navbar } from '../../../components/elements/frontpage/Navbar';
+import { Navbar } from '../../../components/elements/Navbar';
 import AllInOne from '../../../components/elements/pricepage/price/all-in-one/AllInOne';
 import Impresum from '../../../components/elements/pricepage/price/impresum/Impresum';
 import Partnership from '../../../components/elements/pricepage/price/partnership/Partnership';

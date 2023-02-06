@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
-import SupportHeader from '../../../components/elements/supportPage/SupportHeader';
+import SupportHeader from '../../../components/elements/Headings/SupportHeader';
 
 interface indexProps {}
 
