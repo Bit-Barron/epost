@@ -9,13 +9,13 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
     role: 'Human Resources Manager',
   };
 
-  const [username, setUsername] = useState<string>('');
+  const [username, setUsername] = useState<any[]>([]);
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get('/user/user');
-        setUsername(response.data.email);
+        const response = await axios.get('/setting/all-user');
+        setUsername(response.data);
       } catch (err) {
         console.log(err);
       }
@@ -37,7 +37,9 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
                   Welcome back,
                 </p>
                 <p className='text-xl font-bold text-gray-900 sm:text-2xl'>
-                  {username}
+                  {username.map((user) => (
+                    <div key={user.firstname}>{user.firstname} {user.lastname}</div>
+                  ))}
                 </p>
                 <p className='text-sm font-medium text-gray-600'>{user.role}</p>
               </div>
