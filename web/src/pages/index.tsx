@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { GiCheckMark } from 'react-icons/gi';
 import { Navbar } from '../components/elements/Navbar';
-import Impresum from '../components/elements/pricepage/price/impresum/Impresum';
+import Impresum from '../components/elements/pricepage/Impresum';
 import Steps from '../components/elements/Steps';
 
 const quicksand = Quicksand({

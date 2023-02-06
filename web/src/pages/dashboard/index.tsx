@@ -7,8 +7,7 @@ import { Actions } from '../../components/elements/dashboard/Actions';
 import { Announcements } from '../../components/elements/dashboard/Announcements';
 import DashboardSteps from '../../components/elements/dashboard/DashboardSteps';
 import { ProfileOverview } from '../../components/elements/dashboard/ProfileOverview';
-
-import Impresum from '../../components/elements/pricepage/price/impresum/Impresum';
+import Impresum from '../../components/elements/pricepage/Impresum';
 
 interface dashboardProps {}
 

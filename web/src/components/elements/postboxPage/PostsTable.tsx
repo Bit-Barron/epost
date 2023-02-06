@@ -10,6 +10,7 @@ function PostsTable() {
   const [data, setData] = useState<any[]>([]);
   const { addAlert } = GeneralStore();
   const [isOpen, setIsOpen] = useState(false);
+  const [ids, setIds] = useState<number>();
   const router = useRouter();
 
   const toggle = () => {
@@ -26,6 +27,8 @@ function PostsTable() {
 
   const getPosts = async () => {
     const response = await axios.get('/letter/all-user');
+    console.log(response.data.id);
+    setIds(response.data.id);
     setData(response.data);
   };
 
