@@ -1,7 +1,7 @@
 import React from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import { SettingsContainer } from '../../../components/container/SettingsContainer';
-import Dropdown from '../../../components/elements/completeProfilePage/Dropdown';
+import Dropdown from '../../../components/elements/Dropdown';
 
 interface settingsProps {}
 

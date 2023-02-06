@@ -7,7 +7,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
-import Dropdown from '../../components/elements/completeProfilePage/Dropdown';
+import Dropdown from '../../components/elements/Dropdown';
 import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
 import main from '../../../public/images/main.png';
