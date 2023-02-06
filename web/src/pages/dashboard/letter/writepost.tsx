@@ -38,7 +38,7 @@ function Post() {
         documents,
       });
     } catch (err: unknown) {
-      if ((err as AxiosError).status === 403) {
+      if ((err as AxiosError).response?.status === 400) {
         console.log(err);
       }
     }

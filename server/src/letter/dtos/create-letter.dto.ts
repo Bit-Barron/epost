@@ -24,6 +24,5 @@ export class CreateLetterDto {
   @IsString()
   documents: string;
 
-  @IsNumber()
   userId: number;
 }
