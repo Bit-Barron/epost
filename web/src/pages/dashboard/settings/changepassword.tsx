@@ -16,7 +16,7 @@ const changepassword: React.FC<settingsProps> = ({}) => {
                 htmlFor='exampleFormControlInput1'
                 className='form-label inline-block mb-2 text-gray-700'
               >
-                Password
+                Dein Password
               </label>
               <input
                 type='password'
