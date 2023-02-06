@@ -1,6 +1,6 @@
-import { CheckCircleIcon } from '@heroicons/react/outline';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsFillFileEarmarkPdfFill, BsTrash } from 'react-icons/bs';
@@ -8,8 +8,9 @@ import { GeneralStore } from '../../../store/Generalstore';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);
-  const { alerts, addAlert } = GeneralStore();
+  const { addAlert } = GeneralStore();
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -161,7 +162,12 @@ function PostsTable() {
                         <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
                       </td>
                       <td className='flex'>
-                        <AiOutlineEdit className='text-xl mt-4' />
+                        <AiOutlineEdit
+                          className='text-xl mt-4'
+                          onClick={() => {
+                            return router.push(`/edit/${letter.id}`);
+                          }}
+                        />
                         <button
                           type='submit'
                           className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'

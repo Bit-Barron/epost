@@ -1,8 +1,12 @@
+import { DashboardContainer } from '../../components/container/DashboardContainer';
+
 const edit = () => {
   return (
-    <div>
-      <h1>Edit</h1>
-    </div>
+    <DashboardContainer>
+      <div>
+        <h1>Edit</h1>
+      </div>
+    </DashboardContainer>
   );
 };
 
