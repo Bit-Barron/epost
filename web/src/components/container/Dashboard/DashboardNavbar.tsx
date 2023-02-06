@@ -2,7 +2,6 @@ import { Menu } from '@headlessui/react';
 import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { AiOutlineArrowDown } from 'react-icons/ai';
 import Profile from './Profile';
 
 const DashboardNavbar = () => {
@@ -19,7 +18,6 @@ const DashboardNavbar = () => {
     };
     getUser();
   }, []);
-  console.log(user);
 
   return (
     <div className='border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
@@ -39,7 +37,7 @@ const DashboardNavbar = () => {
           </Link>
         </div>
         <Menu as='div'>
-          <Menu.Button className='rounded-md bg-[#25282A] py-2 px-4 text-main '>
+          <Menu.Button className='ounded-md bg-[#25282A] py-2 px-4  text-main '>
             {user}
           </Menu.Button>
           <Profile />
