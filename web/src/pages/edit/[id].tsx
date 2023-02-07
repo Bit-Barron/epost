@@ -21,6 +21,10 @@ const Edit = () => {
     getPosts();
   }, []);
 
+  const submit = () => {
+    
+  };
+
   return (
     <DashboardContainer>
       <div>
