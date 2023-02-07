@@ -2,10 +2,12 @@ import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateLetterDto {
   @IsString()
+  @IsOptional()
   @IsNotEmpty()
   title: string;
 
   @IsString()
+  @IsOptional()
   @IsNotEmpty()
   content: string;
 
@@ -14,6 +16,7 @@ export class CreateLetterDto {
   pages: number;
 
   @IsNumber()
+  @IsOptional()
   price: number;
 
   @IsNumber()
@@ -21,6 +24,7 @@ export class CreateLetterDto {
   posts: number;
 
   @IsString()
+  @IsOptional()
   envelope: string;
 
   @IsOptional()

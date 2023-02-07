@@ -43,17 +43,7 @@ function PostsTable() {
     getPosts();
   }
 
-  const updateposts = async (id: number) => {
-    try {
-      const response = await axios.patch(`/letters/${id}`, {});
-      setUpdatePosts(response.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
-    updateposts(314);
     getPosts();
   });
 
