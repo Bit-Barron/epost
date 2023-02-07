@@ -10,6 +10,7 @@ function PostsTable() {
   const [data, setData] = useState<any[]>([]);
   const { addAlert } = GeneralStore();
   const [isOpen, setIsOpen] = useState(false);
+  const [updatePosts, setUpdatePosts] = useState<any[]>([]);
   const router = useRouter();
 
   const toggle = () => {
@@ -36,25 +37,25 @@ function PostsTable() {
     getPosts();
   };
 
-  useEffect(() => {
-    getPosts();
-  });
-
-  useEffect(() => {
-    const getData = async (id: any) => {
-      try {
-        const response = await axios.patch(`/letters/${id}`, {});
-      } catch (err) {
-        console.log(err);
-      }
-    };
-  });
-
   async function deleteposts(id: number) {
     const response = await axios.delete(`/letter/${id}`);
     console.log(response.data);
     getPosts();
   }
+
+  const updateposts = async (id: number) => {
+    try {
+      const response = await axios.patch(`/letters/${id}`, {});
+      setUpdatePosts(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    updateposts(314);
+    getPosts();
+  });
 
   let date = dayjs().format('DD.MM.YYYY');
 
