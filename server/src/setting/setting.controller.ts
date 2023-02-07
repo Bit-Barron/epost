@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Param,
+  Patch,
   Post,
   Req,
   UseGuards,
@@ -57,5 +58,11 @@ export class SettingController {
     return await this.letterRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
+  }
+
+  @UseGuards(AuthGuard)
+  @Patch('/:id')
+  async updateOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
+    return await this.letterRepo.update(id, req.body);
   }
 }
