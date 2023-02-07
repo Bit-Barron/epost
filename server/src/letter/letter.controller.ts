@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
-import { Param, Req, UseGuards } from '@nestjs/common/decorators';
+import { Param, Patch, Req, UseGuards } from '@nestjs/common/decorators';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
@@ -78,5 +78,13 @@ export class LetterController {
     try {
       return await this.letterRepo.delete({ user: { id: req.user.sub } });
     } catch (err) {}
+  }
+
+  @UseGuards(AuthGuard)
+  @Patch('/:id')
+  async updateOneUser(@Body() body: CreateLetterDto, id: number) {
+    return await this.letterRepo.update(id, {
+      pages: body.pages,
+    });
   }
 }
