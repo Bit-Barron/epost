@@ -42,6 +42,10 @@ function PostsTable() {
     getPosts();
   });
 
+  useEffect(() => {
+    
+  })
+
   async function deleteposts(id: number) {
     const response = await axios.delete(`/letter/${id}`);
     console.log(response.data);
