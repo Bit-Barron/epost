@@ -103,13 +103,13 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                 href={item.href}
                 className={classNames(
                   item.current ? '' : '',
-                  'group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 '
+                  'group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-white'
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
                 <item.icon
                   className={classNames(
-                    item.current ? 'hover:text-orange-800 text-secondary' : 'text-secondary',
+                    item.current ? 'text-secondary' : 'text-secondary',
                     'mr-3 flex-shrink-0 h-5 w-6'
                   )}
                   aria-hidden='true'
