@@ -24,34 +24,15 @@ const Edit = () => {
     getPosts();
   }, []);
 
-  const handleSide = () => {
-    setChecked(!checked);
-    if (checked === false) {
-      console.log('Einseitig');
-      setSide('Einseitig');
-    } else {
-      console.log('Doppelseitig');
-      setSide('Doppelseitig');
-    }
-  };
-
-  const handleColor = () => {
-    setChecked(!checked);
-    if (checked === false) {
-      console.log('Schwarzweiß');
-      setColor('Schwarzweiß');
-    } else {
-      console.log('Farbe');
-      setColor('Farbe');
-    }
-  };
+  console.log(side);
+  console.log(color);
 
   const submit = async () => {
-    await axios.patch(`/letter/${id}`, {
+    const response = await axios.patch(`/letter/${id}`, {
       side,
       color,
     });
-    router.push('/dashboard/letter/postbox/postbox');
+    console.log(response.data);
   };
 
   return (
@@ -72,27 +53,27 @@ const Edit = () => {
               <Checkboxes
                 name={'Schwarzweiß'}
                 value={''}
-                onClick={() => handleColor()}
+                onClick={() => setColor('Schwarzweiß')}
               />
               <div className='ml-20'>
                 <Checkboxes
                   name={'Farbe'}
                   value={''}
-                  onClick={() => handleColor()}
+                  onClick={() => setColor('Farbe')}
                 />
               </div>
             </div>
             <div className='flex'>
               <Checkboxes
                 name={'Einseitig'}
-                onClick={() => handleSide()}
+                onClick={() => setSide('Einseitig')}
                 value={''}
               />
               <div className='ml-28'>
                 <Checkboxes
                   name={'Doppelseitig'}
                   value={''}
-                  onClick={() => handleSide()}
+                  onClick={() => setSide('Doppelseitig')}
                 />
               </div>
             </div>
