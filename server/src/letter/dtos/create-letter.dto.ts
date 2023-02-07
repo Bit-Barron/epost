@@ -31,5 +31,9 @@ export class CreateLetterDto {
   @IsString()
   documents: string;
 
+  @IsString()
+  @IsOptional()
+  side: string;
+
   userId: number;
 }

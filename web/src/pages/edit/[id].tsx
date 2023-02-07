@@ -9,6 +9,8 @@ import Impresum from '../../components/elements/pricepage/Impresum';
 
 const Edit = () => {
   const [isData, setData] = useState<any[]>([]);
+  const [checked, setChecked] = useState(false);
+  const [pages, setPage] = useState('');
   const router = useRouter();
   const { id } = router.query;
 
@@ -21,8 +23,18 @@ const Edit = () => {
     getPosts();
   }, []);
 
-  const submit = () => {
-    
+  const handleClick = () => {
+    setChecked(!checked);
+    if (checked === false) {
+      setPage('Einseitig');
+    } else {
+      setPage('Doppelseitig');
+    }
+  };
+  const submit = async () => {
+    const response = await axios.patch(`/letter/${id}`, {
+      pages,
+    });
   };
 
   return (
@@ -40,15 +52,23 @@ const Edit = () => {
               gedruckt werden sollen.
             </div>
             <div className='flex'>
-              <Checkboxes name={'Schwarzweiß'} />
+              <Checkboxes name={'Schwarzweiß'} value={''} />
               <div className='ml-20'>
-                <Checkboxes name={'Farbe'} />
+                <Checkboxes name={'Farbe'} value={''} />
               </div>
             </div>
             <div className='flex'>
-              <Checkboxes name={'Einseitig'} />
+              <Checkboxes
+                name={'Einseitig'}
+                onClick={() => handleClick()}
+                value={''}
+              />
               <div className='ml-28'>
-                <Checkboxes name={'Doppelseitig'} />
+                <Checkboxes
+                  name={'Doppelseitig'}
+                  value={''}
+                  onClick={handleClick}
+                />
               </div>
             </div>
           </div>
@@ -66,6 +86,7 @@ const Edit = () => {
             </div>
             <Checkboxes
               name={`C4 Kuvertierhülle: Kuvertierung in einem Umschlag`}
+              value={''}
             />
             <div className='ml-8 text-gray-700'>
               ohne Falzung (weniger als 9 Blatt)
@@ -73,7 +94,11 @@ const Edit = () => {
           </div>
         </div>
         <div>
-          <AuthButton name={'Speichern'} className={'w-96'} />
+          <AuthButton
+            name={'Speichern'}
+            className={'w-96'}
+            onClick={() => submit()}
+          />
         </div>
       </div>
 

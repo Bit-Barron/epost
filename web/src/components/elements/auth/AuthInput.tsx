@@ -21,7 +21,7 @@ const AuthInput: React.FC<InputProps> = ({
     <div className='flex justify-center mt-5'>
       <div>
         <div>
-          <div className='mr-28  mb-2'>{label}</div>
+          <div className='mr-28 mb-2'>{label}</div>
         </div>
         <input
           type={type}

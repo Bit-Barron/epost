@@ -21,6 +21,9 @@ export class Letter {
   @Column({ default: 1 })
   posts: number;
 
+  @Column({ default: 'Einseitig' })
+  side: string;
+
   @ManyToOne(() => User, (user) => user.letters)
   user: User;
 
