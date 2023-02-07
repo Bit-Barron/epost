@@ -27,6 +27,7 @@ const Partnership: React.FC<partnershipProps> = ({}) => {
       url: 'https://tailwindui.com/img/logos/workcation-logo-purple-200.svg',
     },
   ];
+  
   return (
     <div className="bg-secondary">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
