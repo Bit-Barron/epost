@@ -27,7 +27,7 @@ const Index: React.FC = ({}) => {
       </header>
       <hr className='h-px  mt-2 border-0 border-[#2c3441]' />
       <Navbar />
-      <hr className='h-px mt-2 bg-gray-200 border-0' />
+      <hr className='' />
       <div className='bg-[#1f2123] h-[500px]'>
         <div className='flex justify-center'>
           <Image

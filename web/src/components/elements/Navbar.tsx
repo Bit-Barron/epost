@@ -21,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             <Image width={80} height={50} src={main} alt='asd' />
             <div className={`${quicksand.className} mt-5 text-[#f7902c]`}>
               Postshield
-            </div>
+            </div>  
           </span>
         </Link>
         <div className='flex items-center md:order-2'>
