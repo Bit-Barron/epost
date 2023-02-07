@@ -11,6 +11,7 @@ const Edit = () => {
   const [isData, setData] = useState<any[]>([]);
   const [checked, setChecked] = useState(false);
   const [side, setSide] = useState('');
+  const [color, setColor] = useState('');
   const router = useRouter();
   const { id } = router.query;
 
@@ -23,7 +24,7 @@ const Edit = () => {
     getPosts();
   }, []);
 
-  const handleClick = () => {
+  const handleSide = () => {
     setChecked(!checked);
     if (checked === false) {
       console.log('Einsetig');
@@ -33,9 +34,20 @@ const Edit = () => {
       setSide('Doppelseitig');
     }
   };
+
+  const handleColor = () => {
+    setChecked(!checked);
+    if (checked === false) {
+      setColor('Schwarzweiß');
+    } else {
+      setColor('Farbe');
+    }
+  };
+
   const submit = async () => {
     const response = await axios.patch(`/letter/${id}`, {
       side,
+      color,
     });
     console.log(response.data);
   };
@@ -55,22 +67,30 @@ const Edit = () => {
               gedruckt werden sollen.
             </div>
             <div className='flex'>
-              <Checkboxes name={'Schwarzweiß'} value={''} />
+              <Checkboxes
+                name={'Schwarzweiß'}
+                value={''}
+                onClick={() => handleColor()}
+              />
               <div className='ml-20'>
-                <Checkboxes name={'Farbe'} value={''} />
+                <Checkboxes
+                  name={'Farbe'}
+                  value={''}
+                  onClick={() => handleColor()}
+                />
               </div>
             </div>
             <div className='flex'>
               <Checkboxes
                 name={'Einseitig'}
-                onClick={() => handleClick()}
+                onClick={() => handleSide()}
                 value={''}
               />
               <div className='ml-28'>
                 <Checkboxes
                   name={'Doppelseitig'}
                   value={''}
-                  onClick={handleClick}
+                  onClick={() => handleSide()}
                 />
               </div>
             </div>

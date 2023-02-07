@@ -31,6 +31,10 @@ export class CreateLetterDto {
   @IsString()
   documents: string;
 
+  @IsOptional()
+  @IsString()
+  color: string;
+
   @IsString()
   @IsOptional()
   side: string;

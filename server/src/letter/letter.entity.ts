@@ -24,6 +24,9 @@ export class Letter {
   @Column({ default: 'Einseitig' })
   side: string;
 
+  @Column({ default: 'Schwarzweiß' })
+  color: string;
+
   @ManyToOne(() => User, (user) => user.letters)
   user: User;
 
