@@ -38,7 +38,9 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
                 </p>
                 <p className='text-xl font-bold text-gray-900 sm:text-2xl'>
                   {username.map((user) => (
-                    <div key={user.firstname}>{user.firstname} {user.lastname}</div>
+                    <div key={user.firstname}>
+                      {user.firstname} {user.lastname}
+                    </div>
                   ))}
                 </p>
                 <p className='text-sm font-medium text-gray-600'>{user.role}</p>
