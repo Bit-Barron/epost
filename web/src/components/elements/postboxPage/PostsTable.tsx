@@ -10,7 +10,6 @@ function PostsTable() {
   const [data, setData] = useState<any[]>([]);
   const { addAlert } = GeneralStore();
   const [isOpen, setIsOpen] = useState(false);
-  const [updatePosts, setUpdatePosts] = useState<any[]>([]);
   const router = useRouter();
 
   const toggle = () => {

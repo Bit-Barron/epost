@@ -27,7 +27,7 @@ const Edit = () => {
   const handleSide = () => {
     setChecked(!checked);
     if (checked === false) {
-      console.log('Einsetig');
+      console.log('Einseitig');
       setSide('Einseitig');
     } else {
       console.log('Doppelseitig');
@@ -47,11 +47,11 @@ const Edit = () => {
   };
 
   const submit = async () => {
-    const response = await axios.patch(`/letter/${id}`, {
+    await axios.patch(`/letter/${id}`, {
       side,
       color,
     });
-    console.log(response.data);
+    router.push('/dashboard/letter/postbox/postbox');
   };
 
   return (
