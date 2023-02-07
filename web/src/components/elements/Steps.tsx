@@ -42,7 +42,7 @@ export default function Example() {
               />
             </svg>
             <div className='ml-4 flex-auto flex flex-col-reverse'>
-              <h3 className='font-medium text-gray-900'>
+              <h3 className='font-medium text-white'>
                 10-year all-inclusive warranty
               </h3>
               <p className='text-sm text-gray-500'>
@@ -69,7 +69,7 @@ export default function Example() {
               />
             </svg>
             <div className='ml-4 flex-auto flex flex-col-reverse'>
-              <h3 className='font-medium text-gray-900'>
+              <h3 className='font-medium text-white'>
                 Free shipping on returns
               </h3>
               <p className='text-sm text-gray-500'>Send it back for free</p>
@@ -98,7 +98,7 @@ export default function Example() {
               />
             </svg>
             <div className='ml-4 flex-auto flex flex-col-reverse'>
-              <h3 className='font-medium text-gray-900'>
+              <h3 className='font-medium text-white'>text-white
                 Free, contactless delivery
               </h3>
               <p className='text-sm text-gray-500'>The shipping is on us</p>
