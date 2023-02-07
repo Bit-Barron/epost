@@ -47,7 +47,6 @@ export class LetterController {
   @UseGuards(AuthGuard)
   @Get('/:id')
   async findOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
-    console.log(req.user);
     return await this.letterRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
@@ -56,7 +55,6 @@ export class LetterController {
   @UseGuards(AuthGuard)
   @Post('/update/:id')
   async updateletter(@Param('id') id: number, @Req() req: FastifyRequest) {
-    console.log(req.user);
     return await this.letterRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
@@ -65,7 +63,6 @@ export class LetterController {
   @UseGuards(AuthGuard)
   @Delete('/:id')
   async deleteletter(@Param('id') id: number, @Req() req: FastifyRequest) {
-    console.log(req.user);
     try {
       return await this.letterRepo.delete({ id, user: { id: req.user.sub } });
     } catch (err) {}
@@ -75,7 +72,6 @@ export class LetterController {
   @UseGuards(AuthGuard)
   @Delete('/all-letter')
   async deleteAll(@Req() req: FastifyRequest) {
-    console.log(req.user);
     try {
       return await this.letterRepo.delete({ user: { id: req.user.sub } });
     } catch (err) {}

@@ -17,7 +17,6 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
         const response = await axios.get('/setting/all-user');
         setUsername(response.data);
       } catch (err) {
-        console.log(err);
       }
     };
     getUser();

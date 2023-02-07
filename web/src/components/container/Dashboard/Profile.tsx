@@ -21,7 +21,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
         const response = await axios.get('/user/user');
         setUser(response.data.email);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     getUser();
@@ -31,10 +31,9 @@ const Profile: React.FC<ProfileProps> = ({}) => {
     const getUser = async () => {
       try {
         const response = await axios.get('/setting/all-user');
-        console.log(response.data);
         setSetting(response.data);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     getUser();
@@ -42,7 +41,6 @@ const Profile: React.FC<ProfileProps> = ({}) => {
 
   const logout = async () => {
     const response = await axios.post('/auth/logout');
-    console.log(response.data);
     router.push('/login');
   };
 

@@ -31,13 +31,11 @@ function PostsTable() {
 
   const deleteallposts = async () => {
     const response = await axios.delete('/letter/all-letter');
-    console.log(response.data);
     getPosts();
   };
 
   async function deleteposts(id: number) {
     const response = await axios.delete(`/letter/${id}`);
-    console.log(response.data);
     getPosts();
   }
 

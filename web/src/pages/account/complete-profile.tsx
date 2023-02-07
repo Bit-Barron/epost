@@ -41,7 +41,6 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
         location,
         phone,
       });
-      console.log(response.data);
       router.push('/dashboard/');
     } catch (err: unknown) {
       if ((err as AxiosError).response?.status === 500) {
@@ -50,7 +49,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
           message: `Telefon Nummer ist bereits vergeben`,
           type: 'failure',
         });
-        console.log(err);
+        console.error(err);
       }
     }
   };

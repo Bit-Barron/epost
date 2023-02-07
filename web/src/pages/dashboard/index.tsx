@@ -20,10 +20,9 @@ function Dashboard({}: dashboardProps) {
         await axios.post('/user/dashboard');
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
-          console.log('err');
           router.push('/auth/login');
         } else {
-          console.log(err);
+          console.error(err);
         }
       }
     };

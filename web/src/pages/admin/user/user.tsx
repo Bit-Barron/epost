@@ -10,7 +10,6 @@ const User: React.FC<userProps> = ({}) => {
   useEffect(() => {
     const getUser = async () => {
       const response = await axios.get('/user/all');
-      console.log(response);
     };
     getUser();
   }, []);

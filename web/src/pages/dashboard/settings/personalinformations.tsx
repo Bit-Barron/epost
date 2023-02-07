@@ -12,7 +12,6 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get(`/setting/all-user`);
-      console.log(response.data);
       setData(response.data);
     };
     getData();

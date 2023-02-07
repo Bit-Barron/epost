@@ -39,7 +39,6 @@ function Post() {
       });
     } catch (err: unknown) {
       if ((err as AxiosError).response?.status === 400) {
-        console.log(err);
       }
     }
   };

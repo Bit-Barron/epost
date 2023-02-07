@@ -36,7 +36,6 @@ export default function Dropdown() {
     const response = await axios.post('/setting/create', {
       salutation,
     });
-    console.log(response.data);
   };
 
   const filteredPeople =

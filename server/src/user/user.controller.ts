@@ -23,7 +23,6 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get('/user')
   getUser(@Req() req: FastifyRequest) {
-    console.log(req.user);
     return req.user;
   }
 

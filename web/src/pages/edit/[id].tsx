@@ -18,21 +18,16 @@ const Edit = () => {
   useEffect(() => {
     const getPosts = async () => {
       const response = await axios.get('/letter/all-user');
-      console.log(response.data);
       setData(response.data);
     };
     getPosts();
   }, []);
 
-  console.log(side);
-  console.log(color);
-
   const submit = async () => {
-    const response = await axios.patch(`/letter/${id}`, {
+    await axios.patch(`/letter/${id}`, {
       side,
       color,
     });
-    console.log(response.data);
   };
 
   return (
