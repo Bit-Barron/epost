@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateLetterDto {
   @IsString()
@@ -10,17 +10,20 @@ export class CreateLetterDto {
   content: string;
 
   @IsNumber()
+  @IsOptional()
   pages: number;
 
   @IsNumber()
   price: number;
 
   @IsNumber()
+  @IsOptional()
   posts: number;
 
   @IsString()
   envelope: string;
 
+  @IsOptional()
   @IsString()
   documents: string;
 

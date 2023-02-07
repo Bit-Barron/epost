@@ -82,9 +82,7 @@ export class LetterController {
 
   @UseGuards(AuthGuard)
   @Patch('/:id')
-  async updateOneUser(@Body() body: CreateLetterDto, id: number) {
-    return await this.letterRepo.update(id, {
-      pages: body.pages,
-    });
+  async updateOneUser(@Body() body: CreateLetterDto, @Param('id') id: number) {
+    return await this.letterRepo.update(id, body);
   }
 }
