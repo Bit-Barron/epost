@@ -161,7 +161,7 @@ function PostsTable() {
                       <td className='whitespace-nowrap py-2 pl-2 pr-1 text-sm font-medium text-gray-900 sm:pl-6 '>
                         <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
                       </td>
-                      <td className='flex'>
+                      <td className='flex mt-3'>
                         <AiOutlineEdit
                           className='text-xl mt-4'
                           onClick={() => {
