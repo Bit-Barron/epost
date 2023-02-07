@@ -40,7 +40,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
   }, []);
 
   const logout = async () => {
-    const response = await axios.post('/auth/logout');
+    await axios.post('/auth/logout');
     router.push('/login');
   };
 
@@ -59,7 +59,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
           <h1 className='mt-4 text-center text-lg font-semibold text-white '>
             {user}
           </h1>
-          <p className='ml-16 text-xs text-main'>
+          <p className='ml-16 text-xs text-white'>
             {setting.map((user) => (
               <div key={user.name} className='text-sm font-semibold ml-6'>
                 {user.firstname} {user.lastname}
@@ -72,8 +72,8 @@ const Profile: React.FC<ProfileProps> = ({}) => {
               <a
                 href='../../Profile/MySettings'
                 className={classNames(
-                  active ? 'text-main hover:text-white' : '',
-                  'block px-4 py-2 text-sm text-main'
+                  active ? 'text-white hover:text-white' : '',
+                  'block px-4 py-2 text-sm text-white'
                 )}
               >
                 My Settings
@@ -87,7 +87,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
                 href='#'
                 className={classNames(
                   active ? 'hover:text-white' : '',
-                  'block px-4 py-2 text-sm text-main'
+                  'block px-4 py-2  text-white'
                 )}
               >
                 Passwort ändern
@@ -99,7 +99,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
               <button
                 className={classNames(
                   active ? 'hover:text-white' : '',
-                  'block px-4 py-2 text-sm text-main'
+                  'block px-4 py-2 text-sm text-white'
                 )}
                 onClick={() => logout()}
               >

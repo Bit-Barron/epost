@@ -63,14 +63,17 @@ const Login = () => {
         />
         <Button className='bg-black' name={'WEITER MIT APPLE'} />
 
-        <Button className='bg-transparent' name={'WEITER MIT GOOGLE'} />
+        <Button
+          className='bg-transparent border border-white'
+          name={'WEITER MIT GOOGLE'}
+        />
 
-        <div className='inline-flex items-center justify-center w-full'>
-          <hr className='w-96 my-8 border-1 text-gray-700' />
-          <span className='absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white '>
+        {/* <div className='inline-flex items-center justify-center w-full'>
+          <hr className='w-96 my-8 border-1 text-[#363b3d]' />
+          <span className='absolute px-3 font-medium text-[#363b3d] -translate-x-1/2 bg-white left-1/2'>
             or
           </span>
-        </div>
+        </div> */}
 
         <AuthInput
           type='email'
@@ -107,12 +110,12 @@ const Login = () => {
           <hr className='w-96 my-8 border-1 text-gray-700' />
         </div>
 
-        <div className='font-bold flex justify-center'>
+        <div className='font-bold flex justify-center rounded-full border- border-white'>
           Du hast kein Konto ?
         </div>
 
         <Button
-          className='border-gray-200 bg-transparent'
+          className='border-gray-200 border-2 bg-transparent'
           onClick={() => router.push('auth/register')}
           name={`Bei ${process.env.NEXT_PUBLIC_NAME} Regestrieren`}
         />

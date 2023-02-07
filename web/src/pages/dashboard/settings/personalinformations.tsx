@@ -37,13 +37,13 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
             <dl>
               {data.map((item) => (
                 <div key={item.name}>
-                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='bg-[#1b1d1e] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
                     <dt className='text-sm font-medium text-gray-500'>Firma</dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
                       Optional
                     </dd>
                   </div>
-                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 '>
                     <dt className='text-sm font-medium text-gray-500'>
                       Anrede
                     </dt>
@@ -53,13 +53,13 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       </span>
                     </dd>
                   </div>
-                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]'>
                     <dt className='text-sm font-medium text-gray-500'>Email</dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
                       {user}
                     </dd>
                   </div>
-                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
                     <dt className='text-sm font-medium text-gray-500'>
                       vorname
                     </dt>
@@ -67,7 +67,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       {item.firstname}
                     </dd>
                   </div>
-                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]'>
                     <dt className='text-sm font-medium text-gray-500'>
                       Nachname
                     </dt>
@@ -75,7 +75,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       {item.lastname}
                     </dd>
                   </div>
-                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
                     <dt className='text-sm font-medium text-gray-500'>
                       straße
                     </dt>
@@ -88,25 +88,25 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       </dd>
                     </dd>
                   </div>
-                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]'>
                     <dt className='text-sm font-medium text-gray-500'>PLZ</dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
                       {item.PLZ}
                     </dd>
                   </div>
-                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
                     <dt className='text-sm font-medium text-gray-500'>Ort</dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col'>
                       <span className='align-self-center'>{item.location}</span>
                     </dd>
                   </div>
-                  <div className='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]'>
                     <dt className='text-sm font-medium text-gray-500'>LAND</dt>
                     <dd className='mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0'>
                       DE
                     </dd>
                   </div>
-                  <div className='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
+                  <div className='bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
                     <dt className='text-sm font-medium text-gray-500'>
                       Telefon
                     </dt>
@@ -119,7 +119,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
             </dl>
           </div>
 
-          <hr className='h-px my-8 bg-gray-200 border-0 dark:bg-gray-700' />
+          <hr className='h-px my-8 border-0 dark:bg-gray-700' />
           <div className='flex ml-10 mb-10'>
             <button
               type='button'
