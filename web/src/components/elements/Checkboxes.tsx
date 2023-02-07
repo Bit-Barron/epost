@@ -7,8 +7,6 @@ interface checkboxProps {
 }
 
 const Checkboxes = ({ name, value, onClick }: checkboxProps) => {
-  const [selected, setSelected] = useState(null);
-
   return (
     <div className='relative flex items-start mt-10'>
       <div className='flex items-center h-5'>

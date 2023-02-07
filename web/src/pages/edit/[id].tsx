@@ -38,8 +38,10 @@ const Edit = () => {
   const handleColor = () => {
     setChecked(!checked);
     if (checked === false) {
+      console.log('Schwarzweiß');
       setColor('Schwarzweiß');
     } else {
+      console.log('Farbe');
       setColor('Farbe');
     }
   };

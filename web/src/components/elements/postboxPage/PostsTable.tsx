@@ -109,18 +109,7 @@ function PostsTable() {
                     >
                       Umschlag
                     </th>
-                    <th
-                      scope='col'
-                      className='px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500'
-                    >
-                      Seiten
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500'
-                    >
-                      Farbe
-                    </th>
+
                     <th
                       scope='col'
                       className='px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500'
@@ -149,6 +138,9 @@ function PostsTable() {
                     <tr key={index} className='hover:bg-gray-200'>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.documents}
+                        <div className='text-xs text-gray-500 mt-2'>
+                          {letter.side}, {letter.color}
+                        </div>
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.posts}
@@ -159,19 +151,14 @@ function PostsTable() {
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.envelope}
                       </td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                        {letter.side}
-                      </td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                        {letter.color}
-                      </td>
+                    
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {date}
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {letter.price}€
                       </td>
-                      <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
+                      <td className='whitespace-nowrap py-2 pl-2 pr-1 text-sm font-medium text-gray-900 sm:pl-6 '>
                         <BsFillFileEarmarkPdfFill className='text-xl text-pink-500' />
                       </td>
                       <td className='flex'>
