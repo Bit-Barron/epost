@@ -18,10 +18,10 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
         <Link href={'https://flowbite.com/'} className='flex items-center'>
           <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex'>
-            <Image width={80} height={50} src={main} alt='asd' />
+            <Image width={80} height={50} src={main} alt='image' />
             <div className={`${quicksand.className} mt-5 text-[#f7902c]`}>
               Postshield
-            </div>  
+            </div>
           </span>
         </Link>
         <div className='flex items-center md:order-2'>
@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
                 name@flowbite.com
               </span>
             </div>
-            <ul className='py-1' aria-labelledby='user-menu-button'>
+            <ul className='py-1'>
               <li>
                 <a
                   href='#'
@@ -104,16 +104,12 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             </svg>
           </button>
         </div>
-        <div
-          className='items-center justify-between bg-transparent hidden w-full md:flex md:w-auto md:order-1'
-          id='mobile-menu-2'
-        >
+        <div id='mobile-menu-2'>
           <ul className='flex bg-transparen flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-main md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0'>
             <li>
               <a
                 href='#'
                 className='block py-2 pl-3 text-xl pr-4 text-gray-700 bg-main rounded md:bg-transparent md:p-0 '
-                aria-current='page'
               >
                 Brief Übertragen
               </a>
