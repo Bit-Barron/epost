@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react';
 interface ProfileOverviewProps {}
 
 export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
+  const [username, setUsername] = useState<any[]>([]);
+
   const user = {
     email: 'chelseahagon@example.com',
     role: 'Human Resources Manager',
   };
-
-  const [username, setUsername] = useState<any[]>([]);
 
   useEffect(() => {
     const getUser = async () => {
