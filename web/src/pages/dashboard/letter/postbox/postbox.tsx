@@ -1,5 +1,4 @@
-import axios, { AxiosError } from 'axios';
-import { useRouter } from 'next/router';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../../../components/container/DashboardContainer';
 import PostsTable from '../../../../components/elements/postboxPage/PostsTable';
@@ -11,31 +10,16 @@ interface recentProps {}
 
 const Recent: React.FC<recentProps> = ({}) => {
   const [data, setData] = useState<any[]>([]);
-  const router = useRouter();
   const { alerts } = GeneralStore();
 
   useEffect(() => {
     const getPosts = async () => {
       const response = await axios.get('/letter/all-user');
+      console.log(response.data);
       setData(response.data);
     };
     getPosts();
   }, []);
-
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        await axios.post('/user/dashboard');
-      } catch (err: unknown) {
-        if ((err as AxiosError).response?.status === 403) {
-          router.push('/login');
-        } else {
-          console.log(err);
-        }
-      }
-    };
-    getUser();
-  }, [router]);
 
   return (
     <>

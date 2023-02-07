@@ -113,7 +113,7 @@ function PostsTable() {
                       scope='col'
                       className='px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500'
                     >
-                      Einseitig
+                      Seiten
                     </th>
                     <th
                       scope='col'
@@ -154,7 +154,7 @@ function PostsTable() {
                         {letter.envelope}
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
-                        1
+                        {letter.side}
                       </td>
                       <td className='whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6'>
                         {date}

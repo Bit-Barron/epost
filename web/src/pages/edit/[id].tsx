@@ -10,7 +10,7 @@ import Impresum from '../../components/elements/pricepage/Impresum';
 const Edit = () => {
   const [isData, setData] = useState<any[]>([]);
   const [checked, setChecked] = useState(false);
-  const [pages, setPage] = useState('');
+  const [side, setSide] = useState('');
   const router = useRouter();
   const { id } = router.query;
 
@@ -26,15 +26,18 @@ const Edit = () => {
   const handleClick = () => {
     setChecked(!checked);
     if (checked === false) {
-      setPage('Einseitig');
+      console.log('Einsetig');
+      setSide('Einseitig');
     } else {
-      setPage('Doppelseitig');
+      console.log('Doppelseitig');
+      setSide('Doppelseitig');
     }
   };
   const submit = async () => {
     const response = await axios.patch(`/letter/${id}`, {
-      pages,
+      side,
     });
+    console.log(response.data);
   };
 
   return (
