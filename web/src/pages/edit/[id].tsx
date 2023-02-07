@@ -69,10 +69,10 @@ const Edit = () => {
           </div>
         </div>
         <div>
-          <AuthButton name={'ÄNDERUNG SPEICHERN'} className={''} />
+          <AuthButton name={'Speichern'} className={'w-96'} />
         </div>
       </div>
-    
+
       <div className='mt-20'>
         <Impresum />
       </div>
