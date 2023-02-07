@@ -26,7 +26,6 @@ function PostsTable() {
 
   const getPosts = async () => {
     const response = await axios.get('/letter/all-user');
-    console.log(response.data.id);
     setData(response.data);
   };
 
@@ -44,7 +43,7 @@ function PostsTable() {
 
   useEffect(() => {
     getPosts();
-  });
+  }, []);
 
   let date = dayjs().format('DD.MM.YYYY');
 
