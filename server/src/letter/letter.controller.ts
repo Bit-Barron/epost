@@ -1,5 +1,16 @@
+import {
+  FileInterceptor,
+  MemoryStorageFile,
+  UploadedFile,
+} from '@blazity/nest-file-fastify';
 import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
-import { Param, Patch, Req, UseGuards } from '@nestjs/common/decorators';
+import {
+  Param,
+  Patch,
+  Req,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common/decorators';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
@@ -81,5 +92,15 @@ export class LetterController {
   @Patch('/:id')
   async updateOneUser(@Body() body: CreateLetterDto, @Param('id') id: number) {
     return await this.letterRepo.update(id, body);
+  }
+
+  @Post('/upload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadFile(@UploadedFile() file: MemoryStorageFile) {
+    const newFile = this.letterRepo.create({
+      originalname: file.originalname,
+      buffer: file.buffer,
+    });
+    return this.letterRepo.save(newFile);
   }
 }

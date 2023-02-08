@@ -1,5 +1,6 @@
 import fastifyCookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
+import fastifyMultipart from '@fastify/multipart';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
@@ -17,6 +18,8 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter(),
   );
+
+  app.register(fastifyMultipart);
 
   await app.register(helmet);
 
