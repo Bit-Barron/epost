@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 
 interface uploadpostProps {}
