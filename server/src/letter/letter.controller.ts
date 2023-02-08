@@ -97,10 +97,6 @@ export class LetterController {
   @Post('/upload')
   @UseInterceptors(FileInterceptor('file'))
   uploadFile(@UploadedFile() file: MemoryStorageFile) {
-    const newFile = this.letterRepo.create({
-      originalname: file.originalname,
-      buffer: file.buffer,
-    });
-    return this.letterRepo.save(newFile);
+    console.log(file);
   }
 }
