@@ -5,23 +5,6 @@ import { DashboardContainer } from '../../../components/container/DashboardConta
 interface uploadpostProps {}
 
 const Uploadpost: React.FC<uploadpostProps> = ({}) => {
-  const [file, setFile] = useState('');
-
-  const submit = async () => {
-    const formData = new FormData();
-    formData.append('file', file);
-    try {
-      const response = await axios.post('/letter/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log(response);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   return (
     <DashboardContainer>
       <div className="text-center font-bold text-2xl mt-40">
@@ -57,10 +40,7 @@ const Uploadpost: React.FC<uploadpostProps> = ({}) => {
       </div>
 
       <div className="flex justify-center mt-5">
-        <button
-          className="bg-secondary text-white font-bold py-2 px-4 rounded"
-          onClick={() => submit()}
-        >
+        <button className="bg-secondary text-white font-bold py-2 px-4 rounded">
           BRIEF ZUR POSTBOX HINZUFÜGEN
         </button>
       </div>
