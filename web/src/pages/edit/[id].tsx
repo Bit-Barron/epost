@@ -6,31 +6,47 @@ import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import Checkboxes from '../../components/elements/Checkboxes';
 import Impresum from '../../components/elements/pricepage/Impresum';
+import { GeneralStore } from '../../store/Generalstore';
+import { Alerts } from '../../utils/Alerts';
 
 const Edit = () => {
   const [side, setSide] = useState('');
   const [color, setColor] = useState('');
+  const { addAlert, alerts } = GeneralStore();
+
   const router = useRouter();
   const { id } = router.query;
 
   useEffect(() => {
     const getPosts = async () => {
-      const response = await axios.get('/letter/all-user');
+      await axios.get('/letter/all-user');
     };
     getPosts();
   }, []);
 
   const submit = async () => {
-    await axios.patch(`/letter/${id}`, {
+    const response = await axios.patch(`/letter/${id}`, {
       side,
       color,
     });
+    if (response.status === 200) {
+      addAlert({
+        id: 'unique-id',
+        message: `Auftrag ${id} wurde erfolgreich bearbeitet`,
+        type: 'success',
+      });
+    }
     router.push('/dashboard/letter/postbox/postbox');
   };
 
   return (
     <DashboardContainer>
       <div>
+        {alerts.map((alert) => (
+          <div key={alert.id}>
+            <Alerts />
+          </div>
+        ))}
         <h1 className="font-bold text-2xl text-center mt-20 mb-10">
           Auftrag {id} bearbeiten
         </h1>
