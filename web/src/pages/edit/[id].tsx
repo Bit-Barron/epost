@@ -42,6 +42,9 @@ const Edit = () => {
   useEffect(() => {
     const handleDynamicRoute = async () => {
       try {
+        if (id === undefined) {
+          console.log('asd');
+        }
         await axios.get(`/letter/${id}`);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
