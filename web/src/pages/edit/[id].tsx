@@ -25,10 +25,6 @@ const Edit = () => {
     getPosts();
   }, []);
 
-  if (!id) {
-    return <NotFoundPage />;
-  }
-
   const submit = async () => {
     const response = await axios.patch(`/letter/${id}`, {
       side,
