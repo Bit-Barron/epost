@@ -18,8 +18,8 @@ export class MailService {
     const message = {
       from: '1bit.baron@gmail.com',
       to: `${createmaildto.email}`,
-      subject: `${createmaildto.subject}`,
-      text: `${createmaildto.text}`,
+      subject: `asd`,
+      text: `asd`,
     };
 
     await this.transporter.sendMail(message, (err, info) => {

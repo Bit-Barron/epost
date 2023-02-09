@@ -8,7 +8,7 @@ import axios from 'axios';
 interface resetpasswordProps {}
 
 const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
-  const [email, setMail] = useState('');
+  const [email, setMail] = useState('dejamjam801@gmail.com');
 
   const handleSubmit = async () => {
     const response = await axios.post('/mail/send-email', {
@@ -34,6 +34,7 @@ const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
       <form>
         <AuthInput
           type={''}
+          value={email}
           className="w-96"
           onChange={setMail}
           label={'Email address or username'}
