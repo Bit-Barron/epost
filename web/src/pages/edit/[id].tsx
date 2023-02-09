@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
@@ -24,7 +24,6 @@ const Edit = () => {
     };
     getPosts();
   }, []);
-
   const submit = async () => {
     const response = await axios.patch(`/letter/${id}`, {
       side,
@@ -39,6 +38,19 @@ const Edit = () => {
     }
     router.push('/dashboard/letter/postbox/postbox');
   };
+
+  useEffect(() => {
+    const handleDynamicRoute = async () => {
+      try {
+        await axios.get(`/letter/${id}`);
+      } catch (err: unknown) {
+        if ((err as AxiosError).response?.status === 500) {
+          return <NotFoundPage />;
+        }
+      }
+    };
+    handleDynamicRoute();
+  }, [id]);
 
   return (
     <DashboardContainer>
