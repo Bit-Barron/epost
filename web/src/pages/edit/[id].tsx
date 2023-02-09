@@ -5,7 +5,6 @@ import { DashboardContainer } from '../../components/container/DashboardContaine
 import AuthButton from '../../components/elements/auth/AuthButton';
 import AuthInput from '../../components/elements/auth/AuthInput';
 import Checkboxes from '../../components/elements/Checkboxes';
-import NotFoundPage from '../../components/elements/NotFoundPage';
 import Impresum from '../../components/elements/pricepage/Impresum';
 import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
