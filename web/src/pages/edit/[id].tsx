@@ -45,7 +45,7 @@ const Edit = () => {
         const response = await axios.get(`/letter/${id}`);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
-          return <NotFoundPage />;
+          router.push('/dashboard/letter/postbox/postbox');
         }
       }
     };
