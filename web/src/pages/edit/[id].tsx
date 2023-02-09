@@ -41,7 +41,7 @@ const Edit = () => {
   useEffect(() => {
     const handleDynamicRoute = async () => {
       try {
-        const response = await axios.get(`/letter/${id}`);
+        await axios.get(`/letter/${id}`);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
           router.push('/dashboard/letter/postbox/postbox');
@@ -49,7 +49,7 @@ const Edit = () => {
       }
     };
     handleDynamicRoute();
-  }, []);
+  }, [id, router]);
 
   return (
     <DashboardContainer>
