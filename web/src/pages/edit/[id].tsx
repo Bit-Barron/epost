@@ -50,7 +50,7 @@ const Edit = () => {
       }
     };
     handleDynamicRoute();
-  }, [id]);
+  }, []);
 
   return (
     <DashboardContainer>
