@@ -42,10 +42,10 @@ const Edit = () => {
   useEffect(() => {
     const handleDynamicRoute = async () => {
       try {
-        if (id === undefined) {
-          console.log('asd');
+        const response = await axios.get(`/letter/${id}`);
+        if (response.data === undefined) {
+          return <NotFoundPage />;
         }
-        await axios.get(`/letter/${id}`);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
           return <NotFoundPage />;
