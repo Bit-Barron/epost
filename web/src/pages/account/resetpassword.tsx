@@ -8,12 +8,13 @@ import axios from 'axios';
 interface resetpasswordProps {}
 
 const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
-  const [mail, setMail] = useState('');
+  const [email, setMail] = useState('');
 
   const handleSubmit = async () => {
-    const response = await axios.post('/mail/get-mail', {
-      mail,
+    const response = await axios.post('/mail/send-email', {
+      email,
     });
+    console.log(response);
   };
 
   return (
@@ -39,7 +40,11 @@ const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
           placeholder="Email address or username"
         />
         <div>
-          <AuthButton name={'Send'} className={''} onClick={handleSubmit} />
+          <AuthButton
+            name={'Send'}
+            className={''}
+            onClick={() => handleSubmit()}
+          />
           <span className="flex justify-center mt-5">
             If you still need help, contact{' '}
             <span className="underline ml-2">Spotify Support</span>

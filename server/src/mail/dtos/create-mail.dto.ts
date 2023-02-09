@@ -9,4 +9,7 @@ export class CreateMailDto {
 
   @IsString()
   text: string;
+
+  @IsString()
+  email: string;
 }

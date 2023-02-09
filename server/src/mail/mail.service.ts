@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import nodemailer from 'nodemailer';
+import { CreateMailDto } from './dtos/create-mail.dto';
 
 @Injectable()
 export class MailService {
@@ -9,16 +10,16 @@ export class MailService {
     secure: false,
     auth: {
       user: '1bit.baron@gmail.com',
-      pass: 'enkdgpjljbkyraag',
+      pass: 'enkdgpjljbkyraag      ',
     },
   });
 
-  async sendEmail(to: string, subject: string, text: string): Promise<void> {
+  async sendEmail(createmaildto: CreateMailDto): Promise<void> {
     const message = {
       from: '1bit.baron@gmail.com',
-      to: 'lolha6773@gmail.com',
-      subject: 'asdasd',
-      text: 'awsdasd',
+      to: `${createmaildto.email}`,
+      subject: `${createmaildto.subject}`,
+      text: `${createmaildto.text}`,
     };
 
     await this.transporter.sendMail(message, (err, info) => {
