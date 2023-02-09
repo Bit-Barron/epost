@@ -14,7 +14,7 @@ export class MailService {
     },
   });
 
-  async sendEmail(createmaildto: CreateMailDto): Promise<void> {
+  async sendEmail(createmaildto: CreateMailDto) {
     const message = {
       from: '1bit.baron@gmail.com',
       to: `${createmaildto.email}`,

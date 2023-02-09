@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { Letter } from './letter/letter.entity';
 import { LetterModule } from './letter/letter.module';
+import { MailModule } from './mail/mail.module';
 import { MailService } from './mail/mail.service';
 import { Setting } from './setting/setting.entity';
 import { SettingModule } from './setting/setting.module';
@@ -20,6 +21,7 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     AuthModule,
     UserModule,
     LetterModule,
+    MailModule,
     JwtModule.register({
       secret: process.env.SECRET,
       signOptions: { expiresIn: '30d' },
@@ -36,6 +38,7 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     }),
     TypeOrmModules,
     SettingModule,
+    MailModule,
   ],
   providers: [JwtService, MailService],
   exports: [TypeOrmModules, JwtService],
