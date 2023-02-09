@@ -43,9 +43,6 @@ const Edit = () => {
     const handleDynamicRoute = async () => {
       try {
         const response = await axios.get(`/letter/${id}`);
-        if (response.data === undefined) {
-          return <NotFoundPage />;
-        }
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
           return <NotFoundPage />;
