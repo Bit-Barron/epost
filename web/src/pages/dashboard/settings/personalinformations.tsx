@@ -36,8 +36,8 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
         <div className="overflow-hidden bg-white shadow sm:rounded-lg">
           <div className="border-t border-gray-200">
             <dl>
-              {data.map((item) => (
-                <div key={item.name}>
+              {data.map((item, idx) => (
+                <div key={idx}>
                   <div className="bg-[#1b1d1e] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt className="text-sm font-medium text-gray-500">Firma</dt>
                     <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
@@ -61,9 +61,9 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                     </dd>
                   </div>
                   <div className="bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt className="text-sm font-medium text-gray-500">
+                    <dd className="text-sm font-medium text-gray-500">
                       vorname
-                    </dt>
+                    </dd>
                     <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                       {item.firstname}
                     </dd>
@@ -81,12 +81,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                       straße
                     </dt>
                     <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                      <dd
-                        role="list"
-                        className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
-                      >
-                        {item.street}
-                      </dd>
+                      {item.street}
                     </dd>
                   </div>
                   <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]">

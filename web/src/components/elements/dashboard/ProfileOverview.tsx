@@ -32,16 +32,16 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
           <div className='sm:flex sm:items-center sm:justify-between'>
             <div className='sm:flex sm:space-x-5'>
               <div className='mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left'>
-                <p className='text-sm font-medium text-gray-600'>
+                <div className='text-sm font-medium text-gray-600'>
                   Welcome back,
-                </p>
-                <p className='text-xl font-bold text-gray-900 sm:text-2xl'>
+                </div>
+                <div className='text-xl font-bold text-gray-900 sm:text-2xl'>
                   {username.map((user) => (
                     <div key={user.firstname}>
                       {user.firstname} {user.lastname}
                     </div>
                   ))}
-                </p>
+                </div>
                 <p className='text-sm font-medium text-gray-600'>{user.role}</p>
               </div>
             </div>

@@ -62,8 +62,8 @@ const Profile: React.FC<ProfileProps> = ({}) => {
             {user}
           </h1>
           <p className="ml-16 text-xs text-white">
-            {setting.map((user) => (
-              <div key={user.name} className="text-sm font-semibold ml-6">
+            {setting.map((user, idx) => (
+              <div key={idx} className="text-sm font-semibold ml-6">
                 {user.firstname} {user.lastname}
               </div>
             ))}
