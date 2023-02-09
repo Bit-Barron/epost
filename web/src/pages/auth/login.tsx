@@ -30,7 +30,7 @@ const Login = () => {
       });
       router.push('/dashboard');
     } catch (err: unknown) {
-      if ((err as AxiosError).response?.status === 404) {
+      if ((err as AxiosError).response?.status === 500) {
         addAlert({
           id: 'unique-id',
           message: `Falsche E-Mail oder Passwort`,
