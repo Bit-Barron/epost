@@ -45,7 +45,7 @@ const generalsettings: React.FC<settingsProps> = ({}) => {
             />
           </div>
           <div className='flex items-center mt-7'>
-            <AuthButton name={'Änderung speichern'} className={'rounded-lg'} />
+            <AuthButton name={'Änderung speichern'} className={'rounded-lg w-[300px]'} />
           </div>
         </div>
       </SettingsContainer>
