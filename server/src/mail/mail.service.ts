@@ -10,7 +10,7 @@ export class MailService {
     secure: false,
     auth: {
       user: '1bit.baron@gmail.com',
-      pass: 'enkdgpjljbkyraag      ',
+      pass: 'enkdgpjljbkyraag',
     },
   });
 
@@ -22,7 +22,7 @@ export class MailService {
       text: `asd`,
     };
 
-    await this.transporter.sendMail(message, (err, info) => {
+    this.transporter.sendMail(message, (err, info) => {
       if (err) {
         console.error(err);
       } else {
