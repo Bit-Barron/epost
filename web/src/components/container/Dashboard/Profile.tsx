@@ -42,6 +42,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
   const logout = async () => {
     const response = await axios.post('/auth/logout');
     console.log(response.data);
+    console.log('asd');
     return router.push('/auth/login');
   };
 
@@ -100,17 +101,18 @@ const Profile: React.FC<ProfileProps> = ({}) => {
           </Menu.Item>
           <Menu.Item>
             {({ active }) => (
-              <button
+              <a
+                href="#"
+                onClick={() => {
+                  return logout();
+                }}
                 className={classNames(
                   active ? 'hover:text-white' : '',
-                  'block px-4 py-2 text-sm text-white',
+                  'block px-4 py-2  text-white',
                 )}
-                onClick={() => {
-                  return logout;
-                }}
               >
                 Auslogen
-              </button>
+              </a>
             )}
           </Menu.Item>
         </Menu.Items>
