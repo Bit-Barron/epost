@@ -17,12 +17,10 @@ import { AuthGuard } from 'src/app_modules/guard/auth.guard';
 import { Repository } from 'typeorm';
 import { CreateLetterDto } from './dtos/create-letter.dto';
 import { Letter } from './letter.entity';
-import { LetterService } from './letter.service';
 
 @Controller('letter')
 export class LetterController {
   constructor(
-    private letterService: LetterService,
     @InjectRepository(Letter)
     private letterRepo: Repository<Letter>,
   ) {}
