@@ -28,14 +28,14 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
         <h2 className='sr-only' id='profile-overview-title'>
           Profile Overview
         </h2>
-        <div className='bg-white p-6'>
+        <div className='bg-[#181a1b] p-6'>
           <div className='sm:flex sm:items-center sm:justify-between'>
             <div className='sm:flex sm:space-x-5'>
               <div className='mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left'>
                 <div className='text-sm font-medium text-gray-600'>
                   Welcome back,
                 </div>
-                <div className='text-xl font-bold text-gray-900 sm:text-2xl'>
+                <div className='text-xl font-bold text-white sm:text-2xl'>
                   {username.map((user) => (
                     <div key={user.firstname}>
                       {user.firstname} {user.lastname}

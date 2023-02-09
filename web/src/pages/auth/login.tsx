@@ -56,7 +56,7 @@ const Login = () => {
         </div>
       </div>
 
-      <form>
+      <form className=''>
         <Button
           className='bg-blue-500 hover:bg-blue-700'
           name={'WEITER MIT FACEBOOK'}
