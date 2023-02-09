@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import AuthInput from '../../components/elements/auth/AuthInput';
 import AuthButton from '../../components/elements/auth/AuthButton';
-import PostHeader from '../../components/elements/Headings/PostHeader';
+import PostHeader from '../../components/elements/headings/PostHeader';
 import axios from 'axios';
 
 interface resetpasswordProps {}
