@@ -8,7 +8,6 @@ export class MailController {
 
   @Post('/send-email')
   async sendEmail(@Body() createmaildto: CreateMailDto): Promise<void> {
-    console.log(createmaildto.email);
     await this.mailService.sendEmail(createmaildto);
   }
 }

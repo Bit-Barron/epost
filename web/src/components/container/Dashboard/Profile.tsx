@@ -40,9 +40,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
   }, []);
 
   const logout = async () => {
-    const response = await axios.post('/auth/logout');
-    console.log(response.data);
-    console.log('asd');
+    await axios.post('/auth/logout');
     return router.push('/auth/login');
   };
 

@@ -14,7 +14,6 @@ const Resetpassword: React.FC<resetpasswordProps> = ({}) => {
     const response = await axios.post('/mail/send-email', {
       email,
     });
-    console.log(response);
   };
 
   return (

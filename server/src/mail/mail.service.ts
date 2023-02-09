@@ -24,9 +24,9 @@ export class MailService {
 
     await this.transporter.sendMail(message, (err, info) => {
       if (err) {
-        console.log(err);
+        console.error(err);
       } else {
-        console.log('Email sent:', info);
+        console.error('Email sent:', info);
       }
     });
   }

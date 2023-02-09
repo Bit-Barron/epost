@@ -24,7 +24,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
         const response = await axios.get('/user/user');
         setUser(response.data.email);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     };
     getUser();
