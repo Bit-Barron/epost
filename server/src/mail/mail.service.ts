@@ -1,8 +1,33 @@
 import { Injectable } from '@nestjs/common';
+import nodemailer from 'nodemailer';
+import { CreateMailDto } from './dtos/create-mail.dto';
 
 @Injectable()
 export class MailService {
-  async sendUserConfirmationEmail(user, token: string) {
-    const url = `example.com/auth/comfirm?token=${token}`;
+  private transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: '1bit.baron@gmail.com',
+      pass: 'enkdgpjljbkyraag',
+    },
+  });
+
+  async sendEmail(createmaildto: CreateMailDto) {
+    const message = {
+      from: '1bit.baron@gmail.com',
+      to: `${createmaildto.email}`,
+      subject: `asd`,
+      text: `asd`,
+    };
+
+    this.transporter.sendMail(message, (err, info) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.error('Email sent:', info);
+      }
+    });
   }
 }

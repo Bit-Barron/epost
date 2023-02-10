@@ -62,7 +62,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
   }
 
   return (
-    <div className='rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px'>
+    <div className='rounded-lg bg-[#181a1b] overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px'>
       <h2 className='sr-only' id='quick-links-title'>
         Quick links
       </h2>

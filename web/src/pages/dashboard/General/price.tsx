@@ -178,9 +178,9 @@ function Price() {
                 </div>
                 <div className='mt-6'>
                   <nav className='grid gap-y-8'>
-                    {solutions.map((item) => (
+                    {solutions.map((item, idx) => (
                       <a
-                        key={item.name}
+                        key={idx}
                         href={item.href}
                         className='-m-3 p-3 flex items-center rounded-md hover:bg-gray-50'
                       >
@@ -225,9 +225,9 @@ function Price() {
                   >
                     Contact Sales
                   </a>
-                  {resources.map((item) => (
+                  {resources.map((item, idx) => (
                     <a
-                      key={item.name}
+                      key={idx}
                       href={item.href}
                       className='text-base font-medium text-gray-900 hover:text-gray-700'
                     >
@@ -270,9 +270,9 @@ function Price() {
             </p>
           </div>
           <div className='mt-12 ml-40 flex space-y-2 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-4'>
-            {tiers.map((tier) => (
+            {tiers.map((tier, idx) => (
               <div
-                key={tier.name}
+                key={idx}
                 className='border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200'
               >
                 <div className='p-6'>

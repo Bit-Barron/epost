@@ -5,11 +5,10 @@ import {
   HttpException,
   HttpStatus,
   Post,
-  Req,
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyReply } from 'fastify';
 import { User } from 'src/user/user.entity';
 import { Repository } from 'typeorm';
 import { AuthGuard } from '../app_modules/guard/auth.guard';
@@ -52,7 +51,7 @@ export class AuthController {
 
   @UseGuards(AuthGuard)
   @Get('/test')
-  test(@Req() req: FastifyRequest) {
+  test() {
     return 'test';
   }
 

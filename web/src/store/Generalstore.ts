@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { Alert } from '../types';
 
 export interface GeneralStore {

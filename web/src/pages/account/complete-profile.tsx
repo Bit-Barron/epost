@@ -12,6 +12,8 @@ import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
 import main from '../../../public/images/main.png';
 
+
+
 interface completeprofileProps {}
 
 const quicksand = Quicksand({
@@ -32,7 +34,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
 
   const submit = async () => {
     try {
-      const response = await axios.post('/setting/create', {
+      await axios.post('/setting/create', {
         firstname,
         lastname,
         street,
@@ -62,77 +64,77 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
             <Alerts />
           </div>
         ))}
-        <div className='bg-[#181a1b] w-[1000px] mt-60 mx-auto p-16 rounded-lg'>
-          <div className=''>
-            <span className='self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex justify-center'>
-              <Image width={80} height={50} src={main} alt='asd' />
+        <div className="bg-[#181a1b] w-[1000px] mt-60 mx-auto p-16 rounded-lg">
+          <div className="">
+            <span className="self-center font-semibold whitespace-nowrap text-2xl dark:text-white flex justify-center">
+              <Image width={80} height={50} src={main} alt="asd" />
               <div
                 className={`${quicksand.className} text-4xl mt-5 text-[#f7902c]`}
               >
                 Postshield
               </div>
             </span>
-            <div className='font-bold text-xl mt-10'>
+            <div className="font-bold text-xl mt-10">
               Bitte vervollständigen Sie Ihr Profil, um Postshield
               vollumfänglich nutzen zu können.
             </div>
-            <div className='mt-10'>
+            <div className="mt-10">
               <Dropdown />
             </div>
-            <div className='flex justify-start'>
+            <div className="flex justify-start">
               <AuthInput
                 value={firstname}
                 onChange={setFirstname}
                 type={'text'}
                 label={'Vorname'}
-                className='w-96'
+                className="w-96"
               />
-              <div className='ml-10'>
+              <div className="ml-10">
                 <AuthInput
                   onChange={setLastname}
                   value={lastname}
                   type={'text'}
                   label={'Nachname'}
-                  className='w-96'
+                  className="w-96"
                 />
               </div>
             </div>
-            <div className='flex justify-start'>
+            <div className="flex justify-start">
               <AuthInput
                 onChange={setStreet}
                 type={'text'}
-                className='w-96'
+                className="w-96"
                 label={'Straße'}
                 value={street}
               />
-              <div className='ml-10'>
+              <div className="ml-10">
                 <AuthInput
                   onChange={setPLZ}
                   value={PLZ}
                   type={'text'}
                   label={'PLZ'}
-                  className='w-96'
+                  className="w-96"
                 />
               </div>
             </div>
-            <div className='flex justify-start'>
+            <div className="flex justify-start">
               <AuthInput
                 onChange={setLocation}
                 type={'text'}
-                className='w-96'
+                className="w-96"
                 label={'Ort'}
                 value={location}
               />
-              <div className='ml-10 mt-[52px] custom-container-class'>
+              <div className="ml-10 mt-[52px] custom-container-class">
                 <PhoneInput
                   country={'us'}
-                  inputClass='custom-input-class'
+                  inputClass="custom-input-class"
                   value={phone}
                   onChange={setPhone}
                 />
               </div>
             </div>
-            <div className='flex items-end'>
+            <div className="flex items-end">
               <AuthButton
                 name={'Speichen'}
                 onClick={() => submit()}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { BsBoxSeam, BsFillKeyFill } from 'react-icons/bs';
 
 interface DashboardMobileNavbarProps {}
 

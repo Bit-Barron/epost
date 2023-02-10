@@ -10,7 +10,10 @@
   @apply h-12 !important;
 }
 
-
+body {
+  background-color: #181a1b;
+  color: #fff;
+}
 
 ::-webkit-scrollbar {
   width: 2px;
