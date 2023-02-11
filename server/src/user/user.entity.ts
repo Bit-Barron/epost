@@ -7,7 +7,7 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 'user' })
+  @Column()
   roles: string;
 
   @Column()

@@ -2,7 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthGuard } from './app_modules/guard/auth.guard';
+import { RolesGuard } from './app_modules/guard/roles.guard';
 import { AuthModule } from './auth/auth.module';
 import { Letter } from './letter/letter.entity';
 import { LetterModule } from './letter/letter.module';
@@ -47,7 +47,7 @@ const TypeOrmModules = TypeOrmModule.forFeature(ENTITIES);
     MailService,
     {
       provide: APP_GUARD,
-      useClass: AuthGuard,
+      useClass: RolesGuard,
     },
   ],
   exports: [TypeOrmModules, JwtService],
