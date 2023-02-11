@@ -12,8 +12,6 @@ import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
 import main from '../../../public/images/main.png';
 
-
-
 interface completeprofileProps {}
 
 const quicksand = Quicksand({
@@ -45,7 +43,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
       });
       router.push('/dashboard/');
     } catch (err: unknown) {
-      if ((err as AxiosError).response?.status === 500) {
+      if ((err as AxiosError).status === 500) {
         addAlert({
           id: 'unique-id',
           message: `Telefon Nummer ist bereits vergeben`,

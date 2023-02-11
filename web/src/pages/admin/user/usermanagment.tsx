@@ -1,14 +1,26 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import AdminContainer from '../../../components/container/AdminContainer';
+import InformationTable from '../../../components/elements/admin/InformationTable';
+import { Searchbar } from '../../../components/elements/admin/Searchbar';
 
 interface usermanagmentProps {}
 
-const usermanagment: React.FC<usermanagmentProps> = ({}) => {
+const Usermanagment: React.FC<usermanagmentProps> = ({}) => {
   return (
     <AdminContainer>
-      <div>Usermanagment</div>
+      <h1 className="font-bold text-center text-2xl mt-10">Usermanagment</h1>
+      <div className="">
+        <Searchbar />
+      </div>
+
+      <div>
+        <div className="mt-10 p-10">
+          <InformationTable />
+        </div>
+      </div>
     </AdminContainer>
   );
 };
 
-export default usermanagment;
+export default Usermanagment;

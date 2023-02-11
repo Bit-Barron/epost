@@ -17,7 +17,7 @@ import { Setting } from './setting.entity';
 @Controller('setting')
 export class SettingController {
   constructor(
-    @InjectRepository(Setting) private letterRepo: Repository<Setting>,
+    @InjectRepository(Setting) private settingRepo: Repository<Setting>,
   ) {}
 
   @Post('/test')
@@ -29,7 +29,7 @@ export class SettingController {
   @Post('/create')
   @UseGuards(AuthGuard)
   async createPost(@Body() createSettingDto: CreateSettingDto) {
-    const newSetting = this.letterRepo.create({
+    const newSetting = this.settingRepo.create({
       street: createSettingDto.street,
       PLZ: createSettingDto.PLZ,
       location: createSettingDto.location,
@@ -39,13 +39,13 @@ export class SettingController {
       salutation: createSettingDto.salutation,
       user: { id: createSettingDto.userId },
     });
-    return await this.letterRepo.save(newSetting);
+    return await this.settingRepo.save(newSetting);
   }
 
   @UseGuards(AuthGuard)
   @Get('/all-user')
   async findAllUsers(@Req() req: FastifyRequest) {
-    return await this.letterRepo.find({
+    return await this.settingRepo.find({
       where: { user: { id: req.user.sub } },
     });
   }
@@ -53,7 +53,7 @@ export class SettingController {
   @UseGuards(AuthGuard)
   @Get('/:id')
   async findOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
-    return await this.letterRepo.findOne({
+    return await this.settingRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
   }
