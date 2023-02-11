@@ -5,14 +5,10 @@ import { Repository } from 'typeorm';
 
 import { AuthGuard } from '../app_modules/guard/auth.guard';
 import { User } from './user.entity';
-import { UserService } from './user.service';
 
 @Controller('user')
 export class UserController {
-  constructor(
-    private userService: UserService,
-    @InjectRepository(User) private letterRepo: Repository<User>,
-  ) {}
+  constructor(@InjectRepository(User) private letterRepo: Repository<User>) {}
 
   @Post('/dashboard')
   @UseGuards(AuthGuard)
