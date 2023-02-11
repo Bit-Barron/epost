@@ -34,7 +34,7 @@ export class UserController {
   @Roles(Role.ADMIN)
   @UseGuards(AuthGuard)
   @Get('/all-user')
-  async getAllUser(@Req() req: FastifyRequest) {
+  async getAllUser() {
     return await this.letterRepo.find();
   }
 }

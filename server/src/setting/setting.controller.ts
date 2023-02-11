@@ -28,7 +28,12 @@ export class SettingController {
 
   @Post('/create')
   @UseGuards(AuthGuard)
-  async createPost(@Body() createSettingDto: CreateSettingDto) {
+  async createPost(
+    @Body() createSettingDto: CreateSettingDto,
+    @Req() req: FastifyRequest,
+  ) {
+    createSettingDto.userId = req.user.sub;
+
     const newSetting = this.settingRepo.create({
       street: createSettingDto.street,
       PLZ: createSettingDto.PLZ,

@@ -1,32 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-/* This example requires Tailwind CSS v2.0+ */
-const people = [
-  {
-    name: 'Jane Cooper',
-    title: 'Regional Paradigm Technician',
-    role: 'Admin',
-    email: 'jane.cooper@example.com',
-  },
-  // More people...
-];
-
 export default function InformationTable() {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get('/user/all-user');
-      setData(response.data);
-    };
-    getData();
-  }, []);
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.post('/setting/all-user');
       console.log(response.data);
+      setData(response.data);
     };
     getData();
   }, []);
@@ -81,7 +63,7 @@ export default function InformationTable() {
                       {person.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {person.role}
+                      {person.roles}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <a
