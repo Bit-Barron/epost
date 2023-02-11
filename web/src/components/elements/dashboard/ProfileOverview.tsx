@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 interface ProfileOverviewProps {}
 
 export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
-  const [username, setUsername] = useState<any[]>([]);
+  const [username, setUsername] = useState('');
 
   const user = {
     email: 'chelseahagon@example.com',
@@ -15,7 +15,7 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
     const getUser = async () => {
       try {
         const response = await axios.get('/user/user');
-        setUsername(response.data);
+        setUsername(response.data.email);
       } catch (err) {}
     };
     getUser();
@@ -35,11 +35,7 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
                   Welcome back,
                 </div>
                 <div className="text-xl font-bold text-white sm:text-2xl">
-                  {username.map((user, idx) => (
-                    <div key={idx}>
-                      
-                    </div>
-                  ))}
+                  {username}
                 </div>
                 <p className="text-sm font-medium text-gray-600">{user.role}</p>
               </div>
