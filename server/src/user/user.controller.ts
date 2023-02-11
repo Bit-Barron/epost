@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Req,
-  SetMetadata,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { Repository } from 'typeorm';
@@ -38,7 +31,6 @@ export class UserController {
   }
 
   // only for admins
-  @SetMetadata('roles', [Role.ADMIN])
   @Roles(Role.ADMIN)
   @Get('/all-user')
   async getAllUser() {
