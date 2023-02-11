@@ -10,6 +10,8 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
+import { Role } from 'src/user/role.enum';
+import { Roles } from 'src/user/roles.decorator';
 import { Repository } from 'typeorm';
 import { CreateSettingDto } from './dtos/create-setting.dto';
 import { Setting } from './setting.entity';
@@ -50,9 +52,17 @@ export class SettingController {
   @UseGuards(AuthGuard)
   @Get('/all-user')
   async findAllUsers(@Req() req: FastifyRequest) {
-    return await this.settingRepo.find({
+    const res = await this.settingRepo.find({
       where: { user: { id: req.user.sub } },
     });
+    return res;
+  }
+
+  @Get('/user-id')
+  @UseGuards(AuthGuard)
+  @Roles(Role.ADMIN)
+  getUserId(@Req() req: FastifyRequest) {
+    return req.user;
   }
 
   @UseGuards(AuthGuard)
