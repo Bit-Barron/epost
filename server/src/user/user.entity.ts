@@ -7,8 +7,12 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 'user' })
+  @Column({ default: null })
   roles: string;
+
+  getRole(): string {
+    return this.roles || 'default_role';
+  }
 
   @Column()
   email: string;
