@@ -1,15 +1,16 @@
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 export default function InformationTable() {
   const [data, setData] = useState<any[]>([]);
   const [username, setUsername] = useState('');
   const [street, setStreet] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get('/user/all-user');
-      console.log(response.data);
       setData(response.data);
     };
     getData();
@@ -18,7 +19,6 @@ export default function InformationTable() {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get('/setting/user-id');
-      console.log(response.data);
     };
     getData();
   }, []);
@@ -27,7 +27,6 @@ export default function InformationTable() {
     const getData = async () => {
       const response = await axios.get('/setting/all-user');
       const [user] = response.data;
-      console.log(user.firstname);
       setUsername(user.firstname);
       setStreet(street);
     };
@@ -48,18 +47,7 @@ export default function InformationTable() {
                   >
                     userId
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Name
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Straße
-                  </th>
+
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -83,20 +71,22 @@ export default function InformationTable() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {person.id}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                      {person.userId}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {}
-                    </td>
+
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {person.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {person.roles}
                     </td>
-                    <td className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-1 w-10  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                      Verwalten
+                    <td className="mt-2">
+                      <td
+                        onClick={() => {
+                          return router.push(`/editprofile/${person.id}`);
+                        }}
+                        className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-1 w-10  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                      >
+                        Verwalten
+                      </td>
                     </td>
                   </tr>
                 ))}
