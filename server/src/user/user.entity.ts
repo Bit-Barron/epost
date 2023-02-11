@@ -8,6 +8,9 @@ export class User {
   id: number;
 
   @Column()
+  roles: string[];
+
+  @Column()
   email: string;
 
   @Column()
