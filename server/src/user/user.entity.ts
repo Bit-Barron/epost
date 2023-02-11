@@ -7,8 +7,8 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  roles: string[];
+  @Column({ default: 'user' })
+  roles: string;
 
   @Column()
   email: string;
