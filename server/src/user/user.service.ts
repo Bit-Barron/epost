@@ -12,6 +12,9 @@ export class UserService {
   ) {}
 
   async create(body: CreateUserDto) {
+    if (body.roles === undefined) {
+      body.roles = 'USER';
+    }
     return await this.userRepo.save(body);
   }
 
