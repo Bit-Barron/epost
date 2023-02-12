@@ -5,6 +5,7 @@ import { RolesGuard } from 'src/app_modules/guard/roles.guard';
 import { Repository } from 'typeorm';
 
 import { AuthGuard } from '../app_modules/guard/auth.guard';
+
 import { Role } from './role.enum';
 import { Roles } from './roles.decorator';
 import { User } from './user.entity';
@@ -20,8 +21,6 @@ export class UserController {
   }
 
   @UseGuards(AuthGuard)
-  @Roles(Role.USER)
-  @UseGuards(RolesGuard)
   @Post('/admin')
   admin() {
     return 'test';
@@ -42,6 +41,7 @@ export class UserController {
   // only for admins
   @Roles(Role.ADMIN)
   @UseGuards(AuthGuard)
+  @UseGuards(RolesGuard)
   @Get('/all-user')
   async getAllUser() {
     return await this.letterRepo.find();
