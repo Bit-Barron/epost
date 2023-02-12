@@ -10,8 +10,8 @@ import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
 
 const Login = () => {
-  const [email, setEmail] = useState('test@test');
-  const [password, setPassword] = useState<string>('123123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState<string>('');
   const { alerts, addAlert } = GeneralStore();
 
   const router = useRouter();

@@ -8,7 +8,7 @@ interface usermanagmentProps {}
 const Usermanagment: React.FC<usermanagmentProps> = ({}) => {
   return (
     <AdminContainer>
-      <div className=''>
+      <div className="">
         <h1 className="font-bold text-center text-2xl mt-10">Usermanagment</h1>
         <div className="">
           <Searchbar />

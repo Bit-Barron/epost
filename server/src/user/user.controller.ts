@@ -18,6 +18,12 @@ export class UserController {
     return 'test';
   }
 
+  @Post('/admin')
+  @Roles(Role.ADMIN)
+  admin() {
+    return 'test';
+  }
+
   @UseGuards(AuthGuard)
   @Get('/user')
   getUser(@Req() req: FastifyRequest) {
