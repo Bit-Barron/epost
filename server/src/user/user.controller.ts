@@ -19,7 +19,7 @@ export class UserController {
   }
 
   @Post('/admin')
-  @Roles(Role.ADMIN)
+  @Roles(Role.USER)
   admin() {
     return 'test';
   }
