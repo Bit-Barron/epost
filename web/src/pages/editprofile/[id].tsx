@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import AdminContainer from '../../components/container/AdminContainer';
@@ -9,13 +9,20 @@ const Editprofile = ({}) => {
   const { id } = router.query;
   console.log(id);
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const response = await axios.get(`/setting/${id}`);
-  //     console.log(response.data);
-  //   };
-  //   getData();
-  // }, [id]);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(`/setting/${id}`);
+        console.log(response);
+      } catch (err: unknown) {
+        if ((err as AxiosError).response?.status === 403) {
+          return router.push('/auth/login');
+        }
+        console.log(err);
+      }
+    };
+    getData();
+  }, [id, router]);
 
   return (
     <AdminContainer>

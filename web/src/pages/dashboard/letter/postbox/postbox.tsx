@@ -26,7 +26,7 @@ const Recent: React.FC<recentProps> = ({}) => {
         <div className="container mx-auto">
           <div className="text-2xl mt-10 text-white text-center">Postbox</div>
           <div>
-            {alerts.map((alert: any) => (
+            {alerts.map((alert) => (
               <div key={alert.id}>
                 <Alerts />
               </div>
