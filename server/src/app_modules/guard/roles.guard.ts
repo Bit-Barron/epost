@@ -18,12 +18,6 @@ export class RolesGuard implements CanActivate {
     }
 
     const request = context.switchToHttp().getRequest();
-    const user = await this.userService.findOne(request.user);
-    console.log(user);
-
-    if (user.role === Role.ADMIN) {
-      return true;
-    }
-    return false;
+    const user = await this.userService.findAll();
   }
 }
