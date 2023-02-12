@@ -9,7 +9,7 @@ export class User {
   id: number;
 
   @Column({ default: Role.USER })
-  roles: string;
+  role: Role;
 
   @Column()
   email: string;

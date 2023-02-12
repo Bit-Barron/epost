@@ -1,4 +1,5 @@
 import { IsOptional, IsString } from 'class-validator';
+import { Role } from '../role.enum';
 
 export class CreateUserDto {
   @IsOptional()
@@ -11,5 +12,5 @@ export class CreateUserDto {
 
   @IsString()
   @IsOptional()
-  roles: string;
+  role: Role;
 }
