@@ -4,7 +4,7 @@ interface SearchbarProps {}
 
 export const Searchbar: React.FC<SearchbarProps> = ({}) => {
   return (
-    <form className='flex justify-center mt-10'>
+    <form className="flex justify-center mt-10">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -24,14 +24,12 @@ export const Searchbar: React.FC<SearchbarProps> = ({}) => {
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
         </div>
         <input
           type="search"
-          id="default-search"
           className="block w-full p-4 pl-10 focus:outline-none text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search Mockups, Logos..."
           required
