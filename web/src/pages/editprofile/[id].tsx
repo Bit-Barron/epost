@@ -1,11 +1,20 @@
+import axios from 'axios';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import AdminContainer from '../../components/container/AdminContainer';
 import Cards from '../../components/elements/admin/Cards';
 
 const Editprofile = ({}) => {
   const router = useRouter();
   const { id } = router.query;
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`/setting/${id}`);
+      console.log(response.data);
+    };
+    getData();
+  }, [id]);
 
   return (
     <AdminContainer>
@@ -15,7 +24,12 @@ const Editprofile = ({}) => {
       <div className="p-4">
         <Cards />
       </div>
-      <div></div>
+      <div className="bg-[#181a1b] mt-10 p-4">
+        <div>Account Managment</div>
+        <div className="mt-10 flex">
+          <div className="font-semibold text-lg">Username: {}</div>
+        </div>
+      </div>
     </AdminContainer>
   );
 };

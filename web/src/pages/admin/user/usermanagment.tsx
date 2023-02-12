@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AdminContainer from '../../../components/container/AdminContainer';
 import InformationTable from '../../../components/elements/admin/InformationTable';
@@ -9,14 +8,16 @@ interface usermanagmentProps {}
 const Usermanagment: React.FC<usermanagmentProps> = ({}) => {
   return (
     <AdminContainer>
-      <h1 className="font-bold text-center text-2xl mt-10">Usermanagment</h1>
-      <div className="">
-        <Searchbar />
-      </div>
+      <div className=''>
+        <h1 className="font-bold text-center text-2xl mt-10">Usermanagment</h1>
+        <div className="">
+          <Searchbar />
+        </div>
 
-      <div>
-        <div className="mt-10 p-10">
-          <InformationTable />
+        <div>
+          <div className="mt-10 p-10">
+            <InformationTable />
+          </div>
         </div>
       </div>
     </AdminContainer>

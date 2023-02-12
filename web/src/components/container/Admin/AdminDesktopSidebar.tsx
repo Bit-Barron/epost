@@ -47,7 +47,7 @@ const AdminDesktopSidebar: React.FC<AdminDesktopSidebarProps> = ({
   children,
 }) => {
   return (
-    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 lg:bg-gray-100">
+    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:pt-5 lg:pb-4  bg-[#181a1b]">
       <div>
         <div className="flex">
           <Image src={main} alt="main" width={70} height={70} />
@@ -73,7 +73,7 @@ const AdminDesktopSidebar: React.FC<AdminDesktopSidebarProps> = ({
               >
                 <item.icon
                   className={classNames(
-                    item.current ? 'text-secondary' : 'text-secondary',
+                    item.current ? 'text-secondary' : '',
                     'mr-3 flex-shrink-0 h-5 w-6',
                   )}
                   aria-hidden="true"

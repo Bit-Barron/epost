@@ -18,7 +18,7 @@ export default function InformationTable() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get('/setting/user-id');
+      await axios.get('/setting/user-id');
     };
     getData();
   }, []);

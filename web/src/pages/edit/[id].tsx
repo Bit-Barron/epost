@@ -23,6 +23,7 @@ const Edit = () => {
     };
     getPosts();
   }, []);
+
   const submit = async () => {
     const response = await axios.patch(`/letter/${id}`, {
       side,
