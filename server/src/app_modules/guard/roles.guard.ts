@@ -17,7 +17,7 @@ export class RolesGuard implements CanActivate {
     }
 
     const user = {
-      email: 'test@test',
+      email: 'normaluser@normaluser',
       roles: Role.ADMIN,
     };
 

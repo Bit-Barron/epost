@@ -67,7 +67,7 @@ export default function InformationTable() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                       {person.roles}
                     </td>
-                    <td>
+                    <td className='text-xl text-red-500 hover:text-red-300'>
                       <AiFillEdit
                         onClick={() => {
                           return router.push(`/editprofile/${person.id}`);
