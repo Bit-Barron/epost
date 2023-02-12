@@ -9,13 +9,13 @@ const Editprofile = ({}) => {
   const { id } = router.query;
   console.log(id);
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get(`/setting/${id}`);
-      console.log(response.data);
-    };
-    getData();
-  }, [id]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const response = await axios.get(`/setting/${id}`);
+  //     console.log(response.data);
+  //   };
+  //   getData();
+  // }, [id]);
 
   return (
     <AdminContainer>
