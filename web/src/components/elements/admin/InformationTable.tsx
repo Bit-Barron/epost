@@ -23,16 +23,6 @@ export default function InformationTable() {
     getData();
   }, []);
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await axios.get('/setting/all-user');
-      const [user] = response.data;
-      setUsername(user.firstname);
-      setStreet(street);
-    };
-    getData();
-  }, [street]);
-
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

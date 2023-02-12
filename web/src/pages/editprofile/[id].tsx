@@ -7,11 +7,13 @@ import Cards from '../../components/elements/admin/Cards';
 const Editprofile = ({}) => {
   const router = useRouter();
   const { id } = router.query;
+
   console.log(id);
 
   // useEffect(() => {
   //   const getData = async () => {
   //     const response = await axios.get(`/setting/${id}`);
+  //     console.log(response.data)
   //   };
   //   getData();
   // }, [id]);
