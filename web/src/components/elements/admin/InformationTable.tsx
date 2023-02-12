@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { AiFillEdit } from 'react-icons/ai';
 
 export default function InformationTable() {
   const [data, setData] = useState<any[]>([]);
-  const [username, setUsername] = useState('');
-  const [street, setStreet] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -68,15 +67,12 @@ export default function InformationTable() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                       {person.roles}
                     </td>
-                    <td className="mt-2">
-                      <td
+                    <td>
+                      <AiFillEdit
                         onClick={() => {
                           return router.push(`/editprofile/${person.id}`);
                         }}
-                        className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-1 w-10  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                      >
-                        Verwalten
-                      </td>
+                      />
                     </td>
                   </tr>
                 ))}

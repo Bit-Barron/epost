@@ -7,13 +7,12 @@ import Cards from '../../components/elements/admin/Cards';
 const Editprofile = ({}) => {
   const router = useRouter();
   const { id } = router.query;
-
   console.log(id);
 
   // useEffect(() => {
   //   const getData = async () => {
   //     const response = await axios.get(`/setting/${id}`);
-  //     console.log(response.data)
+  //     console.log(response.data);
   //   };
   //   getData();
   // }, [id]);
@@ -29,7 +28,7 @@ const Editprofile = ({}) => {
       <div className="bg-[#181a1b] mt-10 p-4">
         <div>Account Managment</div>
         <div className="mt-10 flex">
-          <div className="font-semibold text-lg">Username: {}</div>
+           <div className="font-semibold text-lg">Username: {}</div>
         </div>
       </div>
     </AdminContainer>
