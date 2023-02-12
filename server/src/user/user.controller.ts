@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
+import { RolesGuard } from 'src/app_modules/guard/roles.guard';
 import { Repository } from 'typeorm';
 
 import { AuthGuard } from '../app_modules/guard/auth.guard';
@@ -18,8 +19,10 @@ export class UserController {
     return 'test';
   }
 
-  @Post('/admin')
+  @UseGuards(AuthGuard)
   @Roles(Role.USER)
+  @UseGuards(RolesGuard)
+  @Post('/admin')
   admin() {
     return 'test';
   }
