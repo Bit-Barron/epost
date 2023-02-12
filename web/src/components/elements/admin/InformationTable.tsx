@@ -40,7 +40,7 @@ export default function InformationTable() {
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-[#000000]">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-[#181a1b]">
-                <tr className=''>
+                <tr className="">
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"
