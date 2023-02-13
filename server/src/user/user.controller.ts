@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
-import { RolesGuard } from 'src/app_modules/guard/roles.guard';
 import { Repository } from 'typeorm';
 
 import { AuthGuard } from '../app_modules/guard/auth.guard';
@@ -39,10 +38,8 @@ export class UserController {
   }
 
   // only for admins
-  @Roles(Role.ADMIN)
-  @UseGuards(AuthGuard)
-  @UseGuards(RolesGuard)
   @Get('/all-user')
+  @Roles(Role.ADMIN)
   async getAllUser() {
     return 'test';
   }
