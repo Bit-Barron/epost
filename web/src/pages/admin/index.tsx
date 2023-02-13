@@ -7,6 +7,7 @@ interface indexProps {}
 
 const Admin: React.FC<indexProps> = ({}) => {
   const router = useRouter();
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -22,6 +23,7 @@ const Admin: React.FC<indexProps> = ({}) => {
     };
     getUser();
   }, [router]);
+  
   return <AdminContainer></AdminContainer>;
 };
 export default Admin;
