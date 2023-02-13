@@ -16,6 +16,7 @@ const Admin: React.FC<indexProps> = ({}) => {
         if ((err as AxiosError).response?.status === 403) {
           router.push('/auth/login');
         } else {
+          console.log('asdkjb');
           console.error(err);
         }
       }
