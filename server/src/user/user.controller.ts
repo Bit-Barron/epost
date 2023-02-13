@@ -44,6 +44,6 @@ export class UserController {
   @UseGuards(RolesGuard)
   @Get('/all-user')
   async getAllUser() {
-    return await this.letterRepo.find();
+    return 'test';
   }
 }
