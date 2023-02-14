@@ -1,5 +1,6 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { COOKIE_NAME } from 'src/constants';
 import { Role } from 'src/user/role.enum';
 import { UserService } from 'src/user/user.service';
 
@@ -12,19 +13,19 @@ export class RolesGuard implements CanActivate {
       context.getHandler(),
       context.getClass(),
     ]);
-
-    if (!requireRoles) {
-      return true;
-    }
-
     const request = context.switchToHttp().getRequest();
-    const user = await this.userService.findOne(request.user);
 
-    console.log(user);
+    const token = request.cookies[COOKIE_NAME];
 
-    if (user && user.role === Role.ADMIN) {
-      return true;
-    }
+    if (!token) return false;
+
+    if (!requireRoles) return true;
+
+    if (request?.user) return false;
+
+    const user = await this.userService.findOneById(request.user);
+
+    if (requireRoles?.includes(user.role)) return true;
     return false;
   }
 }

@@ -23,7 +23,7 @@ export class UserService {
     return await this.userRepo.find();
   }
 
-  async findUserByEmail(email: string) {
-    return await this.userRepo.findOne({ where: { email } });
+  async findOneById(id: number): Promise<User> {
+    return this.userRepo.findOne({ where: { id } });
   }
 }
