@@ -33,10 +33,13 @@ export class RolesGuard implements CanActivate {
       }) as JwtUser;
 
       request.user = user;
-
-      return false;
     } catch (err) {
       return false;
     }
+
+    if (request.user.role === Role.ADMIN) {
+      return true;
+    }
+    return true;
   }
 }
