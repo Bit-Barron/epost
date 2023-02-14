@@ -70,6 +70,7 @@ const Index: React.FC = ({}) => {
               </button>
             </ul>
           </span>
+          <div>asdlök</div>
         </div>
       </div>
       <div className="bg-[#181a1b] p-4 h-[300px] flex justify-center ">
