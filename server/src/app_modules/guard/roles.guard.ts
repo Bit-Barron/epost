@@ -34,7 +34,7 @@ export class RolesGuard implements CanActivate {
 
       request.user = user;
 
-      return true;
+      return false;
     } catch (err) {
       return false;
     }
