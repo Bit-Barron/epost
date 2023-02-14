@@ -1,12 +1,18 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { JwtService } from '@nestjs/jwt';
 import { COOKIE_NAME } from 'src/constants';
 import { Role } from 'src/user/role.enum';
 import { UserService } from 'src/user/user.service';
+import { JwtUser } from '../@types';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(private reflector: Reflector, private userService: UserService) {}
+  constructor(
+    private reflector: Reflector,
+    private userService: UserService,
+    private jwtService: JwtService,
+  ) {}
 
   async canActivate(context: ExecutionContext) {
     const requireRoles = this.reflector.getAllAndOverride<Role[]>('roles', [
@@ -17,15 +23,20 @@ export class RolesGuard implements CanActivate {
 
     const token = request.cookies[COOKIE_NAME];
 
-    if (!token) return false;
+    if (!token) {
+      return false;
+    }
 
-    if (!requireRoles) return true;
+    try {
+      const user = this.jwtService.verify(token, {
+        secret: process.env.SECRET,
+      }) as JwtUser;
 
-    if (request?.user) return false;
+      request.user = user;
 
-    const user = await this.userService.findOneById(request.user);
-
-    if (requireRoles?.includes(user.role)) return true;
-    return false;
+      return true;
+    } catch (err) {
+      return false;
+    }
   }
 }
