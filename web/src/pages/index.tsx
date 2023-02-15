@@ -16,7 +16,7 @@ const Index: React.FC = ({}) => {
   const router = useRouter();
 
   return (
-    <div className="">
+    <div>
       <header className="bg-main text-white p-4 flex justify-center">
         <span className={`${quicksand.className} mt-2 mr-2`}>
           kennen sie postflix kennen!
@@ -70,7 +70,6 @@ const Index: React.FC = ({}) => {
               </button>
             </ul>
           </span>
-          <div>asdlök</div>
         </div>
       </div>
       <div className="bg-[#181a1b] p-4 h-[300px] flex justify-center ">
