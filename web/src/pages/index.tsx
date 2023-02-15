@@ -25,9 +25,7 @@ const Index: React.FC = ({}) => {
           Unsere Webintermine
         </button>
       </header>
-      <hr className="h-px  mt-2 border-0 border-[#2c3441]" />
       <Navbar />
-      <hr className="" />
       <div className="bg-[#1f2123] h-[500px]">
         <div className="flex justify-center">
           <Image
@@ -61,7 +59,7 @@ const Index: React.FC = ({}) => {
                 Produktion, Versand durch die Deutsche Post AG mit GOGREEN
               </li>
               <button
-                className="bg-secondary hover:bg-[#9f5d1b] text-white font-bold py-2 px-4 rounded-full mt-10"
+                className="bg-secondary text-white font-bold py-2 px-4 rounded-full mt-10"
                 onClick={() => {
                   return router.push('/auth/login');
                 }}
