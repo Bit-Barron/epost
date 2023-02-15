@@ -70,7 +70,7 @@ const Index: React.FC = ({}) => {
           </span>
         </div>
       </div>
-      <div className="bg-[#181a1b] p-4 h-[300px] flex justify-center ">
+      <div className="bg-[#181a1b] p-4 h-[300px] flex justify-center">
         <div className="font-bold text-2xl text-center mt-10 text-[#f7902c]">
           Brief einfach online <br /> <span className="ml-5">übertragen</span>
           <div className="font-normal text-lg mt-4 text-gray-500 ">

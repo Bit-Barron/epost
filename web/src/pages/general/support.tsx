@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { DashboardContainer } from '../../../components/container/DashboardContainer';
-import SupportHeader from '../../../components/elements/headings/SupportHeader';
+import { DashboardContainer } from '../../components/container/DashboardContainer';
+import SupportHeader from '../../components/elements/headings/SupportHeader';
+import { Navbar } from '../../components/elements/Navbar';
 
 interface indexProps {}
 
@@ -10,7 +11,8 @@ const PostShield: React.FC<indexProps> = ({}) => {
   const [message, setMessage] = useState('');
 
   return (
-    <DashboardContainer>
+    <>
+      <Navbar />
       <SupportHeader />
       <div>
         <div className="container my-24 px-6 mx-auto">
@@ -170,7 +172,7 @@ const PostShield: React.FC<indexProps> = ({}) => {
           </section>
         </div>
       </div>
-    </DashboardContainer>
+    </>
   );
 };
 export default PostShield;

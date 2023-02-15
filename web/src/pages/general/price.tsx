@@ -14,10 +14,10 @@ import { CheckIcon as CheckIconSolid } from '@heroicons/react/solid';
 import Image from 'next/image';
 import { Fragment } from 'react';
 
-import { Navbar } from '../../../components/elements/Navbar';
-import AllInOne from '../../../components/elements/pricepage/AllInOne';
-import Impresum from '../../../components/elements/pricepage/Impresum';
-import Partnership from '../../../components/elements/pricepage/Partnership';
+import { Navbar } from '../../components/elements/Navbar';
+import AllInOne from '../../components/elements/pricepage/AllInOne';
+import Impresum from '../../components/elements/pricepage/Impresum';
+import Partnership from '../../components/elements/pricepage/Partnership';
 
 const solutions = [
   {

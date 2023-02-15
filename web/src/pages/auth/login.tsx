@@ -10,8 +10,8 @@ import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState('test@test');
+  const [password, setPassword] = useState<string>('123123');
   const { alerts, addAlert } = GeneralStore();
 
   const router = useRouter();
@@ -31,6 +31,13 @@ const Login = () => {
       router.push('/dashboard');
     } catch (err: unknown) {
       if ((err as AxiosError).response?.status === 500) {
+        addAlert({
+          id: 'unique-id',
+          message: `Falsche E-Mail oder Passwort`,
+          type: 'failure',
+        });
+      }
+      if ((err as AxiosError).response?.status === 404) {
         addAlert({
           id: 'unique-id',
           message: `Falsche E-Mail oder Passwort`,
