@@ -70,7 +70,7 @@ const shieldPost = [
   },
   {
     name: 'Kontakt / Support',
-    href: '/dashboard/general/support',
+    href: '/general/support',
     icon: AiOutlineArrowRight,
     current: false,
   },
