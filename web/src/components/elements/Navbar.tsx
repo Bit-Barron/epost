@@ -12,6 +12,8 @@ const quicksand = Quicksand({
 
 interface NavbarProps {}
 
+console.log('askldj');
+
 export const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
     <nav className="bg-main border-gray-200 px-2 sm:px-4 py-2.5 rounded ">
