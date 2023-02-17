@@ -88,7 +88,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
   children,
 }) => {
   return (
-    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:border-gray-200 lg:pt-5 lg:pb-4 bg-[#1e2022]">
+    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:pt-5 lg:pb-4 bg-[#1e2022]">
       <div>
         <div className="flex">
           <Image src={main} alt="main" width={70} height={70} />
@@ -103,13 +103,13 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                 href={item.href}
                 className={classNames(
                   item.current ? '' : '',
-                  'group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-white',
+                  'group flex items-center hover:bg-[#b6712d] px-2 py-1 text-sm font-semibold hover:text-white',
                 )}
                 aria-current={item.current ? 'page' : undefined}
               >
                 <item.icon
                   className={classNames(
-                    item.current ? 'text-secondary' : 'text-secondary',
+                    item.current ? 'text-secondary' : 'text-white',
                     'mr-3 flex-shrink-0 h-5 w-6',
                   )}
                   aria-hidden="true"
@@ -131,11 +131,11 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                   type="button"
                   key={idx}
                   href={team.href}
-                  className="group flex items-center hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 "
+                  className="group flex items-center hover:bg-[#b6712d] px-2 py-1 text-sm font-semibold hover:text-white"
                 >
                   <team.icon
                     className={classNames(
-                      team.current ? 'text-secondary' : 'text-secondary',
+                      team.current ? 'hover:bg-[#b6712d]' : 'text-secondary',
                       'mr-3 flex-shrink-0 h-5 w-6',
                     )}
                     aria-hidden="true"
@@ -159,7 +159,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                   type="button"
                   key={idx}
                   href={team.href}
-                  className="group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 "
+                  className="group flex items-center mt-2 hover:bg-[#b6712d] px-2 py-1 text-sm font-semibold hover:text-white"
                 >
                   <team.icon
                     className={classNames(
@@ -190,11 +190,13 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
                   type="button"
                   key={team.name}
                   href={team.href}
-                  className="group flex items-center mt-2 hover:bg-secondary px-2 py-1 text-sm font-semibold hover:text-gray-900 "
+                  className="group flex items-center mt-2 hover:bg-[#b6712d] px-2 py-1 text-sm font-semibold hover:text-white"
                 >
                   <team.icon
                     className={classNames(
-                      team.current ? 'text-secondary' : 'text-secondary',
+                      team.current
+                        ? 'text-secondary'
+                        : 'text-secondary hover:text-white',
                       'mr-3 flex-shrink-0 h-5 w-6',
                     )}
                     aria-hidden="true"

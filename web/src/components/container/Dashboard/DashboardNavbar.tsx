@@ -20,7 +20,7 @@ const DashboardNavbar = () => {
   }, []);
 
   return (
-    <div className='border-b border-gray-200 px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
+    <div className='px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
       <div>
         <h1 className='text-lg font-medium leading-6 text-white sm:truncate'>
           Dashboard
@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
           <Link
             href='/'
             type='button'
-            className='order-1 ml-3 inline-flex items-center px-4 py-2 border border-dashed border-gray-300 shadow-sm text-sm font-medium rounded-md text-white focus:outline-none'
+            className='order-1 ml-3 inline-flex items-center px-4 py-2 border border-dashed border-gray-600 shadow-sm text-sm font-medium rounded-md text-white focus:outline-none'
           >
             Kundenbereich verlassen
           </Link>
