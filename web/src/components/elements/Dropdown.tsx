@@ -47,12 +47,12 @@ export default function Dropdown() {
 
   return (
     <Combobox as='div'>
-      <Combobox.Label className='block text-sm font-medium text-gray-700'>
+      <Combobox.Label className='block text-sm font-medium text-white'>
         Anrede
       </Combobox.Label>
       <div className='relative mt-1'>
         <Combobox.Input
-          className='w-96 rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm'
+          className='w-96 rounded-md border border-gray-300 bg-transparent py-2 pl-3 pr-10 shadow-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm'
           onChange={(event) => setQuery(event.target.value)}
           displayValue={(person: any) => person.name}
         />

@@ -114,11 +114,17 @@ const Login = () => {
             Du hast kein Konto ?
           </div>
 
-          <Button
-            className="border-gray-200 border-2 bg-transparent"
-            onClick={() => router.push('auth/register')}
-            name={`Bei ${process.env.NEXT_PUBLIC_NAME} Regestrieren`}
-          />
+          <div className="flex justify-center mt-5 font-semibold">
+            Dont have an account?
+            <span
+              className="text-secondary ml-1 underline"
+              onClick={() => {
+                return router.push('/auth/register');
+              }}
+            >
+              Log in.
+            </span>
+          </div>
         </div>
       </form>
     </>

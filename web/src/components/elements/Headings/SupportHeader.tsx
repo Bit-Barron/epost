@@ -81,20 +81,10 @@ function SupportHeader() {
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="text-xl font-medium text-white">
-                  {link.name}
-                </h3>
+                <h3 className="text-xl font-medium text-white">{link.name}</h3>
                 <p className="mt-4 text-base text-gray-500">
                   {link.description}
                 </p>
-              </div>
-              <div className="p-6 rounded-bl-2xl rounded-br-2xl md:px-8">
-                <a
-                  href={link.href}
-                  className="text-base font-medium text-indigo-700 hover:text-indigo-600"
-                >
-                  Contact us<span aria-hidden="true"> &rarr;</span>
-                </a>
               </div>
             </div>
           ))}

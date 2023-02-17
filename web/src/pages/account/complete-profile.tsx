@@ -73,7 +73,8 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               </div>
             </span>
             <div className="font-bold text-xl mt-10">
-              Bitte vervollständigen Sie Ihr Profil, um Postshield
+              Bitte vervollständigen Sie Ihr Profil, um 
+              {process.env.NEXT_PUBLIC_NAME}
               vollumfänglich nutzen zu können.
             </div>
             <div className="mt-10">
@@ -125,8 +126,11 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               />
               <div className="ml-10 mt-[52px] custom-container-class">
                 <PhoneInput
+                  containerClass="!bg-transparent"
                   country={'us'}
-                  inputClass="custom-input-class"
+                  searchClass="!bg-transparent"
+                  buttonClass="!bg-transparent !text-black"
+                  inputClass="custom-input-class !bg-transparent"
                   value={phone}
                   onChange={setPhone}
                 />

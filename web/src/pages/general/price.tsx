@@ -273,7 +273,7 @@ function Price() {
             {tiers.map((tier, idx) => (
               <div
                 key={idx}
-                className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200"
+                className="border border-gray-600 rounded-lg shadow-sm divide-y divide-gray-200"
               >
                 <div className="p-6">
                   <h2 className="text-lg leading-6 font-medium text-white">

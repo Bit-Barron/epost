@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -7,25 +7,47 @@ import AuthInput from '../../components/elements/auth/AuthInput';
 import Button from '../../components/elements/Button';
 import Terms from '../../components/elements/authPage/Terms';
 import AuthButton from '../../components/elements/auth/AuthButton';
+import { GeneralStore } from '../../store/Generalstore';
+import { Alerts } from '../../utils/Alerts';
 
 const Register = ({}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState<string>('');
   const [confirm, setConfirm] = useState<string>('');
+  const { alerts, addAlert } = GeneralStore();
   const router = useRouter();
 
   const submit = async () => {
-    await axios.post('/auth/register', {
-      email,
-      password,
-    });
-
-    router.push('/account/complete-profile/');
+    try {
+      await axios.post('/auth/register', {
+        email,
+        password,
+      });
+      addAlert({
+        id: 'unique-id',
+        message: `Account Erstellt`,
+        type: 'success',
+      });
+      router.push('/account/complete-profile/');
+    } catch (err: unknown) {
+      if ((err as AxiosError).response?.status === 400) {
+        addAlert({
+          id: 'unique-id',
+          message: `Email Schon Vergeben`,
+          type: 'failure',
+        });
+      }
+    }
   };
 
   return (
     <>
       <div className="">
+        {alerts.map((alert) => (
+          <div key={alert.id}>
+            <Alerts />
+          </div>
+        ))}
         <div className="flex justify-center mr-3">
           <span className="font-semibold text-2xl dark:text-white flex">
             <Image width={80} height={50} src={main} alt="asd" />
@@ -44,7 +66,7 @@ const Register = ({}) => {
         />
         <div className="inline-flex items-center justify-center w-full">
           <hr className="w-96 my-8 border-1 text-gray-700" />
-          <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white ">
+          <span className="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-[#181a1b] left-1/2 dark:text-white ">
             or
           </span>
         </div>
@@ -93,7 +115,7 @@ const Register = ({}) => {
           <span
             className="text-secondary ml-1 underline"
             onClick={() => {
-              return router.push('/login');
+              return router.push('/auth/login');
             }}
           >
             Log in.
