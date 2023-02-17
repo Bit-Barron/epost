@@ -17,7 +17,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
       name: 'Request time off',
       href: '#',
       iconForeground: 'text-teal-700',
-      iconBackground: 'bg-teal-50',
+      iconBackground: 'bg-teal-200',
     },
     {
       icon: BadgeCheckIcon,
@@ -31,7 +31,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
       name: 'Schedule a one-on-one',
       href: '#',
       iconForeground: 'text-sky-700',
-      iconBackground: 'bg-sky-50',
+      iconBackground: 'bg-sky-300',
     },
     {
       icon: CashIcon,
@@ -61,7 +61,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
   }
 
   return (
-    <div className="rounded-lg bg-[#181a1b] overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
+    <div className="rounded-lg overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
       <h2 className="sr-only" id="quick-links-title">
         Quick links
       </h2>
@@ -85,7 +85,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
               className={classNames(
                 action.iconBackground,
                 action.iconForeground,
-                'rounded-lg inline-flex p-3 ring-4 ring-white',
+                'rounded-lg inline-flex p-3 bg-ring-4 ring-white',
               )}
             >
               <action.icon className="h-6 w-6" aria-hidden="true" />

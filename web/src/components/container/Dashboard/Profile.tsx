@@ -27,18 +27,6 @@ const Profile: React.FC<ProfileProps> = ({}) => {
     getUser();
   }, []);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const response = await axios.get('/setting/all-user');
-        setSetting(response.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getUser();
-  }, []);
-
   const logout = async () => {
     await axios.post('/auth/logout');
     return router.push('/auth/login');
@@ -59,13 +47,7 @@ const Profile: React.FC<ProfileProps> = ({}) => {
           <h1 className="mt-4 text-center text-lg font-semibold text-white ">
             {user}
           </h1>
-          <p className="ml-16 text-xs text-white">
-            {setting.map((user, idx) => (
-              <div key={idx} className="text-sm font-semibold ml-6">
-                {user.firstname} {user.lastname}
-              </div>
-            ))}
-          </p>
+          {user}
           <hr className="mt-5 mb-5" />
           <Menu.Item>
             {({ active }) => (

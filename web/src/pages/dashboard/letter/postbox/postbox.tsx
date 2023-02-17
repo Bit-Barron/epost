@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../../../components/container/DashboardContainer';
+import AuthButton from '../../../../components/elements/auth/AuthButton';
 import PostsTable from '../../../../components/elements/postboxPage/PostsTable';
 import Impresum from '../../../../components/elements/pricepage/Impresum';
 import { GeneralStore } from '../../../../store/Generalstore';
@@ -47,9 +48,10 @@ const Recent: React.FC<recentProps> = ({}) => {
             </div>
 
             <div className="ml-10 mt-10">
-              <button className="bg-transparent border-2 border-white p-2 rounded-lg">
-                BRIEF FÜHR 1,71 € INKL. MWST. VERSENDEN
-              </button>
+              <AuthButton
+                className="p-2 rounded-lg !w-96 bg-secondary"
+                name={'BRIEF FÜR 1,71 € INKL. MWST. VERSENDEN'}
+              />
             </div>
           </div>
         </div>

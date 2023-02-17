@@ -88,13 +88,13 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
   children,
 }) => {
   return (
-    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:pt-5 lg:pb-4 bg-[#1e2022]">
+    <div className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:pb-4 bg-[#1e2022]">
       <div>
-        <div className="flex">
+        <div className="flex bg-secondary">
           <Image src={main} alt="main" width={70} height={70} />
           <div className="font-bold text-2xl mt-4">Postshield</div>
         </div>
-        <nav className="px-3 ">
+        <nav className="px-3 mt-10">
           <div className="space-y-1">
             {navigation.map((item) => (
               <Link

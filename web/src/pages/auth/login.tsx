@@ -75,14 +75,6 @@ const Login = () => {
             className="bg-transparent border border-white"
             name={'WEITER MIT GOOGLE'}
           />
-
-          {/* <div className='inline-flex items-center justify-center w-full'>
-          <hr className='w-96 my-8 border-1 text-[#363b3d]' />
-          <span className='absolute px-3 font-medium text-[#363b3d] -translate-x-1/2 bg-white left-1/2'>
-            or
-          </span>
-        </div> */}
-
           <AuthInput
             type="email"
             value={email}
