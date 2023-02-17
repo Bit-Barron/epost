@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
           <ul className="flex bg-transparen flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-main md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
             <li>
               <a
-                href="#"
+                href="/dashboard/letter/writepost"
                 className="block py-2 pl-3 pr-4 text-xl text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Brief Übertragen
@@ -117,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             </li>
             <li>
               <a
-                href="/dashboard/postshield/price"
+                href="/general/price"
                 className="block py-2 pl-3 pr-4 text-xl text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Preise

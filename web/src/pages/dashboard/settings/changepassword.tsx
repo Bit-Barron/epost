@@ -20,8 +20,8 @@ const Changepassword: React.FC<settingsProps> = ({}) => {
   return (
     <DashboardContainer>
       <SettingsContainer>
-        <div className="p-10 bg-[#181a1b]">
-          <div className="flex justify-start">
+        <div className="p-10 bg-[#181a1b] mx-auto">
+          <div className="flex justify-center">
             <AuthInput
               type={'password'}
               placeholder="Passwort"
@@ -30,7 +30,7 @@ const Changepassword: React.FC<settingsProps> = ({}) => {
               className="w-[600px]"
             />
           </div>
-          <div className="flex justify-start">
+          <div className="flex justify-center">
             <AuthInput
               type={'text'}
               placeholder="Neus Passwort"
@@ -38,7 +38,7 @@ const Changepassword: React.FC<settingsProps> = ({}) => {
               className="w-[600px]"
             />
           </div>
-          <div className="flex justify-start">
+          <div className="flex justify-center">
             <AuthInput
               type={'text'}
               placeholder="Wiederholen sie ihr neues Passwort"
@@ -46,12 +46,7 @@ const Changepassword: React.FC<settingsProps> = ({}) => {
               className="w-[600px]"
             />
           </div>
-          <div className="text-gray-300 text-sm mt-5">
-            Das Passwort muss mindestens 8 Zeichen lang sein und aus mindestens
-            einem: Großbuchstaben [A-Z], Kleinbuchstaben [a-z], Zahlen [0-9] und
-            folgenden Sonderzeichen [! # $ % & ( ) * § + , - . / : ; {'< = >'} ?
-            @ \ ] [ ^ _` {'|'} ~] bestehen.
-          </div>
+
           <div className="mt-10">
             <AuthButton
               name={'Password Speichern'}

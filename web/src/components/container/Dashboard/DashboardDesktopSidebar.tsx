@@ -31,13 +31,6 @@ const teams = [
   },
 
   {
-    name: 'Buchhaltung',
-    href: '#',
-    bgColorClass: 'bg-yellow-500',
-    icon: FaCoins,
-    current: false,
-  },
-  {
     name: 'Add-ons',
     href: '#',
     bgColorClass: 'bg-yellow-500',
