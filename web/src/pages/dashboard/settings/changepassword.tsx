@@ -14,7 +14,6 @@ const Changepassword: React.FC<settingsProps> = ({}) => {
     const response = await axios.post('/user/password', {
       pass,
     });
-    console.log(response);
   };
 
   return (

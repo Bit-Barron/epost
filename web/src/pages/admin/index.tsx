@@ -12,7 +12,6 @@ const Admin: React.FC<indexProps> = ({}) => {
     const getUser = async () => {
       try {
         const res = await axios.post('/user/admin');
-        console.log(res);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
           router.push('/auth/login');

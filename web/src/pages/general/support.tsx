@@ -15,7 +15,6 @@ const PostShield: React.FC<indexProps> = ({}) => {
     const response = await axios.post('/mail/send-email', {
       email,
     });
-    console.log(response);
   };
 
   return (

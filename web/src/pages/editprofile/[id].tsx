@@ -7,18 +7,16 @@ import Cards from '../../components/elements/admin/Cards';
 const Editprofile = ({}) => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(`/setting/${id}`);
-        console.log(response);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 403) {
           return router.push('/auth/login');
         }
-        console.log(err);
+        console.error(err);
       }
     };
     getData();

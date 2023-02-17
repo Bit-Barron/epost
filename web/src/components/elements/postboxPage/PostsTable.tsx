@@ -39,10 +39,6 @@ function PostsTable() {
     getPosts();
   }
 
-  const submit = async () => {
-    console.log('submit');
-  };
-
   useEffect(() => {
     getPosts();
   }, []);

@@ -34,7 +34,7 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get('/all')
   findAll(@Req() req: FastifyRequest) {
-    return req.user.email;
+    return this.letterRepo.find();
   }
 
   @UseGuards(AuthGuard)
@@ -43,7 +43,6 @@ export class UserController {
     const password = await this.letterRepo.findOne({
       where: { password: pass },
     });
-    console.log(pass);
   }
 
   // only for admins

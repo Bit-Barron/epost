@@ -9,15 +9,8 @@ export default function InformationTable() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get('/user/all-user');
-      setData(response.data);
-    };
-    getData();
-  }, []);
-
-  useEffect(() => {
-    const getData = async () => {
-      await axios.get('/setting/user-id');
+      const user = await axios.get('/setting/all');
+      console.log(user);
     };
     getData();
   }, []);
@@ -62,12 +55,12 @@ export default function InformationTable() {
                     </td>
 
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                      {person.email}
+                      {person.street}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                       {person.roles}
                     </td>
-                    <td className='text-xl text-red-500 hover:text-red-300'>
+                    <td className="text-xl text-red-500 hover:text-red-300">
                       <AiFillEdit
                         onClick={() => {
                           return router.push(`/editprofile/${person.id}`);
