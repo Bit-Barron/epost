@@ -1,9 +1,8 @@
 const tabs: any = [
-  { name: 'Applied', href: '#', current: false },
-  { name: 'Phone Screening', href: '#', current: false },
-  { name: 'Interview', href: '#', current: true },
-  { name: 'Offer', href: '#', current: false },
-  { name: 'Hired', href: '#', current: false },
+  { name: 'Allgemeine Einstellungen', href: '#', current: false },
+  { name: 'SEPA-Überweigungsträger', href: '#', current: false },
+  { name: 'Persönliche Daten', href: '#', current: true },
+  { name: 'Passwort ändern', href: '#', current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -12,7 +11,7 @@ function classNames(...classes: string[]) {
 
 export default function Example() {
   return (
-    <div className="pb-5 border-b border-gray-200 sm:pb-0">
+    <div className="border-b w-1/2 mx-auto border-gray-200 sm:pb-0">
       <h3 className="text-lg leading-6 font-medium text-gray-900">
         Candidates
       </h3>
@@ -24,16 +23,18 @@ export default function Example() {
           <select
             id="current-tab"
             name="current-tab"
-            className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            className="block w-96 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
             defaultValue={tabs.find((tab: any) => tab.current).name}
           >
             {tabs.map((tab: any) => (
-              <option key={tab.name}>{tab.name}</option>
+              <option key={tab.name} className="">
+                {tab.name}
+              </option>
             ))}
           </select>
         </div>
         <div className="hidden sm:block">
-          <nav className="-mb-px flex space-x-8">
+          <nav className="-mb-px flex space-x-8 justify-center ">
             {tabs.map((tab: any) => (
               <a
                 key={tab.name}
