@@ -33,7 +33,7 @@ function Dashboard({}: dashboardProps) {
       <div>
         <Popover
           as="header"
-          className="pb-24 bg-gradient-to-r from-sky-800 to-cyan-600"
+          className="pb-24 bg-gradient-to-r bg-secondary"
         >
           {() => (
             <>

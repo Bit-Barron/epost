@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
@@ -39,8 +39,10 @@ export class UserController {
 
   @UseGuards(AuthGuard)
   @Post('/password')
-  async changePassword(@Req() req: FastifyRequest, pass) {
-    console.log(req.user);
+  async changePassword(@Req() req: FastifyRequest, @Body() pass: string) {
+    const password = await this.letterRepo.findOne({
+      where: { password: pass },
+    });
     console.log(pass);
   }
 
