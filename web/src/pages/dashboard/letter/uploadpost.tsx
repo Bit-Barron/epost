@@ -33,7 +33,7 @@ const Uploadpost: React.FC<uploadpostProps> = ({}) => {
         </label>
       </div>
       <div className="mx-auto mt-6">
-        <button className="bg-transparent p-2 border-dashed border-2 border-secondary rounded-full text-white ">
+        <button className="bg-transparent w-96 p-2 border-dashed border-2 border-secondary rounded-full text-white">
           ALLE DATEIN ENTFERNEN
         </button>
       </div>

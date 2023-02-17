@@ -32,7 +32,7 @@ const Recent: React.FC<recentProps> = ({}) => {
                 <Alerts />
               </div>
             ))}
-            <div className="relative overflow-x-auto mt-20">
+            <div className="relative  overflow-hidden mt-20">
               {data && data.length > 0 ? (
                 <div>
                   <PostsTable />
