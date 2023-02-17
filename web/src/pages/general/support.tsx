@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { DashboardContainer } from '../../components/container/DashboardContainer';
 import SupportHeader from '../../components/elements/headings/SupportHeader';
@@ -9,6 +10,13 @@ const PostShield: React.FC<indexProps> = ({}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  const submit = async () => {
+    const response = await axios.post('/mail/send-email', {
+      email,
+    });
+    console.log(response);
+  };
 
   return (
     <>
@@ -31,8 +39,8 @@ const PostShield: React.FC<indexProps> = ({}) => {
               von 9.00 Uhr bis 14.00 Uhr.
             </div>
           </div>
-          <section className="mb-32 text-gray-800">
-            <div className="container text-gray-800 px-4 md:px-12">
+          <section className="mb-32 text-white">
+            <div className="container text-white px-4 md:px-12">
               <div className="block rounded-lg shadow-lg py-10 md:py-12 px-4 md:px-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 mb-12">
                   <div className="mb-12 lg:mb-0 text-center mx-auto">
@@ -94,72 +102,31 @@ const PostShield: React.FC<indexProps> = ({}) => {
                       <input
                         type="text"
                         onChange={(e) => setName(e.target.value)}
-                        className="form-control block
-              w-full
-              px-3
-              py-1.5
-              text-base
-              font-normal
-              text-gray-700
-              bg-white bg-clip-padding
-              border border-solid border-gray-300
-              rounded
-              transition
-              ease-in-out
-              m-0
-              focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
+                        className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded bg-transparent transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
                         id="exampleInput7"
                         placeholder="Name"
                       />
                     </div>
                     <div className="form-group mb-6">
                       <input
-                        type="email"
+                        type="text"
                         onChange={(e) => setEmail(e.target.value)}
-                        className="form-control block
-                      
-              w-full
-              px-3
-              py-1.5
-              text-base
-              font-normal
-              text-gray-700
-              bg-white bg-clip-padding
-              border border-solid border-gray-300
-              rounded
-              transition
-              ease-in-out
-              m-0
-              focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
-                        id="exampleInput8"
-                        placeholder="Email address"
+                        className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded bg-transparent transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
+                        id="exampleInput7"
+                        placeholder="Name"
                       />
                     </div>
                     <div className="form-group mb-6">
                       <textarea
                         onChange={(e) => setMessage(e.target.value)}
-                        className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0
-              focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none
-            "
+                        className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out bg-transparent m-0 focus:text-gray-700 focus:bg-white focus:border-secondary focus:outline-none"
                         id="exampleFormControlTextarea13"
                         placeholder="Message"
                       ></textarea>
                     </div>
-                    <div className="form-group form-check text-center mb-6">
-                      <input
-                        type="checkbox"
-                        className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white  focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-                        id="exampleCheck87"
-                        checked
-                      />
-                      <label
-                        className="form-check-label inline-block text-gray-800"
-                        htmlFor="exampleCheck87"
-                      >
-                        Send me a copy of this message
-                      </label>
-                    </div>
+
                     <button
+                      onClick={() => submit()}
                       type="submit"
                       className="w-full px-6 py-2.5 bg-secondary text-white font-medium text-xs leading-tight uppercase rounded shadow-md transition duration-150 ease-in-out"
                     >

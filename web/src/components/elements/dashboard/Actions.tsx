@@ -77,7 +77,7 @@ export const Actions: React.FC<ActiontsProps> = ({}) => {
             actionIdx === actions.length - 1
               ? 'rounded-bl-lg rounded-br-lg sm:rounded-bl-none'
               : '',
-            'relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500',
+            'relative group bg-[#181a1b] p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500',
           )}
         >
           <div>

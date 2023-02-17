@@ -84,7 +84,7 @@ function PostsTable() {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-300">
-                <thead className="bg-gray-50">
+                <thead className="">
                   <tr>
                     <th
                       scope="col"
@@ -134,32 +134,32 @@ function PostsTable() {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
+                <tbody className="divide-y divide-gray-200 text-white">
                   {data.map((letter, index) => (
-                    <tr key={index} className="hover:bg-gray-200">
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <tr key={index} className="hover:bg-gray-800">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
                         {letter.documents}
                         <div className="text-xs text-gray-500 mt-2">
                           {letter.side}, {letter.color}
                         </div>
                       </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
                         {letter.posts}
                       </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
                         {letter.pages}
                       </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
                         {letter.envelope}
                       </td>
 
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
                         {date}
                       </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6">
                         {letter.price * letter.pages}€
                       </td>
-                      <td className="whitespace-nowrap py-2 pl-2 pr-1 text-sm font-medium text-gray-900 sm:pl-6 ">
+                      <td className="whitespace-nowrap py-2 pl-2 pr-1 text-sm font-medium text-white sm:pl-6 ">
                         <BsFillFileEarmarkPdfFill className="text-xl text-pink-500" />
                       </td>
                       <td className="flex mt-3">
@@ -171,7 +171,7 @@ function PostsTable() {
                         />
                         <button
                           type="submit"
-                          className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
+                          className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-6"
                           onClick={() => {
                             deleteposts(letter.id);
                             toggle();

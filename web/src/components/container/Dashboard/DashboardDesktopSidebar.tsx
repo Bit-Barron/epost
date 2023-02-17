@@ -64,7 +64,7 @@ const post = [
 const shieldPost = [
   {
     name: 'Preis',
-    href: '/dashboard/general/price',
+    href: '/general/price',
     icon: AiOutlineArrowRight,
     current: false,
   },

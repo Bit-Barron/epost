@@ -11,7 +11,7 @@ export default function DashboardSteps() {
     <nav className='flex' aria-label='Breadcrumb'>
       <ol
         role='list'
-        className='bg-white rounded-md shadow px-6 flex space-x-4'
+        className='bg-[#181a1b] rounded-md shadow px-6 flex space-x-4'
       >
         <li className='flex'>
           <div className='flex items-center'>

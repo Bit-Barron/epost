@@ -141,8 +141,8 @@ const tiers = [
 
 function Price() {
   return (
-    <div className="bg-white">
-      <Popover className="relative bg-white">
+    <div className="">
+      <Popover className="relative ">
         <Navbar />
         <Transition
           as={Fragment}
@@ -157,7 +157,7 @@ function Price() {
             focus
             className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           >
-            <div className="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
+            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
               <div className="pt-5 pb-6 px-5 space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -170,7 +170,7 @@ function Price() {
                     />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                    <Popover.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
@@ -258,10 +258,10 @@ function Price() {
         </Transition>
       </Popover>
 
-      <div className="bg-gradient-to-b from-white to-gray-50 mx-auto">
+      <div className="bg-gradient-to-b  to-gray-50 mx-auto">
         <div className="max-w-7xl mx-auto pt-24 px-4 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col mr-10 sm:align-center">
-            <h1 className="text-5xl font-extrabold text-gray-900 sm:text-center">
+            <h1 className="text-5xl font-extrabold text-white sm:text-center">
               Pricing Plans
             </h1>
             <p className="mt-5 text-xl text-gray-500 sm:text-center">
@@ -276,14 +276,14 @@ function Price() {
                 className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200"
               >
                 <div className="p-6">
-                  <h2 className="text-lg leading-6 font-medium text-gray-900">
+                  <h2 className="text-lg leading-6 font-medium text-white">
                     {tier.name}
                   </h2>
                   <p className="mt-4 text-sm text-gray-500">
                     {tier.description}
                   </p>
                   <p className="mt-8">
-                    <span className="text-4xl font-extrabold text-gray-900">
+                    <span className="text-4xl font-extrabold text-white">
                       ${tier.priceMonthly}
                     </span>
                   </p>
@@ -295,7 +295,7 @@ function Price() {
                   </a>
                 </div>
                 <div className="pt-6 pb-8 px-6">
-                  <h3 className="text-xs font-medium text-gray-900 tracking-wide uppercase">
+                  <h3 className="text-xs font-medium text-white tracking-wide uppercase">
                     Whats included
                   </h3>
                   <ul role="list" className="mt-6 space-y-4">
