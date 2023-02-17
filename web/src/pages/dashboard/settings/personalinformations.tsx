@@ -33,7 +33,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
   return (
     <DashboardContainer>
       <SettingsContainer>
-        <div className="overflow-hidden shadow sm:rounded-lg">
+        {/* <div className="overflow-hidden shadow sm:rounded-lg">
           <div className="border-t border-gray-200">
             <dl>
               {data.map((item, idx) => (
@@ -127,7 +127,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
               <AuthButton name={'Password Speichern'} className="w-[300px]" />
             </div>
           </div>
-        </div>
+        </div> */}
       </SettingsContainer>
     </DashboardContainer>
   );

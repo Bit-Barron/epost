@@ -10,14 +10,13 @@ export const SettingsContainer: React.FC<SettingsContainerProps> = ({
 }) => {
   return (
     <>
-      <div className="text-center font-bold mt-52 text-2xl">
-        Configure Your Preferences: Personalize Your User Experience with Our
-        Settings
-      </div>
-      <SettingHeader />
+      <div>
+        <h1 className="mt-10 font-bold text-2xl text-center">Settings</h1>
+        <SettingHeader />
 
-      <div className="mx-auto w-10/12">
-        <div>{children}</div>
+        <div className="mx-auto w-10/12">
+          <div>{children}</div>
+        </div>
       </div>
     </>
   );
