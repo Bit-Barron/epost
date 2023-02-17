@@ -20,7 +20,7 @@ const DashboardNavbar = () => {
   }, []);
 
   return (
-    <div className='border-b border-gray-200 px-4 p-3.5 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
+    <div className='border-b border-gray-600 px-4 p-3.5 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8'>
       <div>
         <h1 className='text-lg font-medium leading-6 text-white sm:truncate'>
           Dashboard

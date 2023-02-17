@@ -48,7 +48,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                     <dt className="text-sm font-medium text-gray-500">
                       Anrede
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0 flex flex-col">
                       <span className="align-self-center">
                         {item.salutation}
                       </span>
@@ -56,7 +56,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                   </div>
                   <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]">
                     <dt className="text-sm font-medium text-gray-500">Email</dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       {user}
                     </dd>
                   </div>
@@ -64,7 +64,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                     <dd className="text-sm font-medium text-gray-500">
                       vorname
                     </dd>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       {item.firstname}
                     </dd>
                   </div>
@@ -72,7 +72,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                     <dt className="text-sm font-medium text-gray-500">
                       Nachname
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       {item.lastname}
                     </dd>
                   </div>
@@ -80,25 +80,25 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                     <dt className="text-sm font-medium text-gray-500">
                       straße
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       {item.street}
                     </dd>
                   </div>
                   <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]">
                     <dt className="text-sm font-medium text-gray-500">PLZ</dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       {item.PLZ}
                     </dd>
                   </div>
                   <div className="bg-[#181a1b] px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt className="text-sm font-medium text-gray-500">Ort</dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0 flex flex-col">
                       <span className="align-self-center">{item.location}</span>
                     </dd>
                   </div>
                   <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-[#1b1d1e]">
                     <dt className="text-sm font-medium text-gray-500">LAND</dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       DE
                     </dd>
                   </div>
@@ -106,7 +106,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                     <dt className="text-sm font-medium text-gray-500">
                       Telefon
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 flex flex-col">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0 flex flex-col">
                       <span className="align-self-center">+{item.phone}</span>
                     </dd>
                   </div>

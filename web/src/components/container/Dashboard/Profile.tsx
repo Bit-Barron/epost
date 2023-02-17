@@ -47,7 +47,6 @@ const Profile: React.FC<ProfileProps> = ({}) => {
           <h1 className="mt-4 text-center text-lg font-semibold text-white ">
             {user}
           </h1>
-          {user}
           <hr className="mt-5 mb-5" />
           <Menu.Item>
             {({ active }) => (
