@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import { SettingsContainer } from '../../../components/container/SettingsContainer';
 import AuthButton from '../../../components/elements/auth/AuthButton';
@@ -6,16 +7,26 @@ import AuthInput from '../../../components/elements/auth/AuthInput';
 
 interface settingsProps {}
 
-const changepassword: React.FC<settingsProps> = ({}) => {
+const Changepassword: React.FC<settingsProps> = ({}) => {
+  const [pass, setPass] = useState('');
+
+  const submit = async () => {
+    const response = await axios.post('/user/password', {
+      pass,
+    });
+    console.log(response);
+  };
+
   return (
     <DashboardContainer>
       <SettingsContainer>
         <div className="p-10 bg-[#181a1b]">
           <div className="flex justify-start">
             <AuthInput
-              type={'text'}
+              type={'password'}
               placeholder="Passwort"
               label="Passwort"
+              onChange={(e: any) => setPass(e.target?.value)}
               className="w-[600px]"
             />
           </div>
@@ -42,7 +53,11 @@ const changepassword: React.FC<settingsProps> = ({}) => {
             @ \ ] [ ^ _` {'|'} ~] bestehen.
           </div>
           <div className="mt-10">
-            <AuthButton name={'Password Speichern'} className="w-[300px]" />
+            <AuthButton
+              name={'Password Speichern'}
+              className="w-[300px]"
+              onClick={() => submit()}
+            />
           </div>
         </div>
       </SettingsContainer>
@@ -50,4 +65,4 @@ const changepassword: React.FC<settingsProps> = ({}) => {
   );
 };
 
-export default changepassword;
+export default Changepassword;

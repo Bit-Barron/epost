@@ -4,7 +4,6 @@ import { JwtService } from '@nestjs/jwt';
 import { COOKIE_NAME } from 'src/constants';
 import { Role } from 'src/user/role.enum';
 import { UserService } from 'src/user/user.service';
-import { JwtUser } from '../@types';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
@@ -23,23 +22,6 @@ export class RolesGuard implements CanActivate {
 
     const token = request.cookies[COOKIE_NAME];
 
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const user = this.jwtService.verify(token, {
-        secret: process.env.SECRET,
-      }) as JwtUser;
-
-      request.user = user;
-    } catch (err) {
-      return false;
-    }
-
-    if (request.user.role === Role.ADMIN) {
-      return true;
-    }
     return true;
   }
 }

@@ -37,6 +37,13 @@ export class UserController {
     return req.user.email;
   }
 
+  @UseGuards(AuthGuard)
+  @Post('/password')
+  async changePassword(@Req() req: FastifyRequest, pass) {
+    console.log(req.user);
+    console.log(pass);
+  }
+
   // only for admins
   @Get('/all-user')
   @UseGuards(AuthGuard, RolesGuard)
