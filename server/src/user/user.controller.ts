@@ -42,15 +42,13 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get('/all')
   findAll(@Req() req: FastifyRequest) {
-    const result = this.letterRepo.find();
-    console.log(result);
-    return result;
+    return this.letterRepo.find();
   }
 
   @UseGuards(AuthGuard)
   @Post('/password')
   async changePassword(@Req() req: FastifyRequest, @Body() pass: string) {
-    const password = await this.letterRepo.findOne({
+    await this.letterRepo.findOne({
       where: { password: pass },
     });
   }
