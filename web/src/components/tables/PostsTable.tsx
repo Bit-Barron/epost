@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsFillFileEarmarkPdfFill, BsTrash } from 'react-icons/bs';
-import { GeneralStore } from '../../../store/Generalstore';
+import { GeneralStore } from '../../store/Generalstore';
 
 function PostsTable() {
   const [data, setData] = useState<any[]>([]);

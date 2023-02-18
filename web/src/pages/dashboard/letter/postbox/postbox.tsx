@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { DashboardContainer } from '../../../../components/container/DashboardContainer';
 import AuthButton from '../../../../components/elements/auth/AuthButton';
-import PostsTable from '../../../../components/elements/postboxPage/PostsTable';
+import PostsTable from '../../../../components/tables/PostsTable';
 import Impresum from '../../../../components/elements/pricepage/Impresum';
 import { GeneralStore } from '../../../../store/Generalstore';
 import { Alerts } from '../../../../utils/Alerts';

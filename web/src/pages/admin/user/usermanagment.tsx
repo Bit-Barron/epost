@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AdminContainer from '../../../components/container/AdminContainer';
-import InformationTable from '../../../components/elements/admin/InformationTable';
+import InformationTable from '../../../components/tables/InformationTable';
 import { Searchbar } from '../../../components/elements/admin/Searchbar';
 
 interface usermanagmentProps {}
