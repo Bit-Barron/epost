@@ -54,6 +54,12 @@ export class LetterController {
   }
 
   @UseGuards(AuthGuard)
+  @Get('/all')
+  async findAll() {
+    return await this.letterRepo.find();
+  }
+
+  @UseGuards(AuthGuard)
   @Get('/:id')
   async findOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
     return await this.letterRepo.findOne({

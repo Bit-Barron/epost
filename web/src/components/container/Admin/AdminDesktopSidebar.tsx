@@ -7,7 +7,7 @@ import { FiUsers } from 'react-icons/fi';
 import main from '../../../../public/images/main.png';
 
 const navigation = [
-  { name: 'Postbox', href: '/admin/postbox', icon: BsBoxSeam, current: true },
+  { name: 'Postbox', href: '/admin/post/postbox', icon: BsBoxSeam, current: true },
 ];
 
 const shieldPost = [
