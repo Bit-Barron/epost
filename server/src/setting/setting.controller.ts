@@ -74,8 +74,10 @@ export class SettingController {
   @UseGuards(AuthGuard)
   @Get('/:id')
   async findOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
-    return await this.settingRepo.findOne({
+    const result = await this.settingRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
+    console.log(result);
+    return result;
   }
 }

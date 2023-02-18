@@ -13,19 +13,6 @@ const Editprofile = ({}) => {
   useEffect(() => {
     const handleDynamicRoute = async () => {
       try {
-        await axios.get(`/user/${id}`);
-      } catch (err: unknown) {
-        if ((err as AxiosError).response?.status === 500) {
-          router.push('/dashboard/letter/postbox/postbox');
-        }
-      }
-    };
-    handleDynamicRoute();
-  }, [id, router]);
-
-  useEffect(() => {
-    const handleDynamicRoute = async () => {
-      try {
         const response = await axios.get(`/setting/${id}`);
         console.log(response);
       } catch (err: unknown) {
