@@ -10,6 +10,7 @@ export default function InformationTable() {
   useEffect(() => {
     const getData = async () => {
       const response = await axios.get('/user/all');
+      console.log(response.data);
       setData(response.data);
     };
     getData();

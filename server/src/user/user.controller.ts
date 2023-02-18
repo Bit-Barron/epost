@@ -42,7 +42,9 @@ export class UserController {
   @UseGuards(AuthGuard)
   @Get('/all')
   findAll(@Req() req: FastifyRequest) {
-    return this.letterRepo.find();
+    const result = this.letterRepo.find();
+    console.log(result);
+    return result;
   }
 
   @UseGuards(AuthGuard)

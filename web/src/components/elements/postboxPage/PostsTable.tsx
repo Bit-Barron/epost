@@ -26,6 +26,7 @@ function PostsTable() {
 
   const getPosts = async () => {
     const response = await axios.get('/letter/all-user');
+    console.log(response.data);
     setData(response.data);
   };
 
