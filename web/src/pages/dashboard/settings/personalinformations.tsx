@@ -76,7 +76,7 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
               <div className="">
                 <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
                 <div className="flex justify-between">
-                  straße <div className="ml-20">{item.street}</div>
+                  Straße <div className="ml-20">{item.street}</div>
                   <div className="text-secondary">update</div>
                 </div>
               </div>

@@ -73,7 +73,7 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
               </div>
             </span>
             <div className="font-bold text-xl mt-10">
-              Bitte vervollständigen Sie Ihr Profil, um 
+              Bitte vervollständigen Sie Ihr Profil, um
               {process.env.NEXT_PUBLIC_NAME}
               vollumfänglich nutzen zu können.
             </div>
@@ -135,6 +135,9 @@ const Completeprofile: React.FC<completeprofileProps> = ({}) => {
                   onChange={setPhone}
                 />
               </div>
+            </div>
+            <div>
+              
             </div>
             <div className="flex items-end">
               <AuthButton
