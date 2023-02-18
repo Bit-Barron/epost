@@ -9,8 +9,8 @@ export default function InformationTable() {
 
   useEffect(() => {
     const getData = async () => {
-      const user = await axios.get('/setting/all');
-      console.log(user);
+      const response = await axios.get('/user/all');
+      setData(response.data)
     };
     getData();
   }, []);
@@ -19,7 +19,7 @@ export default function InformationTable() {
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-[#000000]">
+          <div className="shadow overflow-hidden border-b border-gray-500 sm:rounded-lg bg-[#000000]">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-[#181a1b]">
                 <tr className="">
@@ -55,10 +55,10 @@ export default function InformationTable() {
                     </td>
 
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                      {person.street}
+                      {person.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
-                      {person.roles}
+                      {person.role}
                     </td>
                     <td className="text-xl text-red-500 hover:text-red-300">
                       <AiFillEdit

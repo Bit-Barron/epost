@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
@@ -43,6 +51,12 @@ export class UserController {
     const password = await this.letterRepo.findOne({
       where: { password: pass },
     });
+  }
+
+  @UseGuards(AuthGuard)
+  @Get('/:id')
+  async findOneUser(@Param('id') id: number, @Req() req: FastifyRequest) {
+    return await this.letterRepo.findOne({ where: { id } });
   }
 
   // only for admins

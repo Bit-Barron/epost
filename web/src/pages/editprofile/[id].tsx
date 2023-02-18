@@ -8,18 +8,33 @@ const Editprofile = ({}) => {
   const router = useRouter();
   const { id } = router.query;
 
+  console.log(id);
+
   useEffect(() => {
-    const getData = async () => {
+    const handleDynamicRoute = async () => {
       try {
-        const response = await axios.get(`/setting/${id}`);
+        const response = await axios.get(`/user/${id}`);
       } catch (err: unknown) {
-        if ((err as AxiosError).response?.status === 403) {
-          return router.push('/auth/login');
+        if ((err as AxiosError).response?.status === 500) {
+          router.push('/dashboard/letter/postbox/postbox');
         }
-        console.error(err);
       }
     };
-    getData();
+    handleDynamicRoute();
+  }, [id, router]);
+
+  useEffect(() => {
+    const handleDynamicRoute = async () => {
+      try {
+        const response = await axios.get(`/setting/${id}`);
+        console.log(response);
+      } catch (err: unknown) {
+        if ((err as AxiosError).response?.status === 500) {
+          router.push('/dashboard/letter/postbox/postbox');
+        }
+      }
+    };
+    handleDynamicRoute();
   }, [id, router]);
 
   return (
