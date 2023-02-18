@@ -8,13 +8,10 @@ const Editprofile = ({}) => {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log(id);
-
   useEffect(() => {
     const handleDynamicRoute = async () => {
       try {
         const response = await axios.get(`/setting/${id}`);
-        console.log(response);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
           router.push('/dashboard/letter/postbox/postbox');
