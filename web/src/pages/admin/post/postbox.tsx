@@ -1,13 +1,12 @@
 import axios from 'axios';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AdminContainer from '../../../components/container/AdminContainer';
 
 interface postboxProps {}
 
 const Postbox: React.FC<postboxProps> = ({}) => {
-  const [posts, setPosts] = React.useState<any[]>([]);
+  const [posts, setPosts] = useState<any[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const Postbox: React.FC<postboxProps> = ({}) => {
           <div className="flex flex-col" key={idx}>
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div className="shadow overflow-hidden border-b border-gray-500 sm:rounded-lg bg-[#000000]">
+                <div className="shadow overflow-hidden border-b border-gray-500 sm:rounded-lg">
                   <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-[#181a1b]">
                       <tr className="">
