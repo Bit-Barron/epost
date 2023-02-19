@@ -42,7 +42,8 @@ const Edit = () => {
   useEffect(() => {
     const handleDynamicRoute = async () => {
       try {
-        await axios.get(`/letter/${id}`);
+        const res = await axios.get(`/letter/${id}`);
+        console.log(res.data);
       } catch (err: unknown) {
         if ((err as AxiosError).response?.status === 500) {
           router.push('/dashboard/letter/postbox/postbox');

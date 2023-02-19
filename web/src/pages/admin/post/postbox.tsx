@@ -67,9 +67,7 @@ const Postbox: React.FC<postboxProps> = ({}) => {
                     </thead>
                     <tbody
                       className="divide-y divide-gray-200 bg-[#1d1f20] hover:bg-gray-600"
-                      onClick={() => {
-                        return router.push(`/editpostbox/${person.id}`);
-                      }}
+                      onClick={() => router.push(`/editpostbox/${person.id}`)}
                     >
                       <tr key={person.email}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
@@ -88,6 +86,11 @@ const Postbox: React.FC<postboxProps> = ({}) => {
                           {person.phone}
                         </td>
                       </tr>
+                      {/* <AiFillEdit
+                        onClick={() => {
+                          return router.push(`/editprofile/${person.id}`);
+                        }}
+                      /> */}
                     </tbody>
                   </table>
                 </div>
