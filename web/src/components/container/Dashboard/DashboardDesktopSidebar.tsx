@@ -204,7 +204,7 @@ const DashboardDesktopSidebar: React.FC<DashboardDesktopSidebarProps> = ({
           <div className="mt-3">
             <Link
               href="/"
-              className="bg-secondary p-2 text-white font-bold w-full rounded"
+              className="bg-secondary hover:bg-[#8c4809] p-1 text-white font-semibold w-full rounded"
             >
               Kundenbereich verlassen
             </Link>

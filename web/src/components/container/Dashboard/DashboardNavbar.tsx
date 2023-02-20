@@ -31,7 +31,7 @@ const DashboardNavbar = () => {
           <Link
             href='/'
             type='button'
-            className='order-1 ml-3 inline-flex items-center px-4 py-2 border border-dashed border-gray-600 shadow-sm text-sm font-medium rounded-md text-white focus:outline-none'
+            className='order-1 ml-3 hover:text-secondary hover:border-secondary inline-flex items-center px-4 py-2 border border-dashed border-gray-600 shadow-sm text-sm font-medium rounded-md text-white focus:outline-none'
           >
             Kundenbereich verlassen
           </Link>
