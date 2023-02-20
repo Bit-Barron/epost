@@ -32,7 +32,7 @@ const teams = [
 
   {
     name: 'Add-ons',
-    href: '#',
+    href: '/dashboard/settings/addon',
     bgColorClass: 'bg-yellow-500',
     icon: MdOutlineAddCircleOutline,
     current: false,

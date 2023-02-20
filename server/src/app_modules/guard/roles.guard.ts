@@ -22,6 +22,14 @@ export class RolesGuard implements CanActivate {
 
     const token = request.cookies[COOKIE_NAME];
 
-    return true;
+    if (!requireRoles) {
+      return true;
+    }
+
+    const { user } = context.switchToHttp().getRequest();
+
+    console.log(user);
+
+    // return requireRoles.some((role) => user.role?.includes(role));
   }
 }
