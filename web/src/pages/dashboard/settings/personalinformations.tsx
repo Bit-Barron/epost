@@ -93,6 +93,8 @@ const Personalinformations: React.FC<settingsProps> = ({}) => {
                   Name <div className="ml-20">{user}</div>
                   <div className="text-secondary">update</div>
                 </div>
+                <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+
               </div>
             </div>
           ))}
