@@ -1,9 +1,39 @@
-import React from 'react';
+import axios from 'axios';
+import { handleClientScriptLoad } from 'next/script';
+import React, { useState } from 'react';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 
-interface uploadpostProps {}
+const Uploadpost = ({}) => {
+  const [selectedFile, setSelectedFile] = useState(null);
 
-const Uploadpost: React.FC<uploadpostProps> = ({}) => {
+  const handleFileSelect = (event: any) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const FileUploadButton = async (event: any) => {
+    const file = selectedFile;
+
+    if (!file) {
+      console.log('No file selected');
+      return;
+    }
+
+    console.log(file);
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await axios.post('/letter/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log(response);
+    } catch (err: unknown) {
+      console.log(err);
+    }
+  };
   return (
     <DashboardContainer>
       <div className="text-center font-bold text-2xl mt-40">
@@ -29,7 +59,12 @@ const Uploadpost: React.FC<uploadpostProps> = ({}) => {
               </span>
             </span>
           </span>
-          <input type="file" name="file_upload" className="hidden" />
+          <input
+            type="file"
+            name="file_upload"
+            className="hidden"
+            onChange={handleFileSelect}
+          />
         </label>
       </div>
       <div className="mx-auto mt-6">
@@ -39,7 +74,10 @@ const Uploadpost: React.FC<uploadpostProps> = ({}) => {
       </div>
 
       <div className="flex justify-center mt-5">
-        <button className="bg-secondary text-white font-bold py-2 px-4 rounded">
+        <button
+          className="bg-secondary text-white font-bold py-2 px-4 rounded"
+          onClick={FileUploadButton}
+        >
           BRIEF ZUR POSTBOX HINZUFÜGEN
         </button>
       </div>

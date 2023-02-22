@@ -104,7 +104,8 @@ export class LetterController {
 
   @Post('/upload')
   @UseInterceptors(FileInterceptor('file'))
-  async uploadFile(@UploadedFile() file: MemoryStorageFile) {
+  async uploadFile(@UploadedFile() @Body() file: MemoryStorageFile) {
+    console.log(file);
     return file;
   }
 }
