@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import SignaturePad from 'react-signature-canvas';
 import { DashboardContainer } from '../../../components/container/DashboardContainer';
 import { Editor } from '@tinymce/tinymce-react';
+import AuthInput from '../../../components/elements/auth/AuthInput';
 
 function Post() {
   const [content, setContent] = useState('');
@@ -56,17 +57,12 @@ function Post() {
         <div className="w-1/2 mx-auto p-10 mt-10 ">
           <div className="">
             <div className="flex">
-              <label
-                htmlFor="small-input"
-                className="block mb-2 text-sm mt-2 font-medium text-gray-900 dark:text-white"
-              >
-                Betreff
-              </label>
-              <input
+              <AuthInput
                 type="text"
-                id="small-input"
-                className="block w-1/2 p-2 focus:outline-none ml-5 text-gray-900 border border-gray-300 bg-gray-50 sm:text-xs mb-10"
-                onChange={(e) => setTitle(e.target.value)}
+                className="!bg-transparent w-96 mb-10"
+                label={'Betreff'}
+                placeholder={'Betreff z.B herr mustermann'}
+                onChange={setTitle}
               />
             </div>
           </div>
