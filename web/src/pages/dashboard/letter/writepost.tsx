@@ -62,7 +62,7 @@ function Post() {
                 className="!bg-transparent w-96 mb-10"
                 label={'Betreff'}
                 placeholder={'Betreff z.B herr mustermann'}
-                onChange={setTitle}
+                onChange={(e: any) => setTitle(e.target.value)}
               />
             </div>
           </div>
@@ -158,8 +158,8 @@ function Post() {
                   noneditable_class: 'mceNonEditable',
                   toolbar_mode: 'sliding',
                   contextmenu: 'link image table',
-                  skin: !useDarkMode ? 'oxide-dark' : 'oxide',
-                  content_css: !useDarkMode ? 'dark' : 'default',
+                  // skin: 'oxide-dark',
+                  // content_css: 'dark',
                   content_style:
                     'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                 }}
@@ -170,11 +170,7 @@ function Post() {
                     Unterschrift(optional)
                   </div>
                   <div className="">
-                    <SignaturePad
-                      ref={sigPad}
-                      penColor="black"
-                      backgroundColor="white"
-                    />
+                    <SignaturePad ref={sigPad} backgroundColor="white" />
                   </div>
                   <div
                     onClick={clear}
