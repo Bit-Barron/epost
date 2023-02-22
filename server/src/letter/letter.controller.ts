@@ -80,7 +80,9 @@ export class LetterController {
   async deleteletter(@Param('id') id: number, @Req() req: FastifyRequest) {
     try {
       return await this.letterRepo.delete({ id, user: { id: req.user.sub } });
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
     return true;
   }
 
@@ -89,7 +91,9 @@ export class LetterController {
   async deleteAll(@Req() req: FastifyRequest) {
     try {
       return await this.letterRepo.delete({ user: { id: req.user.sub } });
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   @UseGuards(AuthGuard)
@@ -101,6 +105,6 @@ export class LetterController {
   @Post('/upload')
   @UseInterceptors(FileInterceptor('file'))
   async uploadFile(@UploadedFile() file: MemoryStorageFile) {
-    return await this.letterRepo.save(file as any);
+    return file;
   }
 }

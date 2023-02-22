@@ -12,7 +12,7 @@ function Post() {
   const [posts, setPosts] = useState(1);
   const [envelope, setEnvelope] = useState('DIN lang');
   const [documents, setDocuments] = useState<string>(
-    'Online geschriebener Brief'
+    'Online geschriebener Brief',
   );
 
   const editorRef: any = useRef(null);
@@ -50,31 +50,31 @@ function Post() {
   return (
     <>
       <DashboardContainer>
-        <div className='text-center font-bold text-2xl mt-20'>
+        <div className="text-center font-bold text-2xl mt-20">
           Einen Brief direkt online schreiben und versenden lassen
         </div>
-        <div className='w-1/2 mx-auto p-10 mt-10 '>
-          <div className=''>
-            <div className='flex'>
+        <div className="w-1/2 mx-auto p-10 mt-10 ">
+          <div className="">
+            <div className="flex">
               <label
-                htmlFor='small-input'
-                className='block mb-2 text-sm mt-2 font-medium text-gray-900 dark:text-white'
+                htmlFor="small-input"
+                className="block mb-2 text-sm mt-2 font-medium text-gray-900 dark:text-white"
               >
                 Betreff
               </label>
               <input
-                type='text'
-                id='small-input'
-                className='block w-1/2 p-2 focus:outline-none ml-5 text-gray-900 border border-gray-300 bg-gray-50 sm:text-xs mb-10'
+                type="text"
+                id="small-input"
+                className="block w-1/2 p-2 focus:outline-none ml-5 text-gray-900 border border-gray-300 bg-gray-50 sm:text-xs mb-10"
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
           </div>
 
-          <div className='w-[1000px]'>
-            <div className=''>
+          <div className="w-[1000px]">
+            <div className="">
               <Editor
-                apiKey='e0q79b8c9k5t2zbarra7zzwcei0ma8jb8dddiycjobwtltg2'
+                apiKey="e0q79b8c9k5t2zbarra7zzwcei0ma8jb8dddiycjobwtltg2"
                 onInit={(editor) => (editorRef.current = editor)}
                 init={{
                   plugins:
@@ -168,31 +168,33 @@ function Post() {
                     'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                 }}
               />
-              <div className='flex'>
-                <div className='mt-3'>
-                  <div className='mb-3 text-gray-500 hover:underline hover:text-secondary hover:duration-75'>
+              <div className="flex">
+                <div className="mt-3">
+                  <div className="mb-3 text-gray-500 hover:underline hover:text-secondary hover:duration-75">
                     Unterschrift(optional)
                   </div>
-                  <SignaturePad
-                    ref={sigPad}
-                    penColor='black'
-                    backgroundColor='white'
-                  />
+                  <div className="">
+                    <SignaturePad
+                      ref={sigPad}
+                      penColor="black"
+                      backgroundColor="white"
+                    />
+                  </div>
                   <div
                     onClick={clear}
-                    className='text-gray-500 mt-2 hover:underline hover:text-secondary hover:duration-150'
+                    className="text-gray-500 mt-2 hover:underline hover:text-secondary hover:duration-150"
                   >
                     Unterschrift zutücksetzen
                   </div>
                 </div>
               </div>
             </div>
-            <div className='flex justify-center mt-10'>
-              <button className='bg-gray-700 mr-10 w-96 h-10 text-white font-bold py-2 px-4 rounded'>
+            <div className="flex justify-center mt-10">
+              <button className="bg-gray-700 mr-10 w-96 h-10 text-white font-bold py-2 px-4 rounded">
                 Vorschau anzeigen
               </button>
               <button
-                className='bg-secondary h-10 w-96 text-white font-bold py-2 px-4 rounded'
+                className="bg-secondary h-10 w-96 text-white font-bold py-2 px-4 rounded"
                 onClick={submit}
               >
                 BRIEF ZUR POSTBOX HINZUFÜGEN
