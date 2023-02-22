@@ -39,5 +39,9 @@ export class CreateLetterDto {
   @IsOptional()
   side: string;
 
+  @IsString()
+  @IsOptional()
+  link: string;
+
   userId: number;
 }

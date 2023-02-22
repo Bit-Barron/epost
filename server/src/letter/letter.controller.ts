@@ -12,6 +12,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common/decorators';
 import { InjectRepository } from '@nestjs/typeorm';
+import * as cloudinary from 'cloudinary';
 import { FastifyRequest } from 'fastify';
 import { AuthGuard } from 'src/app_modules/guard/auth.guard';
 import { Repository } from 'typeorm';
@@ -23,7 +24,13 @@ export class LetterController {
   constructor(
     @InjectRepository(Letter)
     private letterRepo: Repository<Letter>,
-  ) {}
+  ) {
+    cloudinary.v2.config({
+      cloud_name: process.env.CLOUDINARY_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    });
+  }
 
   @Post('/create')
   @UseGuards(AuthGuard)
@@ -103,9 +110,30 @@ export class LetterController {
   }
 
   @Post('/upload')
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(
+    FileInterceptor('file', { dest: '/path/to/destination/directory' }),
+  )
   async uploadFile(@UploadedFile() @Body() file: MemoryStorageFile) {
     console.log(file);
-    return file;
+    try {
+      const result = await cloudinary.v2.uploader.upload(
+        file.buffer.toString('base64'),
+        {
+          resource_type: 'auto',
+          folder: 'letter',
+          allowed_formats: ['pdf'],
+          transformation: [{ width: 100, height: 200, crop: 'limit' }],
+          public_id: file.fieldname,
+          filename_override: file.fieldname,
+        },
+      );
+      const myletter = new Letter();
+      myletter.link = result.url;
+      await myletter.save();
+    } catch (err) {
+      console.error(err);
+    }
+
+    return true;
   }
 }

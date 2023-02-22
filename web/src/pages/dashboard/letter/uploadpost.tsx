@@ -55,7 +55,7 @@ const Uploadpost = ({}) => {
               </span>
               <br />
               <span className="font-semibold ml-10">
-                Oder per <span className="font-bold">Drag & Drop</span> ablegen
+                Oder per <span className="font-bold">Drag & Drop</span> ablegen{' '}
               </span>
             </span>
           </span>

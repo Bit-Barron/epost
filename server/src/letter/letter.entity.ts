@@ -30,6 +30,9 @@ export class Letter {
   @ManyToOne(() => User, (user) => user.letters)
   user: User;
 
+  @Column()
+  link: string;
+
   @Column({ default: 'Online geschriebener Brief' })
   documents: string;
 
