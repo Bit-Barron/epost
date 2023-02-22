@@ -37,6 +37,7 @@ const Uploadpost: React.FC<uploadpostProps> = ({}) => {
           ALLE DATEIN ENTFERNEN
         </button>
       </div>
+
       <div className="flex justify-center mt-5">
         <button className="bg-secondary text-white font-bold py-2 px-4 rounded">
           BRIEF ZUR POSTBOX HINZUFÜGEN

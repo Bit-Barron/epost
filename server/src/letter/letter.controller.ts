@@ -100,7 +100,7 @@ export class LetterController {
 
   @Post('/upload')
   @UseInterceptors(FileInterceptor('file'))
-  uploadFile(@UploadedFile() file: MemoryStorageFile) {
-    console.log(file);
+  async uploadFile(@UploadedFile() file: MemoryStorageFile) {
+    return await this.letterRepo.save(file as any);
   }
 }
