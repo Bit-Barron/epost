@@ -1,5 +1,6 @@
 import {
   FileInterceptor,
+  MemoryStorage,
   MemoryStorageFile,
   UploadedFile,
 } from '@blazity/nest-file-fastify';
@@ -111,9 +112,12 @@ export class LetterController {
 
   @Post('/upload')
   @UseInterceptors(
-    FileInterceptor('file', { dest: '/path/to/destination/directory' }),
+    FileInterceptor('file', {
+      storage: new MemoryStorage(),
+      limits: { fileSize: 1024 * 1024 * 5 },
+    }),
   )
-  async uploadFile(@UploadedFile() @Body() file: MemoryStorageFile) {
+  async uploadFile(@UploadedFile() file: MemoryStorageFile) {
     console.log(file);
     try {
       const result = await cloudinary.v2.uploader.upload(
@@ -122,18 +126,15 @@ export class LetterController {
           resource_type: 'auto',
           folder: 'letter',
           allowed_formats: ['pdf'],
-          transformation: [{ width: 100, height: 200, crop: 'limit' }],
+          transformation: [{ width: 500, height: 500, crop: 'limit' }],
           public_id: file.fieldname,
           filename_override: file.fieldname,
         },
       );
-      const myletter = new Letter();
-      myletter.link = result.url;
-      await myletter.save();
+      console.log(result);
     } catch (err) {
-      console.error(err);
+      console.log(err);
+      console.log(err);
     }
-
-    return true;
   }
 }
