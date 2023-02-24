@@ -10,8 +10,8 @@ import { GeneralStore } from '../../store/Generalstore';
 import { Alerts } from '../../utils/Alerts';
 
 const Login = () => {
-  const [email, setEmail] = useState('test@test');
-  const [password, setPassword] = useState<string>('123123');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const { alerts, addAlert } = GeneralStore();
 
   const router = useRouter();
@@ -29,7 +29,7 @@ const Login = () => {
         type: 'success',
       });
       router.push('/dashboard');
-    } catch (err: unknown) {
+    } catch (err: unknown) { 
       if ((err as AxiosError).response?.status === 500) {
         addAlert({
           id: 'unique-id',
