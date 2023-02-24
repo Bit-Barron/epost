@@ -40,7 +40,7 @@ const Uploadpost = ({}) => {
         Mit LXP GO clever Rechnungen, Mahnungen und Mailings online versenden
       </div>
       <div className="w-1/2 mx-auto mt-10">
-        <label className="flex justify-center w-full p-10 px-4 transition bg-transparent border-2 border-gray-600 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none">
+        <label className="flex justify-center w-full p-10 px-4 transition bg-transparent border-2 border-gray-600 border-dashed rounded-md appearance-none cursor-pointer hover:border-secondary focus:outline-none">
           <span className="flex items-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const Uploadpost = ({}) => {
               </span>
               <br />
               <span className="font-semibold ml-10">
-                Oder per <span className="font-bold">Drag & Drop</span> ablegen{' '}
+                Oder per <span className="font-bold">Drag & Drop</span> ablegen
               </span>
             </span>
           </span>

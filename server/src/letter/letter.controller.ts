@@ -117,23 +117,17 @@ export class LetterController {
       limits: { fileSize: 1024 * 1024 * 5 },
     }),
   )
-  
   async uploadFile(@UploadedFile() file: MemoryStorageFile, @Req() req: any) {
     try {
       const result = await cloudinary.v2.uploader.upload(
         file.buffer.toString('base64'),
-        {
-          resource_type: 'auto',
-          folder: 'letter',
-          allowed_formats: ['pdf'],
-          transformation: [{ width: 500, height: 500, crop: 'limit' }],
-          public_id: file.fieldname,
-          filename_override: file.fieldname,
-        },
+        {},
       );
       console.log(result);
     } catch (err) {
       console.error(err);
     }
+
+    return file;
   }
 }

@@ -39,7 +39,7 @@ function Post() {
         documents,
       });
     } catch (err: unknown) {
-      console.log(err as AxiosError);
+      console.error(err as AxiosError);
     }
   };
 
