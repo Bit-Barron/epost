@@ -39,13 +39,12 @@ function Post() {
         documents,
       });
     } catch (err: unknown) {
-      if ((err as AxiosError).response?.status === 400) {
-      }
+      console.log(err as AxiosError);
     }
   };
 
   function clear() {
-    sigPad.current.clear();
+    sigPad.current.clear()
   }
 
   return (
@@ -66,7 +65,6 @@ function Post() {
               />
             </div>
           </div>
-
           <div className="w-[1000px]">
             <div className="">
               <Editor

@@ -117,8 +117,8 @@ export class LetterController {
       limits: { fileSize: 1024 * 1024 * 5 },
     }),
   )
-  async uploadFile(@UploadedFile() file: MemoryStorageFile) {
-    console.log(file);
+  
+  async uploadFile(@UploadedFile() file: MemoryStorageFile, @Req() req: any) {
     try {
       const result = await cloudinary.v2.uploader.upload(
         file.buffer.toString('base64'),
@@ -133,8 +133,7 @@ export class LetterController {
       );
       console.log(result);
     } catch (err) {
-      console.log(err);
-      console.log(err);
+      console.error(err);
     }
   }
 }
