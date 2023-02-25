@@ -29,7 +29,7 @@ const Login = () => {
         type: 'success',
       });
       router.push('/dashboard');
-    } catch (err: unknown) { 
+    } catch (err: unknown) {
       if ((err as AxiosError).response?.status === 500) {
         addAlert({
           id: 'unique-id',
@@ -108,7 +108,7 @@ const Login = () => {
 
           <div className="inline-flex items-center justify-center w-full">
             <hr className="w-96 my-8 border-1 text-gray-700" />
-          </div>qsdw0ßs8dia0kopüä mlödiopasuj
+          </div>
 
           <div className="font-bold flex justify-center rounded-full border- border-white">
             Du hast kein Konto ?
