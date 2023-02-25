@@ -44,7 +44,7 @@ function Post() {
   };
 
   function clear() {
-    sigPad.current.clear()
+    sigPad.current.clear();
   }
 
   return (
@@ -56,10 +56,9 @@ function Post() {
         <div className="w-1/2 mx-auto p-10 mt-10 ">
           <div className="">
             <div className="flex">
-              <AuthInput
+              <input
                 type="text"
                 className="!bg-transparent w-96 mb-10"
-                label={'Betreff'}
                 placeholder={'Betreff z.B herr mustermann'}
                 onChange={(e: any) => setTitle(e.target.value)}
               />
