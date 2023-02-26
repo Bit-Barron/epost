@@ -77,6 +77,7 @@ export class SettingController {
     const result = await this.settingRepo.findOne({
       where: { id, user: { id: req.user.sub } },
     });
+    console.log('test');
 
     return result;
   }
