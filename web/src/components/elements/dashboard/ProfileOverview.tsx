@@ -43,7 +43,7 @@ export const ProfileOverview: React.FC<ProfileOverviewProps> = ({}) => {
             <div className="mt-5 flex justify-center sm:mt-0">
               <a
                 href="#"
-                className="flex justify-center items-center px-4 py-2 border border-gray-400 shadow-sm text-sm font-medium rounded-md text-white"
+                className="flex hover:border-dashed hover:border-secondary hover:text-secondary hover:duration-300 justify-center items-center px-4 py-2 border border-gray-400 shadow-sm text-sm font-medium rounded-md text-white"
               >
                 View profile
               </a>

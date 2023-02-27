@@ -21,7 +21,7 @@ const Index: React.FC = ({}) => {
         <span className={`${quicksand.className} mt-2 mr-2`}>
           kennen sie postflix kennen!
         </span>
-        <button className="bg-[#454b4e] text-white font-bold py-2 px-4 rounded-full">
+        <button className="bg-[#454b4e] p-2 rounded-full font-bold hover:border-dashed hover:border-secondary hover:border-2 hover:duration-300">
           Unsere Webintermine
         </button>
       </header>
@@ -59,7 +59,7 @@ const Index: React.FC = ({}) => {
                 Produktion, Versand durch die Deutsche Post AG mit GOGREEN
               </li>
               <button
-                className="bg-secondary text-white font-bold py-2 px-4 rounded-full mt-10"
+                className="bg-secondary hover:text-secondary hover:bg-[#181a1b] hover:duration-300 text-white font-bold py-2 px-4 rounded-full mt-10"
                 onClick={() => {
                   return router.push('/auth/login');
                 }}
